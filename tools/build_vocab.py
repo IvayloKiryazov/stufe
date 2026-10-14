@@ -52,7 +52,7 @@ DET = set(
     ihres unser unsere unseren unserem unserer unseres euer eure euren eurem
     eurer eures Ihr Ihre Ihren Ihrem Ihrer Ihres
     dieser diese diesen diesem dieser dieses jener jene jenen jenem jener jenes
-    jeder jede jeden jedem jeder jedes jede* welche welcher welches welchen
+    jeder jede jeden jedem jeder jedes welche welcher welches welchen
     welchem solche solcher solches solchen manche mancher manches vielen
     viele vieler aller alle allen allem alles einige einigen mehreren mehrere
     beiden beide zwei drei vier fünf sechs sieben acht neun zehn hundert
