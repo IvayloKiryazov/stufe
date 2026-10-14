@@ -1,0 +1,202 @@
+{
+  "level": "b1",
+  "groups": [
+    {
+      "id": "infinitive-zu",
+      "name": "Infinitive with zu",
+      "kind": "cloze",
+      "intro": "Use zu + infinitive after verbs like vergessen, versuchen, vorhaben and after expressions like Es ist wichtig. With separable verbs, zu goes between the prefix and the stem: aufstehen -> aufzustehen.",
+      "items": [
+        { "p": "Ich habe vergessen, die Tür ___ schließen.", "a": "zu", "en": "I forgot to close the door.", "hint": "infinitive", "note": "zu goes before the infinitive." },
+        { "p": "Es ist wichtig, jeden Tag viel Wasser ___.", "a": "zu trinken", "en": "It is important to drink a lot of water every day.", "hint": "infinitive", "note": "zu + infinitive after an impersonal expression." },
+        { "p": "Er hat vor, morgen früh ___.", "a": "aufzustehen", "en": "He plans to get up early tomorrow.", "hint": "separable verb", "note": "Separable verb: auf + zu + stehen." },
+        { "p": "Sie vergisst oft, das Licht ___.", "a": "auszumachen", "en": "She often forgets to turn off the light.", "hint": "separable verb", "note": "Separable verb: aus + zu + machen." },
+        { "p": "Wir versuchen, pünktlich ___.", "a": "anzukommen", "en": "We are trying to arrive on time.", "hint": "separable verb", "note": "Separable verb: an + zu + kommen." },
+        { "p": "Hast du Lust, ins Kino ___ kommen?", "a": "zu", "en": "Do you feel like coming to the cinema?", "hint": "infinitive", "note": "Lust haben, ... zu + infinitive." },
+        { "p": "Er hat vergessen, die Haustür ___.", "a": "abzuschließen", "en": "He forgot to lock the front door.", "hint": "separable verb", "note": "Separable verb: ab + zu + schließen." },
+        { "p": "Ich freue mich darauf, dich bald wieder ___.", "a": "wiederzusehen", "en": "I look forward to seeing you again soon.", "hint": "separable verb", "note": "wiedersehen -> wiederzusehen." },
+        { "p": "Sie hat angefangen, Spanisch ___ lernen.", "a": "zu", "en": "She has started to learn Spanish.", "hint": "infinitive", "note": "anfangen, ... zu + infinitive." }
+      ]
+    },
+    {
+      "id": "um-zu-damit",
+      "name": "um ... zu and damit",
+      "kind": "cloze",
+      "intro": "Use um ... zu + infinitive when both clauses have the same subject. When the subjects are different, use damit + a full clause.",
+      "items": [
+        { "p": "Ich lerne Deutsch, ___ in Deutschland zu studieren.", "a": "um", "en": "I am learning German in order to study in Germany.", "hint": "purpose", "note": "Same subject: um ... zu + infinitive." },
+        { "p": "Sie steht früh auf, ___ pünktlich zu sein.", "a": "um", "en": "She gets up early in order to be on time.", "hint": "purpose", "note": "um ... zu + infinitive." },
+        { "p": "Er lernt fleißig, ___ die Prüfung zu bestehen.", "a": "um", "en": "He studies hard in order to pass the exam.", "hint": "purpose", "note": "um ... zu + infinitive." },
+        { "p": "Ich rufe dich an, ___ wir uns verabreden können.", "a": "damit", "en": "I am calling you so that we can arrange to meet.", "hint": "purpose", "note": "Different subjects (ich / wir): use damit." },
+        { "p": "Die Eltern sparen Geld, ___ ihr Sohn studieren kann.", "a": "damit", "en": "The parents save money so that their son can study.", "hint": "purpose", "note": "Different subjects: use damit." },
+        { "p": "Ich mache das Licht aus, ___ wir Strom sparen.", "a": "damit", "en": "I turn off the light so that we save electricity.", "hint": "purpose", "note": "Different subjects: use damit." },
+        { "p": "Sie geht zum Arzt, ___ sich untersuchen zu lassen.", "a": "um", "en": "She is going to the doctor in order to get examined.", "hint": "purpose", "note": "Same subject: um ... zu + infinitive." },
+        { "p": "Wir nehmen ein Taxi, ___ wir nicht zu spät kommen.", "a": "damit", "en": "We are taking a taxi so that we do not arrive too late.", "hint": "purpose", "note": "Different subjects: use damit." },
+        { "p": "Er hat mir geholfen, ___ ich die Aufgabe verstehe.", "a": "damit", "en": "He helped me so that I understand the task.", "hint": "purpose", "note": "Different subjects: use damit." }
+      ]
+    },
+    {
+      "id": "temporal-clauses",
+      "name": "Temporal clauses",
+      "kind": "cloze",
+      "intro": "als is used for a single event in the past, wenn for repeated events or the future, nachdem for an earlier action, bevor for a later action, and während for something happening at the same time. The conjugated verb goes to the end of the clause.",
+      "items": [
+        { "p": "___ ich klein war, wohnten wir in Berlin.", "a": "Als", "en": "When I was little, we lived in Berlin.", "hint": "single past event", "note": "als for one event in the past; verb at the end." },
+        { "p": "Immer ___ es regnet, bleibe ich zu Hause.", "a": "wenn", "en": "Whenever it rains, I stay at home.", "hint": "repeated event", "note": "wenn for repeated events." },
+        { "p": "___ wir gegessen hatten, gingen wir spazieren.", "a": "Nachdem", "en": "After we had eaten, we went for a walk.", "hint": "earlier action", "note": "nachdem + Plusquamperfekt for the earlier action." },
+        { "p": "Ich rufe dich an, ___ ich losfahre.", "a": "bevor", "en": "I will call you before I set off.", "hint": "earlier action", "note": "bevor introduces the later action." },
+        { "p": "___ ich koche, höre ich Musik.", "a": "Während", "en": "While I cook, I listen to music.", "hint": "at the same time", "note": "während for simultaneous actions." },
+        { "p": "___ sie die Prüfung bestanden hatte, feierte sie.", "a": "Nachdem", "en": "After she had passed the exam, she celebrated.", "hint": "earlier action", "note": "nachdem + Plusquamperfekt." },
+        { "p": "___ er in Wien war, besuchte er viele Museen.", "a": "Als", "en": "When he was in Vienna, he visited many museums.", "hint": "single past event", "note": "als for a single past situation." },
+        { "p": "Ruf mich an, ___ du zu Hause bist.", "a": "wenn", "en": "Call me when you are at home.", "hint": "future event", "note": "wenn for a future event." }
+      ]
+    },
+    {
+      "id": "indirect-questions",
+      "name": "Indirect questions",
+      "kind": "cloze",
+      "intro": "In indirect questions the verb moves to the end. Use ob for yes/no questions and a question word (wann, wo, wie, was) when the question starts with one.",
+      "items": [
+        { "p": "Ich weiß nicht, ___ er kommt.", "a": "ob", "en": "I do not know whether he is coming.", "hint": "yes/no question", "note": "ob introduces a yes/no indirect question; verb at the end." },
+        { "p": "Kannst du mir sagen, ___ der Zug abfährt?", "a": "wann", "en": "Can you tell me when the train leaves?", "hint": "question word", "note": "Question word + verb at the end." },
+        { "p": "Ich frage mich, ___ das kostet.", "a": "wie viel", "en": "I wonder how much that costs.", "hint": "question word", "note": "wie viel asks about a price." },
+        { "p": "Weißt du, ___ er wohnt?", "a": "wo", "en": "Do you know where he lives?", "hint": "question word", "note": "wo asks about a place." },
+        { "p": "Sie hat gefragt, ___ ich Zeit habe.", "a": "ob", "en": "She asked whether I have time.", "hint": "yes/no question", "note": "ob for a yes/no question." },
+        { "p": "Ich möchte wissen, ___ Sie heißen.", "a": "wie", "en": "I would like to know what your name is.", "hint": "question word", "note": "wie fragt nach dem Namen." },
+        { "p": "Er weiß nicht, ___ er machen soll.", "a": "was", "en": "He does not know what he should do.", "hint": "question word", "note": "was as the object of the indirect question." },
+        { "p": "Können Sie mir sagen, ___ hier ein Supermarkt ist?", "a": "ob", "en": "Can you tell me if there is a supermarket here?", "hint": "yes/no question", "note": "ob for a yes/no question." }
+      ]
+    },
+    {
+      "id": "plusquamperfekt",
+      "name": "Plusquamperfekt",
+      "kind": "cloze",
+      "intro": "The Plusquamperfekt describes the earlier of two past events. Use hatte or war (Präteritum of haben/sein) + the past participle. Use war with verbs that form the perfect with sein.",
+      "items": [
+        { "p": "Nachdem ich gefrühstückt ___, ging ich zur Arbeit.", "a": "hatte", "en": "After I had eaten breakfast, I went to work.", "hint": "earlier past", "note": "hatte + past participle." },
+        { "p": "Sie ___ das Buch gelesen, bevor sie den Film sah.", "a": "hatte", "en": "She had read the book before she saw the film.", "hint": "earlier past", "note": "hatte + past participle." },
+        { "p": "Als wir ankamen, ___ das Konzert schon begonnen.", "a": "hatte", "en": "When we arrived, the concert had already begun.", "hint": "earlier past", "note": "hatte + past participle." },
+        { "p": "Nachdem er eingeschlafen ___, klingelte das Telefon.", "a": "war", "en": "After he had fallen asleep, the phone rang.", "hint": "sein-verb", "note": "sein-verbs use war + past participle." },
+        { "p": "Wir ___ vorher noch nie in Paris gewesen.", "a": "waren", "en": "We had never been to Paris before.", "hint": "sein-verb", "note": "waren + past participle." },
+        { "p": "Bevor sie umzog, ___ sie in Hamburg gewohnt.", "a": "hatte", "en": "Before she moved, she had lived in Hamburg.", "hint": "earlier past", "note": "hatte + past participle." },
+        { "p": "Nachdem die Sonne untergegangen ___, wurde es kalt.", "a": "war", "en": "After the sun had set, it became cold.", "hint": "sein-verb", "note": "war + past participle." },
+        { "p": "Ich ___ den Film schon gesehen, deshalb blieb ich zu Hause.", "a": "hatte", "en": "I had already seen the film, so I stayed at home.", "hint": "earlier past", "note": "hatte + past participle." }
+      ]
+    },
+    {
+      "id": "passive",
+      "name": "Passive voice",
+      "kind": "cloze",
+      "intro": "The passive is formed with werden + past participle: Das Haus wird gebaut. In the past use wurde/wurden + past participle: Das Haus wurde gebaut.",
+      "items": [
+        { "p": "Das Haus ___ gebaut.", "a": "wird", "en": "The house is being built.", "hint": "present passive", "note": "werden + past participle." },
+        { "p": "Die Brötchen ___ jeden Morgen frisch gebacken.", "a": "werden", "en": "The rolls are baked fresh every morning.", "hint": "present passive", "note": "Plural subject -> werden." },
+        { "p": "Das Auto ___ letzte Woche repariert.", "a": "wurde", "en": "The car was repaired last week.", "hint": "past passive", "note": "Past passive: wurde + past participle." },
+        { "p": "Die Briefe ___ gestern verschickt.", "a": "wurden", "en": "The letters were sent yesterday.", "hint": "past passive", "note": "Plural subject -> wurden." },
+        { "p": "Die Straße ___ gerade renoviert.", "a": "wird", "en": "The street is being renovated right now.", "hint": "present passive", "note": "werden + past participle." },
+        { "p": "Das Museum ___ 1990 eröffnet.", "a": "wurde", "en": "The museum was opened in 1990.", "hint": "past passive", "note": "wurde + past participle." },
+        { "p": "In Deutschland ___ viel Bier getrunken.", "a": "wird", "en": "A lot of beer is drunk in Germany.", "hint": "present passive", "note": "werden + past participle." },
+        { "p": "Die Aufgaben ___ morgen korrigiert.", "a": "werden", "en": "The exercises will be corrected tomorrow.", "hint": "present passive", "note": "Present passive can express the future." }
+      ]
+    },
+    {
+      "id": "future",
+      "name": "Future",
+      "kind": "cloze",
+      "intro": "Futur I is werden + infinitive: Ich werde dich anrufen. In everyday German the present tense is very often used for the future: Morgen gehe ich zum Arzt.",
+      "items": [
+        { "p": "Morgen ___ ich meine Großeltern besuchen.", "a": "werde", "en": "Tomorrow I will visit my grandparents.", "hint": "Futur I", "note": "Futur I: werden + infinitive." },
+        { "p": "Wir ___ nächste Woche nach Italien fahren.", "a": "werden", "en": "We will go to Italy next week.", "hint": "Futur I", "note": "werden + infinitive." },
+        { "p": "___ du mir bitte helfen?", "a": "Wirst", "en": "Will you please help me?", "hint": "Futur I", "note": "Sentence-initial, so capital W." },
+        { "p": "Es ___ morgen regnen.", "a": "wird", "en": "It will rain tomorrow.", "hint": "Futur I", "note": "wird + infinitive." },
+        { "p": "Nächsten Sommer ___ er sein Studium beenden.", "a": "wird", "en": "Next summer he will finish his studies.", "hint": "Futur I", "note": "wird + infinitive." },
+        { "p": "Ich ___ dich später anrufen.", "a": "werde", "en": "I will call you later.", "hint": "Futur I", "note": "werde + infinitive." },
+        { "p": "Morgen ___ ich zum Arzt.", "a": "gehe", "en": "Tomorrow I am going to the doctor.", "hint": "present for future", "note": "Present tense used for the future." },
+        { "p": "Nächste Woche ___ wir in den Urlaub.", "a": "fahren", "en": "Next week we are going on holiday.", "hint": "present for future", "note": "Present tense used for the future." }
+      ]
+    },
+    {
+      "id": "konjunktiv2-full",
+      "name": "Konjunktiv II",
+      "kind": "cloze",
+      "intro": "Konjunktiv II expresses unreal situations and polite requests. Learn hätte, wäre, würde. For the past, use hätte/wäre + past participle: Ich hätte dir geholfen.",
+      "items": [
+        { "p": "Wenn ich Zeit ___, würde ich mitkommen.", "a": "hätte", "en": "If I had time, I would come along.", "hint": "unreal condition", "note": "Konjunktiv II of haben = hätte." },
+        { "p": "Wenn ich du ___, würde ich das nicht machen.", "a": "wäre", "en": "If I were you, I would not do that.", "hint": "unreal condition", "note": "Konjunktiv II of sein = wäre." },
+        { "p": "Ich ___ gern mehr Sport machen.", "a": "würde", "en": "I would like to do more sport.", "hint": "polite wish", "note": "würde + infinitive." },
+        { "p": "Wenn es nicht regnete, ___ wir spazieren gehen.", "a": "würden", "en": "If it were not raining, we would go for a walk.", "hint": "unreal condition", "note": "würden + infinitive." },
+        { "p": "An deiner Stelle ___ ich mich entschuldigen.", "a": "würde", "en": "If I were you, I would apologise.", "hint": "advice", "note": "würde + infinitive." },
+        { "p": "Wenn ich das früher gewusst ___, hätte ich anders gehandelt.", "a": "hätte", "en": "If I had known that earlier, I would have acted differently.", "hint": "past unreal", "note": "Past Konjunktiv II: hätte + past participle." },
+        { "p": "Ich ___ dir geholfen, wenn du gefragt hättest.", "a": "hätte", "en": "I would have helped you if you had asked.", "hint": "past unreal", "note": "hätte + past participle." },
+        { "p": "Wenn er mehr gelernt ___, hätte er die Prüfung bestanden.", "a": "hätte", "en": "If he had studied more, he would have passed the exam.", "hint": "past unreal", "note": "hätte + past participle." },
+        { "p": "Das ___ ich an deiner Stelle nicht gemacht.", "a": "hätte", "en": "I would not have done that if I were you.", "hint": "past unreal", "note": "hätte + past participle." }
+      ]
+    },
+    {
+      "id": "verbs-with-prepositions",
+      "name": "Verbs with prepositions",
+      "kind": "cloze",
+      "intro": "Many German verbs take a fixed preposition. Learn them together: warten auf (+ Akk.), sich freuen auf/über (+ Akk.), denken an (+ Akk.), sich interessieren für (+ Akk.), Angst haben vor (+ Dat.).",
+      "items": [
+        { "p": "Ich warte ___ den Bus.", "a": "auf", "en": "I am waiting for the bus.", "hint": "warten + ?", "note": "warten auf + Akkusativ." },
+        { "p": "Wir freuen uns ___ die Ferien.", "a": "auf", "en": "We are looking forward to the holidays.", "hint": "sich freuen + ?", "note": "sich freuen auf = look forward to something in the future." },
+        { "p": "Sie freut sich ___ das Geschenk.", "a": "über", "en": "She is happy about the gift.", "hint": "sich freuen + ?", "note": "sich freuen über = be glad about something present." },
+        { "p": "Ich denke oft ___ meine Familie.", "a": "an", "en": "I often think of my family.", "hint": "denken + ?", "note": "denken an + Akkusativ." },
+        { "p": "Er interessiert sich ___ Musik.", "a": "für", "en": "He is interested in music.", "hint": "sich interessieren + ?", "note": "sich interessieren für + Akkusativ." },
+        { "p": "Ich warte ___ meinen Freund.", "a": "auf", "en": "I am waiting for my friend.", "hint": "warten + ?", "note": "warten auf + Akkusativ." },
+        { "p": "Wir sprechen ___ das Problem.", "a": "über", "en": "We are talking about the problem.", "hint": "sprechen + ?", "note": "sprechen über + Akkusativ." },
+        { "p": "Sie hat sich ___ den Film gefreut.", "a": "über", "en": "She was pleased about the film.", "hint": "sich freuen + ?", "note": "sich freuen über + Akkusativ." },
+        { "p": "Ich habe Angst ___ Hunden.", "a": "vor", "en": "I am afraid of dogs.", "hint": "Angst haben + ?", "note": "Angst haben vor + Dativ." }
+      ]
+    },
+    {
+      "id": "connectors",
+      "name": "Connectors and word order",
+      "kind": "cloze",
+      "intro": "deshalb (therefore), trotzdem (nevertheless) and außerdem (besides) are adverbs: they take position 1, so the verb comes next (inversion). denn (because) is a coordinating conjunction and keeps normal word order.",
+      "items": [
+        { "p": "Es regnet, ___ bleiben wir zu Hause.", "a": "deshalb", "en": "It is raining, therefore we are staying at home.", "hint": "consequence", "note": "deshalb + verb second (inversion)." },
+        { "p": "Ich war müde, ___ ging ich noch aus.", "a": "trotzdem", "en": "I was tired; nevertheless I went out.", "hint": "contrast", "note": "trotzdem + verb second (inversion)." },
+        { "p": "Er spricht Englisch, ___ spricht er Französisch.", "a": "außerdem", "en": "He speaks English; besides, he speaks French.", "hint": "addition", "note": "außerdem + verb second." },
+        { "p": "Ich bleibe zu Hause, ___ ich bin krank.", "a": "denn", "en": "I am staying at home because I am ill.", "hint": "reason", "note": "denn keeps normal word order (verb second)." },
+        { "p": "Der Film war lang, ___ war er interessant.", "a": "trotzdem", "en": "The film was long; nevertheless it was interesting.", "hint": "contrast", "note": "trotzdem + verb second." },
+        { "p": "Sie lernt viel, ___ hat sie gute Noten.", "a": "deshalb", "en": "She studies a lot, therefore she has good grades.", "hint": "consequence", "note": "deshalb + verb second." },
+        { "p": "Wir haben kein Geld, ___ können wir nicht verreisen.", "a": "deshalb", "en": "We have no money, therefore we cannot travel.", "hint": "consequence", "note": "deshalb + verb second." },
+        { "p": "Das Wetter war schlecht, ___ sind wir gewandert.", "a": "trotzdem", "en": "The weather was bad; nevertheless we went hiking.", "hint": "contrast", "note": "trotzdem + verb second." }
+      ]
+    },
+    {
+      "id": "genitive-prepositions",
+      "name": "Prepositions with the genitive",
+      "kind": "cloze",
+      "intro": "The prepositions wegen (because of), trotz (despite), während (during) and statt (instead of) take the genitive: wegen des Regens, trotz des Wetters, während der Pause, statt des Autos.",
+      "items": [
+        { "p": "___ des Regens bleiben wir zu Hause.", "a": "Wegen", "en": "Because of the rain we are staying at home.", "hint": "reason", "note": "wegen + Genitiv." },
+        { "p": "___ des schlechten Wetters sind wir gewandert.", "a": "Trotz", "en": "Despite the bad weather we went hiking.", "hint": "contrast", "note": "trotz + Genitiv." },
+        { "p": "___ des Unterrichts darf man nicht telefonieren.", "a": "Während", "en": "During the lesson you may not make phone calls.", "hint": "time", "note": "während + Genitiv." },
+        { "p": "___ des Kaffees trinke ich lieber Tee.", "a": "Statt", "en": "Instead of coffee I prefer to drink tea.", "hint": "alternative", "note": "statt + Genitiv." },
+        { "p": "___ meiner Arbeit habe ich keine Zeit.", "a": "Wegen", "en": "Because of my work I have no time.", "hint": "reason", "note": "wegen + Genitiv." },
+        { "p": "___ seiner Krankheit kam er zur Arbeit.", "a": "Trotz", "en": "Despite his illness he came to work.", "hint": "contrast", "note": "trotz + Genitiv." },
+        { "p": "___ der Pause lesen die Schüler.", "a": "Während", "en": "During the break the pupils read.", "hint": "time", "note": "während + Genitiv." },
+        { "p": "___ des Autos nehmen wir den Bus.", "a": "Statt", "en": "Instead of the car we are taking the bus.", "hint": "alternative", "note": "statt + Genitiv." }
+      ]
+    },
+    {
+      "id": "n-declension",
+      "name": "Weak masculine nouns (n-declension)",
+      "kind": "cloze",
+      "intro": "Some masculine nouns (der Junge, der Student, der Kollege, der Nachbar, der Kunde, der Mensch) add -en or -n in every case except the nominative singular: der Junge, den Jungen, dem Jungen, des Jungen.",
+      "items": [
+        { "p": "Ich sehe den ___.", "a": "Jungen", "en": "I see the boy.", "hint": "accusative", "note": "Weak masculine nouns add -en in accusative and dative." },
+        { "p": "Ich helfe dem ___.", "a": "Studenten", "en": "I am helping the student.", "hint": "dative", "note": "der Student -> dem Studenten." },
+        { "p": "Das ist das Auto des ___.", "a": "Nachbarn", "en": "This is the neighbour's car.", "hint": "genitive", "note": "der Nachbar -> des Nachbarn." },
+        { "p": "Ich spreche mit dem ___.", "a": "Kollegen", "en": "I am talking to the colleague.", "hint": "dative", "note": "der Kollege -> dem Kollegen." },
+        { "p": "Der ___ spielt im Garten.", "a": "Junge", "en": "The boy is playing in the garden.", "hint": "nominative", "note": "Nominative singular keeps the basic form." },
+        { "p": "Wir treffen den ___.", "a": "Kollegen", "en": "We are meeting the colleague.", "hint": "accusative", "note": "der Kollege -> den Kollegen." },
+        { "p": "Sie dankt dem ___.", "a": "Kunden", "en": "She thanks the customer.", "hint": "dative", "note": "der Kunde -> dem Kunden." },
+        { "p": "Ich kenne diesen ___.", "a": "Jungen", "en": "I know this boy.", "hint": "accusative", "note": "diesen Jungen: weak noun takes -en." },
+        { "p": "Ich sehe einen ___.", "a": "Menschen", "en": "I see a person.", "hint": "accusative", "note": "der Mensch -> einen Menschen." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "level": "a2",
+  "groups": [
+    {
+      "id": "dative-case",
+      "name": "Dative case",
+      "kind": "cloze",
+      "intro": "The dative marks the indirect object and follows certain verbs (helfen, danken, gehören, folgen, antworten) and prepositions (mit, bei, aus, nach, von). Masculine der becomes dem, feminine die becomes der, neuter das becomes dem; plural die becomes den.",
+      "items": [
+        { "p": "Ich helfe ___ Mann.", "a": "dem", "en": "I help the man.", "hint": "der Mann", "note": "helfen always takes the dative." },
+        { "p": "Das Buch gehört ___ Frau.", "a": "der", "en": "The book belongs to the woman.", "hint": "die Frau", "note": "gehören takes the dative; feminine die becomes der." },
+        { "p": "Wir danken ___ Lehrer.", "a": "dem", "en": "We thank the teacher.", "hint": "der Lehrer", "note": "danken takes the dative; masculine der becomes dem." },
+        { "p": "Sie folgt ___ Hund.", "a": "dem", "en": "She follows the dog.", "hint": "der Hund", "note": "folgen takes the dative." },
+        { "p": "Ich wohne bei ___ Eltern.", "a": "den", "en": "I live with my parents.", "hint": "die Eltern", "note": "bei takes the dative; plural die becomes den." },
+        { "p": "Mit ___ Auto fahre ich zur Arbeit.", "a": "dem", "en": "I drive to work by car.", "hint": "das Auto", "note": "mit takes the dative; neuter das becomes dem." },
+        { "p": "Aus ___ Schule komme ich gerade.", "a": "der", "en": "I have just come from school.", "hint": "die Schule", "note": "aus takes the dative." },
+        { "p": "Ich helfe ___ kleinen Kind.", "a": "einem", "en": "I help a small child.", "hint": "ein Kind", "note": "Indefinite article in the dative masculine/neuter is einem." },
+        { "p": "Er antwortet ___ Kollegin.", "a": "der", "en": "He answers his colleague.", "hint": "die Kollegin", "note": "antworten takes the dative; feminine die becomes der." }
+      ]
+    },
+    {
+      "id": "dative-pronouns",
+      "name": "Dative pronouns",
+      "kind": "cloze",
+      "intro": "Dative personal pronouns are mir, dir, ihm, ihr, uns, euch, ihnen. They are used with dative verbs like helfen, danken, geben, gefallen, gehören, zeigen.",
+      "items": [
+        { "p": "Kannst du ___ helfen?", "a": "mir", "en": "Can you help me?", "hint": "ich", "note": "helfen takes the dative: ich becomes mir." },
+        { "p": "Ich gebe ___ das Buch.", "a": "dir", "en": "I give you the book.", "hint": "du", "note": "The receiver is in the dative: du becomes dir." },
+        { "p": "Wir danken ___ für die Hilfe.", "a": "ihm", "en": "We thank him for the help.", "hint": "er", "note": "Dative of er is ihm." },
+        { "p": "Das Kleid gefällt ___ sehr.", "a": "ihr", "en": "She likes the dress very much.", "hint": "sie", "note": "gefallen takes the dative; dative of sie (sg.) is ihr." },
+        { "p": "Der Lehrer erklärt ___ die Grammatik.", "a": "uns", "en": "The teacher explains the grammar to us.", "hint": "wir", "note": "Dative of wir is uns." },
+        { "p": "Ich zeige ___ die Fotos.", "a": "euch", "en": "I show you the photos.", "hint": "ihr", "note": "Dative of ihr (plural) is euch." },
+        { "p": "Ich helfe ___ gern.", "a": "ihnen", "en": "I like helping them.", "hint": "sie (Plural)", "note": "Dative of sie (plural) is ihnen." },
+        { "p": "Das Haus gehört ___.", "a": "uns", "en": "The house belongs to us.", "hint": "wir", "note": "gehören takes the dative: wir becomes uns." }
+      ]
+    },
+    {
+      "id": "two-way-prepositions",
+      "name": "Two-way prepositions",
+      "kind": "cloze",
+      "intro": "Wechselpräpositionen (in, an, auf, über, unter, vor, hinter, neben, zwischen) take the accusative for direction (Wohin?) and the dative for location (Wo?).",
+      "items": [
+        { "p": "Ich gehe in ___ Schule.", "a": "die", "en": "I go to school.", "hint": "die Schule", "note": "Direction (Wohin?) takes the accusative." },
+        { "p": "Ich bin in ___ Schule.", "a": "der", "en": "I am at school.", "hint": "die Schule", "note": "Location (Wo?) takes the dative." },
+        { "p": "Das Buch liegt auf ___ Tisch.", "a": "dem", "en": "The book is lying on the table.", "hint": "der Tisch", "note": "Location (Wo?) takes the dative." },
+        { "p": "Ich lege das Buch auf ___ Tisch.", "a": "den", "en": "I put the book on the table.", "hint": "der Tisch", "note": "Direction (Wohin?) takes the accusative." },
+        { "p": "Die Katze springt auf ___ Sofa.", "a": "das", "en": "The cat jumps onto the sofa.", "hint": "das Sofa", "note": "Movement towards something takes the accusative." },
+        { "p": "Wir hängen das Bild an ___ Wand.", "a": "die", "en": "We hang the picture on the wall.", "hint": "die Wand", "note": "Direction (Wohin?) takes the accusative." },
+        { "p": "Das Bild hängt an ___ Wand.", "a": "der", "en": "The picture hangs on the wall.", "hint": "die Wand", "note": "Location (Wo?) takes the dative." },
+        { "p": "Der Ball rollt unter ___ Bett.", "a": "das", "en": "The ball rolls under the bed.", "hint": "das Bett", "note": "Direction (Wohin?) takes the accusative." },
+        { "p": "Der Hund schläft unter ___ Tisch.", "a": "dem", "en": "The dog sleeps under the table.", "hint": "der Tisch", "note": "Location (Wo?) takes the dative." },
+        { "p": "Ich stelle die Vase neben ___ Fenster.", "a": "das", "en": "I put the vase next to the window.", "hint": "das Fenster", "note": "Direction (Wohin?) takes the accusative." },
+        { "p": "Die Vase steht neben ___ Fenster.", "a": "dem", "en": "The vase is next to the window.", "hint": "das Fenster", "note": "Location (Wo?) takes the dative." }
+      ]
+    },
+    {
+      "id": "adjective-endings-definite",
+      "name": "Adjective endings after der/die/das",
+      "kind": "cloze",
+      "intro": "After the definite article (der/die/das, den, dem), adjectives take the weak endings -e or -en. The ending is -e in the nominative singular and accusative neuter/feminine, and -en everywhere else.",
+      "items": [
+        { "p": "Der alt___ Mann liest eine Zeitung.", "a": "alte", "en": "The old man is reading a newspaper.", "hint": "alt", "note": "Nominative masculine after der takes -e." },
+        { "p": "Die jung___ Frau arbeitet hier.", "a": "junge", "en": "The young woman works here.", "hint": "jung", "note": "Nominative feminine after die takes -e." },
+        { "p": "Das klein___ Kind spielt im Garten.", "a": "kleine", "en": "The small child is playing in the garden.", "hint": "klein", "note": "Nominative neuter after das takes -e." },
+        { "p": "Ich sehe den alt___ Mann.", "a": "alten", "en": "I see the old man.", "hint": "alt", "note": "Accusative masculine after den takes -en." },
+        { "p": "Wir helfen der jung___ Frau.", "a": "jungen", "en": "We help the young woman.", "hint": "jung", "note": "Dative feminine after der takes -en." },
+        { "p": "Ich kenne das klein___ Kind.", "a": "kleine", "en": "I know the small child.", "hint": "klein", "note": "Accusative neuter after das takes -e." },
+        { "p": "Die neu___ Nachbarn sind freundlich.", "a": "neuen", "en": "The new neighbours are friendly.", "hint": "neu", "note": "Plural after die takes -en." },
+        { "p": "Der groß___ Hund bellt laut.", "a": "große", "en": "The big dog barks loudly.", "hint": "groß", "note": "Nominative masculine after der takes -e." },
+        { "p": "Ich spreche mit dem nett___ Lehrer.", "a": "netten", "en": "I am talking to the nice teacher.", "hint": "nett", "note": "Dative masculine after dem takes -en." },
+        { "p": "Das rot___ Auto gehört mir.", "a": "rote", "en": "The red car belongs to me.", "hint": "rot", "note": "Nominative neuter after das takes -e." }
+      ]
+    },
+    {
+      "id": "adjective-endings-indefinite",
+      "name": "Adjective endings after ein/eine/kein/mein",
+      "kind": "cloze",
+      "intro": "After ein/eine/kein/mein the adjective takes the strong ending where the article has no ending (masc. nom. -er, fem. nom. -e, neut. nom./acc. -es, masc. acc. -en) and -en in the dative and plural.",
+      "items": [
+        { "p": "Ein alt___ Mann sitzt dort.", "a": "alter", "en": "An old man is sitting there.", "hint": "alt", "note": "Masculine nominative after ein takes -er." },
+        { "p": "Eine jung___ Frau kommt herein.", "a": "junge", "en": "A young woman comes in.", "hint": "jung", "note": "Feminine nominative after eine takes -e." },
+        { "p": "Ein klein___ Kind weint.", "a": "kleines", "en": "A small child is crying.", "hint": "klein", "note": "Neuter nominative after ein takes -es." },
+        { "p": "Ich habe einen neu___ Computer.", "a": "neuen", "en": "I have a new computer.", "hint": "neu", "note": "Masculine accusative after einen takes -en." },
+        { "p": "Das ist mein neu___ Fahrrad.", "a": "neues", "en": "That is my new bicycle.", "hint": "neu", "note": "Neuter nominative after mein takes -es." },
+        { "p": "Ich liebe meine klein___ Schwester.", "a": "kleine", "en": "I love my little sister.", "hint": "klein", "note": "Feminine accusative after meine takes -e." },
+        { "p": "Er hat keine alt___ Schuhe.", "a": "alten", "en": "He has no old shoes.", "hint": "alt", "note": "Plural after keine takes -en." },
+        { "p": "Das ist eine schön___ Stadt.", "a": "schöne", "en": "That is a beautiful city.", "hint": "schön", "note": "Feminine nominative after eine takes -e." },
+        { "p": "Wir wohnen in einer groß___ Wohnung.", "a": "großen", "en": "We live in a large flat.", "hint": "groß", "note": "Dative feminine after einer takes -en." },
+        { "p": "Ich trinke ein kalt___ Bier.", "a": "kaltes", "en": "I am drinking a cold beer.", "hint": "kalt", "note": "Neuter accusative after ein takes -es." }
+      ]
+    },
+    {
+      "id": "preterite",
+      "name": "Preterite (Präteritum)",
+      "kind": "cloze",
+      "intro": "The Präteritum is the simple past, common in writing. Learn the forms of sein (war), haben (hatte), and the modal and strong verbs: ging, kam, sah, konnte, musste.",
+      "items": [
+        { "p": "Gestern ___ ich sehr müde.", "a": "war", "en": "Yesterday I was very tired.", "hint": "sein", "note": "Präteritum of sein: ich war." },
+        { "p": "Er ___ keine Zeit.", "a": "hatte", "en": "He had no time.", "hint": "haben", "note": "Präteritum of haben: er hatte." },
+        { "p": "Wir ___ ins Kino.", "a": "gingen", "en": "We went to the cinema.", "hint": "gehen", "note": "Präteritum of gehen: wir gingen." },
+        { "p": "Sie ___ um acht Uhr an.", "a": "kam", "en": "She arrived at eight o'clock.", "hint": "ankommen", "note": "Präteritum of kommen: sie kam; separable an- goes to the end." },
+        { "p": "Ich ___ einen alten Freund.", "a": "sah", "en": "I saw an old friend.", "hint": "sehen", "note": "Präteritum of sehen: ich sah." },
+        { "p": "Er ___ nicht kommen.", "a": "konnte", "en": "He could not come.", "hint": "können", "note": "Präteritum of können: er konnte." },
+        { "p": "Ich ___ früh aufstehen.", "a": "musste", "en": "I had to get up early.", "hint": "müssen", "note": "Präteritum of müssen: ich musste." },
+        { "p": "Du ___ gestern nicht da.", "a": "warst", "en": "You were not there yesterday.", "hint": "sein", "note": "Präteritum of sein: du warst." },
+        { "p": "Sie ___ viel Spaß.", "a": "hatten", "en": "They had a lot of fun.", "hint": "haben", "note": "Präteritum of haben: sie (pl.) hatten." },
+        { "p": "Es ___ die ganze Nacht.", "a": "regnete", "en": "It rained all night.", "hint": "regnen", "note": "Regular verbs add -te: regnen becomes regnete." }
+      ]
+    },
+    {
+      "id": "subordinate-clauses",
+      "name": "Subordinate clauses (dass / weil / wenn)",
+      "kind": "cloze",
+      "intro": "After the conjunctions dass, weil, wenn (and ob), the conjugated verb moves to the end of the clause.",
+      "items": [
+        { "p": "Ich weiß, dass er heute ___.", "a": "kommt", "en": "I know that he is coming today.", "hint": "kommen", "note": "After dass the verb goes to the end." },
+        { "p": "Ich bleibe zu Hause, weil ich krank ___.", "a": "bin", "en": "I am staying home because I am sick.", "hint": "sein", "note": "After weil the verb goes to the end." },
+        { "p": "Wenn es morgen ___, bleiben wir zu Hause.", "a": "regnet", "en": "If it rains tomorrow, we will stay home.", "hint": "regnen", "note": "In the wenn-clause the verb goes to the end." },
+        { "p": "Er sagt, dass er keine Zeit ___.", "a": "hat", "en": "He says that he has no time.", "hint": "haben", "note": "After dass the verb goes to the end." },
+        { "p": "Wir gehen nicht, weil das Wetter schlecht ___.", "a": "ist", "en": "We are not going because the weather is bad.", "hint": "sein", "note": "After weil the verb goes to the end." },
+        { "p": "Ich freue mich, dass du ___.", "a": "kommst", "en": "I am glad that you are coming.", "hint": "kommen", "note": "After dass the verb goes to the end." },
+        { "p": "Sie lernt Deutsch, weil sie in Berlin ___.", "a": "arbeitet", "en": "She is learning German because she works in Berlin.", "hint": "arbeiten", "note": "After weil the verb goes to the end." },
+        { "p": "Wenn ich Zeit ___, besuche ich dich.", "a": "habe", "en": "If I have time, I will visit you.", "hint": "haben", "note": "In the wenn-clause the verb goes to the end." },
+        { "p": "Er glaubt, dass sie recht ___.", "a": "hat", "en": "He believes that she is right.", "hint": "haben", "note": "After dass the verb goes to the end." },
+        { "p": "Ich weiß nicht, ob er ___.", "a": "kommt", "en": "I do not know whether he is coming.", "hint": "kommen", "note": "After ob the verb also goes to the end." }
+      ]
+    },
+    {
+      "id": "comparative-superlative",
+      "name": "Comparative and superlative",
+      "kind": "cloze",
+      "intro": "The comparative adds -er (schnell → schneller), the superlative uses am -sten or the + -ste. Learn the irregulars gern/lieber/am liebsten and gut/besser/am besten.",
+      "items": [
+        { "p": "Ich trinke gern Kaffee, aber Tee trinke ich ___.", "a": "lieber", "en": "I like coffee, but I like tea better.", "hint": "gern", "note": "Comparative of gern is lieber." },
+        { "p": "Am ___ trinke ich Wasser.", "a": "liebsten", "en": "I like water best of all.", "hint": "gern", "note": "Superlative of gern is am liebsten." },
+        { "p": "Das Wetter ist heute ___ als gestern.", "a": "besser", "en": "The weather is better today than yesterday.", "hint": "gut", "note": "Comparative of gut is besser." },
+        { "p": "Er läuft ___ als ich.", "a": "schneller", "en": "He runs faster than I do.", "hint": "schnell", "note": "Comparative adds -er: schneller." },
+        { "p": "Das ist das ___ Buch, das ich kenne.", "a": "beste", "en": "That is the best book I know.", "hint": "gut", "note": "Superlative of gut is beste." },
+        { "p": "Mein Bruder ist ___ als ich.", "a": "größer", "en": "My brother is taller than I am.", "hint": "groß", "note": "Comparative of groß is größer." },
+        { "p": "Sie spricht ___ Deutsch als ich.", "a": "besser", "en": "She speaks German better than I do.", "hint": "gut", "note": "Comparative of gut is besser." },
+        { "p": "Ich fahre gern Fahrrad, aber ich schwimme ___.", "a": "lieber", "en": "I like cycling, but I prefer swimming.", "hint": "gern", "note": "Comparative of gern is lieber." },
+        { "p": "Das ist der ___ Tag meines Lebens.", "a": "schönste", "en": "That is the most beautiful day of my life.", "hint": "schön", "note": "Superlative with der adds -ste: schönste." },
+        { "p": "Dieses Buch ist ___ als das andere.", "a": "interessanter", "en": "This book is more interesting than the other one.", "hint": "interessant", "note": "Comparative adds -er: interessanter." }
+      ]
+    },
+    {
+      "id": "reflexive-verbs",
+      "name": "Reflexive verbs (accusative)",
+      "kind": "cloze",
+      "intro": "Reflexive verbs use a pronoun that refers back to the subject: mich, dich, sich, uns, euch, sich. Common ones: sich freuen, sich interessieren, sich treffen, sich beeilen, sich waschen, sich erinnern.",
+      "items": [
+        { "p": "Ich freue ___ über das Geschenk.", "a": "mich", "en": "I am happy about the gift.", "hint": "ich", "note": "Accusative reflexive for ich is mich." },
+        { "p": "Er interessiert ___ für Sport.", "a": "sich", "en": "He is interested in sports.", "hint": "er", "note": "Third person singular reflexive is sich." },
+        { "p": "Wir treffen ___ um acht Uhr.", "a": "uns", "en": "We are meeting at eight o'clock.", "hint": "wir", "note": "Accusative reflexive for wir is uns." },
+        { "p": "Beeilst du ___?", "a": "dich", "en": "Are you hurrying?", "hint": "du", "note": "Accusative reflexive for du is dich." },
+        { "p": "Die Kinder freuen ___ auf den Ausflug.", "a": "sich", "en": "The children are looking forward to the trip.", "hint": "sie", "note": "Third person plural reflexive is sich." },
+        { "p": "Ich muss ___ noch duschen.", "a": "mich", "en": "I still have to shower.", "hint": "ich", "note": "Accusative reflexive for ich is mich." },
+        { "p": "Setzt ___ bitte!", "a": "euch", "en": "Please sit down!", "hint": "ihr", "note": "Accusative reflexive for ihr is euch." },
+        { "p": "Sie wäscht ___ die Hände.", "a": "sich", "en": "She washes her hands.", "hint": "sie", "note": "Third person singular reflexive is sich." },
+        { "p": "Er erinnert ___ an den Termin.", "a": "sich", "en": "He remembers the appointment.", "hint": "er", "note": "Third person singular reflexive is sich." },
+        { "p": "Wir freuen ___ auf den Urlaub.", "a": "uns", "en": "We are looking forward to the holiday.", "hint": "wir", "note": "Accusative reflexive for wir is uns." }
+      ]
+    },
+    {
+      "id": "konjunktiv2-basics",
+      "name": "Konjunktiv II basics",
+      "kind": "cloze",
+      "intro": "Konjunktiv II expresses polite requests and unreal conditions. Common forms: hätte (haben), wäre (sein), würde + infinitive (for most other verbs).",
+      "items": [
+        { "p": "Wenn ich Zeit ___, würde ich kommen.", "a": "hätte", "en": "If I had time, I would come.", "hint": "haben", "note": "Konjunktiv II of haben: ich hätte." },
+        { "p": "Ich ___ gern ein Eis.", "a": "hätte", "en": "I would like an ice cream.", "hint": "haben", "note": "Polite wish with hätte." },
+        { "p": "Es ___ schön, wenn du mitkommst.", "a": "wäre", "en": "It would be nice if you came along.", "hint": "sein", "note": "Konjunktiv II of sein: es wäre." },
+        { "p": "Wenn ich reich ___, würde ich reisen.", "a": "wäre", "en": "If I were rich, I would travel.", "hint": "sein", "note": "Unreal condition with wäre." },
+        { "p": "Ich ___ dir gern helfen.", "a": "würde", "en": "I would gladly help you.", "hint": "werden", "note": "würde + infinitive for most verbs." },
+        { "p": "___ Sie mir bitte helfen?", "a": "Würden", "en": "Would you please help me?", "hint": "werden", "note": "Polite request; sentence-initial so capitalised." },
+        { "p": "Wenn wir mehr Zeit ___, würden wir länger bleiben.", "a": "hätten", "en": "If we had more time, we would stay longer.", "hint": "haben", "note": "Konjunktiv II of haben: wir hätten." },
+        { "p": "Das ___ ich nicht machen.", "a": "würde", "en": "I would not do that.", "hint": "werden", "note": "würde + infinitive." },
+        { "p": "Ich ___ gern nach Italien fahren.", "a": "würde", "en": "I would like to go to Italy.", "hint": "werden", "note": "würde + infinitive." },
+        { "p": "Es ___ besser, wenn du früher kommst.", "a": "wäre", "en": "It would be better if you came earlier.", "hint": "sein", "note": "Konjunktiv II of sein: es wäre." }
+      ]
+    },
+    {
+      "id": "relative-clauses",
+      "name": "Relative clauses",
+      "kind": "cloze",
+      "intro": "Relative clauses are introduced by a relative pronoun (der, die, das, den, dem …) that agrees with the noun it refers to. The conjugated verb goes to the end of the clause.",
+      "items": [
+        { "p": "Der Mann, ___ hier wohnt, ist Arzt.", "a": "der", "en": "The man who lives here is a doctor.", "hint": "der Mann", "note": "Nominative masculine relative pronoun is der." },
+        { "p": "Die Frau, ___ ich kenne, heißt Anna.", "a": "die", "en": "The woman whom I know is called Anna.", "hint": "die Frau", "note": "Accusative feminine relative pronoun is die." },
+        { "p": "Das Buch, ___ ich lese, ist spannend.", "a": "das", "en": "The book that I am reading is exciting.", "hint": "das Buch", "note": "Accusative neuter relative pronoun is das." },
+        { "p": "Der Film, ___ wir gestern gesehen haben, war toll.", "a": "den", "en": "The film that we saw yesterday was great.", "hint": "der Film", "note": "Accusative masculine relative pronoun is den." },
+        { "p": "Die Kinder, ___ im Garten spielen, sind meine Nachbarn.", "a": "die", "en": "The children who are playing in the garden are my neighbours.", "hint": "die Kinder", "note": "Nominative plural relative pronoun is die." },
+        { "p": "Das Haus, ___ wir gekauft haben, ist alt.", "a": "das", "en": "The house that we bought is old.", "hint": "das Haus", "note": "Accusative neuter relative pronoun is das." },
+        { "p": "Der Freund, ___ ich vertraue, hilft mir oft.", "a": "dem", "en": "The friend whom I trust often helps me.", "hint": "der Freund", "note": "vertrauen takes the dative: dem." },
+        { "p": "Die Stadt, ___ ich besuche, ist schön.", "a": "die", "en": "The city that I am visiting is beautiful.", "hint": "die Stadt", "note": "Accusative feminine relative pronoun is die." },
+        { "p": "Das Mädchen, ___ dort steht, ist meine Schwester.", "a": "das", "en": "The girl standing there is my sister.", "hint": "das Mädchen", "note": "Nominative neuter relative pronoun is das." },
+        { "p": "Der Lehrer, ___ uns unterrichtet, ist nett.", "a": "der", "en": "The teacher who teaches us is nice.", "hint": "der Lehrer", "note": "Nominative masculine relative pronoun is der." }
+      ]
+    },
+    {
+      "id": "genitive",
+      "name": "Genitive case",
+      "kind": "cloze",
+      "intro": "The genitive shows possession. Masculine and neuter nouns take des + -s (des Mannes), feminine and plural take der (der Frau, der Kinder).",
+      "items": [
+        { "p": "Das ist das Auto ___ Mannes.", "a": "des", "en": "That is the man's car.", "hint": "der Mann", "note": "Masculine genitive is des + -s on the noun." },
+        { "p": "Die Farbe ___ Wand ist schön.", "a": "der", "en": "The colour of the wall is beautiful.", "hint": "die Wand", "note": "Feminine genitive article is der." },
+        { "p": "Das Ende ___ Films war traurig.", "a": "des", "en": "The end of the film was sad.", "hint": "der Film", "note": "Masculine genitive is des + -s." },
+        { "p": "Die Mutter ___ Kindes ist da.", "a": "des", "en": "The child's mother is here.", "hint": "das Kind", "note": "Neuter genitive is des + -s." },
+        { "p": "Das ist das Haus ___ Familie.", "a": "der", "en": "That is the family's house.", "hint": "die Familie", "note": "Feminine genitive article is der." },
+        { "p": "Die Tür ___ Zimmers ist offen.", "a": "des", "en": "The door of the room is open.", "hint": "das Zimmer", "note": "Neuter genitive is des + -s." },
+        { "p": "Der Name ___ Frau ist Müller.", "a": "der", "en": "The woman's name is Müller.", "hint": "die Frau", "note": "Feminine genitive article is der." },
+        { "p": "Das ist die Tasche ___ Lehrers.", "a": "des", "en": "That is the teacher's bag.", "hint": "der Lehrer", "note": "Masculine genitive is des + -s." },
+        { "p": "Die Kinder ___ Nachbarn sind laut.", "a": "der", "en": "The neighbours' children are loud.", "hint": "die Nachbarn", "note": "Plural genitive article is der." },
+        { "p": "Wegen ___ Regens bleiben wir zu Hause.", "a": "des", "en": "Because of the rain we are staying home.", "hint": "der Regen", "note": "wegen takes the genitive: des Regens." }
+      ]
+    }
+  ]
+}

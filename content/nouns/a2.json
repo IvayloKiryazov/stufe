@@ -1,0 +1,107 @@
+{
+  "level": "a2",
+  "groups": [
+    {
+      "id": "work-office",
+      "name": "Work & office",
+      "kind": "noun",
+      "intro": "Abstract work nouns: note that -ung, -schaft and -keit are feminine, while -ling and -or tend to be masculine.",
+      "words": [
+        ["Termin", "appointment"],
+        ["Besprechung", "meeting, discussion"],
+        ["Gehalt", "salary"],
+        ["Bewerbung", "application"],
+        ["Erfahrung", "experience"],
+        ["Aufgabe", "task"],
+        ["Projekt", "project"],
+        ["Kunde", "customer"],
+        ["Rechnung", "bill, invoice"],
+        ["Vertrag", "contract"],
+        ["Team", "team"],
+        ["Pause", "break"]
+      ],
+      "notes": {
+        "Bewerbung": "-ung is always feminine.",
+        "Kunde": "A weak masculine noun: den/dem Kunden."
+      }
+    },
+    {
+      "id": "society-media",
+      "name": "Society & media",
+      "kind": "noun",
+      "intro": "Words ending in -ion and -ität are always feminine: die Information, die Universität.",
+      "words": [
+        ["Zeitung", "newspaper"],
+        ["Nachricht", "message, news item"],
+        ["Meinung", "opinion"],
+        ["Information", "information"],
+        ["Internet", "internet"],
+        ["Werbung", "advertising"],
+        ["Regierung", "government"],
+        ["Gesetz", "law"],
+        ["Umwelt", "environment"],
+        ["Gesellschaft", "society"],
+        ["Geschichte", "history, story"],
+        ["Kultur", "culture"]
+      ]
+    },
+    {
+      "id": "feelings",
+      "name": "Feelings & abstract nouns",
+      "kind": "noun",
+      "intro": "Abstract nouns are worth drilling early because they appear constantly in A2 reading.",
+      "words": [
+        ["Gefühl", "feeling"],
+        ["Angst", "fear"],
+        ["Freude", "joy"],
+        ["Glück", "luck, happiness"],
+        ["Problem", "problem"],
+        ["Idee", "idea"],
+        ["Grund", "reason"],
+        ["Möglichkeit", "possibility"],
+        ["Unterschied", "difference"],
+        ["Wunsch", "wish"],
+        ["Ziel", "goal"],
+        ["Interesse", "interest"]
+      ],
+      "notes": {
+        "Möglichkeit": "-keit is always feminine."
+      }
+    },
+    {
+      "id": "travel",
+      "name": "Travel & city",
+      "kind": "noun",
+      "intro": "Travel vocabulary for A2: booking, trips and directions.",
+      "words": [
+        ["Reise", "journey, trip"],
+        ["Urlaub", "holiday, vacation"],
+        ["Ausflug", "excursion"],
+        ["Ticket", "ticket"],
+        ["Fahrkarte", "ticket (transport)"],
+        ["Gegend", "area, region"],
+        ["Verkehr", "traffic"],
+        ["Grenze", "border"],
+        ["Umgebung", "surroundings"],
+        ["Karte", "map, card"],
+        ["Ausgang", "exit"],
+        ["Eingang", "entrance"]
+      ]
+    },
+    {
+      "id": "health",
+      "name": "Health",
+      "kind": "noun",
+      "intro": "Health vocabulary pairs well with modal verbs and the imperative.",
+      "words": [
+        ["Gesundheit", "health"],
+        ["Krankheit", "illness"],
+        ["Medikament", "medicine"],
+        ["Schmerz", "pain"],
+        ["Bewegung", "movement, exercise"],
+        ["Ernährung", "nutrition"],
+        ["Apotheke", "pharmacy"]
+      ]
+    }
+  ]
+}

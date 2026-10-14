@@ -1,0 +1,507 @@
+/* Stufe — a small, data-driven SRS for German vocabulary and grammar. */
+(function () {
+  "use strict";
+
+  var app = document.getElementById("app");
+  var LEVELS = [];
+  var BY = {}; // item id -> item
+  var LEVEL_OF = {}; // item id -> level index
+  var sess = null;
+  var confirmReset = false;
+
+  /* ---------------------------------------------------------------- utils */
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  function norm(s) {
+    return String(s)
+      .toLowerCase()
+      .trim()
+      .replace(/[.!?,;:]+$/, "")
+      .replace(/\s+/g, " ")
+      .replace(/ä/g, "ae")
+      .replace(/ö/g, "oe")
+      .replace(/ü/g, "ue")
+      .replace(/ß/g, "ss");
+  }
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i];
+      a[i] = a[j];
+      a[j] = t;
+    }
+    return a;
+  }
+  function artHtml(de) {
+    var parts = String(de).split(" ");
+    var a = parts[0].toLowerCase();
+    if (a !== "der" && a !== "die" && a !== "das") return esc(de);
+    return (
+      '<span class="art ' + a + '">' + esc(parts[0]) + "</span> " +
+      esc(parts.slice(1).join(" "))
+    );
+  }
+  function rel(ms) {
+    var m = Math.max(1, Math.round(ms / 60000));
+    if (m < 60) return m + " min";
+    var h = Math.round(m / 60);
+    if (h < 48) return h + " h";
+    return Math.round(h / 24) + " days";
+  }
+  function speechText(it) {
+    if (it.kind === "cloze") return it.prompt.replace("___", it.answer);
+    return it.sentence_de || it.de;
+  }
+  function answerText(it) {
+    return it.kind === "cloze" ? it.answer : it.de;
+  }
+  function speakBtn(text, label) {
+    return (
+      '<button class="speak" data-speak="' + esc(text) + '" aria-label="Play audio">' +
+      (label || "\uD83D\uDD0A") + "</button>"
+    );
+  }
+  function labelFor(it) {
+    if (it.kind === "noun") return "German word with its article";
+    if (it.kind === "verb") return "Verb (infinitive)";
+    return "Fill in the blank";
+  }
+  function promptHtml(it) {
+    if (it.kind === "cloze") {
+      return (
+        '<p class="prompt sent">' + esc(it.prompt).replace("___", '<span class="blank"></span>') + "</p>" +
+        '<p class="trans">' + esc(it.en) + "</p>" +
+        (it.hint ? '<span class="chip">' + esc(it.hint) + "</span>" : "")
+      );
+    }
+    return '<p class="prompt">' + esc(it.en) + "</p>";
+  }
+  function revealHtml(it) {
+    var out = "";
+    if (it.kind === "noun") {
+      out += '<p class="answer">' + artHtml(it.de) + "</p>";
+      if (it.plural) out += '<p class="forms">Plural: ' + artHtml(it.plural) + "</p>";
+    } else if (it.kind === "verb") {
+      out += '<p class="answer">' + esc(it.de) + "</p>";
+      if (it.forms) out += '<p class="forms">' + esc(it.forms) + "</p>";
+    } else {
+      out += '<p class="answer">' + esc(it.prompt).replace("___", "<mark>" + esc(it.answer) + "</mark>") + "</p>";
+      out += '<p class="trans">' + esc(it.en) + "</p>";
+    }
+    if (it.sentence_de) {
+      out += '<p class="note">' + artHtml(it.sentence_de) + "</p>";
+      if (it.sentence_en) out += '<p class="note">' + esc(it.sentence_en) + "</p>";
+    }
+    return out;
+  }
+
+  /* ------------------------------------------------------------- progress */
+
+  function itemsOfLevel(i) {
+    var ids = [];
+    LEVELS[i].groups.forEach(function (g) {
+      g.items.forEach(function (id) { ids.push(id); });
+    });
+    return ids;
+  }
+  function stats(i) {
+    var ids = itemsOfLevel(i);
+    var started = 0, passed = 0;
+    ids.forEach(function (id) {
+      if (window.Store.entry(id)) {
+        started++;
+        if (window.SRS.passed(id)) passed++;
+      }
+    });
+    return { total: ids.length, started: started, passed: passed };
+  }
+  function unlocked(i) {
+    if (window.Store.settings.unlockAll || i === 0) return true;
+    var s = stats(i - 1);
+    if (!s.total) return true;
+    return s.passed / s.total >= window.SRS.PASS_RATIO;
+  }
+  function availableItems() {
+    var out = [];
+    for (var i = 0; i < LEVELS.length; i++) {
+      if (!unlocked(i)) continue;
+      LEVELS[i].groups.forEach(function (g) {
+        g.items.forEach(function (id) {
+          if (!window.Store.entry(id)) out.push(id);
+        });
+      });
+    }
+    return out;
+  }
+  function dueItems(now) {
+    return Object.keys(window.Store.progress).filter(function (id) {
+      return BY[id] && window.Store.progress[id].due <= now;
+    });
+  }
+
+  /* ----------------------------------------------------------------- home */
+
+  function home() {
+    sess = null;
+    confirmReset = false;
+    var now = Date.now();
+    var due = dueItems(now);
+    var avail = availableItems().length;
+    var upcoming = Object.keys(window.Store.progress)
+      .map(function (id) { return window.Store.progress[id].due; })
+      .filter(function (d) { return d > now; })
+      .sort(function (a, b) { return a - b; })[0];
+    var reviewLbl = due.length
+      ? "reviews due"
+      : upcoming
+      ? "next review in " + rel(upcoming - now)
+      : "reviews due";
+
+    var rows = LEVELS.map(function (L, i) {
+      var s = stats(i), open = unlocked(i), done = s.passed === s.total && s.total > 0;
+      var pct = s.total ? Math.round((s.passed / s.total) * 100) : 0;
+      var meta = !open
+        ? "Locked. Pass " + Math.round(window.SRS.PASS_RATIO * 100) + "% of " + LEVELS[i - 1].name + " to open it."
+        : s.started + " of " + s.total + " started, " + s.passed + " passed";
+      return (
+        '<li class="lvl ' + (open ? "" : "locked") + " " + (done ? "done" : "") + '">' +
+        '<div class="lvl-head"><span class="lvl-name">' + esc(L.name) + " · " + esc(L.title) + "</span>" +
+        '<span class="lvl-kind">' + L.groups.length + " groups</span></div>" +
+        '<div class="bar"><div style="width:' + pct + '%"></div></div>' +
+        '<div class="lvl-meta">' + esc(meta) + "</div></li>"
+      );
+    }).join("");
+
+    app.innerHTML =
+      "<h1>Stufe</h1>" +
+      '<p class="tag">German, one step at a time. Nouns with their articles, grammar as fill-in-the-blank.</p>' +
+      '<div class="actions">' +
+      '<div class="action"><div class="n">' + avail + '</div><div class="lbl">lessons available</div>' +
+      '<button class="primary" data-act="lessons" ' + (avail ? "" : "disabled") + ">Start lessons</button></div>" +
+      '<div class="action"><div class="n">' + due.length + '</div><div class="lbl">' + reviewLbl + "</div>" +
+      '<button class="primary" data-act="reviews" ' + (due.length ? "" : "disabled") + ">Start reviews</button></div>" +
+      "</div>" +
+      '<p class="sub">' +
+      (Object.keys(window.Store.progress).length
+        ? '<button class="link" data-act="practice">Practice 20 learned items now</button> (does not change your schedule)'
+        : "Do a lesson first. Each lesson batch has new items, then they show up in reviews.") +
+      "</p>" +
+      "<h2>Path</h2>" +
+      '<ol class="levels">' + rows + "</ol>" +
+      '<div class="settings">' +
+      '<label><input type="checkbox" id="set-unlock" ' + (window.Store.settings.unlockAll ? "checked" : "") + "> Unlock all levels</label>" +
+      '<label><input type="checkbox" id="set-voice" ' + (window.Store.settings.voice ? "checked" : "") + "> Play audio (browser German voices)</label>" +
+      '<label><input type="checkbox" id="set-auto" ' + (window.Store.settings.autoSpeak ? "checked" : "") + "> Auto-play audio when the answer is shown</label>" +
+      '<label>New items per lesson <input type="number" id="set-batch" min="3" max="20" value="' + window.Store.settings.newPerLesson + '" style="width:5rem;margin-left:auto"></label>' +
+      '<div><button class="link" data-act="backup">Back up / restore progress</button></div>' +
+      '<div><button class="link" data-act="reset">Reset all progress</button></div>' +
+      "</div>";
+
+    var u = document.getElementById("set-unlock");
+    u.addEventListener("change", function () { window.Store.settings.unlockAll = u.checked; window.Store.save(); home(); });
+    var v = document.getElementById("set-voice");
+    v.addEventListener("change", function () { window.Store.settings.voice = v.checked; window.Store.save(); });
+    var au = document.getElementById("set-auto");
+    au.addEventListener("change", function () { window.Store.settings.autoSpeak = au.checked; window.Store.save(); });
+    var b = document.getElementById("set-batch");
+    b.addEventListener("change", function () {
+      var n = Math.max(3, Math.min(20, parseInt(b.value, 10) || 5));
+      window.Store.settings.newPerLesson = n;
+      window.Store.save();
+      b.value = n;
+    });
+  }
+
+  /* -------------------------------------------------------------- lessons */
+
+  function startLessons() {
+    var batch = availableItems().slice(0, window.Store.settings.newPerLesson);
+    if (!batch.length) return;
+    sess = { mode: "lesson", batch: batch, i: 0 };
+    lesson();
+  }
+  function lesson() {
+    var id = sess.batch[sess.i];
+    var it = BY[id];
+    var showIntro = sess.i === 0 || BY[sess.batch[sess.i - 1]].group !== it.group;
+    var intro = showIntro && it.intro
+      ? '<div class="rule"><b>' + esc(it.groupName) + "</b>" + esc(it.intro) + "</div>"
+      : "";
+    var last = sess.i === sess.batch.length - 1;
+    var cls = it.kind === "noun" ? it.de.split(" ")[0].toLowerCase() : "";
+    app.innerHTML =
+      '<div class="prog"><span>Lesson ' + (sess.i + 1) + " of " + sess.batch.length + "</span>" +
+      '<div class="bar"><div style="width:' + ((sess.i + 1) / sess.batch.length) * 100 + '%"></div></div></div>' +
+      intro +
+      '<div class="card ' + cls + '">' +
+      '<div class="prompt-label">' + labelFor(it) + "</div>" +
+      promptHtml(it) +
+      '<div class="fb" style="border-top:0;padding-top:0">' +
+      revealHtml(it) +
+      (it.note ? '<p class="note">' + esc(it.note) + "</p>" : "") +
+      '<div class="row" style="margin-top:10px">' + speakBtn(speechText(it), "\uD83D\uDD0A Listen") + "</div>" +
+      "</div></div>" +
+      '<div class="row" style="margin-top:16px">' +
+      '<button data-act="home">Cancel</button>' +
+      (sess.i > 0 ? '<button data-act="lprev">Back</button>' : "") +
+      '<button class="primary" data-act="lnext">' + (last ? "Add to reviews" : "Next") + "</button>" +
+      "</div>";
+    if (window.Store.settings.autoSpeak) window.TTS.speak(speechText(it));
+  }
+  function lessonNext() {
+    if (sess.i < sess.batch.length - 1) { sess.i++; lesson(); return; }
+    var now = Date.now();
+    sess.batch.forEach(function (id) { window.Store.set(id, { box: 1, due: now }); });
+    window.Store.save();
+    startReviews(false);
+  }
+
+  /* -------------------------------------------------------------- reviews */
+
+  function startReviews(practice) {
+    var now = Date.now();
+    var ids = practice
+      ? shuffle(Object.keys(window.Store.progress).filter(function (id) { return BY[id]; })).slice(0, 20)
+      : shuffle(dueItems(now));
+    if (!ids.length) { home(); return; }
+    sess = {
+      mode: "review", practice: practice, queue: ids, total: ids.length,
+      completed: 0, seen: {}, prev: {}, firstOK: 0, firstTotal: 0, phase: "ask",
+      last: null, given: "",
+    };
+    review();
+  }
+  function review() {
+    if (!sess.queue.length) { summary(); return; }
+    var it = BY[sess.queue[0]];
+    var fb = sess.phase === "fb";
+    var last = sess.last;
+    var cls = "";
+    if (fb) cls = last.ok ? "ok" : "no";
+    var fbHtml = "";
+    if (fb) {
+      fbHtml =
+        '<div class="fb">' +
+        '<p class="verdict ' + (last.ok ? "ok" : "no") + '">' + (last.ok ? "Correct" : "Not quite") + "</p>" +
+        revealHtml(it) +
+        (last.msg ? '<p class="note">' + esc(last.msg) + "</p>" : "") +
+        (it.note ? '<p class="note">' + esc(it.note) + "</p>" : "") +
+        '<div class="row" style="margin-top:10px">' + speakBtn(speechText(it), "\uD83D\uDD0A Listen") + "</div>" +
+        (last.ok ? "" : '<p class="note"><button class="link" data-act="override">I was right (typo)</button></p>') +
+        "</div>";
+    }
+    app.innerHTML =
+      '<div class="prog"><span>' + sess.completed + " of " + sess.total + (sess.practice ? " (practice)" : "") + "</span>" +
+      '<div class="bar"><div style="width:' + (sess.completed / sess.total) * 100 + '%"></div></div></div>' +
+      '<div class="card ' + cls + '">' +
+      '<div class="prompt-label">' + labelFor(it) + "</div>" +
+      promptHtml(it) +
+      '<input type="text" id="ans" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Your answer" ' + (fb ? "readonly" : "") + ">" +
+      (fb ? "" : '<div class="umlauts" aria-label="Special characters">' +
+        ["ä", "ö", "ü", "ß"].map(function (c) { return '<button data-ch="' + c + '" tabindex="-1">' + c + "</button>"; }).join("") +
+        "</div>") +
+      '<div class="row" ' + (fb ? 'style="margin-top:14px"' : "") + ">" +
+      (fb ? '<button class="primary" data-act="rnext">Next</button>' : '<button class="primary" data-act="check">Check</button>') +
+      '<button data-act="home">Stop</button></div>' +
+      fbHtml +
+      "</div>";
+    var inp = document.getElementById("ans");
+    inp.value = sess.given || "";
+    if (fb) {
+      if (window.Store.settings.autoSpeak) window.TTS.speak(speechText(it));
+    } else {
+      setTimeout(function () { inp.focus(); }, 0);
+    }
+  }
+  function judge(it, given) {
+    var expected = it.kind === "cloze" ? [it.answer].concat(it.alt || []) : [it.de];
+    var g = norm(given);
+    var ok = g !== "" && expected.some(function (e) { return norm(e) === g; });
+    var msg = "";
+    if (!ok && it.kind === "noun") {
+      var parts = it.de.split(" ");
+      var article = parts[0], noun = norm(parts.slice(1).join(" "));
+      var gp = g.split(" ");
+      if (gp.length === 1 && gp[0] === noun) msg = "Add the article. It is " + article + ".";
+      else if (gp.length > 1 && gp.slice(1).join(" ") === noun) msg = "Right noun, wrong article. It is " + article + ".";
+    }
+    return { ok: ok, msg: msg };
+  }
+  function check() {
+    var inp = document.getElementById("ans");
+    var val = inp.value;
+    if (!val.trim()) { inp.focus(); return; }
+    var id = sess.queue[0], it = BY[id];
+    var j = judge(it, val);
+    var first = !sess.seen[id];
+    if (first) {
+      sess.seen[id] = true;
+      sess.firstTotal++;
+      if (j.ok) sess.firstOK++;
+      if (!sess.practice) sess.prev[id] = window.SRS.grade(id, j.ok);
+    }
+    sess.last = { ok: j.ok, msg: j.msg, first: first };
+    sess.given = val;
+    sess.phase = "fb";
+    review();
+  }
+  function override() {
+    var id = sess.queue[0];
+    if (sess.last.first) {
+      sess.firstOK++;
+      if (!sess.practice) {
+        window.SRS.restore(id, sess.prev[id]);
+        window.SRS.grade(id, true);
+      }
+    }
+    sess.last.ok = true;
+    sess.last.msg = "";
+    review();
+  }
+  function reviewNext() {
+    var id = sess.queue.shift();
+    if (sess.last.ok) sess.completed++;
+    else sess.queue.push(id);
+    sess.phase = "ask";
+    sess.last = null;
+    sess.given = "";
+    review();
+  }
+  function summary() {
+    var pct = sess.firstTotal ? Math.round((sess.firstOK / sess.firstTotal) * 100) : 0;
+    var now = Date.now();
+    var upcoming = Object.keys(window.Store.progress)
+      .map(function (id) { return window.Store.progress[id].due; })
+      .filter(function (d) { return d > now; })
+      .sort(function (a, b) { return a - b; })[0];
+    app.innerHTML =
+      "<h1>Done</h1>" +
+      '<p class="tag">' + sess.firstOK + " of " + sess.firstTotal + " right on the first try (" + pct + "%).</p>" +
+      '<div class="card"><p class="big">' + sess.total + " reviewed</p>" +
+      '<p class="note">' + (sess.practice ? "Practice does not change your schedule." : upcoming ? "Next review in " + rel(upcoming - now) + "." : "") + "</p></div>" +
+      '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back to path</button></div>';
+  }
+
+  /* ------------------------------------------------------------ backup UI */
+
+  function backup() {
+    sess = null;
+    var text = window.Store.export();
+    app.innerHTML =
+      "<h1>Progress</h1>" +
+      '<p class="tag">Copy this to keep a backup, or paste a backup and press Restore.</p>' +
+      '<div class="card">' +
+      '<textarea id="bk" spellcheck="false">' + esc(text) + "</textarea>" +
+      '<div class="row" style="margin-top:12px">' +
+      '<button class="primary" data-act="restore">Restore from text</button>' +
+      '<button data-act="home">Back</button>' +
+      '<button data-act="download">Download .json</button>' +
+      "</div></div>";
+  }
+  function restore() {
+    var el = document.getElementById("bk");
+    try {
+      window.Store.import(el.value);
+      home();
+    } catch (e) {
+      alert("That does not look like a valid backup.");
+    }
+  }
+  function download() {
+    var blob = new Blob([window.Store.export()], { type: "application/json" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "stufe-progress.json";
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  /* --------------------------------------------------------------- events */
+
+  app.addEventListener("click", function (e) {
+    var sp = e.target.closest("[data-speak]");
+    if (sp) { window.TTS.speak(sp.getAttribute("data-speak")); return; }
+    var ch = e.target.closest("[data-ch]");
+    if (ch) {
+      var inp = document.getElementById("ans");
+      if (!inp) return;
+      var s = inp.selectionStart == null ? inp.value.length : inp.selectionStart;
+      var en = inp.selectionEnd == null ? s : inp.selectionEnd;
+      inp.value = inp.value.slice(0, s) + ch.getAttribute("data-ch") + inp.value.slice(en);
+      inp.focus();
+      inp.setSelectionRange(s + 1, s + 1);
+      return;
+    }
+    var b = e.target.closest("[data-act]");
+    if (!b) return;
+    var a = b.getAttribute("data-act");
+    if (a === "lessons") startLessons();
+    else if (a === "reviews") startReviews(false);
+    else if (a === "practice") startReviews(true);
+    else if (a === "home") home();
+    else if (a === "lnext") lessonNext();
+    else if (a === "lprev") { sess.i--; lesson(); }
+    else if (a === "check") check();
+    else if (a === "rnext") reviewNext();
+    else if (a === "override") override();
+    else if (a === "backup") backup();
+    else if (a === "restore") restore();
+    else if (a === "download") download();
+    else if (a === "reset") {
+      if (!confirmReset) { confirmReset = true; b.textContent = "Click again to erase all progress"; }
+      else { window.Store.reset(); home(); }
+    }
+  });
+  app.addEventListener("mousedown", function (e) {
+    if (e.target.closest("[data-ch]")) e.preventDefault();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter" || !sess) return;
+    if (document.activeElement && document.activeElement.tagName === "BUTTON") return;
+    if (sess.mode === "lesson") lessonNext();
+    else if (sess.mode === "review" && sess.queue.length) {
+      if (sess.phase === "ask") check();
+      else reviewNext();
+    }
+  });
+
+  /* ----------------------------------------------------------------- boot */
+
+  function fail(msg) {
+    app.innerHTML = '<div class="err"><h1>Stufe</h1><p>' + esc(msg) + "</p>" +
+      "<p class=\"note\">Serve the folder over HTTP, e.g. <code>python3 -m http.server 8000</code>, " +
+      "then open <code>http://localhost:8000</code>.</p></div>";
+  }
+
+  function boot() {
+    Promise.all([
+      fetch("data/levels.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }),
+      fetch("data/items.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }),
+    ])
+      .then(function (res) {
+        LEVELS = res[0];
+        res[1].forEach(function (it) { BY[it.id] = it; });
+        LEVELS.forEach(function (L, i) {
+          L.groups.forEach(function (g) {
+            g.items.forEach(function (id) { LEVEL_OF[id] = i; });
+          });
+        });
+        home();
+      })
+      .catch(function () { fail("Could not load the deck data."); });
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").catch(function () {});
+      });
+    }
+  }
+
+  boot();
+})();

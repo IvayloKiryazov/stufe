@@ -1,0 +1,5 @@
+# Only the standard library is required to run the pipeline.
+# These are optional helpers used by build_vocab.py when available.
+#
+# The pipeline is intentionally dependency-light: it streams plain-text
+# sources so it runs anywhere with Python 3.10+.

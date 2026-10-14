@@ -1,0 +1,97 @@
+{
+  "level": "a1",
+  "groups": [
+    {
+      "id": "core-verbs",
+      "name": "sein, haben, werden",
+      "kind": "verb",
+      "intro": "The three most important verbs. Learn them by heart — they are irregular and appear everywhere. Format: 3rd person present, past, perfect.",
+      "words": [
+        ["sein", "to be", "ist, war, ist gewesen"],
+        ["haben", "to have", "hat, hatte, hat gehabt"],
+        ["werden", "to become", "wird, wurde, ist geworden"]
+      ]
+    },
+    {
+      "id": "everyday",
+      "name": "Everyday verbs",
+      "kind": "verb",
+      "intro": "High-frequency regular and mixed verbs. Drop -en for the stem, then add the ending: ich -e, du -st, er -t.",
+      "words": [
+        ["machen", "to make, to do", "macht, machte, hat gemacht"],
+        ["arbeiten", "to work", "arbeitet, arbeitete, hat gearbeitet"],
+        ["spielen", "to play", "spielt, spielte, hat gespielt"],
+        ["lernen", "to learn", "lernt, lernte, hat gelernt"],
+        ["wohnen", "to live, to reside", "wohnt, wohnte, hat gewohnt"],
+        ["kommen", "to come", "kommt, kam, ist gekommen"],
+        ["gehen", "to go", "geht, ging, ist gegangen"],
+        ["kaufen", "to buy", "kauft, kaufte, hat gekauft"],
+        ["trinken", "to drink", "trinkt, trank, hat getrunken"],
+        ["essen", "to eat", "isst, aß, hat gegessen"],
+        ["lesen", "to read", "liest, las, hat gelesen"],
+        ["schreiben", "to write", "schreibt, schrieb, hat geschrieben"],
+        ["sprechen", "to speak", "spricht, sprach, hat gesprochen"],
+        ["hören", "to hear, to listen", "hört, hörte, hat gehört"],
+        ["sehen", "to see", "sieht, sah, hat gesehen"],
+        ["sagen", "to say", "sagt, sagte, hat gesagt"],
+        ["fragen", "to ask", "fragt, fragte, hat gefragt"],
+        ["antworten", "to answer", "antwortet, antwortete, hat geantwortet"],
+        ["heißen", "to be called", "heißt, hieß, hat geheißen"],
+        ["brauchen", "to need", "braucht, brauchte, hat gebraucht"]
+      ],
+      "notes": {
+        "arbeiten": "Stems in -t or -d add an extra e: du arbeitest, er arbeitet.",
+        "heißen": "Stems in an s-sound take just -t in the du form: du heißt."
+      }
+    },
+    {
+      "id": "modals",
+      "name": "Modal verbs",
+      "kind": "verb",
+      "intro": "Six verbs that rewrite the sentence around them. The modal goes in position 2 and the main verb moves to the end in the infinitive.",
+      "words": [
+        ["können", "can, to be able to", "kann, konnte, hat gekonnt"],
+        ["müssen", "must, to have to", "muss, musste, hat gemusst"],
+        ["wollen", "to want", "will, wollte, hat gewollt"],
+        ["sollen", "should, ought to", "soll, sollte, hat gesollt"],
+        ["dürfen", "may, to be allowed to", "darf, durfte, hat gedurft"],
+        ["mögen", "to like", "mag, mochte, hat gemocht"]
+      ],
+      "notes": {
+        "mögen": "In the polite form it is often möchte (would like)."
+      }
+    },
+    {
+      "id": "separable",
+      "name": "Separable verbs",
+      "kind": "verb",
+      "intro": "The prefix detaches and lands at the end of the sentence: Ich stehe um sieben auf.",
+      "words": [
+        ["aufstehen", "to get up", "steht auf, stand auf, ist aufgestanden"],
+        ["einkaufen", "to shop", "kauft ein, kaufte ein, hat eingekauft"],
+        ["anfangen", "to begin", "fängt an, fing an, hat angefangen"],
+        ["mitkommen", "to come along", "kommt mit, kam mit, ist mitgekommen"],
+        ["fernsehen", "to watch TV", "sieht fern, sah fern, hat ferngesehen"],
+        ["einladen", "to invite", "lädt ein, lud ein, hat eingeladen"]
+      ]
+    },
+    {
+      "id": "irregular",
+      "name": "Common irregular verbs",
+      "kind": "verb",
+      "intro": "Strong verbs change their stem vowel. Learn the principal parts (present, past, perfect) together with the meaning.",
+      "words": [
+        ["fahren", "to drive, to go", "fährt, fuhr, ist gefahren"],
+        ["nehmen", "to take", "nimmt, nahm, hat genommen"],
+        ["geben", "to give", "gibt, gab, hat gegeben"],
+        ["schlafen", "to sleep", "schläft, schlief, hat geschlafen"],
+        ["finden", "to find", "findet, fand, hat gefunden"],
+        ["helfen", "to help", "hilft, half, hat geholfen"],
+        ["treffen", "to meet", "trifft, traf, hat getroffen"],
+        ["wissen", "to know (facts)", "weiß, wusste, hat gewusst"],
+        ["bleiben", "to stay", "bleibt, blieb, ist geblieben"],
+        ["verstehen", "to understand", "versteht, verstand, hat verstanden"]
+      ]
+    }
+  ]
+}

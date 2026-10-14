@@ -1,0 +1,246 @@
+{
+  "level": "a1",
+  "groups": [
+    {
+      "id": "people",
+      "name": "People & family",
+      "kind": "noun",
+      "intro": "Learn every noun together with its article. Gender is mostly arbitrary, so the article is part of the word. der is blue, die is red, das is green.",
+      "words": [
+        ["Mann", "man"],
+        ["Frau", "woman"],
+        ["Kind", "child"],
+        ["Junge", "boy"],
+        ["Mädchen", "girl"],
+        ["Mutter", "mother"],
+        ["Vater", "father"],
+        ["Bruder", "brother"],
+        ["Schwester", "sister"],
+        ["Freund", "friend (male)"],
+        ["Freundin", "friend (female)"],
+        ["Familie", "family"],
+        ["Name", "name"],
+        ["Leute", "people"],
+        ["Mensch", "human, person"],
+        ["Eltern", "parents"]
+      ],
+      "notes": {
+        "Junge": "Ends in -e but is masculine — an exception to the usual -e-is-feminine pattern.",
+        "Mädchen": "Words ending in -chen are always neuter, even for a girl.",
+        "Eltern": "Plural only: die Eltern.",
+        "Leute": "Plural only: die Leute."
+      }
+    },
+    {
+      "id": "food",
+      "name": "Food & drink",
+      "kind": "noun",
+      "intro": "Many nouns ending in -e are feminine (die Suppe, die Lampe). There are exceptions, so keep checking the article.",
+      "words": [
+        ["Brot", "bread"],
+        ["Wasser", "water"],
+        ["Milch", "milk"],
+        ["Kaffee", "coffee"],
+        ["Tee", "tea"],
+        ["Apfel", "apple"],
+        ["Käse", "cheese"],
+        ["Ei", "egg"],
+        ["Butter", "butter"],
+        ["Suppe", "soup"],
+        ["Bier", "beer"],
+        ["Wein", "wine"],
+        ["Saft", "juice"],
+        ["Kartoffel", "potato"],
+        ["Fleisch", "meat"],
+        ["Kuchen", "cake"],
+        ["Zucker", "sugar"],
+        ["Fisch", "fish"],
+        ["Salz", "salt"],
+        ["Obst", "fruit"]
+      ],
+      "notes": {
+        "Käse": "Ends in -e but is masculine.",
+        "Suppe": "-e ending, feminine.",
+        "Obst": "Usually no plural."
+      }
+    },
+    {
+      "id": "home",
+      "name": "Home & things",
+      "kind": "noun",
+      "intro": "Useful endings: -ung, -heit, -keit, -schaft and -ion are always feminine. Diminutives in -chen and -lein are always neuter.",
+      "words": [
+        ["Haus", "house"],
+        ["Zimmer", "room"],
+        ["Tür", "door"],
+        ["Fenster", "window"],
+        ["Tisch", "table"],
+        ["Stuhl", "chair"],
+        ["Bett", "bed"],
+        ["Buch", "book"],
+        ["Schlüssel", "key"],
+        ["Auto", "car"],
+        ["Tasche", "bag"],
+        ["Lampe", "lamp"],
+        ["Küche", "kitchen"],
+        ["Garten", "garden"],
+        ["Straße", "street"],
+        ["Stadt", "city"],
+        ["Wohnung", "apartment"],
+        ["Telefon", "telephone"],
+        ["Computer", "computer"],
+        ["Teller", "plate"],
+        ["Messer", "knife"],
+        ["Gabel", "fork"],
+        ["Löffel", "spoon"]
+      ],
+      "notes": {
+        "Wohnung": "-ung words are always feminine."
+      }
+    },
+    {
+      "id": "time",
+      "name": "Time",
+      "kind": "noun",
+      "intro": "Time words show up in almost every sentence. Watch the articles: der Tag, die Woche, das Jahr.",
+      "words": [
+        ["Tag", "day"],
+        ["Nacht", "night"],
+        ["Morgen", "morning"],
+        ["Abend", "evening"],
+        ["Woche", "week"],
+        ["Monat", "month"],
+        ["Jahr", "year"],
+        ["Stunde", "hour"],
+        ["Minute", "minute"],
+        ["Zeit", "time"],
+        ["Wochenende", "weekend"],
+        ["Uhr", "clock, o'clock"]
+      ]
+    },
+    {
+      "id": "places",
+      "name": "Places",
+      "kind": "noun",
+      "intro": "Places are often neuter or feminine. Learn the article with the place, because you will need it after prepositions.",
+      "words": [
+        ["Schule", "school"],
+        ["Arbeit", "work"],
+        ["Bahnhof", "train station"],
+        ["Flughafen", "airport"],
+        ["Krankenhaus", "hospital"],
+        ["Restaurant", "restaurant"],
+        ["Geschäft", "shop"],
+        ["Markt", "market"],
+        ["Bank", "bank"],
+        ["Hotel", "hotel"],
+        ["Park", "park"],
+        ["Kirche", "church"]
+      ]
+    },
+    {
+      "id": "body",
+      "name": "Body",
+      "kind": "noun",
+      "intro": "Body parts are mostly masculine or neuter; die Hand and die Nase are the common feminine ones.",
+      "words": [
+        ["Kopf", "head"],
+        ["Auge", "eye"],
+        ["Nase", "nose"],
+        ["Mund", "mouth"],
+        ["Ohr", "ear"],
+        ["Hand", "hand"],
+        ["Arm", "arm"],
+        ["Bein", "leg"],
+        ["Fuß", "foot"],
+        ["Haar", "hair"],
+        ["Herz", "heart"],
+        ["Bauch", "belly"],
+        ["Zahn", "tooth"]
+      ],
+      "notes": {
+        "Auge": "das Auge — an exception; most -e nouns are feminine."
+      }
+    },
+    {
+      "id": "clothing",
+      "name": "Clothing",
+      "kind": "noun",
+      "intro": "Clothing is a mix of genders — a good set to drill because there is no reliable rule.",
+      "words": [
+        ["Hemd", "shirt"],
+        ["Hose", "trousers"],
+        ["Kleid", "dress"],
+        ["Schuh", "shoe"],
+        ["Jacke", "jacket"],
+        ["Mantel", "coat"],
+        ["Hut", "hat"],
+        ["Rock", "skirt"],
+        ["Socke", "sock"]
+      ]
+    },
+    {
+      "id": "nature",
+      "name": "Nature & weather",
+      "kind": "noun",
+      "intro": "Weather words are common in small talk: das Wetter, der Regen, die Sonne.",
+      "words": [
+        ["Sonne", "sun"],
+        ["Mond", "moon"],
+        ["Himmel", "sky"],
+        ["Baum", "tree"],
+        ["Blume", "flower"],
+        ["Berg", "mountain"],
+        ["Fluss", "river"],
+        ["Meer", "sea"],
+        ["Regen", "rain"],
+        ["Schnee", "snow"],
+        ["Wind", "wind"],
+        ["Wetter", "weather"],
+        ["Feuer", "fire"],
+        ["Luft", "air"]
+      ]
+    },
+    {
+      "id": "work",
+      "name": "Work & school",
+      "kind": "noun",
+      "intro": "Note the -in ending for female people: der Lehrer / die Lehrerin.",
+      "words": [
+        ["Lehrer", "teacher (male)"],
+        ["Lehrerin", "teacher (female)"],
+        ["Schüler", "pupil"],
+        ["Student", "student"],
+        ["Arzt", "doctor (male)"],
+        ["Ärztin", "doctor (female)"],
+        ["Beruf", "job, profession"],
+        ["Firma", "company"],
+        ["Büro", "office"],
+        ["Chef", "boss"],
+        ["Kollege", "colleague"],
+        ["Wort", "word"],
+        ["Frage", "question"],
+        ["Antwort", "answer"],
+        ["Sprache", "language"]
+      ],
+      "notes": {
+        "Lehrerin": "Adding -in to a masculine person word makes it feminine."
+      }
+    },
+    {
+      "id": "transport",
+      "name": "Transport",
+      "kind": "noun",
+      "intro": "Vehicles are a good test of gender: der Zug, die Bahn, das Auto, das Fahrrad.",
+      "words": [
+        ["Zug", "train"],
+        ["Bus", "bus"],
+        ["Fahrrad", "bicycle"],
+        ["Flugzeug", "airplane"],
+        ["Schiff", "ship"],
+        ["Bahn", "railway"],
+        ["Koffer", "suitcase"]
+      ]
+    }
+  ]
+}

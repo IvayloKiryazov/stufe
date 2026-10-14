@@ -1,0 +1,1164 @@
+[
+ {
+  "id": "a1",
+  "name": "A1",
+  "title": "Beginner",
+  "groups": [
+   {
+    "id": "a1-people",
+    "name": "People & family",
+    "kind": "noun",
+    "intro": "Learn every noun together with its article. Gender is mostly arbitrary, so the article is part of the word. der is blue, die is red, das is green.",
+    "items": [
+     "a1-people-mann",
+     "a1-people-frau",
+     "a1-people-kind",
+     "a1-people-junge",
+     "a1-people-maedchen",
+     "a1-people-mutter",
+     "a1-people-vater",
+     "a1-people-bruder",
+     "a1-people-schwester",
+     "a1-people-freund",
+     "a1-people-freundin",
+     "a1-people-familie",
+     "a1-people-name",
+     "a1-people-leute",
+     "a1-people-mensch",
+     "a1-people-eltern"
+    ]
+   },
+   {
+    "id": "a1-food",
+    "name": "Food & drink",
+    "kind": "noun",
+    "intro": "Many nouns ending in -e are feminine (die Suppe, die Lampe). There are exceptions, so keep checking the article.",
+    "items": [
+     "a1-food-brot",
+     "a1-food-wasser",
+     "a1-food-milch",
+     "a1-food-kaffee",
+     "a1-food-tee",
+     "a1-food-apfel",
+     "a1-food-kaese",
+     "a1-food-ei",
+     "a1-food-butter",
+     "a1-food-suppe",
+     "a1-food-bier",
+     "a1-food-wein",
+     "a1-food-saft",
+     "a1-food-kartoffel",
+     "a1-food-fleisch",
+     "a1-food-kuchen",
+     "a1-food-zucker",
+     "a1-food-fisch",
+     "a1-food-salz",
+     "a1-food-obst"
+    ]
+   },
+   {
+    "id": "a1-home",
+    "name": "Home & things",
+    "kind": "noun",
+    "intro": "Useful endings: -ung, -heit, -keit, -schaft and -ion are always feminine. Diminutives in -chen and -lein are always neuter.",
+    "items": [
+     "a1-home-haus",
+     "a1-home-zimmer",
+     "a1-home-tuer",
+     "a1-home-fenster",
+     "a1-home-tisch",
+     "a1-home-stuhl",
+     "a1-home-bett",
+     "a1-home-buch",
+     "a1-home-schluessel",
+     "a1-home-auto",
+     "a1-home-tasche",
+     "a1-home-lampe",
+     "a1-home-kueche",
+     "a1-home-garten",
+     "a1-home-strasse",
+     "a1-home-stadt",
+     "a1-home-wohnung",
+     "a1-home-telefon",
+     "a1-home-computer",
+     "a1-home-teller",
+     "a1-home-messer",
+     "a1-home-gabel",
+     "a1-home-loeffel"
+    ]
+   },
+   {
+    "id": "a1-time",
+    "name": "Time",
+    "kind": "noun",
+    "intro": "Time words show up in almost every sentence. Watch the articles: der Tag, die Woche, das Jahr.",
+    "items": [
+     "a1-time-tag",
+     "a1-time-nacht",
+     "a1-time-morgen",
+     "a1-time-abend",
+     "a1-time-woche",
+     "a1-time-monat",
+     "a1-time-jahr",
+     "a1-time-stunde",
+     "a1-time-minute",
+     "a1-time-zeit",
+     "a1-time-wochenende",
+     "a1-time-uhr"
+    ]
+   },
+   {
+    "id": "a1-places",
+    "name": "Places",
+    "kind": "noun",
+    "intro": "Places are often neuter or feminine. Learn the article with the place, because you will need it after prepositions.",
+    "items": [
+     "a1-places-schule",
+     "a1-places-arbeit",
+     "a1-places-bahnhof",
+     "a1-places-flughafen",
+     "a1-places-krankenhaus",
+     "a1-places-restaurant",
+     "a1-places-geschaeft",
+     "a1-places-markt",
+     "a1-places-bank",
+     "a1-places-hotel",
+     "a1-places-park",
+     "a1-places-kirche"
+    ]
+   },
+   {
+    "id": "a1-body",
+    "name": "Body",
+    "kind": "noun",
+    "intro": "Body parts are mostly masculine or neuter; die Hand and die Nase are the common feminine ones.",
+    "items": [
+     "a1-body-kopf",
+     "a1-body-auge",
+     "a1-body-nase",
+     "a1-body-mund",
+     "a1-body-ohr",
+     "a1-body-hand",
+     "a1-body-arm",
+     "a1-body-bein",
+     "a1-body-fuss",
+     "a1-body-haar",
+     "a1-body-herz",
+     "a1-body-bauch",
+     "a1-body-zahn"
+    ]
+   },
+   {
+    "id": "a1-clothing",
+    "name": "Clothing",
+    "kind": "noun",
+    "intro": "Clothing is a mix of genders — a good set to drill because there is no reliable rule.",
+    "items": [
+     "a1-clothing-hemd",
+     "a1-clothing-hose",
+     "a1-clothing-kleid",
+     "a1-clothing-schuh",
+     "a1-clothing-jacke",
+     "a1-clothing-mantel",
+     "a1-clothing-hut",
+     "a1-clothing-rock",
+     "a1-clothing-socke"
+    ]
+   },
+   {
+    "id": "a1-nature",
+    "name": "Nature & weather",
+    "kind": "noun",
+    "intro": "Weather words are common in small talk: das Wetter, der Regen, die Sonne.",
+    "items": [
+     "a1-nature-sonne",
+     "a1-nature-mond",
+     "a1-nature-himmel",
+     "a1-nature-baum",
+     "a1-nature-blume",
+     "a1-nature-berg",
+     "a1-nature-fluss",
+     "a1-nature-meer",
+     "a1-nature-regen",
+     "a1-nature-schnee",
+     "a1-nature-wind",
+     "a1-nature-wetter",
+     "a1-nature-feuer",
+     "a1-nature-luft"
+    ]
+   },
+   {
+    "id": "a1-work",
+    "name": "Work & school",
+    "kind": "noun",
+    "intro": "Note the -in ending for female people: der Lehrer / die Lehrerin.",
+    "items": [
+     "a1-work-lehrer",
+     "a1-work-lehrerin",
+     "a1-work-schueler",
+     "a1-work-student",
+     "a1-work-arzt",
+     "a1-work-aerztin",
+     "a1-work-beruf",
+     "a1-work-firma",
+     "a1-work-buero",
+     "a1-work-chef",
+     "a1-work-kollege",
+     "a1-work-wort",
+     "a1-work-frage",
+     "a1-work-antwort",
+     "a1-work-sprache"
+    ]
+   },
+   {
+    "id": "a1-transport",
+    "name": "Transport",
+    "kind": "noun",
+    "intro": "Vehicles are a good test of gender: der Zug, die Bahn, das Auto, das Fahrrad.",
+    "items": [
+     "a1-transport-zug",
+     "a1-transport-bus",
+     "a1-transport-fahrrad",
+     "a1-transport-flugzeug",
+     "a1-transport-schiff",
+     "a1-transport-bahn",
+     "a1-transport-koffer"
+    ]
+   },
+   {
+    "id": "a1-core-verbs",
+    "name": "sein, haben, werden",
+    "kind": "verb",
+    "intro": "The three most important verbs. Learn them by heart — they are irregular and appear everywhere. Format: 3rd person present, past, perfect.",
+    "items": [
+     "a1-core-verbs-sein",
+     "a1-core-verbs-haben",
+     "a1-core-verbs-werden"
+    ]
+   },
+   {
+    "id": "a1-everyday",
+    "name": "Everyday verbs",
+    "kind": "verb",
+    "intro": "High-frequency regular and mixed verbs. Drop -en for the stem, then add the ending: ich -e, du -st, er -t.",
+    "items": [
+     "a1-everyday-machen",
+     "a1-everyday-arbeiten",
+     "a1-everyday-spielen",
+     "a1-everyday-lernen",
+     "a1-everyday-wohnen",
+     "a1-everyday-kommen",
+     "a1-everyday-gehen",
+     "a1-everyday-kaufen",
+     "a1-everyday-trinken",
+     "a1-everyday-essen",
+     "a1-everyday-lesen",
+     "a1-everyday-schreiben",
+     "a1-everyday-sprechen",
+     "a1-everyday-hoeren",
+     "a1-everyday-sehen",
+     "a1-everyday-sagen",
+     "a1-everyday-fragen",
+     "a1-everyday-antworten",
+     "a1-everyday-heissen",
+     "a1-everyday-brauchen"
+    ]
+   },
+   {
+    "id": "a1-modals",
+    "name": "Modal verbs",
+    "kind": "verb",
+    "intro": "Six verbs that rewrite the sentence around them. The modal goes in position 2 and the main verb moves to the end in the infinitive.",
+    "items": [
+     "a1-modals-koennen",
+     "a1-modals-muessen",
+     "a1-modals-wollen",
+     "a1-modals-sollen",
+     "a1-modals-duerfen",
+     "a1-modals-moegen"
+    ]
+   },
+   {
+    "id": "a1-separable",
+    "name": "Separable verbs",
+    "kind": "verb",
+    "intro": "The prefix detaches and lands at the end of the sentence: Ich stehe um sieben auf.",
+    "items": [
+     "a1-separable-aufstehen",
+     "a1-separable-einkaufen",
+     "a1-separable-anfangen",
+     "a1-separable-mitkommen",
+     "a1-separable-fernsehen",
+     "a1-separable-einladen"
+    ]
+   },
+   {
+    "id": "a1-irregular",
+    "name": "Common irregular verbs",
+    "kind": "verb",
+    "intro": "Strong verbs change their stem vowel. Learn the principal parts (present, past, perfect) together with the meaning.",
+    "items": [
+     "a1-irregular-fahren",
+     "a1-irregular-nehmen",
+     "a1-irregular-geben",
+     "a1-irregular-schlafen",
+     "a1-irregular-finden",
+     "a1-irregular-helfen",
+     "a1-irregular-treffen",
+     "a1-irregular-wissen",
+     "a1-irregular-bleiben",
+     "a1-irregular-verstehen"
+    ]
+   },
+   {
+    "id": "a1-pronouns",
+    "name": "Personal pronouns",
+    "kind": "cloze",
+    "intro": "Subject pronouns: ich, du, er/sie/es, wir, ihr, sie/Sie. du is one person (informal), ihr is several people (informal), Sie is polite for one or many.",
+    "items": [
+     "a1-pronouns-1",
+     "a1-pronouns-2",
+     "a1-pronouns-3",
+     "a1-pronouns-4",
+     "a1-pronouns-5",
+     "a1-pronouns-6",
+     "a1-pronouns-7",
+     "a1-pronouns-8",
+     "a1-pronouns-9"
+    ]
+   },
+   {
+    "id": "a1-sein-haben",
+    "name": "sein & haben",
+    "kind": "cloze",
+    "intro": "sein (to be): ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind. haben (to have): ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie/Sie haben. Both are irregular — learn them by heart.",
+    "items": [
+     "a1-sein-haben-1",
+     "a1-sein-haben-2",
+     "a1-sein-haben-3",
+     "a1-sein-haben-4",
+     "a1-sein-haben-5",
+     "a1-sein-haben-6",
+     "a1-sein-haben-7",
+     "a1-sein-haben-8",
+     "a1-sein-haben-9",
+     "a1-sein-haben-10",
+     "a1-sein-haben-11",
+     "a1-sein-haben-12"
+    ]
+   },
+   {
+    "id": "a1-articles",
+    "name": "Definite & indefinite articles",
+    "kind": "cloze",
+    "intro": "Definite: der (m), die (f), das (n). Indefinite: ein (m/n), eine (f). In the nominative the article only shows gender; the accusative will change masculine forms.",
+    "items": [
+     "a1-articles-1",
+     "a1-articles-2",
+     "a1-articles-3",
+     "a1-articles-4",
+     "a1-articles-5",
+     "a1-articles-6",
+     "a1-articles-7",
+     "a1-articles-8",
+     "a1-articles-9",
+     "a1-articles-10",
+     "a1-articles-11",
+     "a1-articles-12"
+    ]
+   },
+   {
+    "id": "a1-plural",
+    "name": "Plural nouns",
+    "kind": "cloze",
+    "intro": "German has five plural patterns: -e, -er, -en/-n, -s, and no ending (sometimes with an umlaut). The plural article is always die.",
+    "items": [
+     "a1-plural-1",
+     "a1-plural-2",
+     "a1-plural-3",
+     "a1-plural-4",
+     "a1-plural-5",
+     "a1-plural-6",
+     "a1-plural-7",
+     "a1-plural-8",
+     "a1-plural-9",
+     "a1-plural-10"
+    ]
+   },
+   {
+    "id": "a1-regular-verbs",
+    "name": "Regular verbs (present tense)",
+    "kind": "cloze",
+    "intro": "Drop -en from the infinitive to get the stem, then add: ich -e, du -st, er/sie/es -t, wir -en, ihr -t, sie/Sie -en.",
+    "items": [
+     "a1-regular-verbs-1",
+     "a1-regular-verbs-2",
+     "a1-regular-verbs-3",
+     "a1-regular-verbs-4",
+     "a1-regular-verbs-5",
+     "a1-regular-verbs-6",
+     "a1-regular-verbs-7",
+     "a1-regular-verbs-8",
+     "a1-regular-verbs-9",
+     "a1-regular-verbs-10",
+     "a1-regular-verbs-11",
+     "a1-regular-verbs-12"
+    ]
+   },
+   {
+    "id": "a1-stem-changing",
+    "name": "Stem-changing verbs",
+    "kind": "cloze",
+    "intro": "Some common verbs change their vowel in the du and er/sie/es forms: e becomes i or ie, a becomes ä. ich, wir, ihr and sie/Sie stay regular.",
+    "items": [
+     "a1-stem-changing-1",
+     "a1-stem-changing-2",
+     "a1-stem-changing-3",
+     "a1-stem-changing-4",
+     "a1-stem-changing-5",
+     "a1-stem-changing-6",
+     "a1-stem-changing-7",
+     "a1-stem-changing-8",
+     "a1-stem-changing-9",
+     "a1-stem-changing-10",
+     "a1-stem-changing-11",
+     "a1-stem-changing-12",
+     "a1-stem-changing-13",
+     "a1-stem-changing-14"
+    ]
+   },
+   {
+    "id": "a1-nominative-accusative",
+    "name": "Nominative & accusative",
+    "kind": "cloze",
+    "intro": "The subject is nominative, the direct object is accusative. Only masculine articles change: der → den, ein → einen, kein → keinen. die, das, eine and ein stay the same.",
+    "items": [
+     "a1-nominative-accusative-1",
+     "a1-nominative-accusative-2",
+     "a1-nominative-accusative-3",
+     "a1-nominative-accusative-4",
+     "a1-nominative-accusative-5",
+     "a1-nominative-accusative-6",
+     "a1-nominative-accusative-7",
+     "a1-nominative-accusative-8",
+     "a1-nominative-accusative-9",
+     "a1-nominative-accusative-10",
+     "a1-nominative-accusative-11",
+     "a1-nominative-accusative-12",
+     "a1-nominative-accusative-13",
+     "a1-nominative-accusative-14"
+    ]
+   },
+   {
+    "id": "a1-possessive",
+    "name": "Possessive articles",
+    "kind": "cloze",
+    "intro": "mein (my), dein (your), unser (our). The ending depends on the gender of the thing owned: mein Vater, meine Mutter, mein Kind.",
+    "items": [
+     "a1-possessive-1",
+     "a1-possessive-2",
+     "a1-possessive-3",
+     "a1-possessive-4",
+     "a1-possessive-5",
+     "a1-possessive-6",
+     "a1-possessive-7",
+     "a1-possessive-8",
+     "a1-possessive-9",
+     "a1-possessive-10"
+    ]
+   },
+   {
+    "id": "a1-word-order",
+    "name": "Word order, questions, negation",
+    "kind": "cloze",
+    "intro": "In a statement the conjugated verb is always in second position. In yes/no questions it comes first. Negate nouns with kein- (same endings as ein-); negate everything else with nicht.",
+    "items": [
+     "a1-word-order-1",
+     "a1-word-order-2",
+     "a1-word-order-3",
+     "a1-word-order-4",
+     "a1-word-order-5",
+     "a1-word-order-6",
+     "a1-word-order-7",
+     "a1-word-order-8",
+     "a1-word-order-9",
+     "a1-word-order-10",
+     "a1-word-order-11",
+     "a1-word-order-12",
+     "a1-word-order-13"
+    ]
+   },
+   {
+    "id": "a1-modal-verbs",
+    "name": "Modal verbs",
+    "kind": "cloze",
+    "intro": "können, müssen, wollen, sollen, dürfen, mögen. The modal is conjugated in position 2; the main verb goes to the end as an infinitive: Ich muss heute arbeiten.",
+    "items": [
+     "a1-modal-verbs-1",
+     "a1-modal-verbs-2",
+     "a1-modal-verbs-3",
+     "a1-modal-verbs-4",
+     "a1-modal-verbs-5",
+     "a1-modal-verbs-6",
+     "a1-modal-verbs-7",
+     "a1-modal-verbs-8",
+     "a1-modal-verbs-9",
+     "a1-modal-verbs-10",
+     "a1-modal-verbs-11",
+     "a1-modal-verbs-12"
+    ]
+   },
+   {
+    "id": "a1-separable",
+    "name": "Separable verbs",
+    "kind": "cloze",
+    "intro": "Separable prefixes (auf-, ein-, an-, mit-, fern-) detach and go to the end of the clause: Ich stehe um sieben Uhr auf.",
+    "items": [
+     "a1-separable-1",
+     "a1-separable-2",
+     "a1-separable-3",
+     "a1-separable-4",
+     "a1-separable-5",
+     "a1-separable-6",
+     "a1-separable-7",
+     "a1-separable-8"
+    ]
+   },
+   {
+    "id": "a1-imperative",
+    "name": "Imperative",
+    "kind": "cloze",
+    "intro": "Three forms: du (stem, often no -e), ihr (normal present form without ihr), Sie (infinitive + Sie).",
+    "items": [
+     "a1-imperative-1",
+     "a1-imperative-2",
+     "a1-imperative-3",
+     "a1-imperative-4",
+     "a1-imperative-5",
+     "a1-imperative-6",
+     "a1-imperative-7",
+     "a1-imperative-8"
+    ]
+   },
+   {
+    "id": "a1-perfect",
+    "name": "Perfect tense",
+    "kind": "cloze",
+    "intro": "The spoken past: haben or sein + past participle. Movement and change-of-state verbs (gehen, fahren, kommen, aufstehen) use sein; most others use haben.",
+    "items": [
+     "a1-perfect-1",
+     "a1-perfect-2",
+     "a1-perfect-3",
+     "a1-perfect-4",
+     "a1-perfect-5",
+     "a1-perfect-6",
+     "a1-perfect-7",
+     "a1-perfect-8",
+     "a1-perfect-9",
+     "a1-perfect-10",
+     "a1-perfect-11"
+    ]
+   },
+   {
+    "id": "a1-time-prepositions",
+    "name": "Time & place prepositions",
+    "kind": "cloze",
+    "intro": "am + day/part of day, im + month/season/year, um + clock time, in + city/country. Learn these as fixed pairs.",
+    "items": [
+     "a1-time-prepositions-1",
+     "a1-time-prepositions-2",
+     "a1-time-prepositions-3",
+     "a1-time-prepositions-4",
+     "a1-time-prepositions-5",
+     "a1-time-prepositions-6",
+     "a1-time-prepositions-7",
+     "a1-time-prepositions-8",
+     "a1-time-prepositions-9",
+     "a1-time-prepositions-10"
+    ]
+   },
+   {
+    "id": "a1-numbers-time",
+    "name": "Numbers & time",
+    "kind": "cloze",
+    "intro": "Clock time: um, halb (half to the next hour), Viertel nach / Viertel vor. Dates use ordinal numbers with am.",
+    "items": [
+     "a1-numbers-time-1",
+     "a1-numbers-time-2",
+     "a1-numbers-time-3",
+     "a1-numbers-time-4",
+     "a1-numbers-time-5",
+     "a1-numbers-time-6",
+     "a1-numbers-time-7",
+     "a1-numbers-time-8"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "a2",
+  "name": "A2",
+  "title": "Elementary",
+  "groups": [
+   {
+    "id": "a2-work-office",
+    "name": "Work & office",
+    "kind": "noun",
+    "intro": "Abstract work nouns: note that -ung, -schaft and -keit are feminine, while -ling and -or tend to be masculine.",
+    "items": [
+     "a2-work-office-termin",
+     "a2-work-office-besprechung",
+     "a2-work-office-gehalt",
+     "a2-work-office-bewerbung",
+     "a2-work-office-erfahrung",
+     "a2-work-office-aufgabe",
+     "a2-work-office-projekt",
+     "a2-work-office-kunde",
+     "a2-work-office-rechnung",
+     "a2-work-office-vertrag",
+     "a2-work-office-team",
+     "a2-work-office-pause"
+    ]
+   },
+   {
+    "id": "a2-society-media",
+    "name": "Society & media",
+    "kind": "noun",
+    "intro": "Words ending in -ion and -ität are always feminine: die Information, die Universität.",
+    "items": [
+     "a2-society-media-zeitung",
+     "a2-society-media-nachricht",
+     "a2-society-media-meinung",
+     "a2-society-media-information",
+     "a2-society-media-internet",
+     "a2-society-media-werbung",
+     "a2-society-media-regierung",
+     "a2-society-media-gesetz",
+     "a2-society-media-umwelt",
+     "a2-society-media-gesellschaft",
+     "a2-society-media-geschichte",
+     "a2-society-media-kultur"
+    ]
+   },
+   {
+    "id": "a2-feelings",
+    "name": "Feelings & abstract nouns",
+    "kind": "noun",
+    "intro": "Abstract nouns are worth drilling early because they appear constantly in A2 reading.",
+    "items": [
+     "a2-feelings-gefuehl",
+     "a2-feelings-angst",
+     "a2-feelings-freude",
+     "a2-feelings-glueck",
+     "a2-feelings-problem",
+     "a2-feelings-idee",
+     "a2-feelings-grund",
+     "a2-feelings-moeglichkeit",
+     "a2-feelings-unterschied",
+     "a2-feelings-wunsch",
+     "a2-feelings-ziel",
+     "a2-feelings-interesse"
+    ]
+   },
+   {
+    "id": "a2-travel",
+    "name": "Travel & city",
+    "kind": "noun",
+    "intro": "Travel vocabulary for A2: booking, trips and directions.",
+    "items": [
+     "a2-travel-reise",
+     "a2-travel-urlaub",
+     "a2-travel-ausflug",
+     "a2-travel-ticket",
+     "a2-travel-fahrkarte",
+     "a2-travel-gegend",
+     "a2-travel-verkehr",
+     "a2-travel-grenze",
+     "a2-travel-umgebung",
+     "a2-travel-karte",
+     "a2-travel-ausgang",
+     "a2-travel-eingang"
+    ]
+   },
+   {
+    "id": "a2-health",
+    "name": "Health",
+    "kind": "noun",
+    "intro": "Health vocabulary pairs well with modal verbs and the imperative.",
+    "items": [
+     "a2-health-gesundheit",
+     "a2-health-krankheit",
+     "a2-health-medikament",
+     "a2-health-schmerz",
+     "a2-health-bewegung",
+     "a2-health-ernaehrung",
+     "a2-health-apotheke"
+    ]
+   },
+   {
+    "id": "a2-reflexive",
+    "name": "Reflexive verbs",
+    "kind": "verb",
+    "intro": "The action falls back on the subject: Ich freue mich. The reflexive pronoun changes with the person (mich, dich, sich, uns, euch).",
+    "items": [
+     "a2-reflexive-sich-freuen",
+     "a2-reflexive-sich-interessieren",
+     "a2-reflexive-sich-treffen",
+     "a2-reflexive-sich-erinnern",
+     "a2-reflexive-sich-beeilen",
+     "a2-reflexive-sich-fuehlen",
+     "a2-reflexive-sich-setzen",
+     "a2-reflexive-sich-vorstellen"
+    ]
+   },
+   {
+    "id": "a2-dative-verbs",
+    "name": "Verbs with the dative",
+    "kind": "verb",
+    "intro": "These verbs take a dative object, not an accusative one: Ich helfe dir. Mir gefällt das.",
+    "items": [
+     "a2-dative-verbs-gefallen",
+     "a2-dative-verbs-gehoeren",
+     "a2-dative-verbs-passieren",
+     "a2-dative-verbs-folgen",
+     "a2-dative-verbs-danken",
+     "a2-dative-verbs-gratulieren"
+    ]
+   },
+   {
+    "id": "a2-irregular-a2",
+    "name": "More irregular verbs",
+    "kind": "verb",
+    "intro": "More strong and inseparable verbs that are common at A2. Inseparable prefixes (be-, er-, ver-, ent-) never separate.",
+    "items": [
+     "a2-irregular-a2-vergessen",
+     "a2-irregular-a2-empfehlen",
+     "a2-irregular-a2-anbieten",
+     "a2-irregular-a2-entscheiden",
+     "a2-irregular-a2-bekommen",
+     "a2-irregular-a2-beschreiben",
+     "a2-irregular-a2-erkennen",
+     "a2-irregular-a2-erklaeren"
+    ]
+   },
+   {
+    "id": "a2-dative-case",
+    "name": "Dative case",
+    "kind": "cloze",
+    "intro": "The dative marks the indirect object and follows certain verbs (helfen, danken, gehören, folgen, antworten) and prepositions (mit, bei, aus, nach, von). Masculine der becomes dem, feminine die becomes der, neuter das becomes dem; plural die becomes den.",
+    "items": [
+     "a2-dative-case-1",
+     "a2-dative-case-2",
+     "a2-dative-case-3",
+     "a2-dative-case-4",
+     "a2-dative-case-5",
+     "a2-dative-case-6",
+     "a2-dative-case-7",
+     "a2-dative-case-8",
+     "a2-dative-case-9"
+    ]
+   },
+   {
+    "id": "a2-dative-pronouns",
+    "name": "Dative pronouns",
+    "kind": "cloze",
+    "intro": "Dative personal pronouns are mir, dir, ihm, ihr, uns, euch, ihnen. They are used with dative verbs like helfen, danken, geben, gefallen, gehören, zeigen.",
+    "items": [
+     "a2-dative-pronouns-1",
+     "a2-dative-pronouns-2",
+     "a2-dative-pronouns-3",
+     "a2-dative-pronouns-4",
+     "a2-dative-pronouns-5",
+     "a2-dative-pronouns-6",
+     "a2-dative-pronouns-7",
+     "a2-dative-pronouns-8"
+    ]
+   },
+   {
+    "id": "a2-two-way-prepositions",
+    "name": "Two-way prepositions",
+    "kind": "cloze",
+    "intro": "Wechselpräpositionen (in, an, auf, über, unter, vor, hinter, neben, zwischen) take the accusative for direction (Wohin?) and the dative for location (Wo?).",
+    "items": [
+     "a2-two-way-prepositions-1",
+     "a2-two-way-prepositions-2",
+     "a2-two-way-prepositions-3",
+     "a2-two-way-prepositions-4",
+     "a2-two-way-prepositions-5",
+     "a2-two-way-prepositions-6",
+     "a2-two-way-prepositions-7",
+     "a2-two-way-prepositions-8",
+     "a2-two-way-prepositions-9",
+     "a2-two-way-prepositions-10",
+     "a2-two-way-prepositions-11"
+    ]
+   },
+   {
+    "id": "a2-adjective-endings-definite",
+    "name": "Adjective endings after der/die/das",
+    "kind": "cloze",
+    "intro": "After the definite article (der/die/das, den, dem), adjectives take the weak endings -e or -en. The ending is -e in the nominative singular and accusative neuter/feminine, and -en everywhere else.",
+    "items": [
+     "a2-adjective-endings-definite-1",
+     "a2-adjective-endings-definite-2",
+     "a2-adjective-endings-definite-3",
+     "a2-adjective-endings-definite-4",
+     "a2-adjective-endings-definite-5",
+     "a2-adjective-endings-definite-6",
+     "a2-adjective-endings-definite-7",
+     "a2-adjective-endings-definite-8",
+     "a2-adjective-endings-definite-9",
+     "a2-adjective-endings-definite-10"
+    ]
+   },
+   {
+    "id": "a2-adjective-endings-indefinite",
+    "name": "Adjective endings after ein/eine/kein/mein",
+    "kind": "cloze",
+    "intro": "After ein/eine/kein/mein the adjective takes the strong ending where the article has no ending (masc. nom. -er, fem. nom. -e, neut. nom./acc. -es, masc. acc. -en) and -en in the dative and plural.",
+    "items": [
+     "a2-adjective-endings-indefinite-1",
+     "a2-adjective-endings-indefinite-2",
+     "a2-adjective-endings-indefinite-3",
+     "a2-adjective-endings-indefinite-4",
+     "a2-adjective-endings-indefinite-5",
+     "a2-adjective-endings-indefinite-6",
+     "a2-adjective-endings-indefinite-7",
+     "a2-adjective-endings-indefinite-8",
+     "a2-adjective-endings-indefinite-9",
+     "a2-adjective-endings-indefinite-10"
+    ]
+   },
+   {
+    "id": "a2-preterite",
+    "name": "Preterite (Präteritum)",
+    "kind": "cloze",
+    "intro": "The Präteritum is the simple past, common in writing. Learn the forms of sein (war), haben (hatte), and the modal and strong verbs: ging, kam, sah, konnte, musste.",
+    "items": [
+     "a2-preterite-1",
+     "a2-preterite-2",
+     "a2-preterite-3",
+     "a2-preterite-4",
+     "a2-preterite-5",
+     "a2-preterite-6",
+     "a2-preterite-7",
+     "a2-preterite-8",
+     "a2-preterite-9",
+     "a2-preterite-10"
+    ]
+   },
+   {
+    "id": "a2-subordinate-clauses",
+    "name": "Subordinate clauses (dass / weil / wenn)",
+    "kind": "cloze",
+    "intro": "After the conjunctions dass, weil, wenn (and ob), the conjugated verb moves to the end of the clause.",
+    "items": [
+     "a2-subordinate-clauses-1",
+     "a2-subordinate-clauses-2",
+     "a2-subordinate-clauses-3",
+     "a2-subordinate-clauses-4",
+     "a2-subordinate-clauses-5",
+     "a2-subordinate-clauses-6",
+     "a2-subordinate-clauses-7",
+     "a2-subordinate-clauses-8",
+     "a2-subordinate-clauses-9",
+     "a2-subordinate-clauses-10"
+    ]
+   },
+   {
+    "id": "a2-comparative-superlative",
+    "name": "Comparative and superlative",
+    "kind": "cloze",
+    "intro": "The comparative adds -er (schnell → schneller), the superlative uses am -sten or the + -ste. Learn the irregulars gern/lieber/am liebsten and gut/besser/am besten.",
+    "items": [
+     "a2-comparative-superlative-1",
+     "a2-comparative-superlative-2",
+     "a2-comparative-superlative-3",
+     "a2-comparative-superlative-4",
+     "a2-comparative-superlative-5",
+     "a2-comparative-superlative-6",
+     "a2-comparative-superlative-7",
+     "a2-comparative-superlative-8",
+     "a2-comparative-superlative-9",
+     "a2-comparative-superlative-10"
+    ]
+   },
+   {
+    "id": "a2-reflexive-verbs",
+    "name": "Reflexive verbs (accusative)",
+    "kind": "cloze",
+    "intro": "Reflexive verbs use a pronoun that refers back to the subject: mich, dich, sich, uns, euch, sich. Common ones: sich freuen, sich interessieren, sich treffen, sich beeilen, sich waschen, sich erinnern.",
+    "items": [
+     "a2-reflexive-verbs-1",
+     "a2-reflexive-verbs-2",
+     "a2-reflexive-verbs-3",
+     "a2-reflexive-verbs-4",
+     "a2-reflexive-verbs-5",
+     "a2-reflexive-verbs-6",
+     "a2-reflexive-verbs-7",
+     "a2-reflexive-verbs-8",
+     "a2-reflexive-verbs-9",
+     "a2-reflexive-verbs-10"
+    ]
+   },
+   {
+    "id": "a2-konjunktiv2-basics",
+    "name": "Konjunktiv II basics",
+    "kind": "cloze",
+    "intro": "Konjunktiv II expresses polite requests and unreal conditions. Common forms: hätte (haben), wäre (sein), würde + infinitive (for most other verbs).",
+    "items": [
+     "a2-konjunktiv2-basics-1",
+     "a2-konjunktiv2-basics-2",
+     "a2-konjunktiv2-basics-3",
+     "a2-konjunktiv2-basics-4",
+     "a2-konjunktiv2-basics-5",
+     "a2-konjunktiv2-basics-6",
+     "a2-konjunktiv2-basics-7",
+     "a2-konjunktiv2-basics-8",
+     "a2-konjunktiv2-basics-9",
+     "a2-konjunktiv2-basics-10"
+    ]
+   },
+   {
+    "id": "a2-relative-clauses",
+    "name": "Relative clauses",
+    "kind": "cloze",
+    "intro": "Relative clauses are introduced by a relative pronoun (der, die, das, den, dem …) that agrees with the noun it refers to. The conjugated verb goes to the end of the clause.",
+    "items": [
+     "a2-relative-clauses-1",
+     "a2-relative-clauses-2",
+     "a2-relative-clauses-3",
+     "a2-relative-clauses-4",
+     "a2-relative-clauses-5",
+     "a2-relative-clauses-6",
+     "a2-relative-clauses-7",
+     "a2-relative-clauses-8",
+     "a2-relative-clauses-9",
+     "a2-relative-clauses-10"
+    ]
+   },
+   {
+    "id": "a2-genitive",
+    "name": "Genitive case",
+    "kind": "cloze",
+    "intro": "The genitive shows possession. Masculine and neuter nouns take des + -s (des Mannes), feminine and plural take der (der Frau, der Kinder).",
+    "items": [
+     "a2-genitive-1",
+     "a2-genitive-2",
+     "a2-genitive-3",
+     "a2-genitive-4",
+     "a2-genitive-5",
+     "a2-genitive-6",
+     "a2-genitive-7",
+     "a2-genitive-8",
+     "a2-genitive-9",
+     "a2-genitive-10"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "b1",
+  "name": "B1",
+  "title": "Intermediate",
+  "groups": [
+   {
+    "id": "b1-infinitive-zu",
+    "name": "Infinitive with zu",
+    "kind": "cloze",
+    "intro": "Use zu + infinitive after verbs like vergessen, versuchen, vorhaben and after expressions like Es ist wichtig. With separable verbs, zu goes between the prefix and the stem: aufstehen -> aufzustehen.",
+    "items": [
+     "b1-infinitive-zu-1",
+     "b1-infinitive-zu-2",
+     "b1-infinitive-zu-3",
+     "b1-infinitive-zu-4",
+     "b1-infinitive-zu-5",
+     "b1-infinitive-zu-6",
+     "b1-infinitive-zu-7",
+     "b1-infinitive-zu-8",
+     "b1-infinitive-zu-9"
+    ]
+   },
+   {
+    "id": "b1-um-zu-damit",
+    "name": "um ... zu and damit",
+    "kind": "cloze",
+    "intro": "Use um ... zu + infinitive when both clauses have the same subject. When the subjects are different, use damit + a full clause.",
+    "items": [
+     "b1-um-zu-damit-1",
+     "b1-um-zu-damit-2",
+     "b1-um-zu-damit-3",
+     "b1-um-zu-damit-4",
+     "b1-um-zu-damit-5",
+     "b1-um-zu-damit-6",
+     "b1-um-zu-damit-7",
+     "b1-um-zu-damit-8",
+     "b1-um-zu-damit-9"
+    ]
+   },
+   {
+    "id": "b1-temporal-clauses",
+    "name": "Temporal clauses",
+    "kind": "cloze",
+    "intro": "als is used for a single event in the past, wenn for repeated events or the future, nachdem for an earlier action, bevor for a later action, and während for something happening at the same time. The conjugated verb goes to the end of the clause.",
+    "items": [
+     "b1-temporal-clauses-1",
+     "b1-temporal-clauses-2",
+     "b1-temporal-clauses-3",
+     "b1-temporal-clauses-4",
+     "b1-temporal-clauses-5",
+     "b1-temporal-clauses-6",
+     "b1-temporal-clauses-7",
+     "b1-temporal-clauses-8"
+    ]
+   },
+   {
+    "id": "b1-indirect-questions",
+    "name": "Indirect questions",
+    "kind": "cloze",
+    "intro": "In indirect questions the verb moves to the end. Use ob for yes/no questions and a question word (wann, wo, wie, was) when the question starts with one.",
+    "items": [
+     "b1-indirect-questions-1",
+     "b1-indirect-questions-2",
+     "b1-indirect-questions-3",
+     "b1-indirect-questions-4",
+     "b1-indirect-questions-5",
+     "b1-indirect-questions-6",
+     "b1-indirect-questions-7",
+     "b1-indirect-questions-8"
+    ]
+   },
+   {
+    "id": "b1-plusquamperfekt",
+    "name": "Plusquamperfekt",
+    "kind": "cloze",
+    "intro": "The Plusquamperfekt describes the earlier of two past events. Use hatte or war (Präteritum of haben/sein) + the past participle. Use war with verbs that form the perfect with sein.",
+    "items": [
+     "b1-plusquamperfekt-1",
+     "b1-plusquamperfekt-2",
+     "b1-plusquamperfekt-3",
+     "b1-plusquamperfekt-4",
+     "b1-plusquamperfekt-5",
+     "b1-plusquamperfekt-6",
+     "b1-plusquamperfekt-7",
+     "b1-plusquamperfekt-8"
+    ]
+   },
+   {
+    "id": "b1-passive",
+    "name": "Passive voice",
+    "kind": "cloze",
+    "intro": "The passive is formed with werden + past participle: Das Haus wird gebaut. In the past use wurde/wurden + past participle: Das Haus wurde gebaut.",
+    "items": [
+     "b1-passive-1",
+     "b1-passive-2",
+     "b1-passive-3",
+     "b1-passive-4",
+     "b1-passive-5",
+     "b1-passive-6",
+     "b1-passive-7",
+     "b1-passive-8"
+    ]
+   },
+   {
+    "id": "b1-future",
+    "name": "Future",
+    "kind": "cloze",
+    "intro": "Futur I is werden + infinitive: Ich werde dich anrufen. In everyday German the present tense is very often used for the future: Morgen gehe ich zum Arzt.",
+    "items": [
+     "b1-future-1",
+     "b1-future-2",
+     "b1-future-3",
+     "b1-future-4",
+     "b1-future-5",
+     "b1-future-6",
+     "b1-future-7",
+     "b1-future-8"
+    ]
+   },
+   {
+    "id": "b1-konjunktiv2-full",
+    "name": "Konjunktiv II",
+    "kind": "cloze",
+    "intro": "Konjunktiv II expresses unreal situations and polite requests. Learn hätte, wäre, würde. For the past, use hätte/wäre + past participle: Ich hätte dir geholfen.",
+    "items": [
+     "b1-konjunktiv2-full-1",
+     "b1-konjunktiv2-full-2",
+     "b1-konjunktiv2-full-3",
+     "b1-konjunktiv2-full-4",
+     "b1-konjunktiv2-full-5",
+     "b1-konjunktiv2-full-6",
+     "b1-konjunktiv2-full-7",
+     "b1-konjunktiv2-full-8",
+     "b1-konjunktiv2-full-9"
+    ]
+   },
+   {
+    "id": "b1-verbs-with-prepositions",
+    "name": "Verbs with prepositions",
+    "kind": "cloze",
+    "intro": "Many German verbs take a fixed preposition. Learn them together: warten auf (+ Akk.), sich freuen auf/über (+ Akk.), denken an (+ Akk.), sich interessieren für (+ Akk.), Angst haben vor (+ Dat.).",
+    "items": [
+     "b1-verbs-with-prepositions-1",
+     "b1-verbs-with-prepositions-2",
+     "b1-verbs-with-prepositions-3",
+     "b1-verbs-with-prepositions-4",
+     "b1-verbs-with-prepositions-5",
+     "b1-verbs-with-prepositions-6",
+     "b1-verbs-with-prepositions-7",
+     "b1-verbs-with-prepositions-8",
+     "b1-verbs-with-prepositions-9"
+    ]
+   },
+   {
+    "id": "b1-connectors",
+    "name": "Connectors and word order",
+    "kind": "cloze",
+    "intro": "deshalb (therefore), trotzdem (nevertheless) and außerdem (besides) are adverbs: they take position 1, so the verb comes next (inversion). denn (because) is a coordinating conjunction and keeps normal word order.",
+    "items": [
+     "b1-connectors-1",
+     "b1-connectors-2",
+     "b1-connectors-3",
+     "b1-connectors-4",
+     "b1-connectors-5",
+     "b1-connectors-6",
+     "b1-connectors-7",
+     "b1-connectors-8"
+    ]
+   },
+   {
+    "id": "b1-genitive-prepositions",
+    "name": "Prepositions with the genitive",
+    "kind": "cloze",
+    "intro": "The prepositions wegen (because of), trotz (despite), während (during) and statt (instead of) take the genitive: wegen des Regens, trotz des Wetters, während der Pause, statt des Autos.",
+    "items": [
+     "b1-genitive-prepositions-1",
+     "b1-genitive-prepositions-2",
+     "b1-genitive-prepositions-3",
+     "b1-genitive-prepositions-4",
+     "b1-genitive-prepositions-5",
+     "b1-genitive-prepositions-6",
+     "b1-genitive-prepositions-7",
+     "b1-genitive-prepositions-8"
+    ]
+   },
+   {
+    "id": "b1-n-declension",
+    "name": "Weak masculine nouns (n-declension)",
+    "kind": "cloze",
+    "intro": "Some masculine nouns (der Junge, der Student, der Kollege, der Nachbar, der Kunde, der Mensch) add -en or -n in every case except the nominative singular: der Junge, den Jungen, dem Jungen, des Jungen.",
+    "items": [
+     "b1-n-declension-1",
+     "b1-n-declension-2",
+     "b1-n-declension-3",
+     "b1-n-declension-4",
+     "b1-n-declension-5",
+     "b1-n-declension-6",
+     "b1-n-declension-7",
+     "b1-n-declension-8",
+     "b1-n-declension-9"
+    ]
+   }
+  ]
+ }
+]
