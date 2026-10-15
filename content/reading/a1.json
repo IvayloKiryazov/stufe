@@ -1,0 +1,44 @@
+{
+  "level": "a1",
+  "passages": [
+    {
+      "id": "a1-mein-tag",
+      "title": "Mein Tag",
+      "text": "Ich heiße Anna und ich wohne in Berlin. Ich stehe um sieben Uhr auf. Ich trinke Kaffee und esse ein Brot. Dann gehe ich zur Arbeit. Ich arbeite in einem Büro. Am Abend lese ich ein Buch.",
+      "glossary": [
+        ["aufstehen", "to get up"],
+        ["trinken", "to drink"],
+        ["das Brot", "bread"],
+        ["die Arbeit", "work"],
+        ["das Büro", "office"],
+        ["der Abend", "evening"],
+        ["lesen", "to read"]
+      ],
+      "questions": [
+        { "q": "Wo wohnt Anna?", "options": ["in Berlin", "in München", "in Hamburg"], "answer": 0 },
+        { "q": "Wann steht sie auf?", "options": ["um sieben Uhr", "um sechs Uhr", "um acht Uhr"], "answer": 0 },
+        { "q": "Was trinkt sie?", "options": ["Kaffee", "Tee", "Wasser"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "a1-supermarkt",
+      "title": "Im Supermarkt",
+      "text": "Ich gehe in den Supermarkt. Ich brauche Milch, Brot und Äpfel. Die Milch kostet einen Euro. Ich bezahle an der Kasse. Der Verkäufer ist freundlich.",
+      "glossary": [
+        ["der Supermarkt", "supermarket"],
+        ["brauchen", "to need"],
+        ["die Milch", "milk"],
+        ["der Apfel", "apple"],
+        ["kosten", "to cost"],
+        ["bezahlen", "to pay"],
+        ["die Kasse", "checkout"],
+        ["der Verkäufer", "shop assistant"]
+      ],
+      "questions": [
+        { "q": "Was braucht die Person?", "options": ["Milch, Brot und Äpfel", "nur Brot", "Kaffee und Kuchen"], "answer": 0 },
+        { "q": "Wo bezahlt sie?", "options": ["an der Kasse", "an der Tür", "am Eingang"], "answer": 0 },
+        { "q": "Wie ist der Verkäufer?", "options": ["freundlich", "müde", "traurig"], "answer": 0 }
+      ]
+    }
+  ]
+}

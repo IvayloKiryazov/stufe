@@ -17,7 +17,8 @@ var ASSETS = [
   "js/app.js",
   "data/levels.json",
   "data/items.json",
-  "data/attribution.json"
+  "data/attribution.json",
+  "data/reading.json"
 ];
 
 self.addEventListener("install", function (e) {

@@ -1,0 +1,24 @@
+{
+  "level": "a2",
+  "passages": [
+    {
+      "id": "a2-wochenende",
+      "title": "Ein Wochenende in den Bergen",
+      "text": "Am Wochenende fahre ich mit meiner Familie in die Berge. Wir wandern gern und machen ein Picknick. Das Wetter ist schön, aber am Nachmittag regnet es. Deshalb gehen wir früh nach Hause. Am Abend kochen wir zusammen und sehen einen Film.",
+      "glossary": [
+        ["das Wochenende", "weekend"],
+        ["wandern", "to hike"],
+        ["das Picknick", "picnic"],
+        ["das Wetter", "weather"],
+        ["regnen", "to rain"],
+        ["deshalb", "therefore"],
+        ["zusammen", "together"]
+      ],
+      "questions": [
+        { "q": "Wohin fährt die Familie?", "options": ["in die Berge", "ans Meer", "in die Stadt"], "answer": 0 },
+        { "q": "Was macht die Familie gern?", "options": ["wandern", "schwimmen", "einkaufen"], "answer": 0 },
+        { "q": "Warum gehen sie früh nach Hause?", "options": ["weil es regnet", "weil sie müde sind", "weil sie Hunger haben"], "answer": 0 }
+      ]
+    }
+  ]
+}

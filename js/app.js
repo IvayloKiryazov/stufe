@@ -5,6 +5,7 @@
   var app = document.getElementById("app");
   var LEVELS = [];
   var BY = {}; // item id -> item
+  var READING = [];
   var LEVEL_OF = {}; // item id -> level index
   var sess = null;
   var confirmReset = false;
@@ -255,6 +256,7 @@
       '<div><button class="link" data-act="backup">Back up / restore progress</button></div>' +
       '<div><button class="link" data-act="progress">Progress by group</button></div>' +
       '<div><button class="link" data-act="grammar-list">Grammar library</button></div>' +
+      '<div><button class="link" data-act="reading">Reading</button></div>' +
       '<div><button class="link" data-act="stats">Stats</button></div>' +
       '<div><button class="link" data-act="projections">Projections</button></div>' +
       '<div><button class="link" data-act="extra">Extra study (ghosts)</button></div>' +
@@ -751,6 +753,74 @@
     startReviews(true, shuffle(g.items.slice()));
   }
 
+  /* ------------------------------------------------------------- reading */
+
+  function readingList() {
+    sess = null;
+    var byLevel = {};
+    READING.forEach(function (p) { (byLevel[p.level] = byLevel[p.level] || []).push(p); });
+    var body = LEVELS.map(function (L) {
+      var ps = byLevel[L.id];
+      if (!ps) return "";
+      return (
+        "<h2>" + esc(L.name) + " · " + esc(L.title) + "</h2>" +
+        ps.map(function (p) {
+          return (
+            '<div class="grp"><div class="grp-head"><span class="grp-name">' + esc(p.title) + "</span>" +
+            '<button class="link" data-act="read" data-id="' + esc(p.id) + '">Read</button></div></div>'
+          );
+        }).join("")
+      );
+    }).join("");
+    app.innerHTML =
+      "<h1>Reading</h1>" +
+      '<p class="tag">Short passages with a glossary and comprehension questions.</p>' +
+      (READING.length ? body : '<p class="note">No passages yet.</p>') +
+      '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+  }
+
+  function readerPassage(id) {
+    sess = null;
+    var p = READING.filter(function (x) { return x.id === id; })[0];
+    if (!p) { readingList(); return; }
+    var gloss = p.glossary.map(function (g) {
+      return '<p class="note"><b lang="de">' + esc(g[0]) + "</b> — " + esc(g[1]) + "</p>";
+    }).join("");
+    var qs = p.questions.map(function (q, qi) {
+      return (
+        '<div class="q"><p class="note" lang="de"><b>' + (qi + 1) + ".</b> " + esc(q.q) + "</p>" +
+        q.options.map(function (o, oi) {
+          return (
+            '<label class="opt"><input type="radio" name="q' + qi + '" value="' + oi + '"> ' + esc(o) + "</label>"
+          );
+        }).join("") + "</div>"
+      );
+    }).join("");
+    app.innerHTML =
+      "<h1>" + esc(p.title) + "</h1>" +
+      '<p class="tag">' + esc(p.level.toUpperCase()) + "</p>" +
+      '<div class="card"><p lang="de" class="passage">' + esc(p.text) + "</p>" +
+      '<div class="row" style="margin-top:10px">' + speakBtn(p.text, "\uD83D\uDD0A Listen") + "</div></div>" +
+      "<h2>Glossary</h2>" + gloss +
+      "<h2>Questions</h2>" + qs +
+      '<div class="row" style="margin-top:16px">' +
+      '<button class="primary" data-act="read-check" data-id="' + esc(id) + '">Check answers</button>' +
+      '<button data-act="reading">All passages</button><button data-act="home">Home</button></div>' +
+      '<div id="read-result"></div>';
+  }
+
+  function readCheck(id) {
+    var p = READING.filter(function (x) { return x.id === id; })[0];
+    if (!p) return;
+    var correct = 0;
+    p.questions.forEach(function (q, qi) {
+      var sel = document.querySelector('input[name="q' + qi + '"]:checked');
+      if (sel && parseInt(sel.value, 10) === q.answer) correct++;
+    });
+    var el = document.getElementById("read-result");
+    if (el) el.innerHTML = '<p class="note">' + correct + " / " + p.questions.length + " correct.</p>";
+  }
+
   /* --------------------------------------------------------------- stats */
 
   function showStats() {
@@ -884,6 +954,9 @@
     else if (a === "grammar-list") grammarList();
     else if (a === "grammar") grammarPoint(parseInt(b.getAttribute("data-level"), 10), b.getAttribute("data-group"));
     else if (a === "cram") cram(parseInt(b.getAttribute("data-level"), 10), b.getAttribute("data-group"));
+    else if (a === "reading") readingList();
+    else if (a === "read") readerPassage(b.getAttribute("data-id"));
+    else if (a === "read-check") readCheck(b.getAttribute("data-id"));
     else if (a === "stats") showStats();
     else if (a === "projections") projections();
     else if (a === "extra") extraStudy();
@@ -939,6 +1012,11 @@
         home();
       })
       .catch(function (e) { fail("Could not load the deck data." + (e ? " (" + (e.message || e) + ")" : "")); });
+
+    fetch("data/reading.json")
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (d) { READING = d || []; })
+      .catch(function () {});
 
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {

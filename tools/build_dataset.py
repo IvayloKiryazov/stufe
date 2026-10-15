@@ -197,6 +197,17 @@ def main() -> int:
             if len(parts) > 1 and parts[0] in ("der", "die", "das"):
                 it["mnemonic"] = gender_mnemonic(parts[1], parts[0])
 
+    # --- reading passages -------------------------------------------------
+    passages: list[dict] = []
+    for path in sorted((ROOT / "content" / "reading").glob("*.json")):
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        for p in doc.get("passages", []):
+            p["level"] = doc["level"]
+            passages.append(p)
+    (ROOT / "data" / "reading.json").write_text(
+        json.dumps(passages, ensure_ascii=False, indent=1), encoding="utf-8"
+    )
+
     # --- write outputs ----------------------------------------------------
     levels_out = [levels[lvl] for lvl in LEVEL_ORDER if levels[lvl]["groups"]]
     data_dir = ROOT / "data"

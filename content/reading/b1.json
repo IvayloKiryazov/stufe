@@ -1,0 +1,26 @@
+{
+  "level": "b1",
+  "passages": [
+    {
+      "id": "b1-umwelt",
+      "title": "Umwelt und Klima",
+      "text": "Immer mehr Menschen achten auf die Umwelt. Sie kaufen regionale Produkte, fahren mit dem Fahrrad und vermeiden Plastik. Auch die Regierung hat neue Gesetze beschlossen, um den Klimawandel zu bekämpfen. Kritiker sagen jedoch, dass diese Maßnahmen nicht ausreichen.",
+      "glossary": [
+        ["die Umwelt", "environment"],
+        ["vermeiden", "to avoid"],
+        ["die Regierung", "government"],
+        ["das Gesetz", "law"],
+        ["der Klimawandel", "climate change"],
+        ["bekämpfen", "to fight"],
+        ["der Kritiker", "critic"],
+        ["die Maßnahme", "measure"],
+        ["ausreichen", "to be enough"]
+      ],
+      "questions": [
+        { "q": "Worauf achten immer mehr Menschen?", "options": ["auf die Umwelt", "auf den Preis", "auf die Mode"], "answer": 0 },
+        { "q": "Was hat die Regierung beschlossen?", "options": ["neue Gesetze", "neue Steuern", "neue Straßen"], "answer": 0 },
+        { "q": "Was sagen Kritiker?", "options": ["Die Maßnahmen reichen nicht aus.", "Alles ist perfekt.", "Es gibt keine Probleme."], "answer": 0 }
+      ]
+    }
+  ]
+}
