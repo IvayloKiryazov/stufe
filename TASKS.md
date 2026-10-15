@@ -57,4 +57,4 @@ This mirrors the GitHub issue tracker; each epic is an issue.
 - [x] Accessibility audit (axe) + automated a11y test in CI
 - [x] Lighthouse CI (accessibility assertion)
 - [ ] Dark/light + reduced-motion audit
-- [ ] Contribution guide for adding grammar points
+- [x] Contribution guide for adding grammar points
