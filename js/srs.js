@@ -16,11 +16,17 @@
     grade: function (id, ok) {
       var prev = window.Store.entry(id);
       var box0 = prev ? prev.box : 0;
-      var prevCopy = prev ? { box: prev.box, due: prev.due } : null;
+      var lapses = prev ? prev.lapses || 0 : 0;
+      var prevCopy = prev ? { box: prev.box, due: prev.due, lapses: prev.lapses || 0 } : null;
+      if (!ok) lapses++;
       var box = ok
         ? Math.min(7, box0 + 1)
         : Math.max(1, box0 - (box0 >= 5 ? 2 : 1));
-      window.Store.set(id, { box: box, due: Date.now() + HOURS[box] * HOUR });
+      window.Store.set(id, {
+        box: box,
+        due: Date.now() + HOURS[box] * HOUR,
+        lapses: lapses,
+      });
       window.Store.save();
       return prevCopy;
     },

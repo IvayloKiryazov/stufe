@@ -40,8 +40,9 @@ This mirrors the GitHub issue tracker; each epic is an issue.
 - [x] Service worker + web manifest (offline / installable)
 - [x] Sentence attribution on cards + Credits & licenses screen (CC-BY)
 - [ ] Keyboard shortcuts help sheet
-- [ ] "Leeches" view (items failed most often)
-- [ ] Per-group progress detail + estimated finish date
+- [x] "Leeches" view (items failed most often)
+- [x] Per-group progress detail
+- [ ] Estimated finish date
 - [ ] Optional auto-play audio on reveal
 
 ## Epic 5 — Content scale-out to C1–C2

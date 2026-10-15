@@ -8,6 +8,7 @@
   var LEVEL_OF = {}; // item id -> level index
   var sess = null;
   var confirmReset = false;
+  var leechIds = [];
 
   /* ---------------------------------------------------------------- utils */
 
@@ -208,6 +209,8 @@
       '<label><input type="checkbox" id="set-auto" ' + (window.Store.settings.autoSpeak ? "checked" : "") + "> Auto-play audio when the answer is shown</label>" +
       '<label>New items per lesson <input type="number" id="set-batch" min="3" max="20" value="' + window.Store.settings.newPerLesson + '" style="width:5rem;margin-left:auto"></label>' +
       '<div><button class="link" data-act="backup">Back up / restore progress</button></div>' +
+      '<div><button class="link" data-act="progress">Progress by group</button></div>' +
+      '<div><button class="link" data-act="leeches">Leeches (hardest items)</button></div>' +
       '<div><button class="link" data-act="credits">Credits &amp; licenses</button></div>' +
       '<div><button class="link" data-act="reset">Reset all progress</button></div>' +
       "</div>";
@@ -273,11 +276,14 @@
 
   /* -------------------------------------------------------------- reviews */
 
-  function startReviews(practice) {
+  function startReviews(practice, explicit) {
     var now = Date.now();
-    var ids = practice
-      ? shuffle(Object.keys(window.Store.progress).filter(function (id) { return BY[id]; })).slice(0, 20)
-      : shuffle(dueItems(now));
+    var ids =
+      explicit && explicit.length
+        ? explicit.slice()
+        : practice
+        ? shuffle(Object.keys(window.Store.progress).filter(function (id) { return BY[id]; })).slice(0, 20)
+        : shuffle(dueItems(now));
     if (!ids.length) { home(); return; }
     sess = {
       mode: "review", practice: practice, queue: ids, total: ids.length,
@@ -431,6 +437,57 @@
     URL.revokeObjectURL(a.href);
   }
 
+  /* ------------------------------------------------------------- leeches */
+
+  function leeches() {
+    sess = null;
+    leechIds = Object.keys(window.Store.progress)
+      .filter(function (id) { return BY[id] && (window.Store.progress[id].lapses || 0) > 0; })
+      .sort(function (a, b) {
+        return (window.Store.progress[b].lapses || 0) - (window.Store.progress[a].lapses || 0);
+      });
+    var rows = leechIds.slice(0, 50).map(function (id) {
+      var it = BY[id];
+      var label = it.kind === "cloze" ? it.prompt + " → " + it.answer : it.en + " → " + it.de;
+      return '<p class="note"><b>' + (window.Store.progress[id].lapses || 0) + "×</b> " + esc(label) + "</p>";
+    }).join("");
+    app.innerHTML =
+      "<h1>Leeches</h1>" +
+      '<p class="tag">The items you get wrong most often.</p>' +
+      (leechIds.length
+        ? '<div class="row" style="margin-bottom:16px"><button class="primary" data-act="practice-leeches">Practice ' +
+          Math.min(20, leechIds.length) + "</button></div>"
+        : "") +
+      '<div class="card">' + (rows || '<p class="note">No leeches yet — nice.</p>') + "</div>" +
+      '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+  }
+
+  function progress() {
+    sess = null;
+    var cards = LEVELS.map(function (L, i) {
+      var open = unlocked(i);
+      var groups = L.groups.map(function (g) {
+        var total = g.items.length, passed = 0;
+        g.items.forEach(function (id) { if (window.SRS.passed(id)) passed++; });
+        var pct = total ? Math.round((passed / total) * 100) : 0;
+        return (
+          '<div style="margin:10px 0"><div class="lvl-meta">' + esc(g.name) + " — " + passed + " / " + total + "</div>" +
+          '<div class="bar"><div style="width:' + pct + '%"></div></div></div>'
+        );
+      }).join("");
+      return (
+        '<div class="card" style="margin-bottom:14px">' +
+        '<div class="lvl-head"><span class="lvl-name">' + esc(L.name) + " · " + esc(L.title) + "</span>" +
+        (open ? "" : '<span class="lvl-kind">locked</span>') + "</div>" + groups + "</div>"
+      );
+    }).join("");
+    app.innerHTML =
+      "<h1>Progress</h1>" +
+      '<p class="tag">Passed items per group.</p>' +
+      cards +
+      '<div class="row" style="margin-top:8px"><button class="primary" data-act="home">Back</button></div>';
+  }
+
   /* ------------------------------------------------------------- credits */
 
   function credits() {
@@ -491,6 +548,9 @@
     else if (a === "backup") backup();
     else if (a === "restore") restore();
     else if (a === "download") download();
+    else if (a === "progress") progress();
+    else if (a === "leeches") leeches();
+    else if (a === "practice-leeches") startReviews(true, shuffle(leechIds.slice()).slice(0, 20));
     else if (a === "credits") credits();
     else if (a === "reset") {
       if (!confirmReset) { confirmReset = true; b.textContent = "Click again to erase all progress"; }
