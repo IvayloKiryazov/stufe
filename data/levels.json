@@ -1160,5 +1160,207 @@
     ]
    }
   ]
+ },
+ {
+  "id": "b2",
+  "name": "B2",
+  "title": "Upper intermediate",
+  "groups": [
+   {
+    "id": "b2-konjunktiv2-vergangenheit",
+    "name": "Konjunktiv II: past",
+    "kind": "cloze",
+    "intro": "Past unreal: hätte/wäre (Konjunktiv II of haben/sein) + past participle. Use hätte for most verbs and wäre for verbs of motion/change plus sein, bleiben and werden.",
+    "items": [
+     "b2-konjunktiv2-vergangenheit-1",
+     "b2-konjunktiv2-vergangenheit-2",
+     "b2-konjunktiv2-vergangenheit-3",
+     "b2-konjunktiv2-vergangenheit-4",
+     "b2-konjunktiv2-vergangenheit-5",
+     "b2-konjunktiv2-vergangenheit-6",
+     "b2-konjunktiv2-vergangenheit-7",
+     "b2-konjunktiv2-vergangenheit-8",
+     "b2-konjunktiv2-vergangenheit-9",
+     "b2-konjunktiv2-vergangenheit-10"
+    ]
+   },
+   {
+    "id": "b2-irreale-bedingungen",
+    "name": "Unreal conditions",
+    "kind": "cloze",
+    "intro": "Unreal conditions use Konjunktiv II. A conditional can drop 'wenn': the verb then moves to the front (Hätte ich Zeit, …), and the main clause often starts with 'dann'.",
+    "items": [
+     "b2-irreale-bedingungen-1",
+     "b2-irreale-bedingungen-2",
+     "b2-irreale-bedingungen-3",
+     "b2-irreale-bedingungen-4",
+     "b2-irreale-bedingungen-5",
+     "b2-irreale-bedingungen-6",
+     "b2-irreale-bedingungen-7",
+     "b2-irreale-bedingungen-8"
+    ]
+   },
+   {
+    "id": "b2-konzessivsaetze",
+    "name": "Concessive clauses",
+    "kind": "cloze",
+    "intro": "'obwohl' and 'auch wenn' introduce a subordinate clause (verb goes last). 'trotzdem' and 'dennoch' are adverbs that begin the main clause, so the verb stays in second position.",
+    "items": [
+     "b2-konzessivsaetze-1",
+     "b2-konzessivsaetze-2",
+     "b2-konzessivsaetze-3",
+     "b2-konzessivsaetze-4",
+     "b2-konzessivsaetze-5",
+     "b2-konzessivsaetze-6",
+     "b2-konzessivsaetze-7",
+     "b2-konzessivsaetze-8"
+    ]
+   },
+   {
+    "id": "b2-als-ob",
+    "name": "Irreal comparison: als ob / als",
+    "kind": "cloze",
+    "intro": "For irreal comparisons use 'als ob' or 'als wenn' + Konjunktiv II (verb last after ob). With bare 'als' the verb comes second: Er tut, als wäre er krank.",
+    "items": [
+     "b2-als-ob-1",
+     "b2-als-ob-2",
+     "b2-als-ob-3",
+     "b2-als-ob-4",
+     "b2-als-ob-5",
+     "b2-als-ob-6",
+     "b2-als-ob-7",
+     "b2-als-ob-8"
+    ]
+   },
+   {
+    "id": "b2-zweiteilige-konnektoren",
+    "name": "Two-part connectors",
+    "kind": "cloze",
+    "intro": "Two-part connectors pair up: entweder … oder, sowohl … als auch, nicht nur … sondern auch, zwar … aber, je … desto (je + verb last, desto + comparative + verb second).",
+    "items": [
+     "b2-zweiteilige-konnektoren-1",
+     "b2-zweiteilige-konnektoren-2",
+     "b2-zweiteilige-konnektoren-3",
+     "b2-zweiteilige-konnektoren-4",
+     "b2-zweiteilige-konnektoren-5",
+     "b2-zweiteilige-konnektoren-6",
+     "b2-zweiteilige-konnektoren-7",
+     "b2-zweiteilige-konnektoren-8",
+     "b2-zweiteilige-konnektoren-9"
+    ]
+   },
+   {
+    "id": "b2-passiversatzformen",
+    "name": "Passive alternatives",
+    "kind": "cloze",
+    "intro": "The werden-passive can be replaced by: sein + zu + infinitive (= can/must be done), sich lassen + infinitive, or an active sentence with 'man'.",
+    "items": [
+     "b2-passiversatzformen-1",
+     "b2-passiversatzformen-2",
+     "b2-passiversatzformen-3",
+     "b2-passiversatzformen-4",
+     "b2-passiversatzformen-5",
+     "b2-passiversatzformen-6",
+     "b2-passiversatzformen-7",
+     "b2-passiversatzformen-8"
+    ]
+   },
+   {
+    "id": "b2-partizip-adjektive",
+    "name": "Participles as adjectives",
+    "kind": "cloze",
+    "intro": "Partizip I (infinitive + d) is active/ongoing (das schlafende Kind); Partizip II is passive/completed (die gebaute Brücke). They take normal adjective endings.",
+    "items": [
+     "b2-partizip-adjektive-1",
+     "b2-partizip-adjektive-2",
+     "b2-partizip-adjektive-3",
+     "b2-partizip-adjektive-4",
+     "b2-partizip-adjektive-5",
+     "b2-partizip-adjektive-6",
+     "b2-partizip-adjektive-7",
+     "b2-partizip-adjektive-8"
+    ]
+   },
+   {
+    "id": "b2-nominalisierung",
+    "name": "Nominalisation",
+    "kind": "cloze",
+    "intro": "Verbs and adjectives can become nouns. Infinitives become neuter nouns (das Lesen, das Schwimmen); adjectives take suffixes like -heit/-keit/-ung (die Freundlichkeit, die Lösung).",
+    "items": [
+     "b2-nominalisierung-1",
+     "b2-nominalisierung-2",
+     "b2-nominalisierung-3",
+     "b2-nominalisierung-4",
+     "b2-nominalisierung-5",
+     "b2-nominalisierung-6",
+     "b2-nominalisierung-7",
+     "b2-nominalisierung-8"
+    ]
+   },
+   {
+    "id": "b2-subjektive-modalverben",
+    "name": "Subjective modal verbs",
+    "kind": "cloze",
+    "intro": "Modal verbs express assumptions: müssen = very likely, dürfte = probably, könnte = possibly, soll = reportedly (what others say).",
+    "items": [
+     "b2-subjektive-modalverben-1",
+     "b2-subjektive-modalverben-2",
+     "b2-subjektive-modalverben-3",
+     "b2-subjektive-modalverben-4",
+     "b2-subjektive-modalverben-5",
+     "b2-subjektive-modalverben-6",
+     "b2-subjektive-modalverben-7",
+     "b2-subjektive-modalverben-8"
+    ]
+   },
+   {
+    "id": "b2-futur2",
+    "name": "Futur II",
+    "kind": "cloze",
+    "intro": "Futur II = werden + past participle + haben/sein. It describes an action completed in the future, or an assumption about the past (Er wird angekommen sein).",
+    "items": [
+     "b2-futur2-1",
+     "b2-futur2-2",
+     "b2-futur2-3",
+     "b2-futur2-4",
+     "b2-futur2-5",
+     "b2-futur2-6",
+     "b2-futur2-7",
+     "b2-futur2-8"
+    ]
+   },
+   {
+    "id": "b2-relativsaetze-was-wo",
+    "name": "Relative clauses: was, wo, wer",
+    "kind": "cloze",
+    "intro": "'was' is used after alles, nichts, etwas or to refer to a whole clause; 'wo' replaces a place preposition; 'wer' introduces a free relative clause as the subject (Wer …, der …).",
+    "items": [
+     "b2-relativsaetze-was-wo-1",
+     "b2-relativsaetze-was-wo-2",
+     "b2-relativsaetze-was-wo-3",
+     "b2-relativsaetze-was-wo-4",
+     "b2-relativsaetze-was-wo-5",
+     "b2-relativsaetze-was-wo-6",
+     "b2-relativsaetze-was-wo-7",
+     "b2-relativsaetze-was-wo-8"
+    ]
+   },
+   {
+    "id": "b2-adjektive-praepositionen",
+    "name": "Adjectives with fixed prepositions",
+    "kind": "cloze",
+    "intro": "Many adjectives govern a fixed preposition: interessiert an, stolz auf, abhängig von, Angst vor, bekannt für, zufrieden mit, verantwortlich für, gespannt auf.",
+    "items": [
+     "b2-adjektive-praepositionen-1",
+     "b2-adjektive-praepositionen-2",
+     "b2-adjektive-praepositionen-3",
+     "b2-adjektive-praepositionen-4",
+     "b2-adjektive-praepositionen-5",
+     "b2-adjektive-praepositionen-6",
+     "b2-adjektive-praepositionen-7",
+     "b2-adjektive-praepositionen-8"
+    ]
+   }
+  ]
  }
 ]
