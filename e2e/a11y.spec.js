@@ -6,6 +6,7 @@ const SCREENS = [
   { name: "home", open: null },
   { name: "lesson", open: '[data-act="lessons"]', wait: ".answer" },
   { name: "progress", open: '[data-act="progress"]', wait: "h1" },
+  { name: "grammar library", open: '[data-act="grammar-list"]', wait: "h1" },
   { name: "stats", open: '[data-act="stats"]', wait: ".heat" },
   { name: "projections", open: '[data-act="projections"]', wait: "h1" },
   { name: "extra study", open: '[data-act="extra"]', wait: "h1" },

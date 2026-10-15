@@ -254,6 +254,7 @@
       '<label>Daily review goal <input type="number" id="set-goal-rev" min="0" max="1000" value="' + window.Store.settings.goalReviews + '" style="width:5rem;margin-left:auto"></label>' +
       '<div><button class="link" data-act="backup">Back up / restore progress</button></div>' +
       '<div><button class="link" data-act="progress">Progress by group</button></div>' +
+      '<div><button class="link" data-act="grammar-list">Grammar library</button></div>' +
       '<div><button class="link" data-act="stats">Stats</button></div>' +
       '<div><button class="link" data-act="projections">Projections</button></div>' +
       '<div><button class="link" data-act="extra">Extra study (ghosts)</button></div>' +
@@ -689,6 +690,67 @@
       '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
   }
 
+  /* ------------------------------------------------------------- grammar */
+
+  function grammarList() {
+    sess = null;
+    var body = LEVELS.map(function (L, i) {
+      var gs = L.groups.filter(function (g) { return g.kind === "cloze"; });
+      if (!gs.length) return "";
+      return (
+        "<h2>" + esc(L.name) + " · " + esc(L.title) + "</h2>" +
+        gs.map(function (g) {
+          var passed = 0;
+          g.items.forEach(function (id) { if (window.SRS.passed(id)) passed++; });
+          return (
+            '<div class="grp"><div class="grp-head"><span class="grp-name">' + esc(g.name) + "</span>" +
+            '<button class="link" data-act="grammar" data-level="' + i + '" data-group="' + esc(g.id) + '">Open</button></div>' +
+            '<div class="lvl-meta">' + passed + " / " + g.items.length + " passed</div></div>"
+          );
+        }).join("")
+      );
+    }).join("");
+    app.innerHTML =
+      "<h1>Grammar</h1>" +
+      '<p class="tag">Study a point, see the rule and examples.</p>' +
+      body +
+      '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+  }
+
+  function grammarPoint(li, gid) {
+    sess = null;
+    var L = LEVELS[li];
+    var g = L && L.groups.filter(function (x) { return x.id === gid; })[0];
+    if (!g) { home(); return; }
+    var examples = g.items.slice(0, 8).map(function (id) {
+      var it = BY[id];
+      if (!it) return "";
+      if (it.kind === "cloze") {
+        return (
+          '<p class="note" lang="de">' + esc(it.prompt.replace("___", it.answer)) + "</p>" +
+          '<p class="note">' + esc(it.en) + "</p>"
+        );
+      }
+      return '<p class="note" lang="de">' + artHtml(it.de) + " — " + esc(it.en) + "</p>";
+    }).join("");
+    app.innerHTML =
+      "<h1>" + esc(g.name) + "</h1>" +
+      '<p class="tag">' + esc(L.name) + " · " + esc(L.title) + "</p>" +
+      '<div class="rule"><b>Rule</b>' + esc(g.intro) + "</div>" +
+      "<h2>Examples</h2>" +
+      '<div class="card">' + (examples || '<p class="note">No examples.</p>') + "</div>" +
+      '<div class="row" style="margin-top:16px">' +
+      '<button class="primary" data-act="cram" data-level="' + li + '" data-group="' + esc(g.id) + '">Cram this point</button>' +
+      '<button data-act="grammar-list">All grammar</button>' +
+      '<button data-act="home">Home</button></div>';
+  }
+
+  function cram(li, gid) {
+    var g = LEVELS[li] && LEVELS[li].groups.filter(function (x) { return x.id === gid; })[0];
+    if (!g) return;
+    startReviews(true, shuffle(g.items.slice()));
+  }
+
   /* --------------------------------------------------------------- stats */
 
   function showStats() {
@@ -819,6 +881,9 @@
     else if (a === "restore") restore();
     else if (a === "download") download();
     else if (a === "progress") progress();
+    else if (a === "grammar-list") grammarList();
+    else if (a === "grammar") grammarPoint(parseInt(b.getAttribute("data-level"), 10), b.getAttribute("data-group"));
+    else if (a === "cram") cram(parseInt(b.getAttribute("data-level"), 10), b.getAttribute("data-group"));
     else if (a === "stats") showStats();
     else if (a === "projections") projections();
     else if (a === "extra") extraStudy();

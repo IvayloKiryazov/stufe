@@ -36,3 +36,12 @@ test("group browser expands a level and starts a group lesson", async ({ page })
   await expect(page.locator(".rule b")).toBeVisible();
   await expect(page.locator(".answer")).toBeVisible();
 });
+
+test("grammar point page opens and cram starts a review", async ({ page }) => {
+  await page.goto("/");
+  await page.click('[data-act="grammar-list"]');
+  await page.locator('[data-act="grammar"]').first().click();
+  await expect(page.locator(".rule b")).toBeVisible();
+  await page.click('[data-act="cram"]');
+  await expect(page.locator("#ans")).toBeVisible();
+});
