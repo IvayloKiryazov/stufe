@@ -1,0 +1,50 @@
+"""Validate the generated deck (data/items.json + data/levels.json)."""
+
+import json
+import re
+import unittest
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+ARTICLE = re.compile(r"^(der|die|das) ")
+
+
+class DatasetTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.items = json.loads((ROOT / "data" / "items.json").read_text(encoding="utf-8"))
+        cls.levels = json.loads((ROOT / "data" / "levels.json").read_text(encoding="utf-8"))
+
+    def test_ids_are_unique(self):
+        ids = [i["id"] for i in self.items]
+        self.assertEqual(len(ids), len(set(ids)))
+
+    def test_cloze_items_have_blank_and_answer(self):
+        for i in self.items:
+            if i["kind"] == "cloze":
+                self.assertIn("___", i["prompt"], i["id"])
+                self.assertTrue(i["answer"].strip(), i["id"])
+
+    def test_nouns_carry_an_article(self):
+        for i in self.items:
+            if i["kind"] == "noun":
+                self.assertRegex(i["de"], ARTICLE, i["id"])
+
+    def test_every_level_reference_resolves(self):
+        by_id = {i["id"] for i in self.items}
+        for level in self.levels:
+            for group in level["groups"]:
+                self.assertTrue(group["items"], level["id"] + "/" + group["id"])
+                for item_id in group["items"]:
+                    self.assertIn(item_id, by_id)
+
+    def test_items_have_required_fields(self):
+        for i in self.items:
+            self.assertTrue(i.get("level"), i["id"])
+            self.assertTrue(i.get("group"), i["id"])
+            self.assertTrue(i.get("groupName"), i["id"])
+            self.assertIn(i["kind"], {"noun", "verb", "cloze"}, i["id"])
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -64,6 +64,20 @@ python3 build_dataset.py     # merge content/ -> data/items.json + levels.json
 
 See [`tools/README.md`](tools/README.md) for details and licensing.
 
+## Testing
+
+```bash
+# pipeline + dataset validation (standard library only)
+python3 -m unittest discover -s tests -v
+
+# browser smoke test (needs Node)
+npm install
+npx playwright install chromium
+npm test
+```
+
+CI runs both on every push and pull request (`.github/workflows/ci.yml`).
+
 ## Data sources and licenses
 
 Code: **MIT** (see `LICENSE`).

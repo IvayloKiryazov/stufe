@@ -1,0 +1,12 @@
+{
+  "name": "stufe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Spaced repetition for German vocabulary and grammar",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0"
+  }
+}
