@@ -8,6 +8,7 @@ const SCREENS = [
   { name: "progress", open: '[data-act="progress"]', wait: "h1" },
   { name: "stats", open: '[data-act="stats"]', wait: ".heat" },
   { name: "projections", open: '[data-act="projections"]', wait: "h1" },
+  { name: "extra study", open: '[data-act="extra"]', wait: "h1" },
   { name: "leeches", open: '[data-act="leeches"]', wait: "h1" },
   { name: "help", open: '[data-act="help"]', wait: "h1" },
   { name: "credits", open: '[data-act="credits"]', wait: "#credits-list" },

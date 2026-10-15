@@ -250,6 +250,7 @@
       '<div><button class="link" data-act="progress">Progress by group</button></div>' +
       '<div><button class="link" data-act="stats">Stats</button></div>' +
       '<div><button class="link" data-act="projections">Projections</button></div>' +
+      '<div><button class="link" data-act="extra">Extra study (ghosts)</button></div>' +
       '<div><button class="link" data-act="leeches">Leeches (hardest items)</button></div>' +
       '<div><button class="link" data-act="help">Keyboard shortcuts</button></div>' +
       '<div><button class="link" data-act="credits">Credits &amp; licenses</button></div>' +
@@ -625,6 +626,31 @@
       '<div class="row" style="margin-top:8px"><button class="primary" data-act="home">Back</button></div>';
   }
 
+  /* ---------------------------------------------------------- extra study */
+
+  function extraStudy() {
+    sess = null;
+    var learned = Object.keys(window.Store.progress).filter(function (id) { return BY[id]; });
+    var passed = learned.filter(function (id) { return window.SRS.passed(id); });
+    var leeches = learned.filter(function (id) { return (window.Store.progress[id].lapses || 0) > 0; });
+    function btn(act, label, n, disabled) {
+      return (
+        '<button class="primary" data-act="' + act + '" ' + (disabled ? "disabled" : "") +
+        ' style="margin:0 0 10px">' + esc(label) + " (" + n + ")</button>"
+      );
+    }
+    app.innerHTML =
+      "<h1>Extra study</h1>" +
+      '<p class="tag">Practice without changing your schedule (ghosts).</p>' +
+      '<div class="card">' +
+      btn("study-leeches", "Leeches", Math.min(20, leeches.length), !leeches.length) +
+      btn("study-passed", "Passed items", Math.min(20, passed.length), !passed.length) +
+      btn("study-learned", "Any learned item", Math.min(20, learned.length), !learned.length) +
+      '<p class="note">None of these affect your SRS schedule.</p>' +
+      "</div>" +
+      '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+  }
+
   /* --------------------------------------------------------- projections */
 
   function projections() {
@@ -789,6 +815,10 @@
     else if (a === "progress") progress();
     else if (a === "stats") showStats();
     else if (a === "projections") projections();
+    else if (a === "extra") extraStudy();
+    else if (a === "study-leeches") startReviews(true, shuffle(Object.keys(window.Store.progress).filter(function (id) { return BY[id] && (window.Store.progress[id].lapses || 0) > 0; })).slice(0, 20));
+    else if (a === "study-passed") startReviews(true, shuffle(Object.keys(window.Store.progress).filter(function (id) { return BY[id] && window.SRS.passed(id); })).slice(0, 20));
+    else if (a === "study-learned") startReviews(true);
     else if (a === "leeches") leeches();
     else if (a === "practice-leeches") startReviews(true, shuffle(leechIds.slice()).slice(0, 20));
     else if (a === "help") help();
