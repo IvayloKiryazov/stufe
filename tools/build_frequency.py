@@ -112,12 +112,14 @@ def extract_noun(entry: dict) -> dict | None:
     gloss, example = _gloss_and_example(entry)
     if not gloss or _is_derived(entry):
         return None
+    ipa = next((s.get("ipa") for s in entry.get("sounds", []) if s.get("ipa")), "")
     return {
         "word": word,
         "article": article,
         "plural": _plural(entry),
         "gloss": gloss,
         "example": example,
+        "ipa": ipa,
     }
 
 
@@ -196,6 +198,7 @@ def main() -> int:
             "de": f"{info['article']} {info['word']}",
             "en": info["gloss"],
             "plural": plural,
+            "ipa": info.get("ipa", ""),
             "sentence_de": sentence_de,
             "sentence_en": sentence_en,
             "note": f"Frequency rank {rank}",

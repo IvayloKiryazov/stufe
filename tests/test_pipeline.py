@@ -96,6 +96,7 @@ class ExtractNounTest(unittest.TestCase):
                     ],
                 }
             ],
+            "sounds": [{"ipa": "/haʊs/"}],
         }
         entry.update(over)
         return entry
@@ -105,6 +106,7 @@ class ExtractNounTest(unittest.TestCase):
         self.assertEqual(info["article"], "das")
         self.assertEqual(info["plural"], "Häuser")
         self.assertEqual(info["gloss"], "house")
+        self.assertEqual(info["ipa"], "/haʊs/")
         self.assertEqual(info["example"], ("Das Haus ist groß.", "The house is big."))
 
     def test_rejects_non_nouns(self):

@@ -88,9 +88,11 @@
     if (it.kind === "noun") {
       out += '<p class="answer" lang="de">' + artHtml(it.de) + "</p>";
       if (it.plural) out += '<p class="forms" lang="de">Plural: ' + artHtml(it.plural) + "</p>";
+      if (it.ipa) out += '<p class="forms">' + esc(it.ipa) + "</p>";
     } else if (it.kind === "verb") {
       out += '<p class="answer" lang="de">' + esc(it.de) + "</p>";
       if (it.forms) out += '<p class="forms" lang="de">' + esc(it.forms) + "</p>";
+      if (it.ipa) out += '<p class="forms">' + esc(it.ipa) + "</p>";
       if (it.conjugation && it.conjugation.present) {
         var pr = it.conjugation.present;
         out += '<p class="conj" lang="de">ich ' + esc(pr[0]) + " · du " + esc(pr[1]) + " · er " + esc(pr[2]) +
