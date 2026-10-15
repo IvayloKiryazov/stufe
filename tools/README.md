@@ -13,22 +13,20 @@ python3 build_dataset.py     # -> data/items.json, data/levels.json, data/attrib
 
 `fetch_sources.py` skips files that already exist; pass `--force` to refresh.
 
-## Experimental: the frequency deck
+## Frequency deck (POS-aware)
 
-`build_vocab.py` turns the frequency list into a large "core vocabulary" cloze
-deck. It is **opt-in and not shipped by default**:
+The core-vocabulary deck is built from the **kaikki.org Wiktionary extract**, so
+every item is confirmed to be a noun (no pronoun/verb homographs):
 
 ```bash
-python3 build_vocab.py --limit 2500          # -> data/vocab_frequency.json
-python3 build_dataset.py --frequency         # merge it into data/
+python3 fetch_kaikki.py      # ~1.1 GB into data/raw/ (gitignored)
+python3 build_frequency.py   # -> data/vocab_frequency.json
+python3 build_dataset.py --frequency
 ```
 
-It is off by default because the upstream frequency list is lowercased and not
-POS-tagged, so a lowercased word can collide with a rarer noun (e.g. the pronoun
-`es` vs. the noun `das Es`). The script filters hard (determiner-led noun
-phrases only, function-word stoplist) but still lets some nominalised verbs
-through. Doing this properly needs a POS-tagged source (e.g. a Wiktionary
-extract) — see `TASKS.md`.
+`build_frequency.py` matches the most frequent words against Wiktionary noun
+entries and pulls the article, plural, English gloss and an example sentence
+(with translation) from the extract. It is opt-in because the source is large.
 
 ## Sources
 
@@ -37,6 +35,7 @@ extract) — see `TASKS.md`.
 | `data/raw/frequency.txt` | hermitdave/FrequencyWords | MIT |
 | `data/raw/nouns.csv` | gambolputty/german-nouns | CC BY-SA 4.0 |
 | `data/raw/deu.txt` | Tatoeba (via manythings.org) | CC BY 2.0 FR |
+| `data/raw/kaikki-de.jsonl` | kaikki.org (Wiktionary) | CC BY-SA 4.0 |
 
 ## Content format (`content/`)
 

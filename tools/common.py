@@ -128,3 +128,16 @@ def find_example(
         if hit:
             return hit
     return None
+
+
+def blank_sentence(sentence: str, surface: str) -> tuple[str, str] | None:
+    """Replace a mid-sentence occurrence of ``surface`` with ___ .
+
+    Returns (prompt, answer) or None. Sentence-initial occurrences are skipped
+    because capitalisation there is ambiguous.
+    """
+    for m in re.finditer(r"\b" + re.escape(surface) + r"\b", sentence):
+        if m.start() == 0:
+            continue
+        return sentence[: m.start()] + "___" + sentence[m.end():], m.group(0)
+    return None

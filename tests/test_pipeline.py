@@ -9,7 +9,8 @@ TOOLS = Path(__file__).resolve().parent.parent / "tools"
 sys.path.insert(0, str(TOOLS))
 
 import common  # noqa: E402
-from build_vocab import blank_sentence  # noqa: E402
+import build_frequency  # noqa: E402
+from common import blank_sentence  # noqa: E402
 
 
 def _temp_csv(text: str) -> Path:
@@ -74,6 +75,62 @@ class BlankSentenceTest(unittest.TestCase):
 
     def test_returns_none_when_absent(self):
         self.assertIsNone(blank_sentence("Der Mann liest.", "Haus"))
+
+
+class ExtractNounTest(unittest.TestCase):
+    def _entry(self, **over):
+        entry = {
+            "word": "Haus",
+            "pos": "noun",
+            "head_templates": [{"name": "de-noun", "args": {"1": "n,-:s"}}],
+            "forms": [
+                {"form": "Häuser", "tags": ["plural"]},
+                {"form": "Haus", "tags": ["definite", "nominative", "plural"]},
+            ],
+            "senses": [
+                {
+                    "glosses": ["house"],
+                    "examples": [
+                        {"text": "Das Haus ist groß.", "translation": "The house is big.", "type": "example"}
+                    ],
+                }
+            ],
+        }
+        entry.update(over)
+        return entry
+
+    def test_extracts_fields(self):
+        info = build_frequency.extract_noun(self._entry())
+        self.assertEqual(info["article"], "das")
+        self.assertEqual(info["plural"], "Häuser")
+        self.assertEqual(info["gloss"], "house")
+        self.assertEqual(info["example"], ("Das Haus ist groß.", "The house is big."))
+
+    def test_rejects_non_nouns(self):
+        self.assertIsNone(build_frequency.extract_noun({"word": "ist", "pos": "verb"}))
+
+    def test_rejects_nouns_without_gender(self):
+        entry = self._entry(head_templates=[{"name": "head", "args": {}}])
+        self.assertIsNone(build_frequency.extract_noun(entry))
+
+    def test_rejects_gerunds_and_deverbals(self):
+        gerund = self._entry(senses=[{"glosses": ["gerund of haben"]}])
+        self.assertIsNone(build_frequency.extract_noun(gerund))
+        deverbal = self._entry(
+            senses=[{"glosses": ["existence"], "categories": [{"name": "German deverbals"}]}]
+        )
+        self.assertIsNone(build_frequency.extract_noun(deverbal))
+
+    def test_skips_quotation_examples(self):
+        entry = self._entry(
+            senses=[
+                {
+                    "glosses": ["house"],
+                    "examples": [{"text": "A long quotation", "translation": "x", "type": "quotation"}],
+                }
+            ]
+        )
+        self.assertIsNone(build_frequency.extract_noun(entry)["example"])
 
 
 if __name__ == "__main__":
