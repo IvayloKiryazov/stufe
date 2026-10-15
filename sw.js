@@ -8,6 +8,7 @@ var ASSETS = [
   "manifest.webmanifest",
   "icon.svg",
   "js/lib/stages.js",
+  "js/lib/stats.js",
   "js/store.js",
   "js/srs.js",
   "js/tts.js",

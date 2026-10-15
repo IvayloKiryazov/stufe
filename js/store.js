@@ -1,10 +1,19 @@
-/* Persistence: progress + settings in localStorage (with in-memory fallback). */
+/* Persistence: progress, daily history and settings in localStorage
+   (with an in-memory fallback). */
 (function () {
   "use strict";
   var KEY = "stufe-progress-v2";
   var DEFAULTS = {
     p: {},
-    settings: { unlockAll: false, voice: true, autoSpeak: false, newPerLesson: 5 },
+    history: {},
+    settings: {
+      unlockAll: false,
+      voice: true,
+      autoSpeak: false,
+      newPerLesson: 5,
+      goalNew: 20,
+      goalReviews: 50,
+    },
   };
   var mem = null;
 
@@ -25,15 +34,18 @@
       mem = v;
     }
   }
+  function normalize(o) {
+    return {
+      p: o.p || {},
+      history: o.history || {},
+      settings: Object.assign({}, DEFAULTS.settings, o.settings || {}),
+    };
+  }
   function load() {
     var raw = readRaw();
     if (!raw) return clone(DEFAULTS);
     try {
-      var o = JSON.parse(raw);
-      return {
-        p: o.p || {},
-        settings: Object.assign({}, DEFAULTS.settings, o.settings || {}),
-      };
+      return normalize(JSON.parse(raw));
     } catch (e) {
       return clone(DEFAULTS);
     }
@@ -45,6 +57,9 @@
     get progress() {
       return S.p;
     },
+    get history() {
+      return S.history;
+    },
     get settings() {
       return S.settings;
     },
@@ -53,6 +68,11 @@
     },
     set: function (id, entry) {
       S.p[id] = entry;
+    },
+    /* Record activity for today (kind: "new" | "reviews"). */
+    log: function (kind, n) {
+      S.history = window.Stats.bump(S.history, kind, Date.now(), n);
+      this.save();
     },
     save: function () {
       writeRaw(JSON.stringify(S));
@@ -65,11 +85,7 @@
       return JSON.stringify(S, null, 2);
     },
     import: function (text) {
-      var o = JSON.parse(text);
-      S = {
-        p: o.p || {},
-        settings: Object.assign({}, DEFAULTS.settings, o.settings || {}),
-      };
+      S = normalize(JSON.parse(text));
       this.save();
     },
   };

@@ -186,6 +186,16 @@
       );
     }).join("");
 
+    var todayKey = window.Stats.dayKey(now);
+    var today = window.Store.history[todayKey] || { new: 0, reviews: 0 };
+    var st = window.Stats.streak(window.Store.history, now);
+    var goalNew = window.Store.settings.goalNew || 0;
+    var goalRev = window.Store.settings.goalReviews || 0;
+    var todayLine =
+      '<p class="sub">Today: <b>' + (today.new || 0) + "</b>/" + goalNew + " new · <b>" +
+      (today.reviews || 0) + "</b>/" + goalRev + " reviews" +
+      (st ? " · " + st + "-day streak" : "") + "</p>";
+
     app.innerHTML =
       "<h1>Stufe</h1>" +
       '<p class="tag">German, one step at a time. Nouns with their articles, grammar as fill-in-the-blank.</p>' +
@@ -200,6 +210,7 @@
         ? '<button class="link" data-act="practice">Practice 20 learned items now</button> (does not change your schedule)'
         : "Do a lesson first. Each lesson batch has new items, then they show up in reviews.") +
       "</p>" +
+      todayLine +
       "<h2>Path</h2>" +
       '<ol class="levels">' + rows + "</ol>" +
       '<div class="settings">' +
@@ -207,6 +218,8 @@
       '<label><input type="checkbox" id="set-voice" ' + (window.Store.settings.voice ? "checked" : "") + "> Play audio (browser German voices)</label>" +
       '<label><input type="checkbox" id="set-auto" ' + (window.Store.settings.autoSpeak ? "checked" : "") + "> Auto-play audio when the answer is shown</label>" +
       '<label>New items per lesson <input type="number" id="set-batch" min="3" max="20" value="' + window.Store.settings.newPerLesson + '" style="width:5rem;margin-left:auto"></label>' +
+      '<label>Daily new goal <input type="number" id="set-goal-new" min="0" max="200" value="' + window.Store.settings.goalNew + '" style="width:5rem;margin-left:auto"></label>' +
+      '<label>Daily review goal <input type="number" id="set-goal-rev" min="0" max="1000" value="' + window.Store.settings.goalReviews + '" style="width:5rem;margin-left:auto"></label>' +
       '<div><button class="link" data-act="backup">Back up / restore progress</button></div>' +
       '<div><button class="link" data-act="progress">Progress by group</button></div>' +
       '<div><button class="link" data-act="leeches">Leeches (hardest items)</button></div>' +
@@ -227,6 +240,18 @@
       window.Store.settings.newPerLesson = n;
       window.Store.save();
       b.value = n;
+    });
+    var gn = document.getElementById("set-goal-new");
+    gn.addEventListener("change", function () {
+      window.Store.settings.goalNew = Math.max(0, parseInt(gn.value, 10) || 0);
+      window.Store.save();
+      gn.value = window.Store.settings.goalNew;
+    });
+    var gr = document.getElementById("set-goal-rev");
+    gr.addEventListener("change", function () {
+      window.Store.settings.goalReviews = Math.max(0, parseInt(gr.value, 10) || 0);
+      window.Store.save();
+      gr.value = window.Store.settings.goalReviews;
     });
   }
 
@@ -272,6 +297,7 @@
     var now = Date.now();
     sess.batch.forEach(function (id) { window.Store.set(id, { box: 1, due: now }); });
     window.Store.save();
+    window.Store.log("new", sess.batch.length);
     startReviews(false);
   }
 
@@ -389,8 +415,12 @@
   }
   function reviewNext() {
     var id = sess.queue.shift();
-    if (sess.last.ok) sess.completed++;
-    else sess.queue.push(id);
+    if (sess.last.ok) {
+      sess.completed++;
+      if (!sess.practice) window.Store.log("reviews");
+    } else {
+      sess.queue.push(id);
+    }
     sess.phase = "ask";
     sess.last = null;
     sess.given = "";
