@@ -27,3 +27,12 @@ test("credits screen lists sources", async ({ page }) => {
   await expect(page.locator("h1")).toHaveText("Credits & licenses");
   await expect(page.locator("#credits-list")).toContainText("tatoeba.org");
 });
+
+test("group browser expands a level and starts a group lesson", async ({ page }) => {
+  await page.goto("/");
+  await page.click('[data-act="toggle-level"]');
+  await expect(page.locator(".grp-name").first()).toBeVisible();
+  await page.locator('[data-act="group"]').first().click();
+  await expect(page.locator(".rule b")).toBeVisible();
+  await expect(page.locator(".answer")).toBeVisible();
+});

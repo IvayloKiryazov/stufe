@@ -9,6 +9,7 @@
   var sess = null;
   var confirmReset = false;
   var leechIds = [];
+  var expanded = {};
 
   /* ---------------------------------------------------------------- utils */
 
@@ -177,12 +178,36 @@
       var meta = !open
         ? "Locked. Pass " + Math.round(window.SRS.PASS_RATIO * 100) + "% of " + LEVELS[i - 1].name + " to open it."
         : s.started + " of " + s.total + " started, " + s.passed + " passed";
+      var isOpen = !!expanded[L.id];
+      var groups = "";
+      if (isOpen && open) {
+        groups =
+          '<div class="groups">' +
+          L.groups.map(function (g) {
+            var gt = g.items.length, gp = 0, gs = 0;
+            g.items.forEach(function (id) {
+              if (window.Store.entry(id)) { gs++; if (window.SRS.passed(id)) gp++; }
+            });
+            var gpct = gt ? Math.round((gp / gt) * 100) : 0;
+            return (
+              '<div class="grp"><div class="grp-head"><span class="grp-name">' + esc(g.name) + "</span>" +
+              '<button class="link" data-act="group" data-level="' + i + '" data-group="' + esc(g.id) + '">Study</button></div>' +
+              '<div class="bar"><div style="width:' + gpct + '%"></div></div>' +
+              '<div class="lvl-meta">' + gs + " / " + gt + "</div></div>"
+            );
+          }).join("") +
+          "</div>";
+      }
+      var headRight = open
+        ? '<button class="link" data-act="toggle-level" data-level="' + i + '">' +
+          (isOpen ? "Hide groups" : L.groups.length + " groups") + "</button>"
+        : '<span class="lvl-kind">locked</span>';
       return (
         '<li class="lvl ' + (open ? "" : "locked") + " " + (done ? "done" : "") + '">' +
         '<div class="lvl-head"><span class="lvl-name">' + esc(L.name) + " · " + esc(L.title) + "</span>" +
-        '<span class="lvl-kind">' + L.groups.length + " groups</span></div>" +
+        headRight + "</div>" +
         '<div class="bar"><div style="width:' + pct + '%"></div></div>' +
-        '<div class="lvl-meta">' + esc(meta) + "</div></li>"
+        '<div class="lvl-meta">' + esc(meta) + "</div>" + groups + "</li>"
       );
     }).join("");
 
@@ -261,6 +286,16 @@
 
   function startLessons() {
     var batch = availableItems().slice(0, window.Store.settings.newPerLesson);
+    if (!batch.length) return;
+    sess = { mode: "lesson", batch: batch, i: 0 };
+    lesson();
+  }
+  function startGroupLesson(li, gid) {
+    var group = LEVELS[li] && LEVELS[li].groups.filter(function (x) { return x.id === gid; })[0];
+    if (!group) return;
+    var batch = group.items
+      .filter(function (id) { return !window.Store.entry(id); })
+      .slice(0, window.Store.settings.newPerLesson);
     if (!batch.length) return;
     sess = { mode: "lesson", batch: batch, i: 0 };
     lesson();
@@ -668,6 +703,14 @@
     if (a === "lessons") startLessons();
     else if (a === "reviews") startReviews(false);
     else if (a === "practice") startReviews(true);
+    else if (a === "toggle-level") {
+      var li = parseInt(b.getAttribute("data-level"), 10);
+      var lid = LEVELS[li].id;
+      expanded[lid] = !expanded[lid];
+      home();
+    } else if (a === "group") {
+      startGroupLesson(parseInt(b.getAttribute("data-level"), 10), b.getAttribute("data-group"));
+    }
     else if (a === "home") home();
     else if (a === "lnext") lessonNext();
     else if (a === "lprev") { sess.i--; lesson(); }

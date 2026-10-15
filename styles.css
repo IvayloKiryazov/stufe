@@ -47,6 +47,10 @@ h2{font-size:1.1rem;margin:0 0 12px;font-weight:650}
 .bar{height:6px;background:var(--soft);border-radius:3px;margin:8px 0 4px;overflow:hidden}
 .bar>div{height:100%;background:var(--ink);border-radius:3px}
 .lvl-meta{color:var(--muted);font-size:.85rem}
+.groups{margin-top:10px;display:flex;flex-direction:column;gap:10px}
+.grp{border-left:3px solid var(--soft);padding-left:10px}
+.grp-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.grp-name{font-size:.92rem}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 22px;border-left-width:6px}
 .card.der{border-left-color:var(--der)} .card.die{border-left-color:var(--die)} .card.das{border-left-color:var(--das)}
 .card.ok{border-left-color:var(--good)} .card.no{border-left-color:var(--bad)}
