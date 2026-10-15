@@ -98,6 +98,9 @@
       out += '<p class="note">' + artHtml(it.sentence_de) + "</p>";
       if (it.sentence_en) out += '<p class="note">' + esc(it.sentence_en) + "</p>";
     }
+    if (it.attribution) {
+      out += '<p class="src">Example sentence: Tatoeba · CC BY 2.0 FR</p>';
+    }
     return out;
   }
 
@@ -200,6 +203,7 @@
       '<label><input type="checkbox" id="set-auto" ' + (window.Store.settings.autoSpeak ? "checked" : "") + "> Auto-play audio when the answer is shown</label>" +
       '<label>New items per lesson <input type="number" id="set-batch" min="3" max="20" value="' + window.Store.settings.newPerLesson + '" style="width:5rem;margin-left:auto"></label>' +
       '<div><button class="link" data-act="backup">Back up / restore progress</button></div>' +
+      '<div><button class="link" data-act="credits">Credits &amp; licenses</button></div>' +
       '<div><button class="link" data-act="reset">Reset all progress</button></div>' +
       "</div>";
 
@@ -422,8 +426,37 @@
     URL.revokeObjectURL(a.href);
   }
 
-  /* --------------------------------------------------------------- events */
+  /* ------------------------------------------------------------- credits */
 
+  function credits() {
+    sess = null;
+    app.innerHTML =
+      "<h1>Credits &amp; licenses</h1>" +
+      '<p class="tag">Stufe is MIT-licensed. The language data comes from open sources.</p>' +
+      '<div class="card">' +
+      '<p><b>Example sentences</b> — <a href="https://tatoeba.org" rel="noopener">Tatoeba</a>, <b>CC BY 2.0 FR</b>.</p>' +
+      '<p><b>Noun gender &amp; plurals</b> — <a href="https://github.com/gambolputty/german-nouns" rel="noopener">german-nouns</a>, CC BY-SA 4.0.</p>' +
+      '<p><b>Word frequency</b> — <a href="https://github.com/hermitdave/FrequencyWords" rel="noopener">FrequencyWords</a>, MIT.</p>' +
+      "</div>" +
+      "<h2>Sentence credits</h2>" +
+      '<div id="credits-list"><p class="note">Loading…</p></div>' +
+      '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+    fetch("data/attribution.json")
+      .then(function (r) { return r.json(); })
+      .then(function (list) {
+        var el = document.getElementById("credits-list");
+        if (!el) return;
+        el.innerHTML = list.length
+          ? list.map(function (x) { return '<p class="note">' + esc(x) + "</p>"; }).join("")
+          : '<p class="note">No sentence credits.</p>';
+      })
+      .catch(function () {
+        var el = document.getElementById("credits-list");
+        if (el) el.innerHTML = '<p class="note">Could not load credits.</p>';
+      });
+  }
+
+  /* --------------------------------------------------------------- events */
   app.addEventListener("click", function (e) {
     var sp = e.target.closest("[data-speak]");
     if (sp) { window.TTS.speak(sp.getAttribute("data-speak")); return; }
@@ -453,6 +486,7 @@
     else if (a === "backup") backup();
     else if (a === "restore") restore();
     else if (a === "download") download();
+    else if (a === "credits") credits();
     else if (a === "reset") {
       if (!confirmReset) { confirmReset = true; b.textContent = "Click again to erase all progress"; }
       else { window.Store.reset(); home(); }

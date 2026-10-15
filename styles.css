@@ -66,6 +66,8 @@ input[type=text][readonly]{opacity:.85}
 .fb .verdict.ok{color:var(--good)} .fb .verdict.no{color:var(--bad)}
 .fb .answer{font-family:var(--serif);font-size:1.6rem;margin:0 0 6px}
 .note{color:var(--muted);margin:6px 0 0;font-size:.95rem}
+.src{color:var(--muted);margin:10px 0 0;font-size:.72rem;opacity:.85}
+a{color:var(--der)}
 .forms{color:var(--muted);font-family:var(--serif);font-size:1.15rem;margin:2px 0 8px}
 .rule{background:var(--soft);border-radius:10px;padding:12px 14px;margin-bottom:18px;font-size:.95rem}
 .rule b{display:block;margin-bottom:2px}

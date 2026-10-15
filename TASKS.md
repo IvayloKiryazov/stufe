@@ -38,6 +38,7 @@ This mirrors the GitHub issue tracker; each epic is an issue.
 - [x] Web Speech API audio on every card
 - [x] Progress export/import (JSON)
 - [x] Service worker + web manifest (offline / installable)
+- [x] Sentence attribution on cards + Credits & licenses screen (CC-BY)
 - [ ] Keyboard shortcuts help sheet
 - [ ] "Leeches" view (items failed most often)
 - [ ] Per-group progress detail + estimated finish date

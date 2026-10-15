@@ -1,6 +1,6 @@
 /* Offline-first service worker: precache the shell + deck, cache-first for
    same-origin GETs. Bump CACHE when assets change. */
-var CACHE = "stufe-v1";
+var CACHE = "stufe-v2";
 var ASSETS = [
   "./",
   "index.html",
@@ -12,7 +12,8 @@ var ASSETS = [
   "js/tts.js",
   "js/app.js",
   "data/levels.json",
-  "data/items.json"
+  "data/items.json",
+  "data/attribution.json"
 ];
 
 self.addEventListener("install", function (e) {
