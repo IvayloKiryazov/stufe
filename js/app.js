@@ -71,6 +71,7 @@
   function labelFor(it) {
     if (it.kind === "noun") return "German word with its article";
     if (it.kind === "verb") return "Verb (infinitive)";
+    if (it.kind === "adj") return "Adjective";
     return "Fill in the blank";
   }
   function promptHtml(it) {
@@ -89,7 +90,7 @@
       out += '<p class="answer" lang="de">' + artHtml(it.de) + "</p>";
       if (it.plural) out += '<p class="forms" lang="de">Plural: ' + artHtml(it.plural) + "</p>";
       if (it.ipa) out += '<p class="forms">' + esc(it.ipa) + "</p>";
-    } else if (it.kind === "verb") {
+    } else if (it.kind === "verb" || it.kind === "adj") {
       out += '<p class="answer" lang="de">' + esc(it.de) + "</p>";
       if (it.forms) out += '<p class="forms" lang="de">' + esc(it.forms) + "</p>";
       if (it.ipa) out += '<p class="forms">' + esc(it.ipa) + "</p>";

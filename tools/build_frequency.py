@@ -1,35 +1,25 @@
 #!/usr/bin/env python3
-"""Build a POS-aware frequency deck from the kaikki German dictionary extract.
+"""Build a POS-aware frequency deck (nouns, verbs, adjectives) from kaikki.
 
-Unlike the old lowercased-frequency approach, every item here is confirmed to
-be a noun (``pos == "noun"``) by Wiktionary, so nominalised verbs ("das Ist")
-and pronoun homographs never become cards. Each item carries the article, the
-plural, an English gloss and an example sentence with its translation.
+Every item is confirmed by Wiktionary, so homographs never become cards. Each
+item carries an English gloss, IPA and an example sentence with translation;
+verbs also get principal parts and adjectives their comparison forms.
 
-Output: data/vocab_frequency.json (merged by build_dataset.py --frequency).
+Output: data/vocab_frequency.json (merged by build_dataset.py).
 """
 
 from __future__ import annotations
 
 import argparse
 import json
-import re
 import sys
 from pathlib import Path
 
-from common import (
-    ROOT,
-    build_sentence_index,
-    find_example,
-    load_frequency,
-    load_sentence_pairs,
-)
+from build_conjugations import extract_conjugation
+from common import ROOT, build_sentence_index, find_example, load_frequency, load_sentence_pairs
 
 GENUS = {"m": "der", "f": "die", "n": "das"}
 WIKT_ATTR = "Wiktionary (CC BY-SA 4.0)"
-
-# levels assigned by quantile of the emitted (frequency-ordered) deck, so the
-# core-vocabulary layer is spread evenly from A2 to C2 rather than piled up
 LEVELS = ["a2", "b1", "b2", "c1", "c2"]
 
 # function words that share a spelling with a rare noun (das Es, das Ich)
@@ -37,7 +27,7 @@ STOP = set(
     """ich du er sie es wir ihr man mich dich sich uns euch mir dir ihm ihnen
     wer was wem wen der die das den dem des ein eine einen einem einer eines
     kein keine keinen keiner und oder aber denn weil wenn als wie wo da so zu
-    in an auf mit von bei nach aus vor fuer über unter zwischen durch gegen
+    in an auf mit von bei nach aus vor über unter zwischen durch gegen
     ohne um bis seit nicht nur auch schon noch immer sehr mehr hier dort jetzt
     dann ja nein doch wohl mal bitte danke
     etwas nichts alles jemand niemand
@@ -47,15 +37,13 @@ STOP = set(
 
 
 def level_for_index(idx: int, total: int) -> str:
-    """Spread the deck evenly across the levels by position."""
     return LEVELS[min(len(LEVELS) - 1, idx * len(LEVELS) // max(1, total))]
 
 
 def _gender(entry: dict) -> str | None:
     for ht in entry.get("head_templates", []):
         if str(ht.get("name", "")).startswith("de-noun"):
-            arg1 = str((ht.get("args") or {}).get("1", ""))
-            code = arg1.split(",")[0].strip()[:1]
+            code = str((ht.get("args") or {}).get("1", "")).split(",")[0].strip()[:1]
             if code in GENUS:
                 return GENUS[code]
     return None
@@ -69,7 +57,11 @@ def _plural(entry: dict) -> str:
     return ""
 
 
-def _gloss_and_example(entry: dict) -> tuple[str, tuple[str, str] | None]:
+def _ipa(entry: dict) -> str:
+    return next((s.get("ipa") for s in entry.get("sounds", []) if s.get("ipa")), "")
+
+
+def _gloss_and_example(entry: dict):
     gloss = ""
     example = None
     for sense in entry.get("senses", []):
@@ -80,9 +72,9 @@ def _gloss_and_example(entry: dict) -> tuple[str, tuple[str, str] | None]:
             if ex.get("type") == "quotation":
                 continue
             text = ex.get("text")
-            translation = ex.get("translation") or ex.get("english")
-            if text and translation and len(text) <= 90 and "[...]" not in text:
-                example = (text, translation)
+            tr = ex.get("translation") or ex.get("english")
+            if text and tr and len(text) <= 90 and "[...]" not in text:
+                example = (text, tr)
                 break
         if example:
             break
@@ -90,7 +82,6 @@ def _gloss_and_example(entry: dict) -> tuple[str, tuple[str, str] | None]:
 
 
 def _is_derived(entry: dict) -> bool:
-    """True for gerunds / nominalised verbs (das Haben, das Sein) we don't want."""
     for sense in entry.get("senses", []):
         for gloss in sense.get("glosses") or []:
             if "gerund of" in gloss.lower():
@@ -101,32 +92,91 @@ def _is_derived(entry: dict) -> bool:
     return False
 
 
-def extract_noun(entry: dict) -> dict | None:
-    """Return {word, article, plural, gloss, example} for a noun entry, else None."""
+def extract_noun(entry: dict):
     if entry.get("pos") != "noun":
         return None
     word = entry.get("word") or ""
     article = _gender(entry)
-    if not word or article is None:
-        return None
     gloss, example = _gloss_and_example(entry)
-    if not gloss or _is_derived(entry):
+    if not word or article is None or not gloss or _is_derived(entry):
         return None
-    ipa = next((s.get("ipa") for s in entry.get("sounds", []) if s.get("ipa")), "")
-    return {
-        "word": word,
-        "article": article,
-        "plural": _plural(entry),
-        "gloss": gloss,
-        "example": example,
-        "ipa": ipa,
+    return {"word": word, "article": article, "plural": _plural(entry),
+            "gloss": gloss, "example": example, "ipa": _ipa(entry)}
+
+
+def extract_verb(entry: dict):
+    if entry.get("pos") != "verb":
+        return None
+    word = entry.get("word") or ""
+    gloss, example = _gloss_and_example(entry)
+    if not word or not gloss:
+        return None
+    conj = extract_conjugation(entry)
+    if not conj:
+        return None
+    forms = ", ".join(x for x in (conj["present"][2], conj["preterite"], conj["participle"]) if x)
+    return {"word": word, "gloss": gloss, "example": example, "forms": forms, "ipa": _ipa(entry)}
+
+
+def extract_adj(entry: dict):
+    if entry.get("pos") != "adj":
+        return None
+    word = entry.get("word") or ""
+    gloss, example = _gloss_and_example(entry)
+    if not word or not gloss:
+        return None
+    comp = sup = ""
+    for f in entry.get("forms", []):
+        tags = f.get("tags") or []
+        if "comparative" in tags and f.get("form") and not comp:
+            comp = f["form"]
+        if "superlative" in tags and f.get("form") and not sup:
+            sup = f["form"]
+    forms = ""
+    if comp and sup:
+        forms = f"{comp}, {sup}"
+    return {"word": word, "gloss": gloss, "example": example, "forms": forms, "ipa": _ipa(entry)}
+
+
+def _item(level, word, kind, payload, rank):
+    base = {
+        "id": f"freq-{level}-{kind[:3]}-{word}",
+        "level": level,
+        "group": f"{level}-core-{kind}",
+        "groupName": f"Core {kind}s (frequency)",
+        "kind": kind,
+        "en": payload["gloss"],
+        "sentence_de": payload["example"][0] if payload["example"] else "",
+        "sentence_en": payload["example"][1] if payload["example"] else "",
+        "ipa": payload.get("ipa", ""),
+        "note": f"Frequency rank {rank}",
+        "attribution": WIKT_ATTR if payload["example"] else "",
     }
+    if kind == "noun":
+        base["de"] = f"{payload['article']} {payload['word']}"
+        base["plural"] = (
+            f"die {payload['plural']}"
+            if payload["plural"] and payload["plural"] != payload["word"]
+            else ""
+        )
+        base["intro"] = "High-frequency nouns with their article and plural."
+    elif kind == "verb":
+        base["de"] = payload["word"]
+        base["forms"] = payload["forms"]
+        base["intro"] = "High-frequency verbs with principal parts."
+    else:
+        base["de"] = payload["word"]
+        base["forms"] = payload["forms"]
+        base["intro"] = "High-frequency adjectives with comparison forms."
+    if not base["attribution"]:
+        del base["attribution"]
+    return base
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--limit", type=int, default=6000, help="max noun items")
-    ap.add_argument("--scan", type=int, default=80000, help="frequency words to consider")
+    ap.add_argument("--limit", type=int, default=6000)
+    ap.add_argument("--scan", type=int, default=80000)
     ap.add_argument("--kaikki", type=Path, default=ROOT / "data" / "raw" / "kaikki-de.jsonl")
     args = ap.parse_args()
 
@@ -135,32 +185,49 @@ def main() -> int:
         return 1
 
     freq = load_frequency()
-    candidates = set()
+    cand = set()
     for _rank, word in freq[: args.scan]:
         if len(word) >= 3 and word not in STOP:
-            candidates.add(word[:1].upper() + word[1:])
-    print(f"frequency candidates: {len(candidates):,}")
+            cand.add(word)
+    noun_cand = {w[:1].upper() + w[1:] for w in cand}
+    print(f"candidates: {len(cand):,}")
 
     nouns: dict[str, dict] = {}
+    verbs: dict[str, dict] = {}
+    adjs: dict[str, dict] = {}
     with args.kaikki.open(encoding="utf-8") as fh:
         for line in fh:
-            if '"pos": "noun"' not in line:
-                continue
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                entry = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            word = entry.get("word")
-            if word in candidates and word not in nouns:
-                info = extract_noun(entry)
-                if info:
-                    nouns[word] = info
-    print(f"noun entries matched: {len(nouns):,}")
-
-    tatoeba = build_sentence_index(load_sentence_pairs())
+            if '"pos": "noun"' in line:
+                try:
+                    e = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                w = e.get("word")
+                if w in noun_cand and w not in nouns:
+                    info = extract_noun(e)
+                    if info:
+                        nouns[w] = info
+            elif '"pos": "verb"' in line:
+                try:
+                    e = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                w = e.get("word")
+                if w in cand and w not in verbs:
+                    info = extract_verb(e)
+                    if info:
+                        verbs[w] = info
+            elif '"pos": "adj"' in line:
+                try:
+                    e = json.loads(line)
+                except json.JSONDecodeError:
+                    continue
+                w = e.get("word")
+                if w in cand and w not in adjs:
+                    info = extract_adj(e)
+                    if info:
+                        adjs[w] = info
+    print(f"matched nouns={len(nouns):,} verbs={len(verbs):,} adjs={len(adjs):,}")
 
     rows = []
     for rank, word in freq:
@@ -168,49 +235,37 @@ def main() -> int:
             break
         if word in STOP or len(word) < 3:
             continue
-        info = nouns.get(word[:1].upper() + word[1:])
-        if info:
-            rows.append((rank, word, info))
+        if word in verbs:
+            rows.append(("verb", word, verbs[word], rank))
+        elif word in adjs:
+            rows.append(("adj", word, adjs[word], rank))
+        else:
+            info = nouns.get(word[:1].upper() + word[1:])
+            if info:
+                rows.append(("noun", word, info, rank))
 
     items = []
-    total = len(rows)
-    for idx, (rank, word, info) in enumerate(rows):
-        level = level_for_index(idx, total)
-        plural = f"die {info['plural']}" if info["plural"] and info["plural"] != info["word"] else ""
-        if info["example"]:
-            sentence_de, sentence_en, attr = info["example"][0], info["example"][1], WIKT_ATTR
-        else:
-            hit = find_example(tatoeba, info["word"])
-            if hit:
-                sentence_de, sentence_en, attr = hit
-            else:
-                sentence_de, sentence_en, attr = "", "", ""
-        item = {
-            "id": f"freq-{level}-{word}",
-            "level": level,
-            "group": f"{level}-core",
-            "groupName": "Core vocabulary (frequency)",
-            "kind": "noun",
-            "intro": (
-                "High-frequency nouns with their article and plural. Produce the "
-                "noun with its article, then check the example sentence."
-            ),
-            "de": f"{info['article']} {info['word']}",
-            "en": info["gloss"],
-            "plural": plural,
-            "ipa": info.get("ipa", ""),
-            "sentence_de": sentence_de,
-            "sentence_en": sentence_en,
-            "note": f"Frequency rank {rank}",
-        }
-        if attr:
-            item["attribution"] = attr
-        items.append(item)
+    for idx, (kind, word, payload, rank) in enumerate(rows):
+        items.append(_item(level_for_index(idx, len(rows)), word, kind, payload, rank))
+
+    # fill missing examples from Tatoeba (CC BY)
+    tatoeba = build_sentence_index(load_sentence_pairs())
+    for it in items:
+        if it["sentence_de"]:
+            continue
+        term = it["de"].split(" ", 1)[-1] if it["kind"] == "noun" else it["de"]
+        hit = find_example(tatoeba, term)
+        if hit:
+            it["sentence_de"], it["sentence_en"] = hit[0], hit[1]
+            if hit[2]:
+                it["attribution"] = hit[2]
 
     out = ROOT / "data" / "vocab_frequency.json"
     out.write_text(json.dumps(items, ensure_ascii=False, indent=1), encoding="utf-8")
-    with_ex = sum(1 for i in items if i["sentence_de"])
-    print(f"wrote {len(items):,} items ({with_ex:,} with an example sentence) -> {out}")
+    from collections import Counter
+
+    print(f"wrote {len(items):,} items -> {out}")
+    print("by kind:", dict(Counter(i["kind"] for i in items)))
     return 0
 
 
