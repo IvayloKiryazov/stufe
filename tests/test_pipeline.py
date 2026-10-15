@@ -11,6 +11,7 @@ sys.path.insert(0, str(TOOLS))
 import common  # noqa: E402
 import build_frequency  # noqa: E402
 import build_conjugations  # noqa: E402
+import mnemonic  # noqa: E402
 from common import blank_sentence  # noqa: E402
 
 
@@ -162,6 +163,20 @@ class ConjugationTest(unittest.TestCase):
     def test_requires_all_six_persons(self):
         partial = {"forms": [{"form": "x", "tags": ["present", "indicative", "first-person", "singular"]}]}
         self.assertIsNone(build_conjugations.extract_conjugation(partial))
+
+
+class MnemonicTest(unittest.TestCase):
+    def test_feminine_ending(self):
+        self.assertIn("-ung", mnemonic.gender_mnemonic("Wohnung", "die"))
+
+    def test_neuter_ending(self):
+        self.assertIn("-chen", mnemonic.gender_mnemonic("Mädchen", "das"))
+
+    def test_masculine_ending(self):
+        self.assertIn("-ling", mnemonic.gender_mnemonic("Frühling", "der"))
+
+    def test_fallback(self):
+        self.assertIn("memorise", mnemonic.gender_mnemonic("Mann", "der"))
 
 
 if __name__ == "__main__":

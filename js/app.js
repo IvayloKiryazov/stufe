@@ -106,6 +106,9 @@
       out += '<p class="note" lang="de">' + artHtml(it.sentence_de) + "</p>";
       if (it.sentence_en) out += '<p class="note">' + esc(it.sentence_en) + "</p>";
     }
+    if (it.mnemonic) {
+      out += '<p class="note">' + esc(it.mnemonic) + "</p>";
+    }
     if (it.attribution) {
       out += '<p class="src">Example sentence: Tatoeba · CC BY 2.0 FR</p>';
     }

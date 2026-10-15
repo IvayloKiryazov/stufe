@@ -23,6 +23,7 @@ import sys
 from pathlib import Path
 
 from common import ROOT, build_sentence_index, find_example, load_nouns, load_sentence_pairs
+from mnemonic import gender_mnemonic
 
 LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
 LEVEL_META = {
@@ -188,6 +189,13 @@ def main() -> int:
             if it.get("attribution"):
                 used_attribution.add(it["attribution"])
         print(f"{extra}: {len(extra_items):,} items")
+
+    # --- gender mnemonics for every noun ----------------------------------
+    for it in items:
+        if it.get("kind") == "noun":
+            parts = (it.get("de") or "").split(" ")
+            if len(parts) > 1 and parts[0] in ("der", "die", "das"):
+                it["mnemonic"] = gender_mnemonic(parts[1], parts[0])
 
     # --- write outputs ----------------------------------------------------
     levels_out = [levels[lvl] for lvl in LEVEL_ORDER if levels[lvl]["groups"]]
