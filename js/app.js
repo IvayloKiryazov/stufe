@@ -223,6 +223,7 @@
       '<div><button class="link" data-act="backup">Back up / restore progress</button></div>' +
       '<div><button class="link" data-act="progress">Progress by group</button></div>' +
       '<div><button class="link" data-act="stats">Stats</button></div>' +
+      '<div><button class="link" data-act="projections">Projections</button></div>' +
       '<div><button class="link" data-act="leeches">Leeches (hardest items)</button></div>' +
       '<div><button class="link" data-act="help">Keyboard shortcuts</button></div>' +
       '<div><button class="link" data-act="credits">Credits &amp; licenses</button></div>' +
@@ -527,6 +528,38 @@
       '<div class="row" style="margin-top:8px"><button class="primary" data-act="home">Back</button></div>';
   }
 
+  /* --------------------------------------------------------- projections */
+
+  function projections() {
+    sess = null;
+    var perDay = window.Store.settings.newPerLesson || 5;
+    var now = Date.now();
+    var cum = 0;
+    function fmt(ts) {
+      return new Date(ts).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+    }
+    var rows = LEVELS.map(function (L, i) {
+      var s = stats(i);
+      var remaining = s.total - s.started;
+      var days = window.Projection.daysToFinish(remaining, perDay);
+      if (isFinite(days)) cum += days;
+      var by = isFinite(days) ? "by " + fmt(window.Projection.addDays(now, cum)) : "—";
+      return (
+        '<p class="note"><b>' + esc(L.name) + "</b> — " + remaining + " left · " +
+        (isFinite(days) ? days : "∞") + " days · " + by + "</p>"
+      );
+    }).join("");
+    var load = window.Projection.reviewLoad(perDay, window.SRS.HOURS.length - 1);
+    var allDone = fmt(window.Projection.addDays(now, cum));
+    app.innerHTML =
+      "<h1>Projections</h1>" +
+      '<p class="tag">At your current pace of ' + perDay + " new items/day.</p>" +
+      '<div class="card">' + rows + "</div>" +
+      '<p class="note">Estimated steady-state review load: about <b>' + load + "</b> reviews/day.</p>" +
+      '<p class="note">Everything introduced around <b>' + allDone + "</b> (reviews continue after that).</p>" +
+      '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+  }
+
   /* --------------------------------------------------------------- stats */
 
   function showStats() {
@@ -646,6 +679,7 @@
     else if (a === "download") download();
     else if (a === "progress") progress();
     else if (a === "stats") showStats();
+    else if (a === "projections") projections();
     else if (a === "leeches") leeches();
     else if (a === "practice-leeches") startReviews(true, shuffle(leechIds.slice()).slice(0, 20));
     else if (a === "help") help();

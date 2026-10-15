@@ -9,6 +9,7 @@ var ASSETS = [
   "icon.svg",
   "js/lib/stages.js",
   "js/lib/stats.js",
+  "js/lib/projection.js",
   "js/store.js",
   "js/srs.js",
   "js/tts.js",
