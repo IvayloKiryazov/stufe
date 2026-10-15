@@ -1,32 +1,19 @@
-/* Staged spaced repetition (Leitner boxes), the same shape as WaniKani/Bunpro:
-   fixed intervals with a visible finish line. Box 0 -> 7, "passed" at box 3. */
+/* Staged spaced repetition (Leitner boxes), the same shape as WaniKani/Bunpro.
+   Pure transitions live in js/lib/srs-core.js; this wires them to the store. */
 (function () {
   "use strict";
-  var HOUR = 3600e3;
-  var HOURS = [0, 4, 8, 24, 72, 168, 336, 720]; // wait after reaching box n
-  var PASS_BOX = 3;
-  var PASS_RATIO = 0.8;
+  var CORE = window.SRSCore;
 
   window.SRS = {
-    HOURS: HOURS,
-    PASS_BOX: PASS_BOX,
-    PASS_RATIO: PASS_RATIO,
+    HOURS: CORE.HOURS,
+    PASS_BOX: 3,
+    PASS_RATIO: 0.8,
 
-    /* Grade an item. Returns the previous entry (for typo override) or null. */
+    /* Grade an item. Returns the previous entry (for undo / typo override). */
     grade: function (id, ok) {
       var prev = window.Store.entry(id);
-      var box0 = prev ? prev.box : 0;
-      var lapses = prev ? prev.lapses || 0 : 0;
-      var prevCopy = prev ? { box: prev.box, due: prev.due, lapses: prev.lapses || 0 } : null;
-      if (!ok) lapses++;
-      var box = ok
-        ? Math.min(7, box0 + 1)
-        : Math.max(1, box0 - (box0 >= 5 ? 2 : 1));
-      window.Store.set(id, {
-        box: box,
-        due: Date.now() + HOURS[box] * HOUR,
-        lapses: lapses,
-      });
+      var prevCopy = prev ? JSON.parse(JSON.stringify(prev)) : null;
+      window.Store.set(id, CORE.applyGrade(prev, ok, Date.now()));
       window.Store.save();
       return prevCopy;
     },
@@ -38,12 +25,32 @@
 
     isDue: function (id, now) {
       var e = window.Store.entry(id);
-      return !!e && e.due <= now;
+      return CORE.isActive(e) && e.due <= now;
     },
 
     passed: function (id) {
       var e = window.Store.entry(id);
-      return !!e && e.box >= PASS_BOX;
+      return !!e && e.box >= 3;
+    },
+
+    isActive: function (id) {
+      return CORE.isActive(window.Store.entry(id));
+    },
+
+    suspend: function (id) {
+      var e = window.Store.entry(id);
+      if (e) { window.Store.set(id, CORE.suspend(e)); window.Store.save(); }
+    },
+
+    resume: function (id) {
+      var e = window.Store.entry(id);
+      if (e) { window.Store.set(id, CORE.resume(e)); window.Store.save(); }
+    },
+
+    markKnown: function (id) {
+      var e = window.Store.entry(id) || { box: 0 };
+      window.Store.set(id, CORE.markKnown(e));
+      window.Store.save();
     },
   };
 })();

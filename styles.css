@@ -75,6 +75,9 @@ input[type=text][readonly]{opacity:.85}
 a{color:var(--der)}
 .forms{color:var(--muted);font-family:var(--serif);font-size:1.15rem;margin:2px 0 8px}
 .conj{color:var(--muted);font-size:.9rem;margin:2px 0 8px;line-height:1.6}
+.dots{display:flex;gap:4px;margin:6px 0 0}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--soft)}
+.dot.ok{background:var(--good)} .dot.no{background:var(--bad)}
 .rule{background:var(--soft);border-radius:10px;padding:12px 14px;margin-bottom:18px;font-size:.95rem}
 .rule b{display:block;margin-bottom:2px}
 mark{background:none;color:var(--ink);font-weight:700;border-bottom:3px solid var(--das)}

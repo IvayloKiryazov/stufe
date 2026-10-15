@@ -150,7 +150,7 @@
   }
   function dueItems(now) {
     return Object.keys(window.Store.progress).filter(function (id) {
-      return BY[id] && window.Store.progress[id].due <= now;
+      return BY[id] && window.SRS.isActive(id) && window.Store.progress[id].due <= now;
     });
   }
 
@@ -163,6 +163,7 @@
     var due = dueItems(now);
     var avail = availableItems().length;
     var upcoming = Object.keys(window.Store.progress)
+      .filter(function (id) { return window.SRS.isActive(id); })
       .map(function (id) { return window.Store.progress[id].due; })
       .filter(function (d) { return d > now; })
       .sort(function (a, b) { return a - b; })[0];
@@ -379,7 +380,24 @@
         (it.note ? '<p class="note">' + esc(it.note) + "</p>" : "") +
         '<div class="row" style="margin-top:10px">' + speakBtn(speechText(it), "\uD83D\uDD0A Listen") + "</div>" +
         (last.ok ? "" : '<p class="note"><button class="link" data-act="override">I was right (typo)</button></p>') +
+        '<div class="row" style="margin-top:8px">' +
+        '<button data-act="undo">Undo</button>' +
+        '<button data-act="suspend">Suspend</button>' +
+        '<button data-act="known">I know this</button>' +
+        "</div>" +
         "</div>";
+    }
+    var dots = "";
+    if (!fb) {
+      var ent = window.Store.entry(it.id);
+      if (ent && ent.hist && ent.hist.length) {
+        dots =
+          '<div class="dots" aria-hidden="true">' +
+          ent.hist.map(function (h) {
+            return '<span class="dot ' + (h ? "ok" : "no") + '"></span>';
+          }).join("") +
+          "</div>";
+      }
     }
     app.innerHTML =
       '<h1 class="sr-only">Review</h1>' +
@@ -388,6 +406,7 @@
       '<div class="card ' + cls + '">' +
       '<div class="prompt-label">' + labelFor(it) + "</div>" +
       promptHtml(it) +
+      dots +
       '<input type="text" id="ans" lang="de" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Your answer" ' + (fb ? "readonly" : "") + ">" +
       (fb ? "" : '<div class="umlauts" aria-label="Special characters">' +
         ["ä", "ö", "ü", "ß"].map(function (c) { return '<button data-ch="' + c + '" lang="de" tabindex="-1">' + c + "</button>"; }).join("") +
@@ -433,6 +452,7 @@
       if (!sess.practice) sess.prev[id] = window.SRS.grade(id, j.ok);
     }
     sess.last = { ok: j.ok, msg: j.msg, first: first };
+    sess.lastId = id;
     sess.given = val;
     sess.phase = "fb";
     review();
@@ -448,6 +468,32 @@
     }
     sess.last.ok = true;
     sess.last.msg = "";
+    review();
+  }
+  function undo() {
+    var id = sess.queue[0];
+    if (!sess.practice && sess.lastId === id && sess.prev[id]) window.SRS.restore(id, sess.prev[id]);
+    sess.phase = "ask";
+    sess.last = null;
+    sess.given = "";
+    review();
+  }
+  function suspendCurrent() {
+    var id = sess.queue[0];
+    if (!sess.practice) window.SRS.suspend(id);
+    sess.queue.shift();
+    sess.phase = "ask";
+    sess.last = null;
+    sess.given = "";
+    review();
+  }
+  function knowCurrent() {
+    var id = sess.queue[0];
+    if (!sess.practice) window.SRS.markKnown(id);
+    sess.queue.shift();
+    sess.phase = "ask";
+    sess.last = null;
+    sess.given = "";
     review();
   }
   function reviewNext() {
@@ -467,6 +513,7 @@
     var pct = sess.firstTotal ? Math.round((sess.firstOK / sess.firstTotal) * 100) : 0;
     var now = Date.now();
     var upcoming = Object.keys(window.Store.progress)
+      .filter(function (id) { return window.SRS.isActive(id); })
       .map(function (id) { return window.Store.progress[id].due; })
       .filter(function (d) { return d > now; })
       .sort(function (a, b) { return a - b; })[0];
@@ -526,6 +573,20 @@
       var label = it.kind === "cloze" ? it.prompt + " → " + it.answer : it.en + " → " + it.de;
       return '<p class="note"><b>' + (window.Store.progress[id].lapses || 0) + "×</b> " + esc(label) + "</p>";
     }).join("");
+    var susp = Object.keys(window.Store.progress).filter(function (id) {
+      return BY[id] && window.Store.progress[id].suspended;
+    });
+    var suspHtml = susp.length
+      ? "<h2>Suspended</h2>" +
+        susp.map(function (id) {
+          var it = BY[id];
+          var label = it.kind === "cloze" ? it.prompt + " → " + it.answer : it.en + " → " + it.de;
+          return (
+            '<div class="grp-head"><span class="grp-name">' + esc(label) + "</span>" +
+            '<button class="link" data-act="resume" data-id="' + esc(id) + '">Resume</button></div>'
+          );
+        }).join("")
+      : "";
     app.innerHTML =
       "<h1>Leeches</h1>" +
       '<p class="tag">The items you get wrong most often.</p>' +
@@ -534,6 +595,7 @@
           Math.min(20, leechIds.length) + "</button></div>"
         : "") +
       '<div class="card">' + (rows || '<p class="note">No leeches yet — nice.</p>') + "</div>" +
+      suspHtml +
       '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
   }
 
@@ -717,6 +779,10 @@
     else if (a === "check") check();
     else if (a === "rnext") reviewNext();
     else if (a === "override") override();
+    else if (a === "undo") undo();
+    else if (a === "suspend") suspendCurrent();
+    else if (a === "known") knowCurrent();
+    else if (a === "resume") { window.SRS.resume(b.getAttribute("data-id")); leeches(); }
     else if (a === "backup") backup();
     else if (a === "restore") restore();
     else if (a === "download") download();

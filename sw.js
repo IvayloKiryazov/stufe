@@ -10,6 +10,7 @@ var ASSETS = [
   "js/lib/stages.js",
   "js/lib/stats.js",
   "js/lib/projection.js",
+  "js/lib/srs-core.js",
   "js/store.js",
   "js/srs.js",
   "js/tts.js",
