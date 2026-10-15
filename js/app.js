@@ -11,6 +11,7 @@
   var confirmReset = false;
   var leechIds = [];
   var expanded = {};
+  var dict = null;
 
   /* ---------------------------------------------------------------- utils */
 
@@ -257,6 +258,7 @@
       '<div><button class="link" data-act="progress">Progress by group</button></div>' +
       '<div><button class="link" data-act="grammar-list">Grammar library</button></div>' +
       '<div><button class="link" data-act="reading">Reading</button></div>' +
+      '<div><button class="link" data-act="dictation">Dictation</button></div>' +
       '<div><button class="link" data-act="stats">Stats</button></div>' +
       '<div><button class="link" data-act="projections">Projections</button></div>' +
       '<div><button class="link" data-act="extra">Extra study (ghosts)</button></div>' +
@@ -821,6 +823,75 @@
     if (el) el.innerHTML = '<p class="note">' + correct + " / " + p.questions.length + " correct.</p>";
   }
 
+  /* ------------------------------------------------------------ dictation */
+
+  function dictation() {
+    sess = null;
+    var all = Object.keys(BY).filter(function (id) { return BY[id].sentence_de; });
+    var learned = Object.keys(window.Store.progress).filter(function (id) { return BY[id] && BY[id].sentence_de; });
+    var pool = learned.length >= 5 ? learned : all;
+    if (!pool.length) {
+      app.innerHTML = "<h1>Dictation</h1><p class=\"note\">No sentences yet.</p>" +
+        '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+      return;
+    }
+    var queue = shuffle(pool.slice()).slice(0, 10);
+    dict = { queue: queue, i: 0, total: queue.length, ok: 0, phase: "ask", lastOk: false, lastInput: "" };
+    dictCard();
+  }
+
+  function dictCard() {
+    if (dict.i >= dict.total) { dictSummary(); return; }
+    var it = BY[dict.queue[dict.i]];
+    var fb = dict.phase === "fb";
+    app.innerHTML =
+      '<h1 class="sr-only">Dictation</h1>' +
+      '<div class="prog"><span>Dictation ' + (dict.i + 1) + " of " + dict.total + "</span>" +
+      '<div class="bar"><div style="width:' + (dict.i / dict.total) * 100 + '%"></div></div></div>' +
+      '<div class="card">' +
+      '<div class="prompt-label">Listen and type what you hear</div>' +
+      '<div class="row">' + speakBtn(it.sentence_de, "\uD83D\uDD0A Play") + "</div>" +
+      '<input type="text" id="dans" lang="de" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Type what you hear" ' + (fb ? "readonly" : "") + ">" +
+      '<div class="row" style="margin-top:10px">' +
+      (fb ? '<button class="primary" data-act="dnext">Next</button>' : '<button class="primary" data-act="dcheck">Check</button>') +
+      '<button data-act="home">Stop</button></div>' +
+      (fb
+        ? '<div class="fb"><p class="verdict ' + (dict.lastOk ? "ok" : "no") + '">' + (dict.lastOk ? "Correct" : "Not quite") + "</p>" +
+          '<p class="answer" lang="de">' + esc(it.sentence_de) + "</p>" +
+          '<p class="note">' + esc(it.sentence_en) + "</p></div>"
+        : "") +
+      "</div>";
+    var inp = document.getElementById("dans");
+    if (inp) {
+      inp.value = fb ? dict.lastInput || "" : "";
+      if (!fb) setTimeout(function () { inp.focus(); window.TTS.speak(it.sentence_de); }, 0);
+    }
+  }
+
+  function dictCheck() {
+    var it = BY[dict.queue[dict.i]];
+    var val = document.getElementById("dans").value;
+    if (!val.trim()) return;
+    dict.lastOk = window.Grade.equals(val, it.sentence_de);
+    dict.lastInput = val;
+    if (dict.lastOk) dict.ok++;
+    dict.phase = "fb";
+    dictCard();
+  }
+
+  function dictNext() {
+    dict.i++;
+    dict.phase = "ask";
+    dictCard();
+  }
+
+  function dictSummary() {
+    app.innerHTML =
+      "<h1>Dictation done</h1>" +
+      '<p class="tag">' + dict.ok + " / " + dict.total + " correct.</p>" +
+      '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+  }
+
   /* --------------------------------------------------------------- stats */
 
   function showStats() {
@@ -957,6 +1028,9 @@
     else if (a === "reading") readingList();
     else if (a === "read") readerPassage(b.getAttribute("data-id"));
     else if (a === "read-check") readCheck(b.getAttribute("data-id"));
+    else if (a === "dictation") dictation();
+    else if (a === "dcheck") dictCheck();
+    else if (a === "dnext") dictNext();
     else if (a === "stats") showStats();
     else if (a === "projections") projections();
     else if (a === "extra") extraStudy();

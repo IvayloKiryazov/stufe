@@ -11,6 +11,7 @@ var ASSETS = [
   "js/lib/stats.js",
   "js/lib/projection.js",
   "js/lib/srs-core.js",
+  "js/lib/grade.js",
   "js/store.js",
   "js/srs.js",
   "js/tts.js",

@@ -1,7 +1,7 @@
 :root{
   --bg:#eef1f6; --surface:#ffffff; --ink:#1b2232; --muted:#5d6678; --line:#d5dae4;
-  --der:#2563c9; --die:#c93a55; --das:#23895c;
-  --good:#23895c; --bad:#c93a55; --soft:#e4e9f2;
+  --der:#2563c9; --die:#c93a55; --das:#1f7d54;
+  --good:#1f7d54; --bad:#c93a55; --soft:#e4e9f2;
   --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
   --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   color-scheme:light;
