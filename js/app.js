@@ -302,9 +302,15 @@
     if (fb) cls = last.ok ? "ok" : "no";
     var fbHtml = "";
     if (fb) {
+      var stage = "";
+      if (!sess.practice) {
+        var entry = window.Store.entry(it.id);
+        if (entry) stage = '<span class="chip">' + esc(window.Stages.stageName(entry.box)) + "</span>";
+      }
       fbHtml =
         '<div class="fb">' +
         '<p class="verdict ' + (last.ok ? "ok" : "no") + '">' + (last.ok ? "Correct" : "Not quite") + "</p>" +
+        stage +
         revealHtml(it) +
         (last.msg ? '<p class="note">' + esc(last.msg) + "</p>" : "") +
         (it.note ? '<p class="note">' + esc(it.note) + "</p>" : "") +

@@ -5,6 +5,7 @@
   "description": "Spaced repetition for German vocabulary and grammar",
   "scripts": {
     "test": "playwright test",
+    "test:unit": "node --test",
     "lighthouse": "lhci autorun"
   },
   "devDependencies": {

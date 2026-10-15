@@ -18,7 +18,7 @@ jobs:
         run: python -m unittest discover -s tests -v
 
   e2e:
-    name: Browser smoke test + a11y
+    name: JS unit + browser smoke + a11y
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,6 +26,7 @@ jobs:
         with:
           node-version: "20"
       - run: npm install
+      - run: npm run test:unit
       - run: npx playwright install --with-deps chromium
       - run: npm test
 
