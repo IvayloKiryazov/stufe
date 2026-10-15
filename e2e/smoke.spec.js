@@ -45,3 +45,11 @@ test("grammar point page opens and cram starts a review", async ({ page }) => {
   await page.click('[data-act="cram"]');
   await expect(page.locator("#ans")).toBeVisible();
 });
+
+test("theme toggle switches the document theme", async ({ page }) => {
+  await page.goto("/");
+  await page.selectOption("#set-theme", "dark");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await page.selectOption("#set-theme", "light");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+});

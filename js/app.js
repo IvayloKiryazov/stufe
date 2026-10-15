@@ -71,8 +71,7 @@
     var hidden = label ? "" : '<span class="sr-only">Play audio</span>';
     return '<button class="speak" data-speak="' + esc(text) + '">' + visible + hidden + "</button>";
   }
-  function labelFor(it) {
-    if (it.kind === "noun") return "German word with its article";
+  function labelFor(it) {    if (it.kind === "noun") return "German word with its article";
     if (it.kind === "verb") return "Verb (infinitive)";
     if (it.kind === "adj") return "Adjective";
     return "Fill in the blank";
@@ -161,6 +160,22 @@
     return Object.keys(window.Store.progress).filter(function (id) {
       return BY[id] && window.SRS.isActive(id) && window.Store.progress[id].due <= now;
     });
+  }
+
+  /* ---------------------------------------------------------- appearance */
+
+  function applyAppearance() {
+    var s = window.Store.settings;
+    var theme = s.theme || "auto";
+    var effective = theme;
+    if (theme === "auto") {
+      effective =
+        window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+    }
+    document.documentElement.setAttribute("data-theme", effective);
+    document.documentElement.style.setProperty("--prompt-scale", String(s.fontScale || 1));
   }
 
   /* ----------------------------------------------------------------- home */
@@ -255,6 +270,14 @@
       '<label>New items per lesson <input type="number" id="set-batch" min="3" max="20" value="' + window.Store.settings.newPerLesson + '" style="width:5rem;margin-left:auto"></label>' +
       '<label>Daily new goal <input type="number" id="set-goal-new" min="0" max="200" value="' + window.Store.settings.goalNew + '" style="width:5rem;margin-left:auto"></label>' +
       '<label>Daily review goal <input type="number" id="set-goal-rev" min="0" max="1000" value="' + window.Store.settings.goalReviews + '" style="width:5rem;margin-left:auto"></label>' +
+      '<label>Theme <select id="set-theme">' +
+      ["auto", "light", "dark"].map(function (o) {
+        return '<option value="' + o + '"' + (window.Store.settings.theme === o ? " selected" : "") + ">" + o + "</option>";
+      }).join("") + "</select></label>" +
+      '<label>Text size <select id="set-font">' +
+      [["0.9", "Small"], ["1", "Normal"], ["1.2", "Large"], ["1.4", "Extra large"]].map(function (o) {
+        return '<option value="' + o[0] + '"' + (String(window.Store.settings.fontScale) === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
+      }).join("") + "</select></label>" +
       '<div><button class="link" data-act="backup">Back up / restore progress</button></div>' +
       '<div><button class="link" data-act="progress">Progress by group</button></div>' +
       '<div><button class="link" data-act="grammar-list">Grammar library</button></div>' +
@@ -294,6 +317,18 @@
       window.Store.settings.goalReviews = Math.max(0, parseInt(gr.value, 10) || 0);
       window.Store.save();
       gr.value = window.Store.settings.goalReviews;
+    });
+    var th = document.getElementById("set-theme");
+    th.addEventListener("change", function () {
+      window.Store.settings.theme = th.value;
+      window.Store.save();
+      applyAppearance();
+    });
+    var fs = document.getElementById("set-font");
+    fs.addEventListener("change", function () {
+      window.Store.settings.fontScale = parseFloat(fs.value) || 1;
+      window.Store.save();
+      applyAppearance();
     });
   }
 
@@ -1146,6 +1181,14 @@
   }
 
   function boot() {
+    applyAppearance();
+    if (window.matchMedia) {
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var onmq = function () {
+        if ((window.Store.settings.theme || "auto") === "auto") applyAppearance();
+      };
+      if (mq.addEventListener) mq.addEventListener("change", onmq);
+    }
     Promise.all([
       fetch("data/levels.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }),
       fetch("data/items.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }),

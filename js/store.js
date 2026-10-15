@@ -13,6 +13,8 @@
       newPerLesson: 5,
       goalNew: 20,
       goalReviews: 50,
+      theme: "auto",
+      fontScale: 1,
     },
   };
   var mem = null;
