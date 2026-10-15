@@ -63,10 +63,9 @@
     return it.kind === "cloze" ? it.answer : it.de;
   }
   function speakBtn(text, label) {
-    return (
-      '<button class="speak" data-speak="' + esc(text) + '" aria-label="Play audio">' +
-      (label || "\uD83D\uDD0A") + "</button>"
-    );
+    var visible = label || "\uD83D\uDD0A";
+    var hidden = label ? "" : '<span class="sr-only">Play audio</span>';
+    return '<button class="speak" data-speak="' + esc(text) + '">' + visible + hidden + "</button>";
   }
   function labelFor(it) {
     if (it.kind === "noun") return "German word with its article";
