@@ -76,9 +76,9 @@
   function promptHtml(it) {
     if (it.kind === "cloze") {
       return (
-        '<p class="prompt sent">' + esc(it.prompt).replace("___", '<span class="blank"></span>') + "</p>" +
+        '<p class="prompt sent" lang="de">' + esc(it.prompt).replace("___", '<span class="blank"></span>') + "</p>" +
         '<p class="trans">' + esc(it.en) + "</p>" +
-        (it.hint ? '<span class="chip">' + esc(it.hint) + "</span>" : "")
+        (it.hint ? '<span class="chip" lang="de">' + esc(it.hint) + "</span>" : "")
       );
     }
     return '<p class="prompt">' + esc(it.en) + "</p>";
@@ -86,22 +86,22 @@
   function revealHtml(it) {
     var out = "";
     if (it.kind === "noun") {
-      out += '<p class="answer">' + artHtml(it.de) + "</p>";
-      if (it.plural) out += '<p class="forms">Plural: ' + artHtml(it.plural) + "</p>";
+      out += '<p class="answer" lang="de">' + artHtml(it.de) + "</p>";
+      if (it.plural) out += '<p class="forms" lang="de">Plural: ' + artHtml(it.plural) + "</p>";
     } else if (it.kind === "verb") {
-      out += '<p class="answer">' + esc(it.de) + "</p>";
-      if (it.forms) out += '<p class="forms">' + esc(it.forms) + "</p>";
+      out += '<p class="answer" lang="de">' + esc(it.de) + "</p>";
+      if (it.forms) out += '<p class="forms" lang="de">' + esc(it.forms) + "</p>";
       if (it.conjugation && it.conjugation.present) {
         var pr = it.conjugation.present;
-        out += '<p class="conj">ich ' + esc(pr[0]) + " · du " + esc(pr[1]) + " · er " + esc(pr[2]) +
+        out += '<p class="conj" lang="de">ich ' + esc(pr[0]) + " · du " + esc(pr[1]) + " · er " + esc(pr[2]) +
           "<br>wir " + esc(pr[3]) + " · ihr " + esc(pr[4]) + " · sie " + esc(pr[5]) + "</p>";
       }
     } else {
-      out += '<p class="answer">' + esc(it.prompt).replace("___", "<mark>" + esc(it.answer) + "</mark>") + "</p>";
+      out += '<p class="answer" lang="de">' + esc(it.prompt).replace("___", "<mark>" + esc(it.answer) + "</mark>") + "</p>";
       out += '<p class="trans">' + esc(it.en) + "</p>";
     }
     if (it.sentence_de) {
-      out += '<p class="note">' + artHtml(it.sentence_de) + "</p>";
+      out += '<p class="note" lang="de">' + artHtml(it.sentence_de) + "</p>";
       if (it.sentence_en) out += '<p class="note">' + esc(it.sentence_en) + "</p>";
     }
     if (it.attribution) {
@@ -249,6 +249,7 @@
     var last = sess.i === sess.batch.length - 1;
     var cls = it.kind === "noun" ? it.de.split(" ")[0].toLowerCase() : "";
     app.innerHTML =
+      '<h1 class="sr-only">Lesson</h1>' +
       '<div class="prog"><span>Lesson ' + (sess.i + 1) + " of " + sess.batch.length + "</span>" +
       '<div class="bar"><div style="width:' + ((sess.i + 1) / sess.batch.length) * 100 + '%"></div></div></div>' +
       intro +
@@ -313,14 +314,15 @@
         "</div>";
     }
     app.innerHTML =
+      '<h1 class="sr-only">Review</h1>' +
       '<div class="prog"><span>' + sess.completed + " of " + sess.total + (sess.practice ? " (practice)" : "") + "</span>" +
       '<div class="bar"><div style="width:' + (sess.completed / sess.total) * 100 + '%"></div></div></div>' +
       '<div class="card ' + cls + '">' +
       '<div class="prompt-label">' + labelFor(it) + "</div>" +
       promptHtml(it) +
-      '<input type="text" id="ans" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Your answer" ' + (fb ? "readonly" : "") + ">" +
+      '<input type="text" id="ans" lang="de" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Your answer" ' + (fb ? "readonly" : "") + ">" +
       (fb ? "" : '<div class="umlauts" aria-label="Special characters">' +
-        ["ä", "ö", "ü", "ß"].map(function (c) { return '<button data-ch="' + c + '" tabindex="-1">' + c + "</button>"; }).join("") +
+        ["ä", "ö", "ü", "ß"].map(function (c) { return '<button data-ch="' + c + '" lang="de" tabindex="-1">' + c + "</button>"; }).join("") +
         "</div>") +
       '<div class="row" ' + (fb ? 'style="margin-top:14px"' : "") + ">" +
       (fb ? '<button class="primary" data-act="rnext">Next</button>' : '<button class="primary" data-act="check">Check</button>') +

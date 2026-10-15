@@ -39,7 +39,7 @@ h2{font-size:1.1rem;margin:0 0 12px;font-weight:650}
 .lvl{padding:2px 0 18px 18px;position:relative}
 .lvl::before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--muted)}
 .lvl.done::before{background:var(--good);border-color:var(--good)}
-.lvl.locked{opacity:.5}
+.lvl.locked .lvl-name{color:var(--muted)}
 .lvl.locked::before{border-color:var(--line)}
 .lvl-head{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
 .lvl-name{font-weight:650}
@@ -66,7 +66,8 @@ input[type=text][readonly]{opacity:.85}
 .fb .verdict.ok{color:var(--good)} .fb .verdict.no{color:var(--bad)}
 .fb .answer{font-family:var(--serif);font-size:1.6rem;margin:0 0 6px}
 .note{color:var(--muted);margin:6px 0 0;font-size:.95rem}
-.src{color:var(--muted);margin:10px 0 0;font-size:.72rem;opacity:.85}
+.src{color:var(--muted);margin:10px 0 0;font-size:.72rem}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 a{color:var(--der)}
 .forms{color:var(--muted);font-family:var(--serif);font-size:1.15rem;margin:2px 0 8px}
 .conj{color:var(--muted);font-size:.9rem;margin:2px 0 8px;line-height:1.6}

@@ -54,6 +54,7 @@ This mirrors the GitHub issue tracker; each epic is an issue.
 - [x] GitHub Pages enabled + deploy verified
 - [x] Unit + dataset tests and CI (GitHub Actions)
 - [x] Service worker: network-first for deck data (no stale decks after deploy)
-- [ ] Lighthouse pass (a11y, PWA installability)
+- [x] Accessibility audit (axe) + automated a11y test in CI
+- [x] Lighthouse CI (accessibility assertion)
 - [ ] Dark/light + reduced-motion audit
 - [ ] Contribution guide for adding grammar points
