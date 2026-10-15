@@ -211,6 +211,7 @@
       '<div><button class="link" data-act="backup">Back up / restore progress</button></div>' +
       '<div><button class="link" data-act="progress">Progress by group</button></div>' +
       '<div><button class="link" data-act="leeches">Leeches (hardest items)</button></div>' +
+      '<div><button class="link" data-act="help">Keyboard shortcuts</button></div>' +
       '<div><button class="link" data-act="credits">Credits &amp; licenses</button></div>' +
       '<div><button class="link" data-act="reset">Reset all progress</button></div>' +
       "</div>";
@@ -488,6 +489,27 @@
       '<div class="row" style="margin-top:8px"><button class="primary" data-act="home">Back</button></div>';
   }
 
+  /* --------------------------------------------------------------- help */
+
+  function help() {
+    sess = null;
+    var rows = [
+      ["Enter", "Check your answer, then go to the next card"],
+      ["Esc", "Stop the current session and return to the path"],
+      ["?", "Open this help screen (from the path)"],
+      ["ä ö ü ß", "Buttons under the answer field insert a special character"],
+    ];
+    app.innerHTML =
+      "<h1>Keyboard shortcuts</h1>" +
+      '<p class="tag">Small things that make reviewing faster.</p>' +
+      '<div class="card">' +
+      rows.map(function (r) {
+        return '<p class="note"><b>' + esc(r[0]) + "</b> — " + esc(r[1]) + "</p>";
+      }).join("") +
+      "</div>" +
+      '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+  }
+
   /* ------------------------------------------------------------- credits */
 
   function credits() {
@@ -551,6 +573,7 @@
     else if (a === "progress") progress();
     else if (a === "leeches") leeches();
     else if (a === "practice-leeches") startReviews(true, shuffle(leechIds.slice()).slice(0, 20));
+    else if (a === "help") help();
     else if (a === "credits") credits();
     else if (a === "reset") {
       if (!confirmReset) { confirmReset = true; b.textContent = "Click again to erase all progress"; }
@@ -561,8 +584,11 @@
     if (e.target.closest("[data-ch]")) e.preventDefault();
   });
   document.addEventListener("keydown", function (e) {
+    var tag = document.activeElement && document.activeElement.tagName;
+    if (e.key === "Escape" && sess) { home(); return; }
+    if (e.key === "?" && !sess && tag !== "INPUT" && tag !== "TEXTAREA") { help(); return; }
     if (e.key !== "Enter" || !sess) return;
-    if (document.activeElement && document.activeElement.tagName === "BUTTON") return;
+    if (tag === "BUTTON") return;
     if (sess.mode === "lesson") lessonNext();
     else if (sess.mode === "review" && sess.queue.length) {
       if (sess.phase === "ask") check();

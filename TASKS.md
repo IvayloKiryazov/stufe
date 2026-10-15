@@ -39,7 +39,7 @@ This mirrors the GitHub issue tracker; each epic is an issue.
 - [x] Progress export/import (JSON)
 - [x] Service worker + web manifest (offline / installable)
 - [x] Sentence attribution on cards + Credits & licenses screen (CC-BY)
-- [ ] Keyboard shortcuts help sheet
+- [x] Keyboard shortcuts help sheet
 - [x] "Leeches" view (items failed most often)
 - [x] Per-group progress detail
 - [ ] Estimated finish date
