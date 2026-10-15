@@ -30,6 +30,19 @@ entries and pulls the article, plural, English gloss and an example sentence
 `data/vocab_frequency.json` automatically when it exists, so run
 `build_frequency.py` before it (or skip both to build only the curated deck).
 
+## Personal Anki import
+
+To fold a personal Anki deck (`.apkg`) into the app without publishing it:
+
+```bash
+python3 import_anki.py --apkg ~/Downloads/german.apkg   # -> data/vocab_personal.json
+python3 build_dataset.py
+```
+
+The output is gitignored, so personal/copyrighted content stays local. Field
+mapping is inferred from the note type's field names (Word, Definition 1,
+German 1, English 1, IPA, Rank); use `--level` to force a CEFR level.
+
 ## Sources
 
 | File | Upstream | License |

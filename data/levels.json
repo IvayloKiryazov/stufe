@@ -958,7 +958,7 @@
    {
     "id": "a2-core",
     "name": "Core vocabulary (frequency)",
-    "kind": "cloze",
+    "kind": "noun",
     "intro": "High-frequency nouns with their article and plural. Produce the noun with its article, then check the example sentence.",
     "items": [
      "freq-a2-mann",
@@ -2370,7 +2370,7 @@
    {
     "id": "b1-core",
     "name": "Core vocabulary (frequency)",
-    "kind": "cloze",
+    "kind": "noun",
     "intro": "High-frequency nouns with their article and plural. Produce the noun with its article, then check the example sentence.",
     "items": [
      "freq-b1-raumschiff",
@@ -3780,7 +3780,7 @@
    {
     "id": "b2-core",
     "name": "Core vocabulary (frequency)",
-    "kind": "cloze",
+    "kind": "noun",
     "intro": "High-frequency nouns with their article and plural. Produce the noun with its article, then check the example sentence.",
     "items": [
      "freq-b2-notiz",
@@ -5171,7 +5171,7 @@
    {
     "id": "c1-core",
     "name": "Core vocabulary (frequency)",
-    "kind": "cloze",
+    "kind": "noun",
     "intro": "High-frequency nouns with their article and plural. Produce the noun with its article, then check the example sentence.",
     "items": [
      "freq-c1-manöver",
@@ -6498,7 +6498,7 @@
    {
     "id": "c2-core",
     "name": "Core vocabulary (frequency)",
-    "kind": "cloze",
+    "kind": "noun",
     "intro": "High-frequency nouns with their article and plural. Produce the noun with its article, then check the example sentence.",
     "items": [
      "freq-c2-landebahn",

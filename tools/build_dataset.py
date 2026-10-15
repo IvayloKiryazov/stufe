@@ -170,23 +170,24 @@ def main() -> int:
                 group["items"].append(item["id"])
                 items.append(item)
 
-    # --- generated frequency deck (data/vocab_frequency.json) -------------
-    freq_path = ROOT / "data" / "vocab_frequency.json"
-    if freq_path.exists():
-        freq_items = json.loads(freq_path.read_text(encoding="utf-8"))
-        seen: dict[str, dict] = {}
-        for it in freq_items:
+    # --- generated / imported vocab decks ---------------------------------
+    for extra in ("vocab_frequency.json", "vocab_personal.json"):
+        extra_path = ROOT / "data" / extra
+        if not extra_path.exists():
+            continue
+        extra_items = json.loads(extra_path.read_text(encoding="utf-8"))
+        groups: dict[str, dict] = {}
+        for it in extra_items:
             gid = it["group"]
-            if gid not in seen:
-                lvl = it["level"]
-                seen[gid] = add_group(
-                    lvl, gid, it["groupName"], "cloze", it.get("intro", "")
+            if gid not in groups:
+                groups[gid] = add_group(
+                    it["level"], gid, it["groupName"], it.get("kind", "cloze"), it.get("intro", "")
                 )
-            seen[gid]["items"].append(it["id"])
+            groups[gid]["items"].append(it["id"])
             items.append(it)
             if it.get("attribution"):
                 used_attribution.add(it["attribution"])
-        print(f"frequency deck: {len(freq_items):,} items")
+        print(f"{extra}: {len(extra_items):,} items")
 
     # --- write outputs ----------------------------------------------------
     levels_out = [levels[lvl] for lvl in LEVEL_ORDER if levels[lvl]["groups"]]

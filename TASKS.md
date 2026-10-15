@@ -47,7 +47,7 @@ This mirrors the GitHub issue tracker; each epic is an issue.
 
 ## Epic 5 — Content scale-out to C1–C2
 - [x] Ship the frequency deck (~6,000 nouns) as A2–C2 "core vocabulary" groups
-- [ ] Import the user's frequency Anki deck locally (gitignored) as an optional deck
+- [x] Import the user's frequency Anki deck locally (gitignored) as an optional deck
 - [ ] Level-balancing pass using frequency rank + curated CEFR lists
 
 ## Epic 6 — Polish / infra
