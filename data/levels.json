@@ -1362,5 +1362,307 @@
     ]
    }
   ]
+ },
+ {
+  "id": "c1",
+  "name": "C1",
+  "title": "Advanced",
+  "groups": [
+   {
+    "id": "c1-erweiterte-partizipialattribute",
+    "name": "Erweiterte Partizipialattribute",
+    "kind": "cloze",
+    "intro": "An extended participle attribute stands between the article and the noun: article + extra information + participle + adjective ending + noun (die von ihm geschriebene E-Mail). The participle takes the normal adjective ending.",
+    "items": [
+     "c1-erweiterte-partizipialattribute-1",
+     "c1-erweiterte-partizipialattribute-2",
+     "c1-erweiterte-partizipialattribute-3",
+     "c1-erweiterte-partizipialattribute-4",
+     "c1-erweiterte-partizipialattribute-5",
+     "c1-erweiterte-partizipialattribute-6",
+     "c1-erweiterte-partizipialattribute-7",
+     "c1-erweiterte-partizipialattribute-8"
+    ]
+   },
+   {
+    "id": "c1-partizipialkonstruktionen",
+    "name": "Partizipialkonstruktionen",
+    "kind": "cloze",
+    "intro": "Participial clauses replace subordinate clauses and contain no finite verb. The participle leads the clause and its subject must match the subject of the main clause (Von der Reise erschöpft, ging sie ins Bett).",
+    "items": [
+     "c1-partizipialkonstruktionen-1",
+     "c1-partizipialkonstruktionen-2",
+     "c1-partizipialkonstruktionen-3",
+     "c1-partizipialkonstruktionen-4",
+     "c1-partizipialkonstruktionen-5",
+     "c1-partizipialkonstruktionen-6",
+     "c1-partizipialkonstruktionen-7",
+     "c1-partizipialkonstruktionen-8"
+    ]
+   },
+   {
+    "id": "c1-funktionsverbgefuege",
+    "name": "Funktionsverbgefüge",
+    "kind": "cloze",
+    "intro": "Fixed noun+verb units where the noun carries the meaning and the verb is 'light' (zur Verfügung stehen = to be available). Learn each noun together with its fixed preposition and verb.",
+    "items": [
+     "c1-funktionsverbgefuege-1",
+     "c1-funktionsverbgefuege-2",
+     "c1-funktionsverbgefuege-3",
+     "c1-funktionsverbgefuege-4",
+     "c1-funktionsverbgefuege-5",
+     "c1-funktionsverbgefuege-6",
+     "c1-funktionsverbgefuege-7",
+     "c1-funktionsverbgefuege-8"
+    ]
+   },
+   {
+    "id": "c1-konjunktiv1",
+    "name": "Konjunktiv I",
+    "kind": "cloze",
+    "intro": "Konjunktiv I marks indirect speech, letting a speaker report without endorsing. Key forms: sein → sei, haben → habe, werden → werde; most other verbs add -e (er komme, er müsse).",
+    "items": [
+     "c1-konjunktiv1-1",
+     "c1-konjunktiv1-2",
+     "c1-konjunktiv1-3",
+     "c1-konjunktiv1-4",
+     "c1-konjunktiv1-5",
+     "c1-konjunktiv1-6",
+     "c1-konjunktiv1-7",
+     "c1-konjunktiv1-8"
+    ]
+   },
+   {
+    "id": "c1-nominalstil",
+    "name": "Nominalstil",
+    "kind": "cloze",
+    "intro": "Nominal style replaces a verb or clause with a noun, typically formed with -ung or -heit/-keit, or with an infinitive used as a noun. It is characteristic of formal and academic German.",
+    "items": [
+     "c1-nominalstil-1",
+     "c1-nominalstil-2",
+     "c1-nominalstil-3",
+     "c1-nominalstil-4",
+     "c1-nominalstil-5",
+     "c1-nominalstil-6",
+     "c1-nominalstil-7",
+     "c1-nominalstil-8"
+    ]
+   },
+   {
+    "id": "c1-konnektoren-c1",
+    "name": "Konnektoren (C1)",
+    "kind": "cloze",
+    "intro": "Advanced connectors: sofern (provided that), zumal (especially since), insofern (insofar / as far as), indes (while / however), and freilich / allerdings (admittedly / however).",
+    "items": [
+     "c1-konnektoren-c1-1",
+     "c1-konnektoren-c1-2",
+     "c1-konnektoren-c1-3",
+     "c1-konnektoren-c1-4",
+     "c1-konnektoren-c1-5",
+     "c1-konnektoren-c1-6",
+     "c1-konnektoren-c1-7",
+     "c1-konnektoren-c1-8"
+    ]
+   },
+   {
+    "id": "c1-wortbildung",
+    "name": "Wortbildung",
+    "kind": "cloze",
+    "intro": "Prefixes and suffixes change meaning: un- = not, miss- = wrongly; -heit / -keit / -ung turn adjectives or verbs into nouns, and -bar means '-able'.",
+    "items": [
+     "c1-wortbildung-1",
+     "c1-wortbildung-2",
+     "c1-wortbildung-3",
+     "c1-wortbildung-4",
+     "c1-wortbildung-5",
+     "c1-wortbildung-6",
+     "c1-wortbildung-7",
+     "c1-wortbildung-8"
+    ]
+   },
+   {
+    "id": "c1-vorfeldbesetzung",
+    "name": "Vorfeldbesetzung",
+    "kind": "cloze",
+    "intro": "Any element can take the Vorfeld (position 1) for emphasis or theme-rheme structure, but the finite verb then stays in position 2 (Gestern habe ich ... gearbeitet).",
+    "items": [
+     "c1-vorfeldbesetzung-1",
+     "c1-vorfeldbesetzung-2",
+     "c1-vorfeldbesetzung-3",
+     "c1-vorfeldbesetzung-4",
+     "c1-vorfeldbesetzung-5",
+     "c1-vorfeldbesetzung-6",
+     "c1-vorfeldbesetzung-7",
+     "c1-vorfeldbesetzung-8"
+    ]
+   },
+   {
+    "id": "c1-ausklammerung",
+    "name": "Ausklammerung",
+    "kind": "cloze",
+    "intro": "Heavy or informationally important elements can be moved out of the sentence bracket and placed after the finite verb (Ich habe ihn gesehen, den Mann).",
+    "items": [
+     "c1-ausklammerung-1",
+     "c1-ausklammerung-2",
+     "c1-ausklammerung-3",
+     "c1-ausklammerung-4",
+     "c1-ausklammerung-5",
+     "c1-ausklammerung-6",
+     "c1-ausklammerung-7",
+     "c1-ausklammerung-8"
+    ]
+   },
+   {
+    "id": "c1-relativ-was-auch-immer",
+    "name": "wer/was auch immer",
+    "kind": "cloze",
+    "intro": "Indefinite relative clauses: wer = 'whoever', was = 'whatever'; was auch immer / egal wie = 'whatever / no matter how'.",
+    "items": [
+     "c1-relativ-was-auch-immer-1",
+     "c1-relativ-was-auch-immer-2",
+     "c1-relativ-was-auch-immer-3",
+     "c1-relativ-was-auch-immer-4",
+     "c1-relativ-was-auch-immer-5",
+     "c1-relativ-was-auch-immer-6",
+     "c1-relativ-was-auch-immer-7",
+     "c1-relativ-was-auch-immer-8"
+    ]
+   },
+   {
+    "id": "c1-praepositionale-attribute",
+    "name": "Präpositionale Attribute",
+    "kind": "cloze",
+    "intro": "Many nouns take a fixed preposition: Interesse an, Angst vor, Wunsch nach, Hoffnung auf, Freude über, Zweifel an, Kritik an, Mangel an.",
+    "items": [
+     "c1-praepositionale-attribute-1",
+     "c1-praepositionale-attribute-2",
+     "c1-praepositionale-attribute-3",
+     "c1-praepositionale-attribute-4",
+     "c1-praepositionale-attribute-5",
+     "c1-praepositionale-attribute-6",
+     "c1-praepositionale-attribute-7",
+     "c1-praepositionale-attribute-8"
+    ]
+   }
+  ]
+ },
+ {
+  "id": "c2",
+  "name": "C2",
+  "title": "Mastery",
+  "groups": [
+   {
+    "id": "c2-register-stilebenen",
+    "name": "Register & Stilebenen",
+    "kind": "cloze",
+    "intro": "German distinguishes register: colloquial (kriegen, kaputt), neutral, formal/elevated (erhalten, defekt) and literary (Antlitz, verscheiden). Choose the word that matches the register.",
+    "items": [
+     "c2-register-stilebenen-1",
+     "c2-register-stilebenen-2",
+     "c2-register-stilebenen-3",
+     "c2-register-stilebenen-4",
+     "c2-register-stilebenen-5",
+     "c2-register-stilebenen-6",
+     "c2-register-stilebenen-7",
+     "c2-register-stilebenen-8"
+    ]
+   },
+   {
+    "id": "c2-distanz-konjunktiv1",
+    "name": "Distanz-Konjunktiv I",
+    "kind": "cloze",
+    "intro": "In press and reporting, Konjunktiv I signals that a claim is being quoted rather than endorsed (Er sagte, er sei ...; die Zahl sei gestiegen).",
+    "items": [
+     "c2-distanz-konjunktiv1-1",
+     "c2-distanz-konjunktiv1-2",
+     "c2-distanz-konjunktiv1-3",
+     "c2-distanz-konjunktiv1-4",
+     "c2-distanz-konjunktiv1-5",
+     "c2-distanz-konjunktiv1-6",
+     "c2-distanz-konjunktiv1-7",
+     "c2-distanz-konjunktiv1-8"
+    ]
+   },
+   {
+    "id": "c2-komplexe-nominalsyntax",
+    "name": "Komplexe Nominalsyntax",
+    "kind": "cloze",
+    "intro": "Long noun phrases stack genitives and nested attributes (die Entscheidung des Gerichts der zweiten Instanz). The article must agree with the noun it directly precedes.",
+    "items": [
+     "c2-komplexe-nominalsyntax-1",
+     "c2-komplexe-nominalsyntax-2",
+     "c2-komplexe-nominalsyntax-3",
+     "c2-komplexe-nominalsyntax-4",
+     "c2-komplexe-nominalsyntax-5",
+     "c2-komplexe-nominalsyntax-6",
+     "c2-komplexe-nominalsyntax-7",
+     "c2-komplexe-nominalsyntax-8"
+    ]
+   },
+   {
+    "id": "c2-idiomatik",
+    "name": "Idiomatik",
+    "kind": "cloze",
+    "intro": "Fixed idiomatic expressions (Redewendungen) whose meaning is not literal: jemandem die Daumen drücken, den Nagel auf den Kopf treffen, ins Fettnäpfchen treten.",
+    "items": [
+     "c2-idiomatik-1",
+     "c2-idiomatik-2",
+     "c2-idiomatik-3",
+     "c2-idiomatik-4",
+     "c2-idiomatik-5",
+     "c2-idiomatik-6",
+     "c2-idiomatik-7",
+     "c2-idiomatik-8"
+    ]
+   },
+   {
+    "id": "c2-gehoberene-kollokationen",
+    "name": "Gehobene Kollokationen",
+    "kind": "cloze",
+    "intro": "Elevated verb+noun collocations: eine Entscheidung treffen, Kritik üben, Wert legen auf, eine Rede halten, Konsequenzen ziehen, eine Diagnose stellen.",
+    "items": [
+     "c2-gehoberene-kollokationen-1",
+     "c2-gehoberene-kollokationen-2",
+     "c2-gehoberene-kollokationen-3",
+     "c2-gehoberene-kollokationen-4",
+     "c2-gehoberene-kollokationen-5",
+     "c2-gehoberene-kollokationen-6",
+     "c2-gehoberene-kollokationen-7",
+     "c2-gehoberene-kollokationen-8"
+    ]
+   },
+   {
+    "id": "c2-seltene-literarische-formen",
+    "name": "Seltene literarische Formen",
+    "kind": "cloze",
+    "intro": "Literary and archaic forms: the dative -e (im Jahre, am Tage, auf Erden, zu Hause) and the genitive -es (des Hofes, des Ruhmes).",
+    "items": [
+     "c2-seltene-literarische-formen-1",
+     "c2-seltene-literarische-formen-2",
+     "c2-seltene-literarische-formen-3",
+     "c2-seltene-literarische-formen-4",
+     "c2-seltene-literarische-formen-5",
+     "c2-seltene-literarische-formen-6",
+     "c2-seltene-literarische-formen-7",
+     "c2-seltene-literarische-formen-8"
+    ]
+   },
+   {
+    "id": "c2-wortstellung-komplex",
+    "name": "Wortstellung (komplex)",
+    "kind": "cloze",
+    "intro": "Combines extended participle attributes in the Vorfeld with Ausklammerung: Der von den Experten erstellte Bericht lag endlich vor.",
+    "items": [
+     "c2-wortstellung-komplex-1",
+     "c2-wortstellung-komplex-2",
+     "c2-wortstellung-komplex-3",
+     "c2-wortstellung-komplex-4",
+     "c2-wortstellung-komplex-5",
+     "c2-wortstellung-komplex-6",
+     "c2-wortstellung-komplex-7",
+     "c2-wortstellung-komplex-8"
+    ]
+   }
+  ]
  }
 ]

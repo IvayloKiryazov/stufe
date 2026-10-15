@@ -1,0 +1,181 @@
+{
+  "level": "c1",
+  "groups": [
+    {
+      "id": "erweiterte-partizipialattribute",
+      "name": "Erweiterte Partizipialattribute",
+      "kind": "cloze",
+      "intro": "An extended participle attribute stands between the article and the noun: article + extra information + participle + adjective ending + noun (die von ihm geschriebene E-Mail). The participle takes the normal adjective ending.",
+      "items": [
+        { "p": "Die von ihr ___ Nachricht beunruhigte die ganze Familie.", "a": "verfasste", "en": "The message written by her worried the whole family.", "hint": "verfassen → Partizip II", "note": "Partizip II + Adjektivendung vor dem Nomen." },
+        { "p": "Das von Fachleuten ___ Gutachten klärte den Fall.", "a": "erstellte", "en": "The report drawn up by experts clarified the case.", "hint": "erstellen → Partizip II", "note": "Das Attribut erweitert das Nomen 'Gutachten'." },
+        { "p": "Ein ständig ___ Lärm machte die Arbeit unmöglich.", "a": "zunehmender", "en": "Constantly increasing noise made the work impossible.", "hint": "zunehmen → Partizip I", "note": "Partizip I drückt Gleichzeitigkeit aus." },
+        { "p": "Die nur halb ___ Hausaufgaben wurden zurückgegeben.", "a": "erledigten", "en": "The only half-finished homework was handed back.", "hint": "erledigen → Partizip II", "note": "Das Adverb 'nur halb' erweitert das Partizip." },
+        { "p": "Die auf dem Tisch ___ Blumen verwelkten schnell.", "a": "stehenden", "en": "The flowers standing on the table wilted quickly.", "hint": "stehen → Partizip I", "note": "Präpositionalphrase + Partizip I als Attribut." },
+        { "p": "Die in der Zeitung ___ Meldung erwies sich als falsch.", "a": "erschienene", "en": "The report that appeared in the newspaper turned out to be false.", "hint": "erscheinen → Partizip II", "note": "Ersetzt den Relativsatz 'die in der Zeitung erschien'." },
+        { "p": "Ein genau ___ Problem lässt sich leichter lösen.", "a": "definiertes", "en": "A precisely defined problem is easier to solve.", "hint": "definieren → Partizip II", "note": "Attribute mit Adverb vor dem Partizip." },
+        { "p": "Das heftig ___ Thema spaltete die Parteien.", "a": "diskutierte", "en": "The hotly debated topic divided the parties.", "hint": "diskutieren → Partizip II", "note": "Passivisches Partizip II als Attribut." }
+      ]
+    },
+    {
+      "id": "partizipialkonstruktionen",
+      "name": "Partizipialkonstruktionen",
+      "kind": "cloze",
+      "intro": "Participial clauses replace subordinate clauses and contain no finite verb. The participle leads the clause and its subject must match the subject of the main clause (Von der Reise erschöpft, ging sie ins Bett).",
+      "items": [
+        { "p": "Von der Reise ___, ging sie sofort ins Bett.", "a": "erschöpft", "en": "Exhausted from the journey, she went straight to bed.", "hint": "erschöpfen → Partizip II", "note": "Ersetzt 'Weil sie erschöpft war'." },
+        { "p": "Auf die Uhr ___, verließ er eilig das Büro.", "a": "schauend", "en": "Glancing at the clock, he hurriedly left the office.", "hint": "schauen → Partizip I", "note": "Ersetzt 'Während er auf die Uhr schaute'." },
+        { "p": "Nicht ___, blieb er zu Hause.", "a": "eingeladen", "en": "Not having been invited, he stayed at home.", "hint": "einladen → Partizip II", "note": "Ersetzt 'Da er nicht eingeladen war'." },
+        { "p": "Die Karte ___, fand er schnell den Weg.", "a": "studierend", "en": "Studying the map, he quickly found the way.", "hint": "studieren → Partizip I", "note": "Ersetzt 'Indem er die Karte studierte'." },
+        { "p": "Die Prüfung ___, feierte sie ausgelassen.", "a": "bestanden", "en": "Having passed the exam, she celebrated exuberantly.", "hint": "bestehen → Partizip II", "note": "Ersetzt 'Nachdem sie die Prüfung bestanden hatte'." },
+        { "p": "Sorgfältig ___, lassen sich Fehler vermeiden.", "a": "vorgehend", "en": "If one proceeds carefully, mistakes can be avoided.", "hint": "vorgehen → Partizip I", "note": "Ersetzt 'Wenn man sorgfältig vorgeht'." },
+        { "p": "Über das Ergebnis ___, jubelten die Fans.", "a": "erfreut", "en": "Delighted with the result, the fans cheered.", "hint": "erfreuen → Partizip II", "note": "Ersetzt 'Weil sie über das Ergebnis erfreut waren'." },
+        { "p": "Von der Arbeit ___, schlief er sofort ein.", "a": "erschöpft", "en": "Exhausted from work, he fell asleep at once.", "hint": "erschöpfen → Partizip II", "note": "Ersetzt 'Weil er von der Arbeit erschöpft war'." }
+      ]
+    },
+    {
+      "id": "funktionsverbgefuege",
+      "name": "Funktionsverbgefüge",
+      "kind": "cloze",
+      "intro": "Fixed noun+verb units where the noun carries the meaning and the verb is 'light' (zur Verfügung stehen = to be available). Learn each noun together with its fixed preposition and verb.",
+      "items": [
+        { "p": "Der Plan steht zur ___.", "a": "Verfügung", "en": "The plan is available.", "hint": "zur Verfügung stehen", "note": "Feste Einheit aus Präposition und Nomen." },
+        { "p": "Diese Behauptung stelle ich entschieden in ___.", "a": "Frage", "en": "I firmly call this claim into question.", "hint": "in Frage stellen", "note": "Bedeutung: bezweifeln." },
+        { "p": "Sie brachte ihre Freude deutlich zum ___.", "a": "Ausdruck", "en": "She clearly expressed her joy.", "hint": "zum Ausdruck bringen", "note": "Bedeutung: ausdrücken." },
+        { "p": "Seine Wünsche fanden keine ___.", "a": "Berücksichtigung", "en": "His wishes were not taken into account.", "hint": "Berücksichtigung finden", "note": "Bedeutung: berücksichtigt werden." },
+        { "p": "Bitte nehmen Sie von dem Angebot ___.", "a": "Gebrauch", "en": "Please make use of the offer.", "hint": "von etwas Gebrauch machen", "note": "Bedeutung: etwas nutzen." },
+        { "p": "Die neuen Regeln treten morgen in ___.", "a": "Kraft", "en": "The new rules come into force tomorrow.", "hint": "in Kraft treten", "note": "Bedeutung: gültig werden." },
+        { "p": "Der Vorwurf traf ihn ins ___.", "a": "Mark", "en": "The reproach cut him to the quick.", "hint": "ins Mark treffen", "note": "Bedeutung: tief verletzen." },
+        { "p": "Das Verhalten steht außer ___.", "a": "Frage", "en": "The behaviour is beyond question.", "hint": "außer Frage stehen", "note": "Bedeutung: ganz sicher sein." }
+      ]
+    },
+    {
+      "id": "konjunktiv1",
+      "name": "Konjunktiv I",
+      "kind": "cloze",
+      "intro": "Konjunktiv I marks indirect speech, letting a speaker report without endorsing. Key forms: sein → sei, haben → habe, werden → werde; most other verbs add -e (er komme, er müsse).",
+      "items": [
+        { "p": "Er sagte, er ___ keine Zeit.", "a": "habe", "en": "He said he had no time.", "hint": "haben → Konjunktiv I", "note": "Indirekte Rede nach 'sagte'." },
+        { "p": "Sie behauptete, sie ___ die Prüfung bestanden.", "a": "habe", "en": "She claimed she had passed the exam.", "hint": "haben → Konjunktiv I", "note": "Perfekt der indirekten Rede." },
+        { "p": "Der Minister erklärte, die Lage ___ unter Kontrolle.", "a": "sei", "en": "The minister declared the situation was under control.", "hint": "sein → sei", "note": "'sei' ist die Form des Konjunktiv I von 'sein'." },
+        { "p": "Er meinte, wir ___ uns beeilen.", "a": "müssten", "en": "He thought we should hurry.", "hint": "müssen → müssten", "note": "Konjunktiv I von 'müssen'." },
+        { "p": "Die Zeugin gab an, sie ___ nichts gesehen.", "a": "habe", "en": "The witness stated she had seen nothing.", "hint": "haben → Konjunktiv I", "note": "Distanz zur Aussage der Zeugin." },
+        { "p": "Man sagte, er ___ ein guter Arzt.", "a": "sei", "en": "People said he was a good doctor.", "hint": "sein → sei", "note": "Unpersönliche Redewiedergabe." },
+        { "p": "Sie versprach, sie ___ pünktlich.", "a": "komme", "en": "She promised she would be on time.", "hint": "kommen → komme", "note": "Endung -e in der 3. Person." },
+        { "p": "Er betonte, dass er unschuldig ___.", "a": "sei", "en": "He stressed that he was innocent.", "hint": "sein → sei", "note": "Auch im 'dass'-Satz steht Konjunktiv I." }
+      ]
+    },
+    {
+      "id": "nominalstil",
+      "name": "Nominalstil",
+      "kind": "cloze",
+      "intro": "Nominal style replaces a verb or clause with a noun, typically formed with -ung or -heit/-keit, or with an infinitive used as a noun. It is characteristic of formal and academic German.",
+      "items": [
+        { "p": "Nach der ___ des Vertrags wurde gefeiert.", "a": "Unterzeichnung", "en": "After the signing of the contract, they celebrated.", "hint": "unterzeichnen → Unterzeichnung", "note": "Nominalisierung ersetzt den Nebensatz." },
+        { "p": "Die ___ des Problems dauerte lange.", "a": "Lösung", "en": "The solving of the problem took a long time.", "hint": "lösen → Lösung", "note": "Verb + -ung wird zum Nomen." },
+        { "p": "Vor der ___ der Ergebnisse müssen wir warten.", "a": "Bekanntgabe", "en": "We have to wait for the announcement of the results.", "hint": "bekannt geben → Bekanntgabe", "note": "Genitivattribut statt Objekt." },
+        { "p": "Die ___ der Regierung war umstritten.", "a": "Entscheidung", "en": "The government's decision was controversial.", "hint": "entscheiden → Entscheidung", "note": "Nominalstil verdichtet den Satz." },
+        { "p": "Bei der ___ der Daten half der Kollege.", "a": "Auswertung", "en": "The colleague helped with the evaluation of the data.", "hint": "auswerten → Auswertung", "note": "Präpositionalphrase mit Nominalisierung." },
+        { "p": "Die ___ des Projekts scheiterte an Geldmangel.", "a": "Durchführung", "en": "The carrying out of the project failed for lack of money.", "hint": "durchführen → Durchführung", "note": "Handlung wird zum Substantiv." },
+        { "p": "Nach ___ aller Punkte wurde abgestimmt.", "a": "Prüfung", "en": "After all points had been examined, a vote was taken.", "hint": "prüfen → Prüfung", "note": "Genitivattribut 'aller Punkte'." },
+        { "p": "Die ___ über das Ergebnis überraschte alle.", "a": "Mitteilung", "en": "The notification about the result surprised everyone.", "hint": "mitteilen → Mitteilung", "note": "Feste Präposition 'über' beim Nomen." }
+      ]
+    },
+    {
+      "id": "konnektoren-c1",
+      "name": "Konnektoren (C1)",
+      "kind": "cloze",
+      "intro": "Advanced connectors: sofern (provided that), zumal (especially since), insofern (insofar / as far as), indes (while / however), and freilich / allerdings (admittedly / however).",
+      "items": [
+        { "p": "Wir kommen gern, ___ es nicht regnet.", "a": "sofern", "en": "We'll gladly come provided it doesn't rain.", "hint": "sofern = vorausgesetzt, dass", "note": "Bedingung." },
+        { "p": "Ich bleibe zu Hause, ___ ich mich nicht wohlfühle.", "a": "zumal", "en": "I'm staying home, especially since I don't feel well.", "hint": "zumal = besonders weil", "note": "Grund, oft verstärkend." },
+        { "p": "Das Projekt war teuer, ___ erfolgreich.", "a": "allerdings", "en": "The project was expensive, though successful.", "hint": "allerdings = jedoch", "note": "Einschränkender Gegensatz." },
+        { "p": "Das ist ___ richtig, als er nicht gelogen hat.", "a": "insofern", "en": "That is correct insofar as he did not lie.", "hint": "insofern = in dem Maße", "note": "Einschränkende Präzisierung." },
+        { "p": "Die Lage ist ernst, ___ nicht hoffnungslos.", "a": "freilich", "en": "The situation is serious, admittedly not hopeless.", "hint": "freilich = zugegebenermaßen", "note": "Einräumung." },
+        { "p": "Sie ist klug, ___ manchmal etwas ungeduldig.", "a": "indes", "en": "She is clever, though sometimes a little impatient.", "hint": "indes = jedoch", "note": "Gegensatz im Nachsatz." },
+        { "p": "___ du mich darum bittest, helfe ich dir.", "a": "Sofern", "en": "Provided you ask me, I'll help you.", "hint": "sofern = vorausgesetzt", "note": "Konnektor im Vorfeld." },
+        { "p": "Er las die Zeitung, ___ sie kochte.", "a": "indes", "en": "He read the newspaper while she cooked.", "hint": "indes = während", "note": "Temporale Bedeutung von 'indes'." }
+      ]
+    },
+    {
+      "id": "wortbildung",
+      "name": "Wortbildung",
+      "kind": "cloze",
+      "intro": "Prefixes and suffixes change meaning: un- = not, miss- = wrongly; -heit / -keit / -ung turn adjectives or verbs into nouns, and -bar means '-able'.",
+      "items": [
+        { "p": "Er benahm sich sehr ___.", "a": "unhöflich", "en": "He behaved very rudely.", "hint": "un- = nicht", "note": "un- + höflich." },
+        { "p": "Ihr Verhalten war ein echtes ___.", "a": "Missverständnis", "en": "Her behaviour was a real misunderstanding.", "hint": "miss- = falsch", "note": "miss- + verstehen + -nis." },
+        { "p": "Die ___ nach dem Krieg war groß.", "a": "Freiheit", "en": "The freedom after the war was great.", "hint": "-heit bildet Nomen", "note": "frei + -heit." },
+        { "p": "Die ___ des Problems dauerte lange.", "a": "Lösung", "en": "The solution of the problem took a long time.", "hint": "-ung bildet Nomen", "note": "lösen + -ung." },
+        { "p": "Diese Aufgabe ist leicht ___.", "a": "lösbar", "en": "This task is easily solvable.", "hint": "-bar = möglich", "note": "lösen + -bar." },
+        { "p": "Seine Aussage war völlig ___.", "a": "unglaubwürdig", "en": "His statement was completely implausible.", "hint": "un- = nicht", "note": "un- + glaubwürdig." },
+        { "p": "Der ___ ärgerte den Chef sehr.", "a": "Misserfolg", "en": "The failure annoyed the boss very much.", "hint": "miss- = falsch/negativ", "note": "miss- + Erfolg." },
+        { "p": "Ihre ___ beeindruckte alle Kollegen.", "a": "Pünktlichkeit", "en": "Her punctuality impressed all the colleagues.", "hint": "-keit bildet Nomen", "note": "pünktlich + -keit." }
+      ]
+    },
+    {
+      "id": "vorfeldbesetzung",
+      "name": "Vorfeldbesetzung",
+      "kind": "cloze",
+      "intro": "Any element can take the Vorfeld (position 1) for emphasis or theme-rheme structure, but the finite verb then stays in position 2 (Gestern habe ich ... gearbeitet).",
+      "items": [
+        { "p": "Gestern ___ ich meinen alten Lehrer getroffen.", "a": "habe", "en": "Yesterday I met my old teacher.", "hint": "Verb bleibt Position 2", "note": "Vorfeld 'Gestern', dann finites Verb." },
+        { "p": "Über das Ergebnis ___ alle überrascht.", "a": "waren", "en": "Everyone was surprised at the result.", "hint": "Verb bleibt Position 2", "note": "Inversion nach dem Vorfeld." },
+        { "p": "Im Sommer ___ wir nach Spanien.", "a": "fahren", "en": "In summer we go to Spain.", "hint": "Verb bleibt Position 2", "note": "Subjekt folgt dem finiten Verb." },
+        { "p": "Nach dem Konzert ___ die Fans nach Hause.", "a": "gingen", "en": "After the concert the fans went home.", "hint": "Verb bleibt Position 2", "note": "Temporale Angabe im Vorfeld." },
+        { "p": "Kaum ___ er das Haus verlassen, klingelte das Telefon.", "a": "hatte", "en": "He had barely left the house when the phone rang.", "hint": "Kaum + Verb an Position 2", "note": "'Kaum' im Vorfeld erfordert Inversion." },
+        { "p": "Nur mit Mühe ___ er die Prüfung.", "a": "bestand", "en": "Only with difficulty did he pass the exam.", "hint": "Verb bleibt Position 2", "note": "Fokussierendes 'nur' im Vorfeld." },
+        { "p": "Wahrscheinlich ___ sie den Brief nie gelesen.", "a": "hat", "en": "She probably never read the letter.", "hint": "Verb bleibt Position 2", "note": "Satzadverb im Vorfeld." },
+        { "p": "Seit Jahren ___ er auf diese Chance.", "a": "wartet", "en": "For years he has been waiting for this chance.", "hint": "Verb bleibt Position 2", "note": "Temporale Angabe als Thema." }
+      ]
+    },
+    {
+      "id": "ausklammerung",
+      "name": "Ausklammerung",
+      "kind": "cloze",
+      "intro": "Heavy or informationally important elements can be moved out of the sentence bracket and placed after the finite verb (Ich habe ihn gesehen, den Mann).",
+      "items": [
+        { "p": "Ich habe den ganzen Abend ___, ohne ein Wort zu sagen.", "a": "geschwiegen", "en": "I was silent all evening without saying a word.", "hint": "Partizip II im Satzrahmen", "note": "Infinitivgruppe wird ausgeklammert." },
+        { "p": "Er hat sich sehr ___, dass er gewonnen hat.", "a": "gefreut", "en": "He was very glad that he had won.", "hint": "sich freuen → Partizip II", "note": "Nebensatz nach dem Rahmen." },
+        { "p": "Sie ist nach Hause ___, ohne sich zu verabschieden.", "a": "gegangen", "en": "She went home without saying goodbye.", "hint": "gehen → Partizip II", "note": "Infinitivgruppe ausgeklammert." },
+        { "p": "Wir haben lange ___, auf eine Antwort.", "a": "gewartet", "en": "We waited a long time for an answer.", "hint": "warten → Partizip II", "note": "Präpositionalphrase nach dem Rahmen." },
+        { "p": "Ich habe ihn gestern ___, den neuen Kollegen.", "a": "kennengelernt", "en": "I met him yesterday, the new colleague.", "hint": "kennenlernen → Partizip II", "note": "Objekt wird nachgestellt." },
+        { "p": "Das Buch habe ich ___ , gestern Abend.", "a": "gelesen", "en": "I read the book, yesterday evening.", "hint": "lesen → Partizip II", "note": "Temporale Angabe ausgeklammert." },
+        { "p": "Er hat es mir ___, ganz langsam.", "a": "erklärt", "en": "He explained it to me, very slowly.", "hint": "erklären → Partizip II", "note": "Adverbiale nach dem Rahmen." },
+        { "p": "Sie hat sich das Kleid ___, in der Stadt.", "a": "gekauft", "en": "She bought the dress, in town.", "hint": "kaufen → Partizip II", "note": "Lokale Angabe ausgeklammert." }
+      ]
+    },
+    {
+      "id": "relativ-was-auch-immer",
+      "name": "wer/was auch immer",
+      "kind": "cloze",
+      "intro": "Indefinite relative clauses: wer = 'whoever', was = 'whatever'; was auch immer / egal wie = 'whatever / no matter how'.",
+      "items": [
+        { "p": "___ du auch sagst, ich glaube dir.", "a": "Was", "en": "Whatever you say, I believe you.", "hint": "was auch immer", "note": "'was' leitet den freien Relativsatz ein." },
+        { "p": "___ auch immer kommt, wir bleiben zusammen.", "a": "Was", "en": "Whatever happens, we stay together.", "hint": "was auch immer = egal was", "note": "'was' + auch immer verstärkt." },
+        { "p": "___ sich anstrengt, wird belohnt.", "a": "Wer", "en": "Whoever makes an effort is rewarded.", "hint": "wer = derjenige, der", "note": "Subjektbezogener freier Relativsatz." },
+        { "p": "___ du auch versuchst, es klappt nicht.", "a": "Was", "en": "Whatever you try, it won't work.", "hint": "was auch immer", "note": "Objektbezogener Relativsatz." },
+        { "p": "Egal ___ du es versuchst, es wird nicht klappen.", "a": "wie", "en": "No matter how you try, it won't work.", "hint": "egal wie", "note": "Feste Fügung 'egal wie'." },
+        { "p": "___ mir auch passiert, ich gebe nicht auf.", "a": "Was", "en": "Whatever happens to me, I won't give up.", "hint": "was auch immer", "note": "Verallgemeinernd." },
+        { "p": "___ sich meldet, wird informiert.", "a": "Wer", "en": "Whoever gets in touch will be informed.", "hint": "wer = derjenige, der", "note": "Freier Relativsatz mit 'wer'." },
+        { "p": "___ das auch behauptet hat, es stimmt nicht.", "a": "Wer", "en": "Whoever claimed that, it isn't true.", "hint": "wer auch immer", "note": "Verallgemeinerung mit 'auch'." }
+      ]
+    },
+    {
+      "id": "praepositionale-attribute",
+      "name": "Präpositionale Attribute",
+      "kind": "cloze",
+      "intro": "Many nouns take a fixed preposition: Interesse an, Angst vor, Wunsch nach, Hoffnung auf, Freude über, Zweifel an, Kritik an, Mangel an.",
+      "items": [
+        { "p": "Das Interesse ___ moderner Kunst ist gestiegen.", "a": "an", "en": "Interest in modern art has risen.", "hint": "Interesse an + Dativ", "note": "Feste Präposition des Nomens." },
+        { "p": "Sie hat große Angst ___ Spinnen.", "a": "vor", "en": "She is very afraid of spiders.", "hint": "Angst vor + Dativ", "note": "Angst vor etwas." },
+        { "p": "Der Wunsch ___ einem eigenen Haus blieb unerfüllt.", "a": "nach", "en": "The wish for a house of one's own remained unfulfilled.", "hint": "Wunsch nach + Dativ", "note": "Wunsch nach etwas." },
+        { "p": "Die Hoffnung ___ bessere Zeiten stirbt zuletzt.", "a": "auf", "en": "Hope for better times dies last.", "hint": "Hoffnung auf + Akkusativ", "note": "Hoffnung auf etwas." },
+        { "p": "Seine Freude ___ das Wiedersehen war groß.", "a": "über", "en": "His joy at the reunion was great.", "hint": "Freude über + Akkusativ", "note": "Freude über etwas." },
+        { "p": "Der Zweifel ___ der Richtigkeit nahm zu.", "a": "an", "en": "Doubt about the correctness increased.", "hint": "Zweifel an + Dativ", "note": "Zweifel an etwas." },
+        { "p": "Die Kritik ___ dem Vorschlag war berechtigt.", "a": "an", "en": "The criticism of the proposal was justified.", "hint": "Kritik an + Dativ", "note": "Kritik an etwas." },
+        { "p": "Der Mangel ___ Erfahrung war offensichtlich.", "a": "an", "en": "The lack of experience was obvious.", "hint": "Mangel an + Dativ", "note": "Mangel an etwas." }
+      ]
+    }
+  ]
+}
