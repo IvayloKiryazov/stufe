@@ -9,6 +9,7 @@ const SCREENS = [
   { name: "grammar library", open: '[data-act="grammar-list"]', wait: "h1" },
   { name: "reading", open: '[data-act="reading"]', wait: "h1" },
   { name: "dictation", open: '[data-act="dictation"]', wait: "#dans" },
+  { name: "translate", open: '[data-act="translate"]', wait: "#tans" },
   { name: "stats", open: '[data-act="stats"]', wait: ".heat" },
   { name: "projections", open: '[data-act="projections"]', wait: "h1" },
   { name: "extra study", open: '[data-act="extra"]', wait: "h1" },

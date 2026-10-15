@@ -12,6 +12,7 @@
   var leechIds = [];
   var expanded = {};
   var dict = null;
+  var trans = null;
 
   /* ---------------------------------------------------------------- utils */
 
@@ -259,6 +260,7 @@
       '<div><button class="link" data-act="grammar-list">Grammar library</button></div>' +
       '<div><button class="link" data-act="reading">Reading</button></div>' +
       '<div><button class="link" data-act="dictation">Dictation</button></div>' +
+      '<div><button class="link" data-act="translate">Translate to German</button></div>' +
       '<div><button class="link" data-act="stats">Stats</button></div>' +
       '<div><button class="link" data-act="projections">Projections</button></div>' +
       '<div><button class="link" data-act="extra">Extra study (ghosts)</button></div>' +
@@ -892,6 +894,76 @@
       '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
   }
 
+  /* ----------------------------------------------------------- translate */
+
+  function translate() {
+    sess = null;
+    var all = Object.keys(BY).filter(function (id) { return BY[id].sentence_de && BY[id].sentence_en; });
+    var learned = Object.keys(window.Store.progress).filter(function (id) { return BY[id] && BY[id].sentence_de && BY[id].sentence_en; });
+    var pool = learned.length >= 5 ? learned : all;
+    if (!pool.length) {
+      app.innerHTML = "<h1>Translate</h1><p class=\"note\">No sentences yet.</p>" +
+        '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+      return;
+    }
+    var queue = shuffle(pool.slice()).slice(0, 10);
+    trans = { queue: queue, i: 0, total: queue.length, ok: 0, phase: "ask", lastOk: false, lastInput: "", sim: 0 };
+    transCard();
+  }
+
+  function transCard() {
+    if (trans.i >= trans.total) { transSummary(); return; }
+    var it = BY[trans.queue[trans.i]];
+    var fb = trans.phase === "fb";
+    app.innerHTML =
+      '<h1 class="sr-only">Translate</h1>' +
+      '<div class="prog"><span>Translate ' + (trans.i + 1) + " of " + trans.total + "</span>" +
+      '<div class="bar"><div style="width:' + (trans.i / trans.total) * 100 + '%"></div></div></div>' +
+      '<div class="card">' +
+      '<div class="prompt-label">Translate into German</div>' +
+      '<p class="prompt sent">' + esc(it.sentence_en) + "</p>" +
+      '<input type="text" id="tans" lang="de" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Your German sentence" ' + (fb ? "readonly" : "") + ">" +
+      '<div class="row" style="margin-top:10px">' +
+      (fb ? '<button class="primary" data-act="tnext">Next</button>' : '<button class="primary" data-act="tcheck">Check</button>') +
+      '<button data-act="home">Stop</button></div>' +
+      (fb
+        ? '<div class="fb"><p class="verdict ' + (trans.lastOk ? "ok" : "no") + '">' +
+          (trans.lastOk ? "Correct" : "Close (" + Math.round(trans.sim * 100) + "% match)") + "</p>" +
+          '<p class="answer" lang="de">' + esc(it.sentence_de) + "</p></div>"
+        : "") +
+      "</div>";
+    var inp = document.getElementById("tans");
+    if (inp) {
+      inp.value = fb ? trans.lastInput || "" : "";
+      if (!fb) setTimeout(function () { inp.focus(); }, 0);
+    }
+  }
+
+  function transCheck() {
+    var it = BY[trans.queue[trans.i]];
+    var val = document.getElementById("tans").value;
+    if (!val.trim()) return;
+    trans.lastOk = window.Grade.equals(val, it.sentence_de);
+    trans.sim = window.Grade.tokenSimilarity(val, it.sentence_de);
+    trans.lastInput = val;
+    if (trans.lastOk) trans.ok++;
+    trans.phase = "fb";
+    transCard();
+  }
+
+  function transNext() {
+    trans.i++;
+    trans.phase = "ask";
+    transCard();
+  }
+
+  function transSummary() {
+    app.innerHTML =
+      "<h1>Translation done</h1>" +
+      '<p class="tag">' + trans.ok + " / " + trans.total + " correct.</p>" +
+      '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+  }
+
   /* --------------------------------------------------------------- stats */
 
   function showStats() {
@@ -1031,6 +1103,9 @@
     else if (a === "dictation") dictation();
     else if (a === "dcheck") dictCheck();
     else if (a === "dnext") dictNext();
+    else if (a === "translate") translate();
+    else if (a === "tcheck") transCheck();
+    else if (a === "tnext") transNext();
     else if (a === "stats") showStats();
     else if (a === "projections") projections();
     else if (a === "extra") extraStudy();
