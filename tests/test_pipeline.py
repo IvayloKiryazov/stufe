@@ -10,6 +10,7 @@ sys.path.insert(0, str(TOOLS))
 
 import common  # noqa: E402
 import build_frequency  # noqa: E402
+import build_conjugations  # noqa: E402
 from common import blank_sentence  # noqa: E402
 
 
@@ -131,6 +132,34 @@ class ExtractNounTest(unittest.TestCase):
             ]
         )
         self.assertIsNone(build_frequency.extract_noun(entry)["example"])
+
+
+class ConjugationTest(unittest.TestCase):
+    def _entry(self):
+        return {
+            "pos": "verb",
+            "forms": [
+                {"form": "mache", "tags": ["first-person", "singular", "present", "indicative"]},
+                {"form": "machst", "tags": ["second-person", "singular", "present", "indicative"]},
+                {"form": "macht", "tags": ["third-person", "singular", "present", "indicative"]},
+                {"form": "machen", "tags": ["first-person", "plural", "present", "indicative"]},
+                {"form": "macht", "tags": ["second-person", "plural", "present", "indicative"]},
+                {"form": "machen", "tags": ["third-person", "plural", "present", "indicative"]},
+                {"form": "machte", "tags": ["third-person", "singular", "preterite", "indicative"]},
+                {"form": "gemacht", "tags": ["participle", "past"]},
+                {"form": "mache", "tags": ["first-person", "singular", "subjunctive"]},
+            ],
+        }
+
+    def test_extracts_present_preterite_participle(self):
+        c = build_conjugations.extract_conjugation(self._entry())
+        self.assertEqual(c["present"], ["mache", "machst", "macht", "machen", "macht", "machen"])
+        self.assertEqual(c["preterite"], "machte")
+        self.assertEqual(c["participle"], "gemacht")
+
+    def test_requires_all_six_persons(self):
+        partial = {"forms": [{"form": "x", "tags": ["present", "indicative", "first-person", "singular"]}]}
+        self.assertIsNone(build_conjugations.extract_conjugation(partial))
 
 
 if __name__ == "__main__":

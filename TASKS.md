@@ -17,7 +17,7 @@ This mirrors the GitHub issue tracker; each epic is an issue.
 - [ ] POS-aware frequency deck (currently opt-in/experimental): filter with a Wiktionary
       extract so nominalised verbs (`das Ist`) and homographs never become noun cards
 - [ ] Optional gloss enrichment from Wiktionary (kaikki extract) for word-level English meanings
-- [ ] Verb conjugation table enrichment (principal parts from Wiktionary)
+- [x] Verb conjugation table enrichment (principal parts from Wiktionary)
 
 ## Epic 3 — Curated content (A1–A2)
 - [x] A1 themed noun lists (people, food, home, time, places, body, clothing…)

@@ -90,6 +90,11 @@
     } else if (it.kind === "verb") {
       out += '<p class="answer">' + esc(it.de) + "</p>";
       if (it.forms) out += '<p class="forms">' + esc(it.forms) + "</p>";
+      if (it.conjugation && it.conjugation.present) {
+        var pr = it.conjugation.present;
+        out += '<p class="conj">ich ' + esc(pr[0]) + " · du " + esc(pr[1]) + " · er " + esc(pr[2]) +
+          "<br>wir " + esc(pr[3]) + " · ihr " + esc(pr[4]) + " · sie " + esc(pr[5]) + "</p>";
+      }
     } else {
       out += '<p class="answer">' + esc(it.prompt).replace("___", "<mark>" + esc(it.answer) + "</mark>") + "</p>";
       out += '<p class="trans">' + esc(it.en) + "</p>";

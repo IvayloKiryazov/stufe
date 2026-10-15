@@ -62,6 +62,9 @@ def main() -> int:
     pairs = load_sentence_pairs()
     index = build_sentence_index(pairs) if pairs else {}
 
+    conj_path = ROOT / "data" / "conjugations.json"
+    conjugations = json.loads(conj_path.read_text(encoding="utf-8")) if conj_path.exists() else {}
+
     items: list[dict] = []
     levels: dict[str, dict] = {lvl: {"id": lvl, "name": lvl.upper(), "title": LEVEL_META[lvl], "groups": []} for lvl in LEVEL_ORDER}
     used_attribution: set[str] = set()
@@ -137,6 +140,9 @@ def main() -> int:
                 if attr:
                     item["attribution"] = attr
                     used_attribution.add(attr)
+                base = word.replace("sich ", "").strip()
+                if base in conjugations:
+                    item["conjugation"] = conjugations[base]
                 group["items"].append(item["id"])
                 items.append(item)
 
