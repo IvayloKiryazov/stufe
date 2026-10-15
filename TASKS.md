@@ -50,7 +50,8 @@ This mirrors the GitHub issue tracker; each epic is an issue.
 - [ ] Level-balancing pass using frequency rank + curated CEFR lists
 
 ## Epic 6 — Polish / infra
-- [ ] GitHub Pages enabled + deploy verified
+- [x] GitHub Pages enabled + deploy verified
+- [x] Unit + dataset tests and CI (GitHub Actions)
 - [ ] Lighthouse pass (a11y, PWA installability)
 - [ ] Dark/light + reduced-motion audit
 - [ ] Contribution guide for adding grammar points
