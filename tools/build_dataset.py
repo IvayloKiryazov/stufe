@@ -118,8 +118,17 @@ def main() -> int:
         for grp in doc["groups"]:
             gid = f"{level}-{grp['id']}"
             group = add_group(level, gid, grp["name"], "verb", grp.get("intro", ""))
-            for word, english, forms in grp["words"]:
+            for entry in grp["words"]:
+                word, english, forms = entry[0], entry[1], entry[2]
+                ex_de = entry[3] if len(entry) > 3 else ""
+                ex_en = entry[4] if len(entry) > 4 else ""
                 hit = find_example(index, word) if index else None
+                if ex_de:
+                    sentence_de, sentence_en, attr = ex_de, ex_en, ""
+                elif hit:
+                    sentence_de, sentence_en, attr = hit
+                else:
+                    sentence_de, sentence_en, attr = "", "", ""
                 item = {
                     "id": f"{gid}-{slug(word)}",
                     "level": level,
@@ -130,13 +139,13 @@ def main() -> int:
                     "de": word,
                     "en": english,
                     "forms": forms,
-                    "sentence_de": hit[0] if hit else "",
-                    "sentence_en": hit[1] if hit else "",
+                    "sentence_de": sentence_de,
+                    "sentence_en": sentence_en,
                     "note": grp.get("notes", {}).get(word, ""),
                 }
-                if hit and hit[2]:
-                    item["attribution"] = hit[2]
-                    used_attribution.add(hit[2])
+                if attr:
+                    item["attribution"] = attr
+                    used_attribution.add(attr)
                 group["items"].append(item["id"])
                 items.append(item)
 

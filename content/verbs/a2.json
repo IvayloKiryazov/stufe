@@ -7,14 +7,14 @@
       "kind": "verb",
       "intro": "The action falls back on the subject: Ich freue mich. The reflexive pronoun changes with the person (mich, dich, sich, uns, euch).",
       "words": [
-        ["sich freuen", "to be glad", "freut sich, freute sich, hat sich gefreut"],
-        ["sich interessieren", "to be interested", "interessiert sich, interessierte sich, hat sich interessiert"],
-        ["sich treffen", "to meet (each other)", "trifft sich, traf sich, hat sich getroffen"],
-        ["sich erinnern", "to remember", "erinnert sich, erinnerte sich, hat sich erinnert"],
-        ["sich beeilen", "to hurry", "beeilt sich, beeilte sich, hat sich beeilt"],
-        ["sich fühlen", "to feel", "fühlt sich, fühlte sich, hat sich gefühlt"],
-        ["sich setzen", "to sit down", "setzt sich, setzte sich, hat sich gesetzt"],
-        ["sich vorstellen", "to introduce oneself", "stellt sich vor, stellte sich vor, hat sich vorgestellt"]
+        ["sich freuen", "to be glad", "freut sich, freute sich, hat sich gefreut", "Ich freue mich über das Geschenk.", "I am happy about the gift."],
+        ["sich interessieren", "to be interested", "interessiert sich, interessierte sich, hat sich interessiert", "Er interessiert sich für Musik.", "He is interested in music."],
+        ["sich treffen", "to meet (each other)", "trifft sich, traf sich, hat sich getroffen", "Wir treffen uns morgen um zehn.", "We are meeting tomorrow at ten."],
+        ["sich erinnern", "to remember", "erinnert sich, erinnerte sich, hat sich erinnert", "Ich erinnere mich an unseren Urlaub.", "I remember our holiday."],
+        ["sich beeilen", "to hurry", "beeilt sich, beeilte sich, hat sich beeilt", "Wir müssen uns beeilen.", "We have to hurry."],
+        ["sich fühlen", "to feel", "fühlt sich, fühlte sich, hat sich gefühlt", "Ich fühle mich heute sehr gut.", "I feel very good today."],
+        ["sich setzen", "to sit down", "setzt sich, setzte sich, hat sich gesetzt", "Setzen Sie sich bitte.", "Please sit down."],
+        ["sich vorstellen", "to introduce oneself", "stellt sich vor, stellte sich vor, hat sich vorgestellt", "Darf ich mich vorstellen?", "May I introduce myself?"]
       ],
       "notes": {
         "sich freuen": "sich freuen über = about something; sich freuen auf = looking forward to."
