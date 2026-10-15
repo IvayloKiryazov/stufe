@@ -17,7 +17,6 @@ sentence (Tatoeba), then writes:
 
 from __future__ import annotations
 
-import argparse
 import json
 import re
 import sys
@@ -59,14 +58,6 @@ def load_content(kind: str) -> list[dict]:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument(
-        "--frequency",
-        action="store_true",
-        help="also merge the experimental frequency deck (data/vocab_frequency.json)",
-    )
-    args = ap.parse_args()
-
     nouns = load_nouns()
     pairs = load_sentence_pairs()
     index = build_sentence_index(pairs) if pairs else {}
@@ -173,9 +164,9 @@ def main() -> int:
                 group["items"].append(item["id"])
                 items.append(item)
 
-    # --- generated frequency deck (opt-in, experimental) ------------------
+    # --- generated frequency deck (data/vocab_frequency.json) -------------
     freq_path = ROOT / "data" / "vocab_frequency.json"
-    if args.frequency and freq_path.exists():
+    if freq_path.exists():
         freq_items = json.loads(freq_path.read_text(encoding="utf-8"))
         seen: dict[str, dict] = {}
         for it in freq_items:

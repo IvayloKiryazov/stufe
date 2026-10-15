@@ -45,13 +45,14 @@ This mirrors the GitHub issue tracker; each epic is an issue.
 - [ ] Optional auto-play audio on reveal
 
 ## Epic 5 — Content scale-out to C1–C2
-- [ ] Commit full frequency deck (top ~3000) as A2–C1 "core vocabulary" groups
+- [x] Ship the frequency deck (~6,000 nouns) as A2–C2 "core vocabulary" groups
 - [ ] Import the user's frequency Anki deck locally (gitignored) as an optional deck
 - [ ] Level-balancing pass using frequency rank + curated CEFR lists
 
 ## Epic 6 — Polish / infra
 - [x] GitHub Pages enabled + deploy verified
 - [x] Unit + dataset tests and CI (GitHub Actions)
+- [x] Service worker: network-first for deck data (no stale decks after deploy)
 - [ ] Lighthouse pass (a11y, PWA installability)
 - [ ] Dark/light + reduced-motion audit
 - [ ] Contribution guide for adding grammar points

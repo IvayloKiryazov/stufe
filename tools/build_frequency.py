@@ -28,13 +28,9 @@ from common import (
 GENUS = {"m": "der", "f": "die", "n": "das"}
 WIKT_ATTR = "Wiktionary (CC BY-SA 4.0)"
 
-BUCKETS = [
-    (1500, "a2"),
-    (3000, "b1"),
-    (5000, "b2"),
-    (8000, "c1"),
-    (10**9, "c2"),
-]
+# levels assigned by quantile of the emitted (frequency-ordered) deck, so the
+# core-vocabulary layer is spread evenly from A2 to C2 rather than piled up
+LEVELS = ["a2", "b1", "b2", "c1", "c2"]
 
 # function words that share a spelling with a rare noun (das Es, das Ich)
 STOP = set(
@@ -50,11 +46,9 @@ STOP = set(
 )
 
 
-def level_for_rank(rank: int) -> str:
-    for limit, level in BUCKETS:
-        if rank <= limit:
-            return level
-    return "c2"
+def level_for_index(idx: int, total: int) -> str:
+    """Spread the deck evenly across the levels by position."""
+    return LEVELS[min(len(LEVELS) - 1, idx * len(LEVELS) // max(1, total))]
 
 
 def _gender(entry: dict) -> str | None:
@@ -129,8 +123,8 @@ def extract_noun(entry: dict) -> dict | None:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--limit", type=int, default=2500, help="max noun items")
-    ap.add_argument("--scan", type=int, default=20000, help="frequency words to consider")
+    ap.add_argument("--limit", type=int, default=6000, help="max noun items")
+    ap.add_argument("--scan", type=int, default=80000, help="frequency words to consider")
     ap.add_argument("--kaikki", type=Path, default=ROOT / "data" / "raw" / "kaikki-de.jsonl")
     args = ap.parse_args()
 
@@ -166,15 +160,20 @@ def main() -> int:
 
     tatoeba = build_sentence_index(load_sentence_pairs())
 
-    items = []
+    rows = []
     for rank, word in freq:
-        if len(items) >= args.limit:
+        if len(rows) >= args.limit:
             break
         if word in STOP or len(word) < 3:
             continue
         info = nouns.get(word[:1].upper() + word[1:])
-        if not info:
-            continue
+        if info:
+            rows.append((rank, word, info))
+
+    items = []
+    total = len(rows)
+    for idx, (rank, word, info) in enumerate(rows):
+        level = level_for_index(idx, total)
         plural = f"die {info['plural']}" if info["plural"] and info["plural"] != info["word"] else ""
         if info["example"]:
             sentence_de, sentence_en, attr = info["example"][0], info["example"][1], WIKT_ATTR
@@ -184,7 +183,6 @@ def main() -> int:
                 sentence_de, sentence_en, attr = hit
             else:
                 sentence_de, sentence_en, attr = "", "", ""
-        level = level_for_rank(rank)
         item = {
             "id": f"freq-{level}-{word}",
             "level": level,

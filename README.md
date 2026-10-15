@@ -58,8 +58,9 @@ data and real example sentences from open sources.
 ```bash
 cd tools
 python3 fetch_sources.py     # download frequency list, noun table, sentences
-python3 build_dataset.py     # merge content/ -> data/items.json + levels.json
-# optional (experimental): python3 build_vocab.py && python3 build_dataset.py --frequency
+python3 fetch_kaikki.py      # optional: ~1.1 GB Wiktionary extract (for the core-vocab deck)
+python3 build_frequency.py   # optional: build the core-vocabulary deck
+python3 build_dataset.py     # merge content/ (+ core vocab) -> data/items.json + levels.json
 ```
 
 See [`tools/README.md`](tools/README.md) for details and licensing.

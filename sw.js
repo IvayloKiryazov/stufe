@@ -1,6 +1,6 @@
 /* Offline-first service worker: precache the shell + deck, cache-first for
    same-origin GETs. Bump CACHE when assets change. */
-var CACHE = "stufe-v2";
+var CACHE = "stufe-v3";
 var ASSETS = [
   "./",
   "index.html",
@@ -37,6 +37,21 @@ self.addEventListener("fetch", function (e) {
   if (req.method !== "GET") return;
   var url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
+
+  // Network-first for the deck data, so a redeployed deck is picked up
+  // immediately; falls back to the cache when offline.
+  if (url.pathname.indexOf("/data/") !== -1) {
+    e.respondWith(
+      fetch(req).then(function (res) {
+        var copy = res.clone();
+        caches.open(CACHE).then(function (c) { c.put(req, copy); });
+        return res;
+      }).catch(function () { return caches.match(req); })
+    );
+    return;
+  }
+
+  // Cache-first for the app shell.
   e.respondWith(
     caches.match(req).then(function (hit) {
       if (hit) return hit;

@@ -21,12 +21,14 @@ every item is confirmed to be a noun (no pronoun/verb homographs):
 ```bash
 python3 fetch_kaikki.py      # ~1.1 GB into data/raw/ (gitignored)
 python3 build_frequency.py   # -> data/vocab_frequency.json
-python3 build_dataset.py --frequency
+python3 build_dataset.py     # merges it into data/ (runs after build_frequency)
 ```
 
 `build_frequency.py` matches the most frequent words against Wiktionary noun
 entries and pulls the article, plural, English gloss and an example sentence
-(with translation) from the extract. It is opt-in because the source is large.
+(with translation) from the extract. `build_dataset.py` merges
+`data/vocab_frequency.json` automatically when it exists, so run
+`build_frequency.py` before it (or skip both to build only the curated deck).
 
 ## Sources
 
