@@ -222,6 +222,7 @@
       '<label>Daily review goal <input type="number" id="set-goal-rev" min="0" max="1000" value="' + window.Store.settings.goalReviews + '" style="width:5rem;margin-left:auto"></label>' +
       '<div><button class="link" data-act="backup">Back up / restore progress</button></div>' +
       '<div><button class="link" data-act="progress">Progress by group</button></div>' +
+      '<div><button class="link" data-act="stats">Stats</button></div>' +
       '<div><button class="link" data-act="leeches">Leeches (hardest items)</button></div>' +
       '<div><button class="link" data-act="help">Keyboard shortcuts</button></div>' +
       '<div><button class="link" data-act="credits">Credits &amp; licenses</button></div>' +
@@ -526,6 +527,42 @@
       '<div class="row" style="margin-top:8px"><button class="primary" data-act="home">Back</button></div>';
   }
 
+  /* --------------------------------------------------------------- stats */
+
+  function showStats() {
+    sess = null;
+    var t = window.Stats.totals(window.Store.history);
+    var started = 0, passed = 0;
+    Object.keys(BY).forEach(function (id) {
+      if (window.Store.entry(id)) {
+        started++;
+        if (window.SRS.passed(id)) passed++;
+      }
+    });
+    var days = window.Stats.recentDays(window.Store.history, 35, Date.now());
+    var max = 1;
+    days.forEach(function (d) { if (d.total > max) max = d.total; });
+    var cells = days.map(function (d) {
+      var level = d.total === 0 ? 0 : Math.max(1, Math.ceil((d.total / max) * 4));
+      return '<span class="cell heat' + level + '" title="' + d.key + ": " + d.total + '"></span>';
+    }).join("");
+    var st = window.Stats.streak(window.Store.history, Date.now());
+    app.innerHTML =
+      "<h1>Stats</h1>" +
+      '<div class="actions">' +
+      '<div class="action"><div class="n">' + st + '</div><div class="lbl">day streak</div></div>' +
+      '<div class="action"><div class="n">' + t.reviews + '</div><div class="lbl">reviews all time</div></div>' +
+      "</div>" +
+      '<div class="actions">' +
+      '<div class="action"><div class="n">' + started + '</div><div class="lbl">items started</div></div>' +
+      '<div class="action"><div class="n">' + passed + '</div><div class="lbl">items passed</div></div>' +
+      "</div>" +
+      "<h2>Last 5 weeks</h2>" +
+      '<div class="heat">' + cells + "</div>" +
+      '<p class="note">' + t.new + " new items and " + t.reviews + " reviews over " + t.days + " active days.</p>" +
+      '<div class="row" style="margin-top:16px"><button class="primary" data-act="home">Back</button></div>';
+  }
+
   /* --------------------------------------------------------------- help */
 
   function help() {
@@ -608,6 +645,7 @@
     else if (a === "restore") restore();
     else if (a === "download") download();
     else if (a === "progress") progress();
+    else if (a === "stats") showStats();
     else if (a === "leeches") leeches();
     else if (a === "practice-leeches") startReviews(true, shuffle(leechIds.slice()).slice(0, 20));
     else if (a === "help") help();
@@ -656,7 +694,7 @@
         });
         home();
       })
-      .catch(function () { fail("Could not load the deck data."); });
+      .catch(function (e) { fail("Could not load the deck data." + (e ? " (" + (e.message || e) + ")" : "")); });
 
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {

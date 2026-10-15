@@ -60,5 +60,32 @@
     return out;
   }
 
-  return { dayKey: dayKey, bump: bump, streak: streak, totals: totals, active: active };
+  /* Last `days` days (oldest first) as [{key, new, reviews, total}]. */
+  function recentDays(history, days, nowTs) {
+    var out = [];
+    var base = new Date(nowTs);
+    base.setHours(12, 0, 0, 0);
+    for (var i = days - 1; i >= 0; i--) {
+      var d = new Date(base.getTime());
+      d.setDate(d.getDate() - i);
+      var key = dayKey(d.getTime());
+      var h = history[key] || { new: 0, reviews: 0 };
+      out.push({
+        key: key,
+        new: h.new || 0,
+        reviews: h.reviews || 0,
+        total: (h.new || 0) + (h.reviews || 0),
+      });
+    }
+    return out;
+  }
+
+  return {
+    dayKey: dayKey,
+    bump: bump,
+    streak: streak,
+    totals: totals,
+    active: active,
+    recentDays: recentDays,
+  };
 });

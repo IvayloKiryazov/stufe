@@ -1,6 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert");
-const { dayKey, bump, streak, totals } = require("../../js/lib/stats.js");
+const { dayKey, bump, streak, totals, recentDays } = require("../../js/lib/stats.js");
 
 const DAY = 86400000;
 // a fixed reference: 2026-03-10 local noon
@@ -48,4 +48,14 @@ test("totals sums everything", () => {
   h = bump(h, "reviews", REF, 9);
   h = bump(h, "reviews", REF - DAY, 1);
   assert.deepEqual(totals(h), { new: 4, reviews: 10, days: 2 });
+});
+
+test("recentDays returns a window ending today", () => {
+  let h = bump({}, "reviews", REF, 7);
+  const days = recentDays(h, 7, REF);
+  assert.equal(days.length, 7);
+  assert.equal(days[6].key, "2026-03-10");
+  assert.equal(days[6].total, 7);
+  assert.equal(days[0].key, "2026-03-04");
+  assert.equal(days[0].total, 0);
 });

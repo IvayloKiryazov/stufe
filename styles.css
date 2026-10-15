@@ -80,6 +80,9 @@ mark{background:none;color:var(--ink);font-weight:700;border-bottom:3px solid va
 .settings label{display:flex;gap:10px;align-items:center;min-height:32px}
 .settings textarea{width:100%;min-height:120px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.8rem;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:10px}
 .big{font-family:var(--serif);font-size:2.4rem;margin:0 0 6px}
+.heat{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin:8px 0 12px}
+.cell{aspect-ratio:1;border-radius:4px;background:var(--soft)}
+.cell.heat1{background:#a7dcc0} .cell.heat2{background:#6cc79e} .cell.heat3{background:#37a878} .cell.heat4{background:#1d7d57}
 .err{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--bad);border-radius:12px;padding:18px}
 @media (max-width:460px){.actions{grid-template-columns:1fr}.prompt{font-size:1.9rem}}
 @media (prefers-reduced-motion:no-preference){.bar>div{transition:width .3s}}
