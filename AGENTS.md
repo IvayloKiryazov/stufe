@@ -106,13 +106,12 @@ across levels (do not switch to German-only names at C1/C2).
 
 ## Environment: Windows + WSL (IMPORTANT)
 
-The agent runs on Windows; the repo lives in WSL at
-`~/projects/stufe`. Two recurring traps (see the `wsl-windows-env`
-skill for detail):
+The agent runs on Windows; the repo lives inside WSL (e.g. `~/projects/stufe`).
+Two recurring traps (see the `wsl-windows-env` skill for detail):
 
-1. **Files written via the UNC path become root-owned.** Author files to
-   `<windows-temp>\...` and copy them in with
-   `wsl -e bash -lc "cp <windows-temp> <dest>"` so they land as `ivaylo`.
+1. **Files written via the UNC path become root-owned.** Author files to a
+   Windows temp directory and copy them in with
+   `wsl -e bash -lc "cp <windows-temp-file> <dest>"` so they land as your WSL user.
 2. **The PowerShell → WSL pipe mangles quoting** (`$VAR`, `$(...)`, quotes).
    Never inline complex bash — write a `.sh` script file and run
    `wsl -e bash -lc "bash /tmp/x.sh"`. Node is via `nvm`:
