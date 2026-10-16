@@ -44,7 +44,9 @@ the built `docs/`.
 
 ## Honest state of the deck
 
-~6,900 items: ~3,200 nouns, ~1,800 adjectives, ~1,300 verbs, ~625 grammar cloze.
-Levels are **frequency quantiles, not true CEFR**; the core vocabulary layer is
-broad but its glosses are unfact-checked (Phase 2). Reading/listening/speaking
-are minimal — see Phase 4.
+~7,300 items: nouns, adjectives, verbs, grammar cloze, plus separate **gender**
+and **plural** drill tracks for curated nouns. Levels are **frequency
+quantiles, not true CEFR**; the core vocabulary layer is broad and its
+meta-glosses are filtered, but sense selection for polysemous words is still
+heuristic (Phase 2). Listening/reading/speaking/writing now exist but content is
+small. Full per-item verification of the auto deck remains a standing task.
