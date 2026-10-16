@@ -17,6 +17,7 @@ import { Button } from "./components/ui/button";
 import { cn } from "./lib/cn";
 import { useTheme, type Theme } from "./lib/theme";
 import Today from "./routes/Today";
+import Study from "./routes/Study";
 import Settings from "./routes/Settings";
 import Placeholder from "./routes/Placeholder";
 
@@ -96,7 +97,7 @@ export default function App() {
         <main className="mx-auto w-full max-w-3xl flex-1 p-4 md:p-8">
           <Routes>
             <Route path="/" element={<Today />} />
-            <Route path="/study" element={<Placeholder title="Study" />} />
+            <Route path="/study" element={<Study />} />
             <Route path="/browse" element={<Placeholder title="Browse" />} />
             <Route path="/grammar" element={<Placeholder title="Grammar" />} />
             <Route path="/stats" element={<Placeholder title="Stats" />} />
