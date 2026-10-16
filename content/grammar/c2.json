@@ -3,115 +3,458 @@
   "groups": [
     {
       "id": "register-stilebenen",
-      "name": "Register & Stilebenen",
+      "name": "Register & Stilebenen (gehoben / umgangssprachlich)",
       "kind": "cloze",
       "intro": "German distinguishes register: colloquial (kriegen, kaputt), neutral, formal/elevated (erhalten, defekt) and literary (Antlitz, verscheiden). Choose the word that matches the register.",
       "items": [
-        { "p": "Statt des umgangssprachlichen 'kriegen' verwendet man schriftsprachlich ___.", "a": "erhalten", "en": "Instead of colloquial 'kriegen', written German uses 'erhalten'.", "hint": "formell", "note": "'erhalten' gehört der gehobenen Schriftsprache an." },
-        { "p": "Für 'Gesicht' steht in der Dichtung das Wort ___.", "a": "Antlitz", "en": "For 'face', poetry uses the word 'Antlitz'.", "hint": "literarisch", "note": "poetisch/gehoben." },
-        { "p": "Im Amtsdeutsch ersetzt ___ das umgangssprachliche 'wegen'.", "a": "hinsichtlich", "en": "In official German 'hinsichtlich' replaces colloquial 'wegen'.", "hint": "Verwaltungssprache", "note": "typisch für Behördensprache." },
-        { "p": "Umgangssprachlich 'kaputt', gehoben aber ___.", "a": "defekt", "en": "Colloquially 'kaputt', but elevated 'defekt'.", "hint": "gehoben", "note": "Sachlicher, formeller Ausdruck." },
-        { "p": "Statt 'gucken' sagt man in der Schriftsprache ___.", "a": "blicken", "en": "Instead of 'gucken', written German uses 'blicken'.", "hint": "schriftsprachlich", "note": "'gucken' gilt als umgangssprachlich." },
-        { "p": "Der literarische Ausdruck für 'sterben' lautet ___.", "a": "verscheiden", "en": "The literary expression for 'to die' is 'verscheiden'.", "hint": "gehoben/literarisch", "note": "verhüllend und feierlich." },
-        { "p": "Statt des saloppen 'Klamotten' verwendet man neutral ___.", "a": "Kleidung", "en": "Instead of the slangy 'Klamotten', neutral German uses 'Kleidung'.", "hint": "neutral", "note": "'Klamotten' ist salopp." },
-        { "p": "In gehobener Sprache heißt 'essen' auch ___.", "a": "speisen", "en": "In elevated language 'to eat' is also 'speisen'.", "hint": "gehoben", "note": "feierlicher als 'essen'." }
-      ]
+        {
+          "p": "Statt des umgangssprachlichen 'kriegen' verwendet man schriftsprachlich ___.",
+          "a": "erhalten",
+          "en": "Instead of colloquial 'kriegen', written German uses 'erhalten'.",
+          "hint": "formell",
+          "note": "'erhalten' gehört der gehobenen Schriftsprache an."
+        },
+        {
+          "p": "Für 'Gesicht' steht in der Dichtung das Wort ___.",
+          "a": "Antlitz",
+          "en": "For 'face', poetry uses the word 'Antlitz'.",
+          "hint": "literarisch",
+          "note": "poetisch/gehoben."
+        },
+        {
+          "p": "Im Amtsdeutsch ersetzt ___ das umgangssprachliche 'wegen'.",
+          "a": "hinsichtlich",
+          "en": "In official German 'hinsichtlich' replaces colloquial 'wegen'.",
+          "hint": "Verwaltungssprache",
+          "note": "typisch für Behördensprache."
+        },
+        {
+          "p": "Umgangssprachlich 'kaputt', gehoben aber ___.",
+          "a": "defekt",
+          "en": "Colloquially 'kaputt', but elevated 'defekt'.",
+          "hint": "gehoben",
+          "note": "Sachlicher, formeller Ausdruck."
+        },
+        {
+          "p": "Statt 'gucken' sagt man in der Schriftsprache ___.",
+          "a": "blicken",
+          "en": "Instead of 'gucken', written German uses 'blicken'.",
+          "hint": "schriftsprachlich",
+          "note": "'gucken' gilt als umgangssprachlich."
+        },
+        {
+          "p": "Der literarische Ausdruck für 'sterben' lautet ___.",
+          "a": "verscheiden",
+          "en": "The literary expression for 'to die' is 'verscheiden'.",
+          "hint": "gehoben/literarisch",
+          "note": "verhüllend und feierlich."
+        },
+        {
+          "p": "Statt des saloppen 'Klamotten' verwendet man neutral ___.",
+          "a": "Kleidung",
+          "en": "Instead of the slangy 'Klamotten', neutral German uses 'Kleidung'.",
+          "hint": "neutral",
+          "note": "'Klamotten' ist salopp."
+        },
+        {
+          "p": "In gehobener Sprache heißt 'essen' auch ___.",
+          "a": "speisen",
+          "en": "In elevated language 'to eat' is also 'speisen'.",
+          "hint": "gehoben",
+          "note": "feierlicher als 'essen'."
+        }
+      ],
+      "subtitle": "Register & style"
     },
     {
       "id": "distanz-konjunktiv1",
-      "name": "Distanz-Konjunktiv I",
+      "name": "Distanz-Konjunktiv I (Presse)",
       "kind": "cloze",
       "intro": "In press and reporting, Konjunktiv I signals that a claim is being quoted rather than endorsed (Er sagte, er sei ...; die Zahl sei gestiegen).",
       "items": [
-        { "p": "Der Minister erklärte, er ___ von den Plänen nichts gewusst.", "a": "habe", "en": "The minister declared he had known nothing of the plans.", "hint": "Distanz durch Konjunktiv I", "note": "Redewiedergabe ohne Gewähr." },
-        { "p": "Die Zeitung schreibt, der Unfall ___ sich am Morgen ereignet.", "a": "habe", "en": "The newspaper writes that the accident had occurred in the morning.", "hint": "haben → habe", "note": "Pressesprache kennzeichnet die Quelle." },
-        { "p": "Der Sprecher betonte, die Regierung ___ fest entschlossen.", "a": "sei", "en": "The spokesman stressed that the government was firmly resolved.", "hint": "sein → sei", "note": "Konjunktiv I von 'sein'." },
-        { "p": "Laut Bericht ___ die Zahl der Fälle gestiegen.", "a": "sei", "en": "According to the report, the number of cases had risen.", "hint": "sein → sei", "note": "'laut Bericht' + Konjunktiv I." },
-        { "p": "Er versicherte, er ___ alles versucht.", "a": "habe", "en": "He assured them that he had tried everything.", "hint": "haben → habe", "note": "Distanz trotz Beteuerung." },
-        { "p": "Die Firma teilte mit, sie ___ Stellen streichen.", "a": "werde", "en": "The company announced that it would cut jobs.", "hint": "werden → werde", "note": "Futur der indirekten Rede." },
-        { "p": "Die Behörde gab bekannt, das Problem ___ bald gelöst.", "a": "werde", "en": "The authority announced that the problem would soon be solved.", "hint": "werden → werde", "note": "Passiv Futur in der Redewiedergabe." },
-        { "p": "Man munkelt, der Chef ___ zurücktreten.", "a": "wolle", "en": "Rumour has it that the boss wants to resign.", "hint": "wollen → wolle", "note": "Konjunktiv I von 'wollen'." }
-      ]
+        {
+          "p": "Der Minister erklärte, er ___ von den Plänen nichts gewusst.",
+          "a": "habe",
+          "en": "The minister declared he had known nothing of the plans.",
+          "hint": "Distanz durch Konjunktiv I",
+          "note": "Redewiedergabe ohne Gewähr."
+        },
+        {
+          "p": "Die Zeitung schreibt, der Unfall ___ sich am Morgen ereignet.",
+          "a": "habe",
+          "en": "The newspaper writes that the accident had occurred in the morning.",
+          "hint": "haben → habe",
+          "note": "Pressesprache kennzeichnet die Quelle."
+        },
+        {
+          "p": "Der Sprecher betonte, die Regierung ___ fest entschlossen.",
+          "a": "sei",
+          "en": "The spokesman stressed that the government was firmly resolved.",
+          "hint": "sein → sei",
+          "note": "Konjunktiv I von 'sein'."
+        },
+        {
+          "p": "Laut Bericht ___ die Zahl der Fälle gestiegen.",
+          "a": "sei",
+          "en": "According to the report, the number of cases had risen.",
+          "hint": "sein → sei",
+          "note": "'laut Bericht' + Konjunktiv I."
+        },
+        {
+          "p": "Er versicherte, er ___ alles versucht.",
+          "a": "habe",
+          "en": "He assured them that he had tried everything.",
+          "hint": "haben → habe",
+          "note": "Distanz trotz Beteuerung."
+        },
+        {
+          "p": "Die Firma teilte mit, sie ___ Stellen streichen.",
+          "a": "werde",
+          "en": "The company announced that it would cut jobs.",
+          "hint": "werden → werde",
+          "note": "Futur der indirekten Rede."
+        },
+        {
+          "p": "Die Behörde gab bekannt, das Problem ___ bald gelöst.",
+          "a": "werde",
+          "en": "The authority announced that the problem would soon be solved.",
+          "hint": "werden → werde",
+          "note": "Passiv Futur in der Redewiedergabe."
+        },
+        {
+          "p": "Man munkelt, der Chef ___ zurücktreten.",
+          "a": "wolle",
+          "en": "Rumour has it that the boss wants to resign.",
+          "hint": "wollen → wolle",
+          "note": "Konjunktiv I von 'wollen'."
+        }
+      ],
+      "subtitle": "Reportive Konjunktiv I"
     },
     {
       "id": "komplexe-nominalsyntax",
-      "name": "Komplexe Nominalsyntax",
+      "name": "Komplexe Nominalsyntax (Genitivketten)",
       "kind": "cloze",
       "intro": "Long noun phrases stack genitives and nested attributes (die Entscheidung des Gerichts der zweiten Instanz). The article must agree with the noun it directly precedes.",
       "items": [
-        { "p": "Die Entscheidung des Gerichts ___ zweiten Instanz fiel gestern.", "a": "der", "en": "The decision of the court of second instance was made yesterday.", "hint": "Genitivkette", "note": "Verschachteltes Genitivattribut." },
-        { "p": "Die Beseitigung der Folgen ___ schweren Unfalls dauerte Wochen.", "a": "des", "en": "Removing the consequences of the serious accident took weeks.", "hint": "Genitiv Maskulinum/Neutrum", "note": "Genitivattribut im Genitivattribut." },
-        { "p": "Der Einfluss des Vorsitzenden ___ Gewerkschaft wuchs.", "a": "der", "en": "The influence of the chairman of the union grew.", "hint": "Genitiv Femininum", "note": "'der' für ein feminines Nomen." },
-        { "p": "Die Kritik des Autors an ___ Politik blieb scharf.", "a": "der", "en": "The author's criticism of the policy remained sharp.", "hint": "Präpositionalattribut im Dativ", "note": "'an' verlangt hier den Dativ." },
-        { "p": "Das Interesse der Öffentlichkeit an ___ Ergebnis war groß.", "a": "dem", "en": "The public's interest in the result was great.", "hint": "Dativ Neutrum", "note": "'an' + Dativ Neutrum." },
-        { "p": "Die Sanierung ___ im Krieg zerstörten Brücke begann im Frühjahr.", "a": "der", "en": "The restoration of the bridge destroyed in the war began in spring.", "hint": "Genitiv Femininum", "note": "Partizipialattribut in der Genitivkette." },
-        { "p": "Der Verkauf des Grundstücks ___ Familie wurde bestätigt.", "a": "der", "en": "The sale of the family's plot of land was confirmed.", "hint": "Genitiv Femininum", "note": "Zwei Genitive hintereinander." },
-        { "p": "Die Erinnerung an ___ gemeinsam verbrachten Jahre blieb lebendig.", "a": "die", "en": "The memory of the years spent together remained vivid.", "hint": "Akkusativ Plural", "note": "'an' + Akkusativ Plural." }
-      ]
+        {
+          "p": "Die Entscheidung des Gerichts ___ zweiten Instanz fiel gestern.",
+          "a": "der",
+          "en": "The decision of the court of second instance was made yesterday.",
+          "hint": "Genitivkette",
+          "note": "Verschachteltes Genitivattribut."
+        },
+        {
+          "p": "Die Beseitigung der Folgen ___ schweren Unfalls dauerte Wochen.",
+          "a": "des",
+          "en": "Removing the consequences of the serious accident took weeks.",
+          "hint": "Genitiv Maskulinum/Neutrum",
+          "note": "Genitivattribut im Genitivattribut."
+        },
+        {
+          "p": "Der Einfluss des Vorsitzenden ___ Gewerkschaft wuchs.",
+          "a": "der",
+          "en": "The influence of the chairman of the union grew.",
+          "hint": "Genitiv Femininum",
+          "note": "'der' für ein feminines Nomen."
+        },
+        {
+          "p": "Die Kritik des Autors an ___ Politik blieb scharf.",
+          "a": "der",
+          "en": "The author's criticism of the policy remained sharp.",
+          "hint": "Präpositionalattribut im Dativ",
+          "note": "'an' verlangt hier den Dativ."
+        },
+        {
+          "p": "Das Interesse der Öffentlichkeit an ___ Ergebnis war groß.",
+          "a": "dem",
+          "en": "The public's interest in the result was great.",
+          "hint": "Dativ Neutrum",
+          "note": "'an' + Dativ Neutrum."
+        },
+        {
+          "p": "Die Sanierung ___ im Krieg zerstörten Brücke begann im Frühjahr.",
+          "a": "der",
+          "en": "The restoration of the bridge destroyed in the war began in spring.",
+          "hint": "Genitiv Femininum",
+          "note": "Partizipialattribut in der Genitivkette."
+        },
+        {
+          "p": "Der Verkauf des Grundstücks ___ Familie wurde bestätigt.",
+          "a": "der",
+          "en": "The sale of the family's plot of land was confirmed.",
+          "hint": "Genitiv Femininum",
+          "note": "Zwei Genitive hintereinander."
+        },
+        {
+          "p": "Die Erinnerung an ___ gemeinsam verbrachten Jahre blieb lebendig.",
+          "a": "die",
+          "en": "The memory of the years spent together remained vivid.",
+          "hint": "Akkusativ Plural",
+          "note": "'an' + Akkusativ Plural."
+        }
+      ],
+      "subtitle": "Complex noun phrases"
     },
     {
       "id": "idiomatik",
-      "name": "Idiomatik",
+      "name": "Idiomatik (Redewendungen)",
       "kind": "cloze",
       "intro": "Fixed idiomatic expressions (Redewendungen) whose meaning is not literal: jemandem die Daumen drücken, den Nagel auf den Kopf treffen, ins Fettnäpfchen treten.",
       "items": [
-        { "p": "Ich drücke dir die ___, dass du die Prüfung bestehst.", "a": "Daumen", "en": "I'll keep my fingers crossed that you pass the exam.", "hint": "jemandem die Daumen drücken", "note": "Wunsch für jemanden." },
-        { "p": "Du bringst mich noch auf die ___, wenn du so weitermachst!", "a": "Palme", "en": "You'll drive me up the wall if you carry on like that!", "hint": "jemanden auf die Palme bringen", "note": "Bedeutung: wütend machen." },
-        { "p": "Er hat den Nagel auf den ___ getroffen.", "a": "Kopf", "en": "He hit the nail on the head.", "hint": "den Nagel auf den Kopf treffen", "note": "Bedeutung: genau das Richtige sagen." },
-        { "p": "Mit seiner Bemerkung ist er ins ___ getreten.", "a": "Fettnäpfchen", "en": "With his remark he put his foot in it.", "hint": "ins Fettnäpfchen treten", "note": "Bedeutung: unabsichtlich anecken." },
-        { "p": "Mit dieser Entscheidung schnitt er sich ins eigene ___.", "a": "Fleisch", "en": "With this decision he cut off his nose to spite his face.", "hint": "sich ins eigene Fleisch schneiden", "note": "Bedeutung: sich selbst schaden." },
-        { "p": "Du musst nicht gleich die ___ ins Korn werfen.", "a": "Flinte", "en": "You needn't throw in the towel right away.", "hint": "die Flinte ins Korn werfen", "note": "Bedeutung: aufgeben." },
-        { "p": "Das ist ein ___ mit sieben Siegeln für mich.", "a": "Buch", "en": "That is a closed book to me.", "hint": "ein Buch mit sieben Siegeln", "note": "Bedeutung: völlig unverständlich." },
-        { "p": "Da hat er mir doch glatt einen ___ aufgebunden.", "a": "Bären", "en": "He actually pulled the wool over my eyes.", "hint": "jemandem einen Bären aufbinden", "note": "Bedeutung: jemanden täuschen." }
-      ]
+        {
+          "p": "Ich drücke dir die ___, dass du die Prüfung bestehst.",
+          "a": "Daumen",
+          "en": "I'll keep my fingers crossed that you pass the exam.",
+          "hint": "jemandem die Daumen drücken",
+          "note": "Wunsch für jemanden."
+        },
+        {
+          "p": "Du bringst mich noch auf die ___, wenn du so weitermachst!",
+          "a": "Palme",
+          "en": "You'll drive me up the wall if you carry on like that!",
+          "hint": "jemanden auf die Palme bringen",
+          "note": "Bedeutung: wütend machen."
+        },
+        {
+          "p": "Er hat den Nagel auf den ___ getroffen.",
+          "a": "Kopf",
+          "en": "He hit the nail on the head.",
+          "hint": "den Nagel auf den Kopf treffen",
+          "note": "Bedeutung: genau das Richtige sagen."
+        },
+        {
+          "p": "Mit seiner Bemerkung ist er ins ___ getreten.",
+          "a": "Fettnäpfchen",
+          "en": "With his remark he put his foot in it.",
+          "hint": "ins Fettnäpfchen treten",
+          "note": "Bedeutung: unabsichtlich anecken."
+        },
+        {
+          "p": "Mit dieser Entscheidung schnitt er sich ins eigene ___.",
+          "a": "Fleisch",
+          "en": "With this decision he cut off his nose to spite his face.",
+          "hint": "sich ins eigene Fleisch schneiden",
+          "note": "Bedeutung: sich selbst schaden."
+        },
+        {
+          "p": "Du musst nicht gleich die ___ ins Korn werfen.",
+          "a": "Flinte",
+          "en": "You needn't throw in the towel right away.",
+          "hint": "die Flinte ins Korn werfen",
+          "note": "Bedeutung: aufgeben."
+        },
+        {
+          "p": "Das ist ein ___ mit sieben Siegeln für mich.",
+          "a": "Buch",
+          "en": "That is a closed book to me.",
+          "hint": "ein Buch mit sieben Siegeln",
+          "note": "Bedeutung: völlig unverständlich."
+        },
+        {
+          "p": "Da hat er mir doch glatt einen ___ aufgebunden.",
+          "a": "Bären",
+          "en": "He actually pulled the wool over my eyes.",
+          "hint": "jemandem einen Bären aufbinden",
+          "note": "Bedeutung: jemanden täuschen."
+        }
+      ],
+      "subtitle": "Idioms"
     },
     {
       "id": "gehoberene-kollokationen",
-      "name": "Gehobene Kollokationen",
+      "name": "Gehobene Kollokationen (Kritik üben)",
       "kind": "cloze",
       "intro": "Elevated verb+noun collocations: eine Entscheidung treffen, Kritik üben, Wert legen auf, eine Rede halten, Konsequenzen ziehen, eine Diagnose stellen.",
       "items": [
-        { "p": "Der Vorstand wird morgen eine endgültige ___ treffen.", "a": "Entscheidung", "en": "The board will make a final decision tomorrow.", "hint": "eine Entscheidung treffen", "note": "Feste Kollokation." },
-        { "p": "Der Kritiker ___ scharfe Kritik an dem Film.", "a": "übte", "en": "The critic exercised sharp criticism of the film.", "hint": "Kritik üben", "note": "Gehobene Verbwahl." },
-        { "p": "Wir müssen endlich ___ in dieser Sache ziehen.", "a": "Konsequenzen", "en": "We must finally draw consequences in this matter.", "hint": "Konsequenzen ziehen", "note": "Feste Kollokation." },
-        { "p": "Der Politiker ___ eine Rede an das Volk.", "a": "hielt", "en": "The politician gave a speech to the people.", "hint": "eine Rede halten", "note": "Nicht 'machen', sondern 'halten'." },
-        { "p": "Sie ___ großen Wert auf Pünktlichkeit.", "a": "legt", "en": "She places great value on punctuality.", "hint": "Wert legen auf", "note": "Feste Präposition 'auf'." },
-        { "p": "Der Arzt ___ eine schwere Diagnose.", "a": "stellte", "en": "The doctor made a serious diagnosis.", "hint": "eine Diagnose stellen", "note": "Nicht 'machen', sondern 'stellen'." },
-        { "p": "Die Maßnahme ___ einen erheblichen Einfluss auf die Wirtschaft.", "a": "hatte", "en": "The measure had a considerable influence on the economy.", "hint": "Einfluss haben/ausüben", "note": "Feste Kollokation mit 'auf'." },
-        { "p": "Er ___ einen hohen Anspruch an seine Mitarbeiter.", "a": "stellt", "en": "He makes high demands on his employees.", "hint": "Ansprüche stellen", "note": "Feste Kollokation mit 'an'." }
-      ]
+        {
+          "p": "Der Vorstand wird morgen eine endgültige ___ treffen.",
+          "a": "Entscheidung",
+          "en": "The board will make a final decision tomorrow.",
+          "hint": "eine Entscheidung treffen",
+          "note": "Feste Kollokation."
+        },
+        {
+          "p": "Der Kritiker ___ scharfe Kritik an dem Film.",
+          "a": "übte",
+          "en": "The critic exercised sharp criticism of the film.",
+          "hint": "Kritik üben",
+          "note": "Gehobene Verbwahl."
+        },
+        {
+          "p": "Wir müssen endlich ___ in dieser Sache ziehen.",
+          "a": "Konsequenzen",
+          "en": "We must finally draw consequences in this matter.",
+          "hint": "Konsequenzen ziehen",
+          "note": "Feste Kollokation."
+        },
+        {
+          "p": "Der Politiker ___ eine Rede an das Volk.",
+          "a": "hielt",
+          "en": "The politician gave a speech to the people.",
+          "hint": "eine Rede halten",
+          "note": "Nicht 'machen', sondern 'halten'."
+        },
+        {
+          "p": "Sie ___ großen Wert auf Pünktlichkeit.",
+          "a": "legt",
+          "en": "She places great value on punctuality.",
+          "hint": "Wert legen auf",
+          "note": "Feste Präposition 'auf'."
+        },
+        {
+          "p": "Der Arzt ___ eine schwere Diagnose.",
+          "a": "stellte",
+          "en": "The doctor made a serious diagnosis.",
+          "hint": "eine Diagnose stellen",
+          "note": "Nicht 'machen', sondern 'stellen'."
+        },
+        {
+          "p": "Die Maßnahme ___ einen erheblichen Einfluss auf die Wirtschaft.",
+          "a": "hatte",
+          "en": "The measure had a considerable influence on the economy.",
+          "hint": "Einfluss haben/ausüben",
+          "note": "Feste Kollokation mit 'auf'."
+        },
+        {
+          "p": "Er ___ einen hohen Anspruch an seine Mitarbeiter.",
+          "a": "stellt",
+          "en": "He makes high demands on his employees.",
+          "hint": "Ansprüche stellen",
+          "note": "Feste Kollokation mit 'an'."
+        }
+      ],
+      "subtitle": "Elevated collocations"
     },
     {
       "id": "seltene-literarische-formen",
-      "name": "Seltene literarische Formen",
+      "name": "Seltene und literarische Formen",
       "kind": "cloze",
       "intro": "Literary and archaic forms: the dative -e (im Jahre, am Tage, auf Erden, zu Hause) and the genitive -es (des Hofes, des Ruhmes).",
       "items": [
-        { "p": "Im ___ 1848 brach die Revolution aus.", "a": "Jahre", "en": "In the year 1848 the revolution broke out.", "hint": "Dativ-e: im Jahre", "note": "Archaisches Dativ-e." },
-        { "p": "Am ___ wurde die Wahrheit offenbar.", "a": "Tage", "en": "On that day the truth came to light.", "hint": "Dativ-e: am Tage", "note": "Gehobener als 'am Tag'." },
-        { "p": "Auf dem ___ stand eine einsame Eiche.", "a": "Felde", "en": "In the field stood a lonely oak.", "hint": "Dativ-e: auf dem Felde", "note": "Literarische Form von 'Feld'." },
-        { "p": "Am ___ des Baches wuchs wilder Wein.", "a": "Rande", "en": "At the edge of the brook wild vine grew.", "hint": "Dativ-e: am Rande", "note": "Gehobene Variante von 'Rand'." },
-        { "p": "Die Pracht des ___ beeindruckte die Gäste.", "a": "Hofes", "en": "The splendour of the court impressed the guests.", "hint": "Genitiv auf -es", "note": "Genitiv von 'Hof'." },
-        { "p": "Der Glanz des alten ___ war verblasst.", "a": "Ruhmes", "en": "The splendour of the old glory had faded.", "hint": "Genitiv auf -es", "note": "Genitiv von 'Ruhm'." },
-        { "p": "Man soll Frieden auf ___ wahren.", "a": "Erden", "en": "One should preserve peace on earth.", "hint": "auf Erden", "note": "Archaischer Dativ von 'Erde'." },
-        { "p": "Zu ___ der Nacht brach der Wanderer auf.", "a": "später", "en": "Late at night the wanderer set off.", "hint": "zu später Stunde", "note": "Gehobene Zeitangabe." }
-      ]
+        {
+          "p": "Im ___ 1848 brach die Revolution aus.",
+          "a": "Jahre",
+          "en": "In the year 1848 the revolution broke out.",
+          "hint": "Dativ-e: im Jahre",
+          "note": "Archaisches Dativ-e."
+        },
+        {
+          "p": "Am ___ wurde die Wahrheit offenbar.",
+          "a": "Tage",
+          "en": "On that day the truth came to light.",
+          "hint": "Dativ-e: am Tage",
+          "note": "Gehobener als 'am Tag'."
+        },
+        {
+          "p": "Auf dem ___ stand eine einsame Eiche.",
+          "a": "Felde",
+          "en": "In the field stood a lonely oak.",
+          "hint": "Dativ-e: auf dem Felde",
+          "note": "Literarische Form von 'Feld'."
+        },
+        {
+          "p": "Am ___ des Baches wuchs wilder Wein.",
+          "a": "Rande",
+          "en": "At the edge of the brook wild vine grew.",
+          "hint": "Dativ-e: am Rande",
+          "note": "Gehobene Variante von 'Rand'."
+        },
+        {
+          "p": "Die Pracht des ___ beeindruckte die Gäste.",
+          "a": "Hofes",
+          "en": "The splendour of the court impressed the guests.",
+          "hint": "Genitiv auf -es",
+          "note": "Genitiv von 'Hof'."
+        },
+        {
+          "p": "Der Glanz des alten ___ war verblasst.",
+          "a": "Ruhmes",
+          "en": "The splendour of the old glory had faded.",
+          "hint": "Genitiv auf -es",
+          "note": "Genitiv von 'Ruhm'."
+        },
+        {
+          "p": "Man soll Frieden auf ___ wahren.",
+          "a": "Erden",
+          "en": "One should preserve peace on earth.",
+          "hint": "auf Erden",
+          "note": "Archaischer Dativ von 'Erde'."
+        },
+        {
+          "p": "Zu ___ der Nacht brach der Wanderer auf.",
+          "a": "später",
+          "en": "Late at night the wanderer set off.",
+          "hint": "zu später Stunde",
+          "note": "Gehobene Zeitangabe."
+        }
+      ],
+      "subtitle": "Rare & literary forms"
     },
     {
       "id": "wortstellung-komplex",
-      "name": "Wortstellung (komplex)",
+      "name": "Komplexe Wortstellung (Partizipialphrasen)",
       "kind": "cloze",
       "intro": "Combines extended participle attributes in the Vorfeld with Ausklammerung: Der von den Experten erstellte Bericht lag endlich vor.",
       "items": [
-        { "p": "Der von den Experten ___ Bericht lag endlich vor.", "a": "erstellte", "en": "The report drawn up by the experts was finally available.", "hint": "Partizip II im Vorfeld", "note": "Erweitertes Partizipialattribut vor dem Nomen." },
-        { "p": "Die seit Monaten ___ Reform wurde endlich beschlossen.", "a": "geplante", "en": "The reform planned for months was finally passed.", "hint": "Partizip II im Vorfeld", "note": "Adverbial + Partizip als Attribut." },
-        { "p": "Er hat die Aufgabe ___, trotz aller Schwierigkeiten.", "a": "gelöst", "en": "He solved the task, despite all difficulties.", "hint": "Partizip II im Rahmen", "note": "Präpositionalphrase ausgeklammert." },
-        { "p": "Der in der Zeitung ___ Artikel erregte großes Aufsehen.", "a": "erschienene", "en": "The article that appeared in the newspaper caused a great stir.", "hint": "Partizip II im Vorfeld", "note": "Präpositionalphrase + Partizip II." },
-        { "p": "Sie hat sich sehr ___ das Ergebnis gefreut.", "a": "über", "en": "She was very pleased with the result.", "hint": "Präpositionalphrase ausgeklammert", "note": "Statt 'sich über ... gefreut'." },
-        { "p": "Das von ihm ___ Projekt wurde ausgezeichnet.", "a": "geleitete", "en": "The project managed by him was awarded a prize.", "hint": "Partizip II im Vorfeld", "note": "Agent im Attribut: 'von ihm'." },
-        { "p": "Wir haben lange ___, auf eine Antwort.", "a": "gewartet", "en": "We waited a long time for an answer.", "hint": "Partizip II im Rahmen", "note": "Präpositionalobjekt ausgeklammert." },
-        { "p": "Die vor Kurzem ___ Maßnahme zeigte bereits Wirkung.", "a": "beschlossene", "en": "The measure adopted a short time ago was already showing effect.", "hint": "Partizip II im Vorfeld", "note": "Adverbial + Partizip II als Attribut." }
-      ]
+        {
+          "p": "Der von den Experten ___ Bericht lag endlich vor.",
+          "a": "erstellte",
+          "en": "The report drawn up by the experts was finally available.",
+          "hint": "Partizip II im Vorfeld",
+          "note": "Erweitertes Partizipialattribut vor dem Nomen."
+        },
+        {
+          "p": "Die seit Monaten ___ Reform wurde endlich beschlossen.",
+          "a": "geplante",
+          "en": "The reform planned for months was finally passed.",
+          "hint": "Partizip II im Vorfeld",
+          "note": "Adverbial + Partizip als Attribut."
+        },
+        {
+          "p": "Er hat die Aufgabe ___, trotz aller Schwierigkeiten.",
+          "a": "gelöst",
+          "en": "He solved the task, despite all difficulties.",
+          "hint": "Partizip II im Rahmen",
+          "note": "Präpositionalphrase ausgeklammert."
+        },
+        {
+          "p": "Der in der Zeitung ___ Artikel erregte großes Aufsehen.",
+          "a": "erschienene",
+          "en": "The article that appeared in the newspaper caused a great stir.",
+          "hint": "Partizip II im Vorfeld",
+          "note": "Präpositionalphrase + Partizip II."
+        },
+        {
+          "p": "Sie hat sich sehr ___ das Ergebnis gefreut.",
+          "a": "über",
+          "en": "She was very pleased with the result.",
+          "hint": "Präpositionalphrase ausgeklammert",
+          "note": "Statt 'sich über ... gefreut'."
+        },
+        {
+          "p": "Das von ihm ___ Projekt wurde ausgezeichnet.",
+          "a": "geleitete",
+          "en": "The project managed by him was awarded a prize.",
+          "hint": "Partizip II im Vorfeld",
+          "note": "Agent im Attribut: 'von ihm'."
+        },
+        {
+          "p": "Wir haben lange ___, auf eine Antwort.",
+          "a": "gewartet",
+          "en": "We waited a long time for an answer.",
+          "hint": "Partizip II im Rahmen",
+          "note": "Präpositionalobjekt ausgeklammert."
+        },
+        {
+          "p": "Die vor Kurzem ___ Maßnahme zeigte bereits Wirkung.",
+          "a": "beschlossene",
+          "en": "The measure adopted a short time ago was already showing effect.",
+          "hint": "Partizip II im Vorfeld",
+          "note": "Adverbial + Partizip II als Attribut."
+        }
+      ],
+      "subtitle": "Complex word order"
     }
   ]
 }

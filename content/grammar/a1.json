@@ -3,286 +3,1094 @@
   "groups": [
     {
       "id": "pronouns",
-      "name": "Personal pronouns",
+      "name": "Personalpronomen (ich, du, er …)",
       "kind": "cloze",
       "intro": "Subject pronouns: ich, du, er/sie/es, wir, ihr, sie/Sie. du is one person (informal), ihr is several people (informal), Sie is polite for one or many.",
       "items": [
-        { "p": "___ bin Student.", "a": "Ich", "en": "I am a student." },
-        { "p": "___ bist sehr nett.", "a": "Du", "en": "You are very nice." },
-        { "p": "___ ist Lehrer.", "a": "Er", "en": "He is a teacher.", "note": "er, sie, es all mean he/she/it." },
-        { "p": "___ ist meine Schwester.", "a": "Sie", "en": "She is my sister." },
-        { "p": "___ sind zu Hause.", "a": "Wir", "en": "We are at home." },
-        { "p": "___ seid müde.", "a": "Ihr", "en": "You (all) are tired.", "hint": "informal plural" },
-        { "p": "Das sind Tom und Lisa. ___ sind Freunde.", "a": "Sie", "en": "Those are Tom and Lisa. They are friends.", "note": "sie (they) looks the same as sie (she) and Sie (formal)." },
-        { "p": "Das ist Peter. ___ ist mein Freund.", "a": "Er", "en": "That is Peter. He is my friend." },
-        { "p": "___ heiße Anna.", "a": "Ich", "en": "My name is Anna." }
-      ]
+        {
+          "p": "___ bin Student.",
+          "a": "Ich",
+          "en": "I am a student."
+        },
+        {
+          "p": "___ bist sehr nett.",
+          "a": "Du",
+          "en": "You are very nice."
+        },
+        {
+          "p": "___ ist Lehrer.",
+          "a": "Er",
+          "en": "He is a teacher.",
+          "note": "er, sie, es all mean he/she/it."
+        },
+        {
+          "p": "___ ist meine Schwester.",
+          "a": "Sie",
+          "en": "She is my sister."
+        },
+        {
+          "p": "___ sind zu Hause.",
+          "a": "Wir",
+          "en": "We are at home."
+        },
+        {
+          "p": "___ seid müde.",
+          "a": "Ihr",
+          "en": "You (all) are tired.",
+          "hint": "informal plural"
+        },
+        {
+          "p": "Das sind Tom und Lisa. ___ sind Freunde.",
+          "a": "Sie",
+          "en": "Those are Tom and Lisa. They are friends.",
+          "note": "sie (they) looks the same as sie (she) and Sie (formal)."
+        },
+        {
+          "p": "Das ist Peter. ___ ist mein Freund.",
+          "a": "Er",
+          "en": "That is Peter. He is my friend."
+        },
+        {
+          "p": "___ heiße Anna.",
+          "a": "Ich",
+          "en": "My name is Anna."
+        }
+      ],
+      "subtitle": "Subject pronouns"
     },
     {
       "id": "sein-haben",
-      "name": "sein & haben",
+      "name": "sein / haben (Präsens)",
       "kind": "cloze",
       "intro": "sein (to be): ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind. haben (to have): ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie/Sie haben. Both are irregular — learn them by heart.",
       "items": [
-        { "p": "Ich ___ müde.", "a": "bin", "en": "I am tired.", "hint": "sein" },
-        { "p": "Du ___ mein Freund.", "a": "bist", "en": "You are my friend.", "hint": "sein" },
-        { "p": "Er ___ Lehrer.", "a": "ist", "en": "He is a teacher.", "hint": "sein", "note": "No article before a profession: Er ist Lehrer." },
-        { "p": "Wir ___ zu Hause.", "a": "sind", "en": "We are at home.", "hint": "sein" },
-        { "p": "Ihr ___ sehr nett.", "a": "seid", "en": "You (all) are very nice.", "hint": "sein" },
-        { "p": "Meine Eltern ___ Lehrer.", "a": "sind", "en": "My parents are teachers.", "hint": "sein", "note": "Plural subjects take sind." },
-        { "p": "Ich ___ einen Hund.", "a": "habe", "en": "I have a dog.", "hint": "haben" },
-        { "p": "Du ___ Hunger.", "a": "hast", "en": "You are hungry.", "hint": "haben", "note": "German says 'have hunger' where English says 'am hungry'." },
-        { "p": "Sie ___ eine Schwester.", "a": "hat", "en": "She has a sister.", "hint": "haben", "note": "er, sie and es all take hat." },
-        { "p": "Wir ___ heute Zeit.", "a": "haben", "en": "We have time today.", "hint": "haben" },
-        { "p": "Ihr ___ ein Auto.", "a": "habt", "en": "You (all) have a car.", "hint": "haben" },
-        { "p": "Das Kind ___ Durst.", "a": "hat", "en": "The child is thirsty.", "hint": "haben" }
-      ]
+        {
+          "p": "Ich ___ müde.",
+          "a": "bin",
+          "en": "I am tired.",
+          "hint": "sein"
+        },
+        {
+          "p": "Du ___ mein Freund.",
+          "a": "bist",
+          "en": "You are my friend.",
+          "hint": "sein"
+        },
+        {
+          "p": "Er ___ Lehrer.",
+          "a": "ist",
+          "en": "He is a teacher.",
+          "hint": "sein",
+          "note": "No article before a profession: Er ist Lehrer."
+        },
+        {
+          "p": "Wir ___ zu Hause.",
+          "a": "sind",
+          "en": "We are at home.",
+          "hint": "sein"
+        },
+        {
+          "p": "Ihr ___ sehr nett.",
+          "a": "seid",
+          "en": "You (all) are very nice.",
+          "hint": "sein"
+        },
+        {
+          "p": "Meine Eltern ___ Lehrer.",
+          "a": "sind",
+          "en": "My parents are teachers.",
+          "hint": "sein",
+          "note": "Plural subjects take sind."
+        },
+        {
+          "p": "Ich ___ einen Hund.",
+          "a": "habe",
+          "en": "I have a dog.",
+          "hint": "haben"
+        },
+        {
+          "p": "Du ___ Hunger.",
+          "a": "hast",
+          "en": "You are hungry.",
+          "hint": "haben",
+          "note": "German says 'have hunger' where English says 'am hungry'."
+        },
+        {
+          "p": "Sie ___ eine Schwester.",
+          "a": "hat",
+          "en": "She has a sister.",
+          "hint": "haben",
+          "note": "er, sie and es all take hat."
+        },
+        {
+          "p": "Wir ___ heute Zeit.",
+          "a": "haben",
+          "en": "We have time today.",
+          "hint": "haben"
+        },
+        {
+          "p": "Ihr ___ ein Auto.",
+          "a": "habt",
+          "en": "You (all) have a car.",
+          "hint": "haben"
+        },
+        {
+          "p": "Das Kind ___ Durst.",
+          "a": "hat",
+          "en": "The child is thirsty.",
+          "hint": "haben"
+        }
+      ],
+      "subtitle": "to be / to have"
     },
     {
       "id": "articles",
-      "name": "Definite & indefinite articles",
+      "name": "Artikel: der/die/das, ein/eine",
       "kind": "cloze",
       "intro": "Definite: der (m), die (f), das (n). Indefinite: ein (m/n), eine (f). In the nominative the article only shows gender; the accusative will change masculine forms.",
       "items": [
-        { "p": "Das ist ___ Mann.", "a": "ein", "en": "That is a man.", "hint": "der Mann" },
-        { "p": "Das ist ___ Frau.", "a": "eine", "en": "That is a woman.", "hint": "die Frau" },
-        { "p": "Das ist ___ Kind.", "a": "ein", "en": "That is a child.", "hint": "das Kind" },
-        { "p": "___ Mann ist groß.", "a": "Der", "en": "The man is tall." },
-        { "p": "___ Frau ist nett.", "a": "Die", "en": "The woman is nice." },
-        { "p": "___ Kind spielt.", "a": "Das", "en": "The child is playing." },
-        { "p": "___ Tisch ist neu.", "a": "Der", "en": "The table is new." },
-        { "p": "___ Lampe ist schön.", "a": "Die", "en": "The lamp is beautiful." },
-        { "p": "___ Buch ist interessant.", "a": "Das", "en": "The book is interesting." },
-        { "p": "Das ist ___ Garten.", "a": "ein", "en": "That is a garden.", "hint": "der Garten" },
-        { "p": "Das ist ___ Tasche.", "a": "eine", "en": "That is a bag.", "hint": "die Tasche" },
-        { "p": "Das ist ___ Auto.", "a": "ein", "en": "That is a car.", "hint": "das Auto" }
-      ]
+        {
+          "p": "Das ist ___ Mann.",
+          "a": "ein",
+          "en": "That is a man.",
+          "hint": "der Mann"
+        },
+        {
+          "p": "Das ist ___ Frau.",
+          "a": "eine",
+          "en": "That is a woman.",
+          "hint": "die Frau"
+        },
+        {
+          "p": "Das ist ___ Kind.",
+          "a": "ein",
+          "en": "That is a child.",
+          "hint": "das Kind"
+        },
+        {
+          "p": "___ Mann ist groß.",
+          "a": "Der",
+          "en": "The man is tall."
+        },
+        {
+          "p": "___ Frau ist nett.",
+          "a": "Die",
+          "en": "The woman is nice."
+        },
+        {
+          "p": "___ Kind spielt.",
+          "a": "Das",
+          "en": "The child is playing."
+        },
+        {
+          "p": "___ Tisch ist neu.",
+          "a": "Der",
+          "en": "The table is new."
+        },
+        {
+          "p": "___ Lampe ist schön.",
+          "a": "Die",
+          "en": "The lamp is beautiful."
+        },
+        {
+          "p": "___ Buch ist interessant.",
+          "a": "Das",
+          "en": "The book is interesting."
+        },
+        {
+          "p": "Das ist ___ Garten.",
+          "a": "ein",
+          "en": "That is a garden.",
+          "hint": "der Garten"
+        },
+        {
+          "p": "Das ist ___ Tasche.",
+          "a": "eine",
+          "en": "That is a bag.",
+          "hint": "die Tasche"
+        },
+        {
+          "p": "Das ist ___ Auto.",
+          "a": "ein",
+          "en": "That is a car.",
+          "hint": "das Auto"
+        }
+      ],
+      "subtitle": "Definite & indefinite articles"
     },
     {
       "id": "plural",
-      "name": "Plural nouns",
+      "name": "Plural der Nomen",
       "kind": "cloze",
       "intro": "German has five plural patterns: -e, -er, -en/-n, -s, and no ending (sometimes with an umlaut). The plural article is always die.",
       "items": [
-        { "p": "Das Kind ist klein. Die ___ sind klein.", "a": "Kinder", "en": "The children are small." },
-        { "p": "Der Mann ist groß. Die ___ sind groß.", "a": "Männer", "en": "The men are tall.", "note": "Umlaut + -er." },
-        { "p": "Die Frau ist nett. Die ___ sind nett.", "a": "Frauen", "en": "The women are nice." },
-        { "p": "Das Buch ist neu. Die ___ sind neu.", "a": "Bücher", "en": "The books are new.", "note": "Umlaut + -er." },
-        { "p": "Das Haus ist alt. Die ___ sind alt.", "a": "Häuser", "en": "The houses are old." },
-        { "p": "Der Tisch ist sauber. Die ___ sind sauber.", "a": "Tische", "en": "The tables are clean." },
-        { "p": "Das Auto ist schnell. Die ___ sind schnell.", "a": "Autos", "en": "The cars are fast.", "note": "Many foreign words take -s." },
-        { "p": "Der Apfel ist rot. Die ___ sind rot.", "a": "Äpfel", "en": "The apples are red.", "note": "Umlaut only." },
-        { "p": "Die Stadt ist schön. Die ___ sind schön.", "a": "Städte", "en": "The cities are beautiful." },
-        { "p": "Das Jahr ist lang. Die ___ sind lang.", "a": "Jahre", "en": "The years are long." }
-      ]
+        {
+          "p": "Das Kind ist klein. Die ___ sind klein.",
+          "a": "Kinder",
+          "en": "The children are small."
+        },
+        {
+          "p": "Der Mann ist groß. Die ___ sind groß.",
+          "a": "Männer",
+          "en": "The men are tall.",
+          "note": "Umlaut + -er."
+        },
+        {
+          "p": "Die Frau ist nett. Die ___ sind nett.",
+          "a": "Frauen",
+          "en": "The women are nice."
+        },
+        {
+          "p": "Das Buch ist neu. Die ___ sind neu.",
+          "a": "Bücher",
+          "en": "The books are new.",
+          "note": "Umlaut + -er."
+        },
+        {
+          "p": "Das Haus ist alt. Die ___ sind alt.",
+          "a": "Häuser",
+          "en": "The houses are old."
+        },
+        {
+          "p": "Der Tisch ist sauber. Die ___ sind sauber.",
+          "a": "Tische",
+          "en": "The tables are clean."
+        },
+        {
+          "p": "Das Auto ist schnell. Die ___ sind schnell.",
+          "a": "Autos",
+          "en": "The cars are fast.",
+          "note": "Many foreign words take -s."
+        },
+        {
+          "p": "Der Apfel ist rot. Die ___ sind rot.",
+          "a": "Äpfel",
+          "en": "The apples are red.",
+          "note": "Umlaut only."
+        },
+        {
+          "p": "Die Stadt ist schön. Die ___ sind schön.",
+          "a": "Städte",
+          "en": "The cities are beautiful."
+        },
+        {
+          "p": "Das Jahr ist lang. Die ___ sind lang.",
+          "a": "Jahre",
+          "en": "The years are long."
+        }
+      ],
+      "subtitle": "Plural nouns"
     },
     {
       "id": "regular-verbs",
-      "name": "Regular verbs (present tense)",
+      "name": "Präsens regelmäßiger Verben",
       "kind": "cloze",
       "intro": "Drop -en from the infinitive to get the stem, then add: ich -e, du -st, er/sie/es -t, wir -en, ihr -t, sie/Sie -en.",
       "items": [
-        { "p": "Ich ___ in Berlin.", "a": "wohne", "en": "I live in Berlin.", "hint": "wohnen" },
-        { "p": "Du ___ gern Fußball.", "a": "spielst", "en": "You like playing football.", "hint": "spielen", "note": "gern after a verb means 'like doing it'." },
-        { "p": "Er ___ Kaffee.", "a": "macht", "en": "He makes coffee.", "hint": "machen" },
-        { "p": "Wir ___ Deutsch.", "a": "lernen", "en": "We are learning German.", "hint": "lernen", "note": "wir and sie/Sie look like the infinitive." },
-        { "p": "Ihr ___ Brot.", "a": "kauft", "en": "You (all) buy bread.", "hint": "kaufen" },
-        { "p": "Meine Freunde ___ Wasser.", "a": "trinken", "en": "My friends drink water.", "hint": "trinken" },
-        { "p": "Ich ___ heute.", "a": "arbeite", "en": "I am working today.", "hint": "arbeiten" },
-        { "p": "Du ___ viel.", "a": "arbeitest", "en": "You work a lot.", "hint": "arbeiten", "note": "Stems in -t or -d add an extra e: du arbeitest, er arbeitet." },
-        { "p": "Sie ___ Suppe.", "a": "kocht", "en": "She cooks soup.", "hint": "kochen" },
-        { "p": "Du ___ Anna, oder?", "a": "heißt", "en": "Your name is Anna, right?", "hint": "heißen", "note": "Stems in an s-sound take just -t in the du form." },
-        { "p": "Ich ___ Anna.", "a": "heiße", "en": "My name is Anna.", "hint": "heißen" },
-        { "p": "Wir ___ aus Bulgarien.", "a": "kommen", "en": "We come from Bulgaria.", "hint": "kommen" }
-      ]
+        {
+          "p": "Ich ___ in Berlin.",
+          "a": "wohne",
+          "en": "I live in Berlin.",
+          "hint": "wohnen"
+        },
+        {
+          "p": "Du ___ gern Fußball.",
+          "a": "spielst",
+          "en": "You like playing football.",
+          "hint": "spielen",
+          "note": "gern after a verb means 'like doing it'."
+        },
+        {
+          "p": "Er ___ Kaffee.",
+          "a": "macht",
+          "en": "He makes coffee.",
+          "hint": "machen"
+        },
+        {
+          "p": "Wir ___ Deutsch.",
+          "a": "lernen",
+          "en": "We are learning German.",
+          "hint": "lernen",
+          "note": "wir and sie/Sie look like the infinitive."
+        },
+        {
+          "p": "Ihr ___ Brot.",
+          "a": "kauft",
+          "en": "You (all) buy bread.",
+          "hint": "kaufen"
+        },
+        {
+          "p": "Meine Freunde ___ Wasser.",
+          "a": "trinken",
+          "en": "My friends drink water.",
+          "hint": "trinken"
+        },
+        {
+          "p": "Ich ___ heute.",
+          "a": "arbeite",
+          "en": "I am working today.",
+          "hint": "arbeiten"
+        },
+        {
+          "p": "Du ___ viel.",
+          "a": "arbeitest",
+          "en": "You work a lot.",
+          "hint": "arbeiten",
+          "note": "Stems in -t or -d add an extra e: du arbeitest, er arbeitet."
+        },
+        {
+          "p": "Sie ___ Suppe.",
+          "a": "kocht",
+          "en": "She cooks soup.",
+          "hint": "kochen"
+        },
+        {
+          "p": "Du ___ Anna, oder?",
+          "a": "heißt",
+          "en": "Your name is Anna, right?",
+          "hint": "heißen",
+          "note": "Stems in an s-sound take just -t in the du form."
+        },
+        {
+          "p": "Ich ___ Anna.",
+          "a": "heiße",
+          "en": "My name is Anna.",
+          "hint": "heißen"
+        },
+        {
+          "p": "Wir ___ aus Bulgarien.",
+          "a": "kommen",
+          "en": "We come from Bulgaria.",
+          "hint": "kommen"
+        }
+      ],
+      "subtitle": "Regular verbs (present tense)"
     },
     {
       "id": "stem-changing",
-      "name": "Stem-changing verbs",
+      "name": "Präsens mit Vokalwechsel",
       "kind": "cloze",
       "intro": "Some common verbs change their vowel in the du and er/sie/es forms: e becomes i or ie, a becomes ä. ich, wir, ihr and sie/Sie stay regular.",
       "items": [
-        { "p": "Er ___ Deutsch.", "a": "spricht", "en": "He speaks German.", "hint": "sprechen", "note": "e → i" },
-        { "p": "Du ___ gut.", "a": "sprichst", "en": "You speak well.", "hint": "sprechen" },
-        { "p": "Ich ___ Deutsch.", "a": "spreche", "en": "I speak German.", "hint": "sprechen", "note": "ich stays regular, no vowel change." },
-        { "p": "Sie ___ Brot.", "a": "isst", "en": "She eats bread.", "hint": "essen", "note": "du isst and er isst look the same." },
-        { "p": "Du ___ Käse.", "a": "isst", "en": "You eat cheese.", "hint": "essen" },
-        { "p": "Er ___ einen Film.", "a": "sieht", "en": "He watches a film.", "hint": "sehen", "note": "e → ie" },
-        { "p": "Du ___ das Haus.", "a": "siehst", "en": "You see the house.", "hint": "sehen" },
-        { "p": "Sie ___ ein Buch.", "a": "liest", "en": "She reads a book.", "hint": "lesen" },
-        { "p": "Du ___ viel.", "a": "liest", "en": "You read a lot.", "hint": "lesen" },
-        { "p": "Er ___ nach Sofia.", "a": "fährt", "en": "He drives to Sofia.", "hint": "fahren", "note": "a → ä" },
-        { "p": "Du ___ Auto.", "a": "fährst", "en": "You drive a car.", "hint": "fahren" },
-        { "p": "Sie ___ lange.", "a": "schläft", "en": "She sleeps for a long time.", "hint": "schlafen" },
-        { "p": "Er ___ den Bus.", "a": "nimmt", "en": "He takes the bus.", "hint": "nehmen", "note": "e → i, and the consonant changes too." },
-        { "p": "Du ___ Zucker.", "a": "nimmst", "en": "You take sugar.", "hint": "nehmen" }
-      ]
+        {
+          "p": "Er ___ Deutsch.",
+          "a": "spricht",
+          "en": "He speaks German.",
+          "hint": "sprechen",
+          "note": "e → i"
+        },
+        {
+          "p": "Du ___ gut.",
+          "a": "sprichst",
+          "en": "You speak well.",
+          "hint": "sprechen"
+        },
+        {
+          "p": "Ich ___ Deutsch.",
+          "a": "spreche",
+          "en": "I speak German.",
+          "hint": "sprechen",
+          "note": "ich stays regular, no vowel change."
+        },
+        {
+          "p": "Sie ___ Brot.",
+          "a": "isst",
+          "en": "She eats bread.",
+          "hint": "essen",
+          "note": "du isst and er isst look the same."
+        },
+        {
+          "p": "Du ___ Käse.",
+          "a": "isst",
+          "en": "You eat cheese.",
+          "hint": "essen"
+        },
+        {
+          "p": "Er ___ einen Film.",
+          "a": "sieht",
+          "en": "He watches a film.",
+          "hint": "sehen",
+          "note": "e → ie"
+        },
+        {
+          "p": "Du ___ das Haus.",
+          "a": "siehst",
+          "en": "You see the house.",
+          "hint": "sehen"
+        },
+        {
+          "p": "Sie ___ ein Buch.",
+          "a": "liest",
+          "en": "She reads a book.",
+          "hint": "lesen"
+        },
+        {
+          "p": "Du ___ viel.",
+          "a": "liest",
+          "en": "You read a lot.",
+          "hint": "lesen"
+        },
+        {
+          "p": "Er ___ nach Sofia.",
+          "a": "fährt",
+          "en": "He drives to Sofia.",
+          "hint": "fahren",
+          "note": "a → ä"
+        },
+        {
+          "p": "Du ___ Auto.",
+          "a": "fährst",
+          "en": "You drive a car.",
+          "hint": "fahren"
+        },
+        {
+          "p": "Sie ___ lange.",
+          "a": "schläft",
+          "en": "She sleeps for a long time.",
+          "hint": "schlafen"
+        },
+        {
+          "p": "Er ___ den Bus.",
+          "a": "nimmt",
+          "en": "He takes the bus.",
+          "hint": "nehmen",
+          "note": "e → i, and the consonant changes too."
+        },
+        {
+          "p": "Du ___ Zucker.",
+          "a": "nimmst",
+          "en": "You take sugar.",
+          "hint": "nehmen"
+        }
+      ],
+      "subtitle": "Stem-changing verbs"
     },
     {
       "id": "nominative-accusative",
-      "name": "Nominative & accusative",
+      "name": "Nominativ & Akkusativ",
       "kind": "cloze",
       "intro": "The subject is nominative, the direct object is accusative. Only masculine articles change: der → den, ein → einen, kein → keinen. die, das, eine and ein stay the same.",
       "items": [
-        { "p": "Ich habe ___ Hund.", "a": "einen", "en": "I have a dog.", "hint": "der Hund", "note": "Masculine object: ein → einen." },
-        { "p": "Ich sehe ___ Mann.", "a": "den", "en": "I see the man.", "hint": "der Mann" },
-        { "p": "Ich habe ___ Schwester.", "a": "eine", "en": "I have a sister.", "hint": "die Schwester", "note": "Feminine does not change." },
-        { "p": "Er kauft ___ Brot.", "a": "ein", "en": "He buys a loaf of bread.", "hint": "das Brot", "note": "Neuter does not change." },
-        { "p": "Wir trinken ___ Kaffee.", "a": "den", "en": "We drink the coffee.", "hint": "der Kaffee" },
-        { "p": "Sie liest ___ Buch.", "a": "ein", "en": "She reads a book.", "hint": "das Buch" },
-        { "p": "Ich esse ___ Apfel.", "a": "einen", "en": "I eat an apple.", "hint": "der Apfel" },
-        { "p": "Ich brauche ___ Lampe.", "a": "eine", "en": "I need a lamp.", "hint": "die Lampe" },
-        { "p": "Er hat ___ Auto.", "a": "das", "en": "He has the car.", "hint": "das Auto" },
-        { "p": "Ich kenne ___ Lehrer.", "a": "den", "en": "I know the teacher.", "hint": "der Lehrer" },
-        { "p": "___ Tisch ist groß.", "a": "Der", "en": "The table is big.", "hint": "der Tisch", "note": "Tisch is the subject here, so it stays nominative." },
-        { "p": "Ich suche ___ Schlüssel.", "a": "den", "en": "I am looking for the key.", "hint": "der Schlüssel" },
-        { "p": "Wir haben ___ Küche.", "a": "eine", "en": "We have a kitchen.", "hint": "die Küche" },
-        { "p": "Ich trinke ___ Kaffee.", "a": "einen", "en": "I am drinking a coffee.", "hint": "der Kaffee" }
-      ]
+        {
+          "p": "Ich habe ___ Hund.",
+          "a": "einen",
+          "en": "I have a dog.",
+          "hint": "der Hund",
+          "note": "Masculine object: ein → einen."
+        },
+        {
+          "p": "Ich sehe ___ Mann.",
+          "a": "den",
+          "en": "I see the man.",
+          "hint": "der Mann"
+        },
+        {
+          "p": "Ich habe ___ Schwester.",
+          "a": "eine",
+          "en": "I have a sister.",
+          "hint": "die Schwester",
+          "note": "Feminine does not change."
+        },
+        {
+          "p": "Er kauft ___ Brot.",
+          "a": "ein",
+          "en": "He buys a loaf of bread.",
+          "hint": "das Brot",
+          "note": "Neuter does not change."
+        },
+        {
+          "p": "Wir trinken ___ Kaffee.",
+          "a": "den",
+          "en": "We drink the coffee.",
+          "hint": "der Kaffee"
+        },
+        {
+          "p": "Sie liest ___ Buch.",
+          "a": "ein",
+          "en": "She reads a book.",
+          "hint": "das Buch"
+        },
+        {
+          "p": "Ich esse ___ Apfel.",
+          "a": "einen",
+          "en": "I eat an apple.",
+          "hint": "der Apfel"
+        },
+        {
+          "p": "Ich brauche ___ Lampe.",
+          "a": "eine",
+          "en": "I need a lamp.",
+          "hint": "die Lampe"
+        },
+        {
+          "p": "Er hat ___ Auto.",
+          "a": "das",
+          "en": "He has the car.",
+          "hint": "das Auto"
+        },
+        {
+          "p": "Ich kenne ___ Lehrer.",
+          "a": "den",
+          "en": "I know the teacher.",
+          "hint": "der Lehrer"
+        },
+        {
+          "p": "___ Tisch ist groß.",
+          "a": "Der",
+          "en": "The table is big.",
+          "hint": "der Tisch",
+          "note": "Tisch is the subject here, so it stays nominative."
+        },
+        {
+          "p": "Ich suche ___ Schlüssel.",
+          "a": "den",
+          "en": "I am looking for the key.",
+          "hint": "der Schlüssel"
+        },
+        {
+          "p": "Wir haben ___ Küche.",
+          "a": "eine",
+          "en": "We have a kitchen.",
+          "hint": "die Küche"
+        },
+        {
+          "p": "Ich trinke ___ Kaffee.",
+          "a": "einen",
+          "en": "I am drinking a coffee.",
+          "hint": "der Kaffee"
+        }
+      ],
+      "subtitle": "Nominative & accusative"
     },
     {
       "id": "possessive",
-      "name": "Possessive articles",
+      "name": "Possessivartikel (mein, dein …)",
       "kind": "cloze",
       "intro": "mein (my), dein (your), unser (our). The ending depends on the gender of the thing owned: mein Vater, meine Mutter, mein Kind.",
       "items": [
-        { "p": "Das ist ___ Vater.", "a": "mein", "en": "That is my father.", "hint": "ich" },
-        { "p": "Das ist ___ Mutter.", "a": "meine", "en": "That is my mother.", "hint": "ich" },
-        { "p": "Das ist ___ Kind.", "a": "mein", "en": "That is my child.", "hint": "ich" },
-        { "p": "Wie heißt ___ Bruder?", "a": "dein", "en": "What is your brother called?", "hint": "du" },
-        { "p": "Wie heißt ___ Schwester?", "a": "deine", "en": "What is your sister called?", "hint": "du" },
-        { "p": "___ Name ist Anna.", "a": "Mein", "en": "My name is Anna." },
-        { "p": "Das ist ___ Hund.", "a": "unser", "en": "That is our dog.", "hint": "wir" },
-        { "p": "Das ist ___ Haus.", "a": "unser", "en": "That is our house.", "hint": "wir" },
-        { "p": "___ Eltern sind nett.", "a": "Meine", "en": "My parents are nice." },
-        { "p": "Ist das ___ Tasche?", "a": "deine", "en": "Is that your bag?", "hint": "du" }
-      ]
+        {
+          "p": "Das ist ___ Vater.",
+          "a": "mein",
+          "en": "That is my father.",
+          "hint": "ich"
+        },
+        {
+          "p": "Das ist ___ Mutter.",
+          "a": "meine",
+          "en": "That is my mother.",
+          "hint": "ich"
+        },
+        {
+          "p": "Das ist ___ Kind.",
+          "a": "mein",
+          "en": "That is my child.",
+          "hint": "ich"
+        },
+        {
+          "p": "Wie heißt ___ Bruder?",
+          "a": "dein",
+          "en": "What is your brother called?",
+          "hint": "du"
+        },
+        {
+          "p": "Wie heißt ___ Schwester?",
+          "a": "deine",
+          "en": "What is your sister called?",
+          "hint": "du"
+        },
+        {
+          "p": "___ Name ist Anna.",
+          "a": "Mein",
+          "en": "My name is Anna."
+        },
+        {
+          "p": "Das ist ___ Hund.",
+          "a": "unser",
+          "en": "That is our dog.",
+          "hint": "wir"
+        },
+        {
+          "p": "Das ist ___ Haus.",
+          "a": "unser",
+          "en": "That is our house.",
+          "hint": "wir"
+        },
+        {
+          "p": "___ Eltern sind nett.",
+          "a": "Meine",
+          "en": "My parents are nice."
+        },
+        {
+          "p": "Ist das ___ Tasche?",
+          "a": "deine",
+          "en": "Is that your bag?",
+          "hint": "du"
+        }
+      ],
+      "subtitle": "Possessive articles"
     },
     {
       "id": "word-order",
-      "name": "Word order, questions, negation",
+      "name": "Wortstellung, Fragen, Negation",
       "kind": "cloze",
       "intro": "In a statement the conjugated verb is always in second position. In yes/no questions it comes first. Negate nouns with kein- (same endings as ein-); negate everything else with nicht.",
       "items": [
-        { "p": "Heute ___ ich Brot.", "a": "esse", "en": "Today I eat bread.", "note": "Time word first, then the verb, then the subject." },
-        { "p": "Morgen ___ wir nach Berlin.", "a": "fahren", "en": "Tomorrow we are going to Berlin." },
-        { "p": "Ich habe ___ Hunger.", "a": "keinen", "en": "I am not hungry.", "hint": "der Hunger", "note": "Masculine object: kein → keinen." },
-        { "p": "Ich habe ___ Zeit.", "a": "keine", "en": "I have no time.", "hint": "die Zeit" },
-        { "p": "Das ist ___ Auto.", "a": "kein", "en": "That is not a car.", "hint": "das Auto" },
-        { "p": "Ich bin ___ müde.", "a": "nicht", "en": "I am not tired.", "note": "Use nicht for adjectives and verbs." },
-        { "p": "___ heißt du?", "a": "Wie", "en": "What is your name?", "note": "Literally 'how are you called'." },
-        { "p": "___ wohnst du?", "a": "Wo", "en": "Where do you live?" },
-        { "p": "___ kommst du?", "a": "Woher", "en": "Where are you from?" },
-        { "p": "___ ist das?", "a": "Was", "en": "What is that?" },
-        { "p": "___ ist dein Bruder?", "a": "Wer", "en": "Who is your brother?" },
-        { "p": "___ du Kaffee?", "a": "Trinkst", "en": "Do you drink coffee?", "note": "Yes/no questions start with the verb." },
-        { "p": "Ich trinke ___ Kaffee.", "a": "keinen", "en": "I don't drink coffee.", "hint": "der Kaffee" }
-      ]
+        {
+          "p": "Heute ___ ich Brot.",
+          "a": "esse",
+          "en": "Today I eat bread.",
+          "note": "Time word first, then the verb, then the subject."
+        },
+        {
+          "p": "Morgen ___ wir nach Berlin.",
+          "a": "fahren",
+          "en": "Tomorrow we are going to Berlin."
+        },
+        {
+          "p": "Ich habe ___ Hunger.",
+          "a": "keinen",
+          "en": "I am not hungry.",
+          "hint": "der Hunger",
+          "note": "Masculine object: kein → keinen."
+        },
+        {
+          "p": "Ich habe ___ Zeit.",
+          "a": "keine",
+          "en": "I have no time.",
+          "hint": "die Zeit"
+        },
+        {
+          "p": "Das ist ___ Auto.",
+          "a": "kein",
+          "en": "That is not a car.",
+          "hint": "das Auto"
+        },
+        {
+          "p": "Ich bin ___ müde.",
+          "a": "nicht",
+          "en": "I am not tired.",
+          "note": "Use nicht for adjectives and verbs."
+        },
+        {
+          "p": "___ heißt du?",
+          "a": "Wie",
+          "en": "What is your name?",
+          "note": "Literally 'how are you called'."
+        },
+        {
+          "p": "___ wohnst du?",
+          "a": "Wo",
+          "en": "Where do you live?"
+        },
+        {
+          "p": "___ kommst du?",
+          "a": "Woher",
+          "en": "Where are you from?"
+        },
+        {
+          "p": "___ ist das?",
+          "a": "Was",
+          "en": "What is that?"
+        },
+        {
+          "p": "___ ist dein Bruder?",
+          "a": "Wer",
+          "en": "Who is your brother?"
+        },
+        {
+          "p": "___ du Kaffee?",
+          "a": "Trinkst",
+          "en": "Do you drink coffee?",
+          "note": "Yes/no questions start with the verb."
+        },
+        {
+          "p": "Ich trinke ___ Kaffee.",
+          "a": "keinen",
+          "en": "I don't drink coffee.",
+          "hint": "der Kaffee"
+        }
+      ],
+      "subtitle": "Word order, questions, negation"
     },
     {
       "id": "modal-verbs",
-      "name": "Modal verbs",
+      "name": "Modalverben (können, müssen …)",
       "kind": "cloze",
       "intro": "können, müssen, wollen, sollen, dürfen, mögen. The modal is conjugated in position 2; the main verb goes to the end as an infinitive: Ich muss heute arbeiten.",
       "items": [
-        { "p": "Ich ___ schwimmen.", "a": "kann", "en": "I can swim.", "hint": "können" },
-        { "p": "Du ___ nach Hause gehen.", "a": "musst", "en": "You have to go home.", "hint": "müssen" },
-        { "p": "Er ___ ein Eis.", "a": "will", "en": "He wants an ice cream.", "hint": "wollen" },
-        { "p": "Wir ___ hier bleiben.", "a": "sollen", "en": "We are supposed to stay here.", "hint": "sollen" },
-        { "p": "___ ich hereinkommen?", "a": "Darf", "en": "May I come in?", "hint": "dürfen" },
-        { "p": "Ihr ___ leise sein.", "a": "müsst", "en": "You (all) have to be quiet.", "hint": "müssen" },
-        { "p": "Ich ___ heute arbeiten.", "a": "muss", "en": "I have to work today.", "hint": "müssen" },
-        { "p": "___ du mir helfen?", "a": "Kannst", "en": "Can you help me?", "hint": "können" },
-        { "p": "Wir ___ ins Kino gehen.", "a": "wollen", "en": "We want to go to the cinema.", "hint": "wollen" },
-        { "p": "Man ___ hier nicht rauchen.", "a": "darf", "en": "One may not smoke here.", "hint": "dürfen" },
-        { "p": "Sie ___ sehr gut kochen.", "a": "kann", "en": "She can cook very well.", "hint": "können" },
-        { "p": "Ich ___ ein Buch lesen.", "a": "möchte", "en": "I would like to read a book.", "hint": "mögen", "note": "möchte is the polite form of mögen." }
-      ]
+        {
+          "p": "Ich ___ schwimmen.",
+          "a": "kann",
+          "en": "I can swim.",
+          "hint": "können"
+        },
+        {
+          "p": "Du ___ nach Hause gehen.",
+          "a": "musst",
+          "en": "You have to go home.",
+          "hint": "müssen"
+        },
+        {
+          "p": "Er ___ ein Eis.",
+          "a": "will",
+          "en": "He wants an ice cream.",
+          "hint": "wollen"
+        },
+        {
+          "p": "Wir ___ hier bleiben.",
+          "a": "sollen",
+          "en": "We are supposed to stay here.",
+          "hint": "sollen"
+        },
+        {
+          "p": "___ ich hereinkommen?",
+          "a": "Darf",
+          "en": "May I come in?",
+          "hint": "dürfen"
+        },
+        {
+          "p": "Ihr ___ leise sein.",
+          "a": "müsst",
+          "en": "You (all) have to be quiet.",
+          "hint": "müssen"
+        },
+        {
+          "p": "Ich ___ heute arbeiten.",
+          "a": "muss",
+          "en": "I have to work today.",
+          "hint": "müssen"
+        },
+        {
+          "p": "___ du mir helfen?",
+          "a": "Kannst",
+          "en": "Can you help me?",
+          "hint": "können"
+        },
+        {
+          "p": "Wir ___ ins Kino gehen.",
+          "a": "wollen",
+          "en": "We want to go to the cinema.",
+          "hint": "wollen"
+        },
+        {
+          "p": "Man ___ hier nicht rauchen.",
+          "a": "darf",
+          "en": "One may not smoke here.",
+          "hint": "dürfen"
+        },
+        {
+          "p": "Sie ___ sehr gut kochen.",
+          "a": "kann",
+          "en": "She can cook very well.",
+          "hint": "können"
+        },
+        {
+          "p": "Ich ___ ein Buch lesen.",
+          "a": "möchte",
+          "en": "I would like to read a book.",
+          "hint": "mögen",
+          "note": "möchte is the polite form of mögen."
+        }
+      ],
+      "subtitle": "Modal verbs"
     },
     {
       "id": "separable",
-      "name": "Separable verbs",
+      "name": "Trennbare Verben (auf-, ein-)",
       "kind": "cloze",
       "intro": "Separable prefixes (auf-, ein-, an-, mit-, fern-) detach and go to the end of the clause: Ich stehe um sieben Uhr auf.",
       "items": [
-        { "p": "Ich ___ um sieben Uhr auf.", "a": "stehe", "en": "I get up at seven.", "hint": "aufstehen" },
-        { "p": "Er ___ jeden Tag ein.", "a": "kauft", "en": "He shops every day.", "hint": "einkaufen" },
-        { "p": "Wann ___ der Film an?", "a": "fängt", "en": "When does the film begin?", "hint": "anfangen" },
-        { "p": "___ du mit?", "a": "Kommst", "en": "Are you coming along?", "hint": "mitkommen" },
-        { "p": "Wir ___ abends fern.", "a": "sehen", "en": "We watch TV in the evening.", "hint": "fernsehen" },
-        { "p": "Ich ___ dich ein.", "a": "lade", "en": "I am inviting you.", "hint": "einladen" },
-        { "p": "Sie ___ früh auf.", "a": "steht", "en": "She gets up early.", "hint": "aufstehen" },
-        { "p": "___ ihr morgen mit?", "a": "Kommt", "en": "Are you (all) coming along tomorrow?", "hint": "mitkommen" }
-      ]
+        {
+          "p": "Ich ___ um sieben Uhr auf.",
+          "a": "stehe",
+          "en": "I get up at seven.",
+          "hint": "aufstehen"
+        },
+        {
+          "p": "Er ___ jeden Tag ein.",
+          "a": "kauft",
+          "en": "He shops every day.",
+          "hint": "einkaufen"
+        },
+        {
+          "p": "Wann ___ der Film an?",
+          "a": "fängt",
+          "en": "When does the film begin?",
+          "hint": "anfangen"
+        },
+        {
+          "p": "___ du mit?",
+          "a": "Kommst",
+          "en": "Are you coming along?",
+          "hint": "mitkommen"
+        },
+        {
+          "p": "Wir ___ abends fern.",
+          "a": "sehen",
+          "en": "We watch TV in the evening.",
+          "hint": "fernsehen"
+        },
+        {
+          "p": "Ich ___ dich ein.",
+          "a": "lade",
+          "en": "I am inviting you.",
+          "hint": "einladen"
+        },
+        {
+          "p": "Sie ___ früh auf.",
+          "a": "steht",
+          "en": "She gets up early.",
+          "hint": "aufstehen"
+        },
+        {
+          "p": "___ ihr morgen mit?",
+          "a": "Kommt",
+          "en": "Are you (all) coming along tomorrow?",
+          "hint": "mitkommen"
+        }
+      ],
+      "subtitle": "Separable verbs"
     },
     {
       "id": "imperative",
-      "name": "Imperative",
+      "name": "Imperativ (du, ihr, Sie)",
       "kind": "cloze",
       "intro": "Three forms: du (stem, often no -e), ihr (normal present form without ihr), Sie (infinitive + Sie).",
       "items": [
-        { "p": "___ bitte langsam! (du, sprechen)", "a": "Sprich", "en": "Speak slowly, please." },
-        { "p": "___ bitte herein! (du, kommen)", "a": "Komm", "en": "Come in, please." },
-        { "p": "___ ihr bitte leise! (ihr)", "a": "Seid", "en": "Be quiet, please.", "hint": "sein" },
-        { "p": "___ mir bitte! (du, helfen)", "a": "Hilf", "en": "Help me, please.", "note": "e → i survives into the du-imperative." },
-        { "p": "___ bitte Platz! (du, nehmen)", "a": "Nimm", "en": "Have a seat, please." },
-        { "p": "___ das Buch! (du, lesen)", "a": "Lies", "en": "Read the book!" },
-        { "p": "___ Sie bitte langsam! (formell)", "a": "Sprechen", "en": "Please speak slowly.", "note": "Formal: infinitive + Sie." },
-        { "p": "___ bitte nicht so schnell! (du, fahren)", "a": "Fahr", "en": "Don't drive so fast, please." }
-      ]
+        {
+          "p": "___ bitte langsam! (du, sprechen)",
+          "a": "Sprich",
+          "en": "Speak slowly, please."
+        },
+        {
+          "p": "___ bitte herein! (du, kommen)",
+          "a": "Komm",
+          "en": "Come in, please."
+        },
+        {
+          "p": "___ ihr bitte leise! (ihr)",
+          "a": "Seid",
+          "en": "Be quiet, please.",
+          "hint": "sein"
+        },
+        {
+          "p": "___ mir bitte! (du, helfen)",
+          "a": "Hilf",
+          "en": "Help me, please.",
+          "note": "e → i survives into the du-imperative."
+        },
+        {
+          "p": "___ bitte Platz! (du, nehmen)",
+          "a": "Nimm",
+          "en": "Have a seat, please."
+        },
+        {
+          "p": "___ das Buch! (du, lesen)",
+          "a": "Lies",
+          "en": "Read the book!"
+        },
+        {
+          "p": "___ Sie bitte langsam! (formell)",
+          "a": "Sprechen",
+          "en": "Please speak slowly.",
+          "note": "Formal: infinitive + Sie."
+        },
+        {
+          "p": "___ bitte nicht so schnell! (du, fahren)",
+          "a": "Fahr",
+          "en": "Don't drive so fast, please."
+        }
+      ],
+      "subtitle": "Imperative"
     },
     {
       "id": "perfect",
-      "name": "Perfect tense",
+      "name": "Perfekt: haben/sein + Partizip II",
       "kind": "cloze",
       "intro": "The spoken past: haben or sein + past participle. Movement and change-of-state verbs (gehen, fahren, kommen, aufstehen) use sein; most others use haben.",
       "items": [
-        { "p": "Ich ___ gestern gearbeitet.", "a": "habe", "en": "I worked yesterday.", "hint": "haben" },
-        { "p": "Wir ___ nach Berlin gefahren.", "a": "sind", "en": "We drove to Berlin.", "hint": "sein", "note": "Movement → sein." },
-        { "p": "Er ___ ein Buch gelesen.", "a": "hat", "en": "He read a book.", "hint": "haben" },
-        { "p": "Sie ___ nach Hause gegangen.", "a": "ist", "en": "She went home.", "hint": "sein" },
-        { "p": "Ihr ___ viel gelacht.", "a": "habt", "en": "You (all) laughed a lot.", "hint": "haben" },
-        { "p": "___ du das gemacht?", "a": "Hast", "en": "Did you do that?", "hint": "haben" },
-        { "p": "Ich ___ Kaffee getrunken.", "a": "habe", "en": "I drank coffee.", "hint": "haben" },
-        { "p": "Wann ___ du aufgestanden?", "a": "bist", "en": "When did you get up?", "hint": "sein" },
-        { "p": "Wir ___ im Kino gewesen.", "a": "sind", "en": "We were at the cinema.", "hint": "sein", "note": "sein itself uses sein in the perfect." },
-        { "p": "Er ___ Fußball gespielt.", "a": "hat", "en": "He played football.", "hint": "haben" },
-        { "p": "Das Kind ___ eingeschlafen.", "a": "ist", "en": "The child fell asleep.", "hint": "sein" }
-      ]
+        {
+          "p": "Ich ___ gestern gearbeitet.",
+          "a": "habe",
+          "en": "I worked yesterday.",
+          "hint": "haben"
+        },
+        {
+          "p": "Wir ___ nach Berlin gefahren.",
+          "a": "sind",
+          "en": "We drove to Berlin.",
+          "hint": "sein",
+          "note": "Movement → sein."
+        },
+        {
+          "p": "Er ___ ein Buch gelesen.",
+          "a": "hat",
+          "en": "He read a book.",
+          "hint": "haben"
+        },
+        {
+          "p": "Sie ___ nach Hause gegangen.",
+          "a": "ist",
+          "en": "She went home.",
+          "hint": "sein"
+        },
+        {
+          "p": "Ihr ___ viel gelacht.",
+          "a": "habt",
+          "en": "You (all) laughed a lot.",
+          "hint": "haben"
+        },
+        {
+          "p": "___ du das gemacht?",
+          "a": "Hast",
+          "en": "Did you do that?",
+          "hint": "haben"
+        },
+        {
+          "p": "Ich ___ Kaffee getrunken.",
+          "a": "habe",
+          "en": "I drank coffee.",
+          "hint": "haben"
+        },
+        {
+          "p": "Wann ___ du aufgestanden?",
+          "a": "bist",
+          "en": "When did you get up?",
+          "hint": "sein"
+        },
+        {
+          "p": "Wir ___ im Kino gewesen.",
+          "a": "sind",
+          "en": "We were at the cinema.",
+          "hint": "sein",
+          "note": "sein itself uses sein in the perfect."
+        },
+        {
+          "p": "Er ___ Fußball gespielt.",
+          "a": "hat",
+          "en": "He played football.",
+          "hint": "haben"
+        },
+        {
+          "p": "Das Kind ___ eingeschlafen.",
+          "a": "ist",
+          "en": "The child fell asleep.",
+          "hint": "sein"
+        }
+      ],
+      "subtitle": "The perfect tense"
     },
     {
       "id": "time-prepositions",
-      "name": "Time & place prepositions",
+      "name": "Präpositionen der Zeit und des Ortes",
       "kind": "cloze",
       "intro": "am + day/part of day, im + month/season/year, um + clock time, in + city/country. Learn these as fixed pairs.",
       "items": [
-        { "p": "Ich arbeite ___ Montag.", "a": "am", "en": "I work on Monday.", "note": "am = an + dem, for days and parts of the day." },
-        { "p": "___ Januar ist es kalt.", "a": "Im", "en": "In January it is cold.", "note": "im = in + dem, for months and seasons." },
-        { "p": "Wir treffen uns ___ Abend.", "a": "am", "en": "We meet in the evening." },
-        { "p": "Ich fahre ___ Sommer nach Italien.", "a": "im", "en": "I go to Italy in summer." },
-        { "p": "Der Kurs beginnt ___ 9 Uhr.", "a": "um", "en": "The course begins at 9 o'clock." },
-        { "p": "Ich bin ___ 1990 geboren.", "a": "im", "en": "I was born in 1990." },
-        { "p": "Ich wohne ___ Berlin.", "a": "in", "en": "I live in Berlin." },
-        { "p": "Das Buch liegt ___ dem Tisch.", "a": "auf", "en": "The book is on the table." },
-        { "p": "___ Montag habe ich frei.", "a": "Am", "en": "On Monday I am off." },
-        { "p": "Wir fahren ___ Juli.", "a": "im", "en": "We go in July." }
-      ]
+        {
+          "p": "Ich arbeite ___ Montag.",
+          "a": "am",
+          "en": "I work on Monday.",
+          "note": "am = an + dem, for days and parts of the day."
+        },
+        {
+          "p": "___ Januar ist es kalt.",
+          "a": "Im",
+          "en": "In January it is cold.",
+          "note": "im = in + dem, for months and seasons."
+        },
+        {
+          "p": "Wir treffen uns ___ Abend.",
+          "a": "am",
+          "en": "We meet in the evening."
+        },
+        {
+          "p": "Ich fahre ___ Sommer nach Italien.",
+          "a": "im",
+          "en": "I go to Italy in summer."
+        },
+        {
+          "p": "Der Kurs beginnt ___ 9 Uhr.",
+          "a": "um",
+          "en": "The course begins at 9 o'clock."
+        },
+        {
+          "p": "Ich bin ___ 1990 geboren.",
+          "a": "im",
+          "en": "I was born in 1990."
+        },
+        {
+          "p": "Ich wohne ___ Berlin.",
+          "a": "in",
+          "en": "I live in Berlin."
+        },
+        {
+          "p": "Das Buch liegt ___ dem Tisch.",
+          "a": "auf",
+          "en": "The book is on the table."
+        },
+        {
+          "p": "___ Montag habe ich frei.",
+          "a": "Am",
+          "en": "On Monday I am off."
+        },
+        {
+          "p": "Wir fahren ___ Juli.",
+          "a": "im",
+          "en": "We go in July."
+        }
+      ],
+      "subtitle": "Time & place prepositions"
     },
     {
       "id": "numbers-time",
-      "name": "Numbers & time",
+      "name": "Zahlen, Datum und Uhrzeit",
       "kind": "cloze",
       "intro": "Clock time: um, halb (half to the next hour), Viertel nach / Viertel vor. Dates use ordinal numbers with am.",
       "items": [
-        { "p": "Ich habe ___ Kinder. (3)", "a": "drei", "en": "I have three children." },
-        { "p": "Es ist ___ Uhr. (10)", "a": "zehn", "en": "It is ten o'clock." },
-        { "p": "Ich bin ___ Jahre alt. (25)", "a": "fünfundzwanzig", "en": "I am 25 years old.", "note": "German says 'five-and-twenty'." },
-        { "p": "Es ist halb ___. (6:30)", "a": "sieben", "en": "It is half past six.", "note": "halb sieben literally means 'half to seven'." },
-        { "p": "Es ist ___ nach drei. (3:15)", "a": "Viertel", "en": "It is quarter past three." },
-        { "p": "Heute ist ___ 15. Mai.", "a": "der", "en": "Today is the 15th of May." },
-        { "p": "Wir sind ___ Jahr 2020.", "a": "im", "en": "We are in the year 2020." },
-        { "p": "Der Zug kommt ___ 8 Uhr.", "a": "um", "en": "The train comes at 8 o'clock." }
-      ]
+        {
+          "p": "Ich habe ___ Kinder. (3)",
+          "a": "drei",
+          "en": "I have three children."
+        },
+        {
+          "p": "Es ist ___ Uhr. (10)",
+          "a": "zehn",
+          "en": "It is ten o'clock."
+        },
+        {
+          "p": "Ich bin ___ Jahre alt. (25)",
+          "a": "fünfundzwanzig",
+          "en": "I am 25 years old.",
+          "note": "German says 'five-and-twenty'."
+        },
+        {
+          "p": "Es ist halb ___. (6:30)",
+          "a": "sieben",
+          "en": "It is half past six.",
+          "note": "halb sieben literally means 'half to seven'."
+        },
+        {
+          "p": "Es ist ___ nach drei. (3:15)",
+          "a": "Viertel",
+          "en": "It is quarter past three."
+        },
+        {
+          "p": "Heute ist ___ 15. Mai.",
+          "a": "der",
+          "en": "Today is the 15th of May."
+        },
+        {
+          "p": "Wir sind ___ Jahr 2020.",
+          "a": "im",
+          "en": "We are in the year 2020."
+        },
+        {
+          "p": "Der Zug kommt ___ 8 Uhr.",
+          "a": "um",
+          "en": "The train comes at 8 o'clock."
+        }
+      ],
+      "subtitle": "Numbers, dates and time"
     }
   ]
 }

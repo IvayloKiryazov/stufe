@@ -70,8 +70,8 @@ def main() -> int:
     levels: dict[str, dict] = {lvl: {"id": lvl, "name": lvl.upper(), "title": LEVEL_META[lvl], "groups": []} for lvl in LEVEL_ORDER}
     used_attribution: set[str] = set()
 
-    def add_group(level: str, group_id: str, name: str, kind: str, intro: str) -> dict:
-        g = {"id": group_id, "name": name, "kind": kind, "intro": intro, "items": []}
+    def add_group(level: str, group_id: str, name: str, kind: str, intro: str, subtitle: str = "") -> dict:
+        g = {"id": group_id, "name": name, "subtitle": subtitle, "kind": kind, "intro": intro, "items": []}
         levels[level]["groups"].append(g)
         return g
 
@@ -152,7 +152,7 @@ def main() -> int:
         level = doc["level"]
         for grp in doc["groups"]:
             gid = f"{level}-{grp['id']}"
-            group = add_group(level, gid, grp["name"], "cloze", grp.get("intro", ""))
+            group = add_group(level, gid, grp["name"], "cloze", grp.get("intro", ""), grp.get("subtitle", ""))
             for i, it in enumerate(grp["items"], start=1):
                 item = {
                     "id": f"{gid}-{i}",

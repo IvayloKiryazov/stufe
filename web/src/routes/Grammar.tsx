@@ -23,7 +23,8 @@ function Point({ deck, levelIdx, groupId }: { deck: Deck; levelIdx: number; grou
       </Link>
       <header>
         <h1 className="text-3xl font-bold">{g.name}</h1>
-        <p className="text-muted">
+        {g.subtitle && <p className="text-muted">{g.subtitle}</p>}
+        <p className="text-sm text-muted">
           {level.name} · {level.title}
         </p>
       </header>
@@ -86,12 +87,13 @@ export default function Grammar() {
                     to={`/grammar/${i}/${encodeURIComponent(g.id)}`}
                     className="block rounded-lg border border-line bg-surface p-3 hover:bg-soft"
                   >
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between gap-2">
                       <span className="text-sm font-medium">{g.name}</span>
                       <span className="text-xs text-muted">
                         {done} / {total}
                       </span>
                     </div>
+                    {g.subtitle && <div className="text-xs text-muted">{g.subtitle}</div>}
                     <Progress className="mt-2" value={total ? (done / total) * 100 : 0} label={`${g.name} progress`} />
                   </Link>
                 );

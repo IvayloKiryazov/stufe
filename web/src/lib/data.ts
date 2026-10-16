@@ -33,6 +33,7 @@ export interface Item {
 export interface Group {
   id: string;
   name: string;
+  subtitle?: string;
   kind: string;
   intro: string;
   items: string[];

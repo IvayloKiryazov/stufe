@@ -3,198 +3,804 @@
   "groups": [
     {
       "id": "konjunktiv2-vergangenheit",
-      "name": "Konjunktiv II: past",
+      "name": "Konjunktiv II der Vergangenheit (hätte gemacht)",
       "kind": "cloze",
       "intro": "Past unreal: hätte/wäre (Konjunktiv II of haben/sein) + past participle. Use hätte for most verbs and wäre for verbs of motion/change plus sein, bleiben and werden.",
       "items": [
-        { "p": "Wenn ich Zeit gehabt ___, wäre ich gekommen.", "a": "hätte", "en": "If I had had time, I would have come.", "hint": "haben", "note": "hätte/wäre + past participle." },
-        { "p": "Wenn wir früher losgefahren ___, hätten wir den Zug bekommen.", "a": "wären", "en": "If we had left earlier, we would have caught the train.", "hint": "losfahren", "note": "Motion verb → wäre." },
-        { "p": "Sie ___ das sicher verstanden, wenn du es erklärt hättest.", "a": "hätte", "en": "She would certainly have understood that if you had explained it.", "hint": "verstehen", "note": "hätte + past participle." },
-        { "p": "Wenn er nur auf mich gehört ___!", "a": "hätte", "en": "If only he had listened to me!", "hint": "hören", "note": "hätte in unreal wishes." },
-        { "p": "Das Kind ___ ohne dich verloren gewesen.", "a": "wäre", "en": "The child would have been lost without you.", "hint": "sein", "note": "sein → wäre + past participle." },
-        { "p": "Wenn du das gewusst ___, hättest du anders gehandelt.", "a": "hättest", "en": "If you had known that, you would have acted differently.", "hint": "wissen", "note": "hätte conjugated for du → hättest." },
-        { "p": "Wir ___ gerne mitgekommen, aber wir hatten keine Zeit.", "a": "wären", "en": "We would gladly have come along, but we had no time.", "hint": "mitkommen", "note": "Motion verb → wäre." },
-        { "p": "Ohne deine Hilfe ___ ich das nie geschafft.", "a": "hätte", "en": "Without your help I would never have managed it.", "hint": "schaffen", "note": "hätte + past participle." },
-        { "p": "Wenn sie das Angebot angenommen ___, wäre alles anders.", "a": "hätte", "en": "If she had accepted the offer, everything would be different.", "hint": "annehmen", "note": "hätte + past participle." },
-        { "p": "Er ___ zu spät gekommen, wenn er den Bus genommen hätte.", "a": "wäre", "en": "He would have arrived late if he had taken the bus.", "hint": "kommen", "note": "Motion verb → wäre." }
-      ]
+        {
+          "p": "Wenn ich Zeit gehabt ___, wäre ich gekommen.",
+          "a": "hätte",
+          "en": "If I had had time, I would have come.",
+          "hint": "haben",
+          "note": "hätte/wäre + past participle."
+        },
+        {
+          "p": "Wenn wir früher losgefahren ___, hätten wir den Zug bekommen.",
+          "a": "wären",
+          "en": "If we had left earlier, we would have caught the train.",
+          "hint": "losfahren",
+          "note": "Motion verb → wäre."
+        },
+        {
+          "p": "Sie ___ das sicher verstanden, wenn du es erklärt hättest.",
+          "a": "hätte",
+          "en": "She would certainly have understood that if you had explained it.",
+          "hint": "verstehen",
+          "note": "hätte + past participle."
+        },
+        {
+          "p": "Wenn er nur auf mich gehört ___!",
+          "a": "hätte",
+          "en": "If only he had listened to me!",
+          "hint": "hören",
+          "note": "hätte in unreal wishes."
+        },
+        {
+          "p": "Das Kind ___ ohne dich verloren gewesen.",
+          "a": "wäre",
+          "en": "The child would have been lost without you.",
+          "hint": "sein",
+          "note": "sein → wäre + past participle."
+        },
+        {
+          "p": "Wenn du das gewusst ___, hättest du anders gehandelt.",
+          "a": "hättest",
+          "en": "If you had known that, you would have acted differently.",
+          "hint": "wissen",
+          "note": "hätte conjugated for du → hättest."
+        },
+        {
+          "p": "Wir ___ gerne mitgekommen, aber wir hatten keine Zeit.",
+          "a": "wären",
+          "en": "We would gladly have come along, but we had no time.",
+          "hint": "mitkommen",
+          "note": "Motion verb → wäre."
+        },
+        {
+          "p": "Ohne deine Hilfe ___ ich das nie geschafft.",
+          "a": "hätte",
+          "en": "Without your help I would never have managed it.",
+          "hint": "schaffen",
+          "note": "hätte + past participle."
+        },
+        {
+          "p": "Wenn sie das Angebot angenommen ___, wäre alles anders.",
+          "a": "hätte",
+          "en": "If she had accepted the offer, everything would be different.",
+          "hint": "annehmen",
+          "note": "hätte + past participle."
+        },
+        {
+          "p": "Er ___ zu spät gekommen, wenn er den Bus genommen hätte.",
+          "a": "wäre",
+          "en": "He would have arrived late if he had taken the bus.",
+          "hint": "kommen",
+          "note": "Motion verb → wäre."
+        }
+      ],
+      "subtitle": "Konjunktiv II: past"
     },
     {
       "id": "irreale-bedingungen",
-      "name": "Unreal conditions",
+      "name": "Irreale Bedingung: wenn / Verb-erst",
       "kind": "cloze",
       "intro": "Unreal conditions use Konjunktiv II. A conditional can drop 'wenn': the verb then moves to the front (Hätte ich Zeit, …), and the main clause often starts with 'dann'.",
       "items": [
-        { "p": "___ ich Zeit, würde ich mitkommen.", "a": "Hätte", "en": "If I had time, I would come along.", "hint": "haben", "note": "Verb-first conditional = without wenn." },
-        { "p": "Wäre ich reicher, ___ ich um die Welt reisen.", "a": "würde", "en": "If I were richer, I would travel around the world.", "hint": "werden", "note": "würde + infinitive for the main clause." },
-        { "p": "Wenn ich du ___, würde ich das nicht tun.", "a": "wäre", "en": "If I were you, I would not do that.", "hint": "sein", "note": "Konjunktiv II of sein = wäre." },
-        { "p": "___ es morgen nicht regnen, könnten wir wandern gehen.", "a": "Würde", "en": "If it didn't rain tomorrow, we could go hiking.", "hint": "werden", "note": "würde + infinitive; verb first." },
-        { "p": "Könnte ich fliegen, ___ ich dich sofort besuchen.", "a": "würde", "en": "If I could fly, I would visit you right away.", "hint": "werden", "note": "Main clause with würde." },
-        { "p": "Wenn wir mehr Geld ___, würden wir ein Haus kaufen.", "a": "hätten", "en": "If we had more money, we would buy a house.", "hint": "haben", "note": "hätte/hätten = Konjunktiv II of haben." },
-        { "p": "Wüsste ich die Antwort, ___ ich sie dir sagen.", "a": "würde", "en": "If I knew the answer, I would tell it to you.", "hint": "sagen", "note": "wüsste = Konjunktiv II of wissen." },
-        { "p": "___ du fleißiger, würdest du die Prüfung bestehen.", "a": "Wärst", "en": "If you were more hard-working, you would pass the exam.", "hint": "sein", "note": "Verb-first conditional with wäre/wärst." }
-      ]
+        {
+          "p": "___ ich Zeit, würde ich mitkommen.",
+          "a": "Hätte",
+          "en": "If I had time, I would come along.",
+          "hint": "haben",
+          "note": "Verb-first conditional = without wenn."
+        },
+        {
+          "p": "Wäre ich reicher, ___ ich um die Welt reisen.",
+          "a": "würde",
+          "en": "If I were richer, I would travel around the world.",
+          "hint": "werden",
+          "note": "würde + infinitive for the main clause."
+        },
+        {
+          "p": "Wenn ich du ___, würde ich das nicht tun.",
+          "a": "wäre",
+          "en": "If I were you, I would not do that.",
+          "hint": "sein",
+          "note": "Konjunktiv II of sein = wäre."
+        },
+        {
+          "p": "___ es morgen nicht regnen, könnten wir wandern gehen.",
+          "a": "Würde",
+          "en": "If it didn't rain tomorrow, we could go hiking.",
+          "hint": "werden",
+          "note": "würde + infinitive; verb first."
+        },
+        {
+          "p": "Könnte ich fliegen, ___ ich dich sofort besuchen.",
+          "a": "würde",
+          "en": "If I could fly, I would visit you right away.",
+          "hint": "werden",
+          "note": "Main clause with würde."
+        },
+        {
+          "p": "Wenn wir mehr Geld ___, würden wir ein Haus kaufen.",
+          "a": "hätten",
+          "en": "If we had more money, we would buy a house.",
+          "hint": "haben",
+          "note": "hätte/hätten = Konjunktiv II of haben."
+        },
+        {
+          "p": "Wüsste ich die Antwort, ___ ich sie dir sagen.",
+          "a": "würde",
+          "en": "If I knew the answer, I would tell it to you.",
+          "hint": "sagen",
+          "note": "wüsste = Konjunktiv II of wissen."
+        },
+        {
+          "p": "___ du fleißiger, würdest du die Prüfung bestehen.",
+          "a": "Wärst",
+          "en": "If you were more hard-working, you would pass the exam.",
+          "hint": "sein",
+          "note": "Verb-first conditional with wäre/wärst."
+        }
+      ],
+      "subtitle": "Unreal conditions"
     },
     {
       "id": "konzessivsaetze",
-      "name": "Concessive clauses",
+      "name": "Konzessivsätze (obwohl, trotzdem …)",
       "kind": "cloze",
       "intro": "'obwohl' and 'auch wenn' introduce a subordinate clause (verb goes last). 'trotzdem' and 'dennoch' are adverbs that begin the main clause, so the verb stays in second position.",
       "items": [
-        { "p": "___ es regnete, ging sie spazieren.", "a": "Obwohl", "en": "Although it was raining, she went for a walk.", "hint": "although", "note": "obwohl → verb last." },
-        { "p": "Es regnete, ___ ging sie spazieren.", "a": "trotzdem", "en": "It was raining; nevertheless she went for a walk.", "hint": "nevertheless", "note": "trotzdem → verb second." },
-        { "p": "Er war müde, ___ arbeitete er weiter.", "a": "dennoch", "en": "He was tired; nonetheless he kept working.", "hint": "nonetheless", "note": "dennoch → verb second." },
-        { "p": "Ich gehe zum Sport, ___ ich keine Lust habe.", "a": "obwohl", "en": "I'm going to exercise even though I don't feel like it.", "hint": "even though", "note": "obwohl → verb last." },
-        { "p": "___ wenn du dich entschuldigst, verzeihe ich dir nicht.", "a": "Auch", "en": "Even if you apologize, I won't forgive you.", "hint": "auch wenn", "note": "auch wenn = even if." },
-        { "p": "Sie hatte viel gelernt, ___ fiel sie durch die Prüfung.", "a": "trotzdem", "en": "She had studied a lot; nevertheless she failed the exam.", "hint": "nevertheless", "note": "trotzdem → verb second." },
-        { "p": "___ er kein Geld hatte, war er glücklich.", "a": "Obwohl", "en": "Although he had no money, he was happy.", "hint": "although", "note": "obwohl → verb last." },
-        { "p": "Das Wetter war schlecht, ___ sind wir gefahren.", "a": "dennoch", "en": "The weather was bad; nonetheless we went.", "hint": "nonetheless", "note": "dennoch → verb second." }
-      ]
+        {
+          "p": "___ es regnete, ging sie spazieren.",
+          "a": "Obwohl",
+          "en": "Although it was raining, she went for a walk.",
+          "hint": "although",
+          "note": "obwohl → verb last."
+        },
+        {
+          "p": "Es regnete, ___ ging sie spazieren.",
+          "a": "trotzdem",
+          "en": "It was raining; nevertheless she went for a walk.",
+          "hint": "nevertheless",
+          "note": "trotzdem → verb second."
+        },
+        {
+          "p": "Er war müde, ___ arbeitete er weiter.",
+          "a": "dennoch",
+          "en": "He was tired; nonetheless he kept working.",
+          "hint": "nonetheless",
+          "note": "dennoch → verb second."
+        },
+        {
+          "p": "Ich gehe zum Sport, ___ ich keine Lust habe.",
+          "a": "obwohl",
+          "en": "I'm going to exercise even though I don't feel like it.",
+          "hint": "even though",
+          "note": "obwohl → verb last."
+        },
+        {
+          "p": "___ wenn du dich entschuldigst, verzeihe ich dir nicht.",
+          "a": "Auch",
+          "en": "Even if you apologize, I won't forgive you.",
+          "hint": "auch wenn",
+          "note": "auch wenn = even if."
+        },
+        {
+          "p": "Sie hatte viel gelernt, ___ fiel sie durch die Prüfung.",
+          "a": "trotzdem",
+          "en": "She had studied a lot; nevertheless she failed the exam.",
+          "hint": "nevertheless",
+          "note": "trotzdem → verb second."
+        },
+        {
+          "p": "___ er kein Geld hatte, war er glücklich.",
+          "a": "Obwohl",
+          "en": "Although he had no money, he was happy.",
+          "hint": "although",
+          "note": "obwohl → verb last."
+        },
+        {
+          "p": "Das Wetter war schlecht, ___ sind wir gefahren.",
+          "a": "dennoch",
+          "en": "The weather was bad; nonetheless we went.",
+          "hint": "nonetheless",
+          "note": "dennoch → verb second."
+        }
+      ],
+      "subtitle": "Concessive clauses"
     },
     {
       "id": "als-ob",
-      "name": "Irreal comparison: als ob / als",
+      "name": "Irrealer Vergleich: als ob / als",
       "kind": "cloze",
       "intro": "For irreal comparisons use 'als ob' or 'als wenn' + Konjunktiv II (verb last after ob). With bare 'als' the verb comes second: Er tut, als wäre er krank.",
       "items": [
-        { "p": "Er tut, als ___ er krank.", "a": "wäre", "en": "He acts as if he were sick.", "hint": "sein", "note": "Bare als + KII, verb second." },
-        { "p": "Sie sieht aus, als ob sie geweint ___.", "a": "hätte", "en": "She looks as if she had been crying.", "hint": "weinen", "note": "als ob → verb last." },
-        { "p": "Er redet, als ob er alles ___.", "a": "wüsste", "en": "He talks as if he knew everything.", "hint": "wissen", "note": "wüsste = Konjunktiv II of wissen." },
-        { "p": "Du tust, als ___ du mich nicht gehört.", "a": "hättest", "en": "You act as if you hadn't heard me.", "hint": "hören", "note": "hätte + past participle." },
-        { "p": "Es sieht aus, als ___ es gleich regnen.", "a": "würde", "en": "It looks as if it were about to rain.", "hint": "werden", "note": "würde + infinitive." },
-        { "p": "Sie benimmt sich, als ob sie die Chefin ___.", "a": "wäre", "en": "She behaves as if she were the boss.", "hint": "sein", "note": "als ob → verb last." },
-        { "p": "Er spricht Deutsch, als ___ er in Berlin aufgewachsen.", "a": "wäre", "en": "He speaks German as if he had grown up in Berlin.", "hint": "sein", "note": "wäre + past participle." },
-        { "p": "Mir ist, als ___ ich das schon einmal gesehen.", "a": "hätte", "en": "It feels to me as if I had seen this before.", "hint": "sehen", "note": "Bare als + KII." }
-      ]
+        {
+          "p": "Er tut, als ___ er krank.",
+          "a": "wäre",
+          "en": "He acts as if he were sick.",
+          "hint": "sein",
+          "note": "Bare als + KII, verb second."
+        },
+        {
+          "p": "Sie sieht aus, als ob sie geweint ___.",
+          "a": "hätte",
+          "en": "She looks as if she had been crying.",
+          "hint": "weinen",
+          "note": "als ob → verb last."
+        },
+        {
+          "p": "Er redet, als ob er alles ___.",
+          "a": "wüsste",
+          "en": "He talks as if he knew everything.",
+          "hint": "wissen",
+          "note": "wüsste = Konjunktiv II of wissen."
+        },
+        {
+          "p": "Du tust, als ___ du mich nicht gehört.",
+          "a": "hättest",
+          "en": "You act as if you hadn't heard me.",
+          "hint": "hören",
+          "note": "hätte + past participle."
+        },
+        {
+          "p": "Es sieht aus, als ___ es gleich regnen.",
+          "a": "würde",
+          "en": "It looks as if it were about to rain.",
+          "hint": "werden",
+          "note": "würde + infinitive."
+        },
+        {
+          "p": "Sie benimmt sich, als ob sie die Chefin ___.",
+          "a": "wäre",
+          "en": "She behaves as if she were the boss.",
+          "hint": "sein",
+          "note": "als ob → verb last."
+        },
+        {
+          "p": "Er spricht Deutsch, als ___ er in Berlin aufgewachsen.",
+          "a": "wäre",
+          "en": "He speaks German as if he had grown up in Berlin.",
+          "hint": "sein",
+          "note": "wäre + past participle."
+        },
+        {
+          "p": "Mir ist, als ___ ich das schon einmal gesehen.",
+          "a": "hätte",
+          "en": "It feels to me as if I had seen this before.",
+          "hint": "sehen",
+          "note": "Bare als + KII."
+        }
+      ],
+      "subtitle": "Irreal comparison: als ob"
     },
     {
       "id": "zweiteilige-konnektoren",
-      "name": "Two-part connectors",
+      "name": "Zweiteilige Konnektoren (entweder … oder, je … desto)",
       "kind": "cloze",
       "intro": "Two-part connectors pair up: entweder … oder, sowohl … als auch, nicht nur … sondern auch, zwar … aber, je … desto (je + verb last, desto + comparative + verb second).",
       "items": [
-        { "p": "Ich trinke ___ Tee oder Kaffee.", "a": "entweder", "en": "I drink either tea or coffee.", "hint": "either … or", "note": "entweder … oder." },
-        { "p": "Sie spricht sowohl Englisch ___ auch Französisch.", "a": "als", "en": "She speaks both English and French.", "hint": "sowohl … als auch", "note": "sowohl … als auch." },
-        { "p": "Er ist nicht nur klug, ___ auch freundlich.", "a": "sondern", "en": "He is not only clever but also friendly.", "hint": "nicht nur … sondern auch", "note": "nicht nur … sondern auch." },
-        { "p": "Je mehr ich lerne, ___ besser verstehe ich es.", "a": "desto", "en": "The more I study, the better I understand it.", "hint": "je … desto", "note": "desto + comparative + verb." },
-        { "p": "Sie ist ___ müde, aber sie arbeitet weiter.", "a": "zwar", "en": "She is indeed tired, but she keeps working.", "hint": "zwar … aber", "note": "zwar … aber." },
-        { "p": "___ später es wird, desto kälter wird es.", "a": "Je", "en": "The later it gets, the colder it gets.", "hint": "je … desto", "note": "je → verb last." },
-        { "p": "Wir können entweder ins Kino gehen ___ zu Hause bleiben.", "a": "oder", "en": "We can either go to the cinema or stay home.", "hint": "entweder … oder", "note": "entweder … oder." },
-        { "p": "Das ist sowohl teuer ___ auch unnötig.", "a": "als", "en": "That is both expensive and unnecessary.", "hint": "sowohl … als auch", "note": "sowohl … als auch." },
-        { "p": "Er hat mir nicht nur geholfen, ___ auch Geld geliehen.", "a": "sondern", "en": "He not only helped me but also lent me money.", "hint": "nicht nur … sondern auch", "note": "nicht nur … sondern auch." }
-      ]
+        {
+          "p": "Ich trinke ___ Tee oder Kaffee.",
+          "a": "entweder",
+          "en": "I drink either tea or coffee.",
+          "hint": "either … or",
+          "note": "entweder … oder."
+        },
+        {
+          "p": "Sie spricht sowohl Englisch ___ auch Französisch.",
+          "a": "als",
+          "en": "She speaks both English and French.",
+          "hint": "sowohl … als auch",
+          "note": "sowohl … als auch."
+        },
+        {
+          "p": "Er ist nicht nur klug, ___ auch freundlich.",
+          "a": "sondern",
+          "en": "He is not only clever but also friendly.",
+          "hint": "nicht nur … sondern auch",
+          "note": "nicht nur … sondern auch."
+        },
+        {
+          "p": "Je mehr ich lerne, ___ besser verstehe ich es.",
+          "a": "desto",
+          "en": "The more I study, the better I understand it.",
+          "hint": "je … desto",
+          "note": "desto + comparative + verb."
+        },
+        {
+          "p": "Sie ist ___ müde, aber sie arbeitet weiter.",
+          "a": "zwar",
+          "en": "She is indeed tired, but she keeps working.",
+          "hint": "zwar … aber",
+          "note": "zwar … aber."
+        },
+        {
+          "p": "___ später es wird, desto kälter wird es.",
+          "a": "Je",
+          "en": "The later it gets, the colder it gets.",
+          "hint": "je … desto",
+          "note": "je → verb last."
+        },
+        {
+          "p": "Wir können entweder ins Kino gehen ___ zu Hause bleiben.",
+          "a": "oder",
+          "en": "We can either go to the cinema or stay home.",
+          "hint": "entweder … oder",
+          "note": "entweder … oder."
+        },
+        {
+          "p": "Das ist sowohl teuer ___ auch unnötig.",
+          "a": "als",
+          "en": "That is both expensive and unnecessary.",
+          "hint": "sowohl … als auch",
+          "note": "sowohl … als auch."
+        },
+        {
+          "p": "Er hat mir nicht nur geholfen, ___ auch Geld geliehen.",
+          "a": "sondern",
+          "en": "He not only helped me but also lent me money.",
+          "hint": "nicht nur … sondern auch",
+          "note": "nicht nur … sondern auch."
+        }
+      ],
+      "subtitle": "Two-part connectors"
     },
     {
       "id": "passiversatzformen",
-      "name": "Passive alternatives",
+      "name": "Passiversatzformen (sein + zu, sich lassen)",
       "kind": "cloze",
       "intro": "The werden-passive can be replaced by: sein + zu + infinitive (= can/must be done), sich lassen + infinitive, or an active sentence with 'man'.",
       "items": [
-        { "p": "Der Text ist leicht zu ___.", "a": "verstehen", "en": "The text is easy to understand.", "hint": "verstehen", "note": "sein + zu + infinitive = can be done." },
-        { "p": "Das Buch lässt sich gut ___.", "a": "lesen", "en": "The book reads well / can be read well.", "hint": "lesen", "note": "sich lassen + infinitive." },
-        { "p": "Man ___ das Problem schnell lösen.", "a": "kann", "en": "One can solve the problem quickly.", "hint": "können", "note": "man-active replaces passive." },
-        { "p": "Diese Frage ist noch zu ___.", "a": "klären", "en": "This question still needs to be clarified.", "hint": "klären", "note": "sein + zu = must be done." },
-        { "p": "Der Text lässt sich schwer ___.", "a": "übersetzen", "en": "The text is hard to translate.", "hint": "übersetzen", "note": "sich lassen + infinitive." },
-        { "p": "Die Tür ist nicht zu ___.", "a": "öffnen", "en": "The door cannot be opened.", "hint": "öffnen", "note": "nicht zu + infinitive = cannot be done." },
-        { "p": "Hier ___ man günstig einkaufen.", "a": "kann", "en": "Here you can shop cheaply.", "hint": "können", "note": "man-active replaces passive." },
-        { "p": "Das Problem lässt sich leicht ___.", "a": "lösen", "en": "The problem can be solved easily.", "hint": "lösen", "note": "sich lassen + infinitive." }
-      ]
+        {
+          "p": "Der Text ist leicht zu ___.",
+          "a": "verstehen",
+          "en": "The text is easy to understand.",
+          "hint": "verstehen",
+          "note": "sein + zu + infinitive = can be done."
+        },
+        {
+          "p": "Das Buch lässt sich gut ___.",
+          "a": "lesen",
+          "en": "The book reads well / can be read well.",
+          "hint": "lesen",
+          "note": "sich lassen + infinitive."
+        },
+        {
+          "p": "Man ___ das Problem schnell lösen.",
+          "a": "kann",
+          "en": "One can solve the problem quickly.",
+          "hint": "können",
+          "note": "man-active replaces passive."
+        },
+        {
+          "p": "Diese Frage ist noch zu ___.",
+          "a": "klären",
+          "en": "This question still needs to be clarified.",
+          "hint": "klären",
+          "note": "sein + zu = must be done."
+        },
+        {
+          "p": "Der Text lässt sich schwer ___.",
+          "a": "übersetzen",
+          "en": "The text is hard to translate.",
+          "hint": "übersetzen",
+          "note": "sich lassen + infinitive."
+        },
+        {
+          "p": "Die Tür ist nicht zu ___.",
+          "a": "öffnen",
+          "en": "The door cannot be opened.",
+          "hint": "öffnen",
+          "note": "nicht zu + infinitive = cannot be done."
+        },
+        {
+          "p": "Hier ___ man günstig einkaufen.",
+          "a": "kann",
+          "en": "Here you can shop cheaply.",
+          "hint": "können",
+          "note": "man-active replaces passive."
+        },
+        {
+          "p": "Das Problem lässt sich leicht ___.",
+          "a": "lösen",
+          "en": "The problem can be solved easily.",
+          "hint": "lösen",
+          "note": "sich lassen + infinitive."
+        }
+      ],
+      "subtitle": "Passive alternatives"
     },
     {
       "id": "partizip-adjektive",
-      "name": "Participles as adjectives",
+      "name": "Partizipien als Adjektive",
       "kind": "cloze",
       "intro": "Partizip I (infinitive + d) is active/ongoing (das schlafende Kind); Partizip II is passive/completed (die gebaute Brücke). They take normal adjective endings.",
       "items": [
-        { "p": "Das ___ Kind schlief ruhig.", "a": "schlafende", "en": "The sleeping child slept peacefully.", "hint": "schlafen", "note": "Partizip I + adjective ending." },
-        { "p": "Die ___ Brücke ist sehr stabil.", "a": "gebaute", "en": "The built bridge is very stable.", "hint": "bauen", "note": "Partizip II as adjective." },
-        { "p": "Das ___ Wasser war eiskalt.", "a": "fließende", "en": "The flowing water was ice-cold.", "hint": "fließen", "note": "Partizip I = active." },
-        { "p": "Das frisch ___ Brot riecht gut.", "a": "gebackene", "en": "The freshly baked bread smells good.", "hint": "backen", "note": "Partizip II as adjective." },
-        { "p": "Die laut ___ Kinder störten den Unterricht.", "a": "sprechenden", "en": "The loudly talking children disturbed the lesson.", "hint": "sprechen", "note": "Partizip I + plural ending." },
-        { "p": "Die gut ___ Prüfung freute alle.", "a": "bestandene", "en": "The well-passed exam pleased everyone.", "hint": "bestehen", "note": "Partizip II as adjective." },
-        { "p": "Der ___ Zug hatte Verspätung.", "a": "ankommende", "en": "The arriving train was delayed.", "hint": "ankommen", "note": "Partizip I = ongoing." },
-        { "p": "Das ___ Auto war sehr teuer.", "a": "verkaufte", "en": "The sold car was very expensive.", "hint": "verkaufen", "note": "Partizip II = completed." }
-      ]
+        {
+          "p": "Das ___ Kind schlief ruhig.",
+          "a": "schlafende",
+          "en": "The sleeping child slept peacefully.",
+          "hint": "schlafen",
+          "note": "Partizip I + adjective ending."
+        },
+        {
+          "p": "Die ___ Brücke ist sehr stabil.",
+          "a": "gebaute",
+          "en": "The built bridge is very stable.",
+          "hint": "bauen",
+          "note": "Partizip II as adjective."
+        },
+        {
+          "p": "Das ___ Wasser war eiskalt.",
+          "a": "fließende",
+          "en": "The flowing water was ice-cold.",
+          "hint": "fließen",
+          "note": "Partizip I = active."
+        },
+        {
+          "p": "Das frisch ___ Brot riecht gut.",
+          "a": "gebackene",
+          "en": "The freshly baked bread smells good.",
+          "hint": "backen",
+          "note": "Partizip II as adjective."
+        },
+        {
+          "p": "Die laut ___ Kinder störten den Unterricht.",
+          "a": "sprechenden",
+          "en": "The loudly talking children disturbed the lesson.",
+          "hint": "sprechen",
+          "note": "Partizip I + plural ending."
+        },
+        {
+          "p": "Die gut ___ Prüfung freute alle.",
+          "a": "bestandene",
+          "en": "The well-passed exam pleased everyone.",
+          "hint": "bestehen",
+          "note": "Partizip II as adjective."
+        },
+        {
+          "p": "Der ___ Zug hatte Verspätung.",
+          "a": "ankommende",
+          "en": "The arriving train was delayed.",
+          "hint": "ankommen",
+          "note": "Partizip I = ongoing."
+        },
+        {
+          "p": "Das ___ Auto war sehr teuer.",
+          "a": "verkaufte",
+          "en": "The sold car was very expensive.",
+          "hint": "verkaufen",
+          "note": "Partizip II = completed."
+        }
+      ],
+      "subtitle": "Participles as adjectives"
     },
     {
       "id": "nominalisierung",
-      "name": "Nominalisation",
+      "name": "Nominalisierung (Verben → Nomen)",
       "kind": "cloze",
       "intro": "Verbs and adjectives can become nouns. Infinitives become neuter nouns (das Lesen, das Schwimmen); adjectives take suffixes like -heit/-keit/-ung (die Freundlichkeit, die Lösung).",
       "items": [
-        { "p": "Das ___ macht mir großen Spaß.", "a": "Lesen", "en": "Reading is great fun for me.", "hint": "lesen", "note": "Infinitive → neuter noun." },
-        { "p": "Ich bewundere seine ___.", "a": "Freundlichkeit", "en": "I admire his friendliness.", "hint": "freundlich", "note": "Adjective → -keit noun." },
-        { "p": "Das tägliche ___ ist wichtig für die Gesundheit.", "a": "Schwimmen", "en": "Daily swimming is important for health.", "hint": "schwimmen", "note": "Infinitive → neuter noun." },
-        { "p": "Die ___ der Frauen war ein langer Kampf.", "a": "Gleichberechtigung", "en": "The equality of women was a long struggle.", "hint": "gleichberechtigen", "note": "Verb → -ung noun." },
-        { "p": "Sein ___ hat alle überrascht.", "a": "Kommen", "en": "His coming surprised everyone.", "hint": "kommen", "note": "Infinitive → neuter noun." },
-        { "p": "Wir schätzen ihre ___.", "a": "Ehrlichkeit", "en": "We value her honesty.", "hint": "ehrlich", "note": "Adjective → -keit noun." },
-        { "p": "Das laute ___ störte die Nachbarn.", "a": "Singen", "en": "The loud singing disturbed the neighbours.", "hint": "singen", "note": "Infinitive → neuter noun." },
-        { "p": "Die ___ dieses Problems dauert lange.", "a": "Lösung", "en": "The solution of this problem takes a long time.", "hint": "lösen", "note": "Verb → -ung noun." }
-      ]
+        {
+          "p": "Das ___ macht mir großen Spaß.",
+          "a": "Lesen",
+          "en": "Reading is great fun for me.",
+          "hint": "lesen",
+          "note": "Infinitive → neuter noun."
+        },
+        {
+          "p": "Ich bewundere seine ___.",
+          "a": "Freundlichkeit",
+          "en": "I admire his friendliness.",
+          "hint": "freundlich",
+          "note": "Adjective → -keit noun."
+        },
+        {
+          "p": "Das tägliche ___ ist wichtig für die Gesundheit.",
+          "a": "Schwimmen",
+          "en": "Daily swimming is important for health.",
+          "hint": "schwimmen",
+          "note": "Infinitive → neuter noun."
+        },
+        {
+          "p": "Die ___ der Frauen war ein langer Kampf.",
+          "a": "Gleichberechtigung",
+          "en": "The equality of women was a long struggle.",
+          "hint": "gleichberechtigen",
+          "note": "Verb → -ung noun."
+        },
+        {
+          "p": "Sein ___ hat alle überrascht.",
+          "a": "Kommen",
+          "en": "His coming surprised everyone.",
+          "hint": "kommen",
+          "note": "Infinitive → neuter noun."
+        },
+        {
+          "p": "Wir schätzen ihre ___.",
+          "a": "Ehrlichkeit",
+          "en": "We value her honesty.",
+          "hint": "ehrlich",
+          "note": "Adjective → -keit noun."
+        },
+        {
+          "p": "Das laute ___ störte die Nachbarn.",
+          "a": "Singen",
+          "en": "The loud singing disturbed the neighbours.",
+          "hint": "singen",
+          "note": "Infinitive → neuter noun."
+        },
+        {
+          "p": "Die ___ dieses Problems dauert lange.",
+          "a": "Lösung",
+          "en": "The solution of this problem takes a long time.",
+          "hint": "lösen",
+          "note": "Verb → -ung noun."
+        }
+      ],
+      "subtitle": "Nominalisation"
     },
     {
       "id": "subjektive-modalverben",
-      "name": "Subjective modal verbs",
+      "name": "Subjektive Modalverben (Vermutung)",
       "kind": "cloze",
       "intro": "Modal verbs express assumptions: müssen = very likely, dürfte = probably, könnte = possibly, soll = reportedly (what others say).",
       "items": [
-        { "p": "Er ___ krank sein, er sieht sehr blass aus.", "a": "muss", "en": "He must be sick; he looks very pale.", "hint": "müssen", "note": "muss = very likely." },
-        { "p": "Sie ___ schon zu Hause sein, es ist spät.", "a": "dürfte", "en": "She is probably already home; it's late.", "hint": "dürfen", "note": "dürfte = probably." },
-        { "p": "Das ___ wahr sein, aber ich glaube es nicht.", "a": "könnte", "en": "That could be true, but I don't believe it.", "hint": "können", "note": "könnte = possibly." },
-        { "p": "Er ___ sehr reich sein, sagen die Leute.", "a": "soll", "en": "He is said to be very rich, people say.", "hint": "sollen", "note": "soll = reportedly." },
-        { "p": "Die Kinder ___ müde sein, sie haben lange gespielt.", "a": "müssen", "en": "The children must be tired; they played for a long time.", "hint": "müssen", "note": "müssen = very likely." },
-        { "p": "Sie ___ etwa dreißig Jahre alt sein.", "a": "dürfte", "en": "She is probably about thirty years old.", "hint": "dürfen", "note": "dürfte = probably." },
-        { "p": "Wo ist Tom? Er ___ im Garten sein.", "a": "könnte", "en": "Where is Tom? He could be in the garden.", "hint": "können", "note": "könnte = possibly." },
-        { "p": "Das ___ ein Irrtum sein, ich bin mir sicher.", "a": "muss", "en": "That must be a mistake; I'm sure of it.", "hint": "müssen", "note": "muss = very likely." }
-      ]
+        {
+          "p": "Er ___ krank sein, er sieht sehr blass aus.",
+          "a": "muss",
+          "en": "He must be sick; he looks very pale.",
+          "hint": "müssen",
+          "note": "muss = very likely."
+        },
+        {
+          "p": "Sie ___ schon zu Hause sein, es ist spät.",
+          "a": "dürfte",
+          "en": "She is probably already home; it's late.",
+          "hint": "dürfen",
+          "note": "dürfte = probably."
+        },
+        {
+          "p": "Das ___ wahr sein, aber ich glaube es nicht.",
+          "a": "könnte",
+          "en": "That could be true, but I don't believe it.",
+          "hint": "können",
+          "note": "könnte = possibly."
+        },
+        {
+          "p": "Er ___ sehr reich sein, sagen die Leute.",
+          "a": "soll",
+          "en": "He is said to be very rich, people say.",
+          "hint": "sollen",
+          "note": "soll = reportedly."
+        },
+        {
+          "p": "Die Kinder ___ müde sein, sie haben lange gespielt.",
+          "a": "müssen",
+          "en": "The children must be tired; they played for a long time.",
+          "hint": "müssen",
+          "note": "müssen = very likely."
+        },
+        {
+          "p": "Sie ___ etwa dreißig Jahre alt sein.",
+          "a": "dürfte",
+          "en": "She is probably about thirty years old.",
+          "hint": "dürfen",
+          "note": "dürfte = probably."
+        },
+        {
+          "p": "Wo ist Tom? Er ___ im Garten sein.",
+          "a": "könnte",
+          "en": "Where is Tom? He could be in the garden.",
+          "hint": "können",
+          "note": "könnte = possibly."
+        },
+        {
+          "p": "Das ___ ein Irrtum sein, ich bin mir sicher.",
+          "a": "muss",
+          "en": "That must be a mistake; I'm sure of it.",
+          "hint": "müssen",
+          "note": "muss = very likely."
+        }
+      ],
+      "subtitle": "Subjective modal verbs"
     },
     {
       "id": "futur2",
-      "name": "Futur II",
+      "name": "Futur II (werden + Partizip II)",
       "kind": "cloze",
       "intro": "Futur II = werden + past participle + haben/sein. It describes an action completed in the future, or an assumption about the past (Er wird angekommen sein).",
       "items": [
-        { "p": "Bis morgen ___ ich die Arbeit beendet haben.", "a": "werde", "en": "By tomorrow I will have finished the work.", "hint": "werden", "note": "werden + participle + haben." },
-        { "p": "Sie ___ das Buch bis Freitag gelesen haben.", "a": "wird", "en": "She will have read the book by Friday.", "hint": "werden", "note": "werden + participle + haben." },
-        { "p": "Er ___ längst angekommen sein.", "a": "wird", "en": "He will long since have arrived.", "hint": "werden", "note": "werden + participle + sein." },
-        { "p": "Wenn du so weitermachst, ___ du das Ziel erreicht haben.", "a": "wirst", "en": "If you keep going like this, you will have reached the goal.", "hint": "werden", "note": "werden + participle + haben." },
-        { "p": "Bis nächstes Jahr ___ wir das Haus gebaut haben.", "a": "werden", "en": "By next year we will have built the house.", "hint": "werden", "note": "werden + participle + haben." },
-        { "p": "Sie ___ die Prüfung bestanden haben, sie wirkt sehr erleichtert.", "a": "wird", "en": "She will have passed the exam; she looks very relieved.", "hint": "werden", "note": "Assumption about the past." },
-        { "p": "Die Gäste ___ schon gegangen sein.", "a": "werden", "en": "The guests will already have left.", "hint": "werden", "note": "werden + participle + sein." },
-        { "p": "Ich ___ das bis morgen vergessen haben.", "a": "werde", "en": "I will have forgotten it by tomorrow.", "hint": "werden", "note": "werden + participle + haben." }
-      ]
+        {
+          "p": "Bis morgen ___ ich die Arbeit beendet haben.",
+          "a": "werde",
+          "en": "By tomorrow I will have finished the work.",
+          "hint": "werden",
+          "note": "werden + participle + haben."
+        },
+        {
+          "p": "Sie ___ das Buch bis Freitag gelesen haben.",
+          "a": "wird",
+          "en": "She will have read the book by Friday.",
+          "hint": "werden",
+          "note": "werden + participle + haben."
+        },
+        {
+          "p": "Er ___ längst angekommen sein.",
+          "a": "wird",
+          "en": "He will long since have arrived.",
+          "hint": "werden",
+          "note": "werden + participle + sein."
+        },
+        {
+          "p": "Wenn du so weitermachst, ___ du das Ziel erreicht haben.",
+          "a": "wirst",
+          "en": "If you keep going like this, you will have reached the goal.",
+          "hint": "werden",
+          "note": "werden + participle + haben."
+        },
+        {
+          "p": "Bis nächstes Jahr ___ wir das Haus gebaut haben.",
+          "a": "werden",
+          "en": "By next year we will have built the house.",
+          "hint": "werden",
+          "note": "werden + participle + haben."
+        },
+        {
+          "p": "Sie ___ die Prüfung bestanden haben, sie wirkt sehr erleichtert.",
+          "a": "wird",
+          "en": "She will have passed the exam; she looks very relieved.",
+          "hint": "werden",
+          "note": "Assumption about the past."
+        },
+        {
+          "p": "Die Gäste ___ schon gegangen sein.",
+          "a": "werden",
+          "en": "The guests will already have left.",
+          "hint": "werden",
+          "note": "werden + participle + sein."
+        },
+        {
+          "p": "Ich ___ das bis morgen vergessen haben.",
+          "a": "werde",
+          "en": "I will have forgotten it by tomorrow.",
+          "hint": "werden",
+          "note": "werden + participle + haben."
+        }
+      ],
+      "subtitle": "The future perfect"
     },
     {
       "id": "relativsaetze-was-wo",
-      "name": "Relative clauses: was, wo, wer",
+      "name": "Relativsätze mit was, wo, wer",
       "kind": "cloze",
       "intro": "'was' is used after alles, nichts, etwas or to refer to a whole clause; 'wo' replaces a place preposition; 'wer' introduces a free relative clause as the subject (Wer …, der …).",
       "items": [
-        { "p": "Das ist alles, ___ ich weiß.", "a": "was", "en": "That is all that I know.", "hint": "what", "note": "was after alles." },
-        { "p": "Das Haus, ___ wir wohnen, ist alt.", "a": "wo", "en": "The house where we live is old.", "hint": "where", "note": "wo = place." },
-        { "p": "___ nicht wagt, der nicht gewinnt.", "a": "Wer", "en": "He who dares not, wins not.", "hint": "who", "note": "wer = free relative, subject." },
-        { "p": "Es gibt nichts, ___ mich überrascht.", "a": "was", "en": "There is nothing that surprises me.", "hint": "what", "note": "was after nichts." },
-        { "p": "Die Stadt, ___ ich geboren bin, liegt am Meer.", "a": "wo", "en": "The city where I was born is by the sea.", "hint": "where", "note": "wo = place." },
-        { "p": "___ zuletzt lacht, lacht am besten.", "a": "Wer", "en": "He who laughs last laughs best.", "hint": "who", "note": "wer = free relative." },
-        { "p": "Das ist etwas, ___ mich sehr freut.", "a": "was", "en": "That is something that pleases me very much.", "hint": "what", "note": "was after etwas." },
-        { "p": "Kennst du den Ort, ___ das Festival stattfindet?", "a": "wo", "en": "Do you know the place where the festival takes place?", "hint": "where", "note": "wo = place." }
-      ]
+        {
+          "p": "Das ist alles, ___ ich weiß.",
+          "a": "was",
+          "en": "That is all that I know.",
+          "hint": "what",
+          "note": "was after alles."
+        },
+        {
+          "p": "Das Haus, ___ wir wohnen, ist alt.",
+          "a": "wo",
+          "en": "The house where we live is old.",
+          "hint": "where",
+          "note": "wo = place."
+        },
+        {
+          "p": "___ nicht wagt, der nicht gewinnt.",
+          "a": "Wer",
+          "en": "He who dares not, wins not.",
+          "hint": "who",
+          "note": "wer = free relative, subject."
+        },
+        {
+          "p": "Es gibt nichts, ___ mich überrascht.",
+          "a": "was",
+          "en": "There is nothing that surprises me.",
+          "hint": "what",
+          "note": "was after nichts."
+        },
+        {
+          "p": "Die Stadt, ___ ich geboren bin, liegt am Meer.",
+          "a": "wo",
+          "en": "The city where I was born is by the sea.",
+          "hint": "where",
+          "note": "wo = place."
+        },
+        {
+          "p": "___ zuletzt lacht, lacht am besten.",
+          "a": "Wer",
+          "en": "He who laughs last laughs best.",
+          "hint": "who",
+          "note": "wer = free relative."
+        },
+        {
+          "p": "Das ist etwas, ___ mich sehr freut.",
+          "a": "was",
+          "en": "That is something that pleases me very much.",
+          "hint": "what",
+          "note": "was after etwas."
+        },
+        {
+          "p": "Kennst du den Ort, ___ das Festival stattfindet?",
+          "a": "wo",
+          "en": "Do you know the place where the festival takes place?",
+          "hint": "where",
+          "note": "wo = place."
+        }
+      ],
+      "subtitle": "Relative clauses: was, wo, wer"
     },
     {
       "id": "adjektive-praepositionen",
-      "name": "Adjectives with fixed prepositions",
+      "name": "Adjektive mit Präpositionen (interessiert an …)",
       "kind": "cloze",
       "intro": "Many adjectives govern a fixed preposition: interessiert an, stolz auf, abhängig von, Angst vor, bekannt für, zufrieden mit, verantwortlich für, gespannt auf.",
       "items": [
-        { "p": "Ich bin sehr ___ Musik interessiert.", "a": "an", "en": "I am very interested in music.", "hint": "interessiert ___", "note": "interessiert an + Dativ." },
-        { "p": "Sie ist stolz ___ ihren Sohn.", "a": "auf", "en": "She is proud of her son.", "hint": "stolz ___", "note": "stolz auf + Akkusativ." },
-        { "p": "Das ist abhängig ___ Wetter.", "a": "vom", "en": "That depends on the weather.", "hint": "abhängig ___", "note": "abhängig von + Dativ (von dem = vom)." },
-        { "p": "Er hat Angst ___ Hunden.", "a": "vor", "en": "He is afraid of dogs.", "hint": "Angst ___", "note": "Angst vor + Dativ." },
-        { "p": "Diese Stadt ist bekannt ___ ihre Museen.", "a": "für", "en": "This city is famous for its museums.", "hint": "bekannt ___", "note": "bekannt für + Akkusativ." },
-        { "p": "Ich bin zufrieden ___ meinem Ergebnis.", "a": "mit", "en": "I am satisfied with my result.", "hint": "zufrieden ___", "note": "zufrieden mit + Dativ." },
-        { "p": "Sie ist verantwortlich ___ das Projekt.", "a": "für", "en": "She is responsible for the project.", "hint": "verantwortlich ___", "note": "verantwortlich für + Akkusativ." },
-        { "p": "Wir sind gespannt ___ das Ergebnis.", "a": "auf", "en": "We are eager to see the result.", "hint": "gespannt ___", "note": "gespannt auf + Akkusativ." }
-      ]
+        {
+          "p": "Ich bin sehr ___ Musik interessiert.",
+          "a": "an",
+          "en": "I am very interested in music.",
+          "hint": "interessiert ___",
+          "note": "interessiert an + Dativ."
+        },
+        {
+          "p": "Sie ist stolz ___ ihren Sohn.",
+          "a": "auf",
+          "en": "She is proud of her son.",
+          "hint": "stolz ___",
+          "note": "stolz auf + Akkusativ."
+        },
+        {
+          "p": "Das ist abhängig ___ Wetter.",
+          "a": "vom",
+          "en": "That depends on the weather.",
+          "hint": "abhängig ___",
+          "note": "abhängig von + Dativ (von dem = vom)."
+        },
+        {
+          "p": "Er hat Angst ___ Hunden.",
+          "a": "vor",
+          "en": "He is afraid of dogs.",
+          "hint": "Angst ___",
+          "note": "Angst vor + Dativ."
+        },
+        {
+          "p": "Diese Stadt ist bekannt ___ ihre Museen.",
+          "a": "für",
+          "en": "This city is famous for its museums.",
+          "hint": "bekannt ___",
+          "note": "bekannt für + Akkusativ."
+        },
+        {
+          "p": "Ich bin zufrieden ___ meinem Ergebnis.",
+          "a": "mit",
+          "en": "I am satisfied with my result.",
+          "hint": "zufrieden ___",
+          "note": "zufrieden mit + Dativ."
+        },
+        {
+          "p": "Sie ist verantwortlich ___ das Projekt.",
+          "a": "für",
+          "en": "She is responsible for the project.",
+          "hint": "verantwortlich ___",
+          "note": "verantwortlich für + Akkusativ."
+        },
+        {
+          "p": "Wir sind gespannt ___ das Ergebnis.",
+          "a": "auf",
+          "en": "We are eager to see the result.",
+          "hint": "gespannt ___",
+          "note": "gespannt auf + Akkusativ."
+        }
+      ],
+      "subtitle": "Adjectives with prepositions"
     }
   ]
 }

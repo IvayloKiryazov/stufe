@@ -38,6 +38,12 @@ class DatasetTest(unittest.TestCase):
                 for item_id in group["items"]:
                     self.assertIn(item_id, by_id)
 
+    def test_grammar_groups_have_a_subtitle(self):
+        for level in self.levels:
+            for group in level["groups"]:
+                if group["kind"] == "cloze":
+                    self.assertTrue(group.get("subtitle"), level["id"] + "/" + group["id"])
+
     def test_items_have_required_fields(self):
         for i in self.items:
             self.assertTrue(i.get("level"), i["id"])

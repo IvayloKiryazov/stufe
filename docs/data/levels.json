@@ -7,6 +7,7 @@
    {
     "id": "a1-people",
     "name": "People & family",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Learn every noun together with its article. Gender is mostly arbitrary, so the article is part of the word. der is blue, die is red, das is green.",
     "items": [
@@ -31,6 +32,7 @@
    {
     "id": "a1-food",
     "name": "Food & drink",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Many nouns ending in -e are feminine (die Suppe, die Lampe). There are exceptions, so keep checking the article.",
     "items": [
@@ -59,6 +61,7 @@
    {
     "id": "a1-home",
     "name": "Home & things",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Useful endings: -ung, -heit, -keit, -schaft and -ion are always feminine. Diminutives in -chen and -lein are always neuter.",
     "items": [
@@ -90,6 +93,7 @@
    {
     "id": "a1-time",
     "name": "Time",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Time words show up in almost every sentence. Watch the articles: der Tag, die Woche, das Jahr.",
     "items": [
@@ -110,6 +114,7 @@
    {
     "id": "a1-places",
     "name": "Places",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Places are often neuter or feminine. Learn the article with the place, because you will need it after prepositions.",
     "items": [
@@ -130,6 +135,7 @@
    {
     "id": "a1-body",
     "name": "Body",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Body parts are mostly masculine or neuter; die Hand and die Nase are the common feminine ones.",
     "items": [
@@ -151,6 +157,7 @@
    {
     "id": "a1-clothing",
     "name": "Clothing",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Clothing is a mix of genders — a good set to drill because there is no reliable rule.",
     "items": [
@@ -168,6 +175,7 @@
    {
     "id": "a1-nature",
     "name": "Nature & weather",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Weather words are common in small talk: das Wetter, der Regen, die Sonne.",
     "items": [
@@ -190,6 +198,7 @@
    {
     "id": "a1-work",
     "name": "Work & school",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Note the -in ending for female people: der Lehrer / die Lehrerin.",
     "items": [
@@ -213,6 +222,7 @@
    {
     "id": "a1-transport",
     "name": "Transport",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Vehicles are a good test of gender: der Zug, die Bahn, das Auto, das Fahrrad.",
     "items": [
@@ -228,6 +238,7 @@
    {
     "id": "a1-core-verbs",
     "name": "sein, haben, werden",
+    "subtitle": "",
     "kind": "verb",
     "intro": "The three most important verbs. Learn them by heart — they are irregular and appear everywhere. Format: 3rd person present, past, perfect.",
     "items": [
@@ -239,6 +250,7 @@
    {
     "id": "a1-everyday",
     "name": "Everyday verbs",
+    "subtitle": "",
     "kind": "verb",
     "intro": "High-frequency regular and mixed verbs. Drop -en for the stem, then add the ending: ich -e, du -st, er -t.",
     "items": [
@@ -267,6 +279,7 @@
    {
     "id": "a1-modals",
     "name": "Modal verbs",
+    "subtitle": "",
     "kind": "verb",
     "intro": "Six verbs that rewrite the sentence around them. The modal goes in position 2 and the main verb moves to the end in the infinitive.",
     "items": [
@@ -281,6 +294,7 @@
    {
     "id": "a1-separable",
     "name": "Separable verbs",
+    "subtitle": "",
     "kind": "verb",
     "intro": "The prefix detaches and lands at the end of the sentence: Ich stehe um sieben auf.",
     "items": [
@@ -295,6 +309,7 @@
    {
     "id": "a1-irregular",
     "name": "Common irregular verbs",
+    "subtitle": "",
     "kind": "verb",
     "intro": "Strong verbs change their stem vowel. Learn the principal parts (present, past, perfect) together with the meaning.",
     "items": [
@@ -312,7 +327,8 @@
    },
    {
     "id": "a1-pronouns",
-    "name": "Personal pronouns",
+    "name": "Personalpronomen (ich, du, er …)",
+    "subtitle": "Subject pronouns",
     "kind": "cloze",
     "intro": "Subject pronouns: ich, du, er/sie/es, wir, ihr, sie/Sie. du is one person (informal), ihr is several people (informal), Sie is polite for one or many.",
     "items": [
@@ -329,7 +345,8 @@
    },
    {
     "id": "a1-sein-haben",
-    "name": "sein & haben",
+    "name": "sein / haben (Präsens)",
+    "subtitle": "to be / to have",
     "kind": "cloze",
     "intro": "sein (to be): ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind. haben (to have): ich habe, du hast, er/sie/es hat, wir haben, ihr habt, sie/Sie haben. Both are irregular — learn them by heart.",
     "items": [
@@ -349,7 +366,8 @@
    },
    {
     "id": "a1-articles",
-    "name": "Definite & indefinite articles",
+    "name": "Artikel: der/die/das, ein/eine",
+    "subtitle": "Definite & indefinite articles",
     "kind": "cloze",
     "intro": "Definite: der (m), die (f), das (n). Indefinite: ein (m/n), eine (f). In the nominative the article only shows gender; the accusative will change masculine forms.",
     "items": [
@@ -369,7 +387,8 @@
    },
    {
     "id": "a1-plural",
-    "name": "Plural nouns",
+    "name": "Plural der Nomen",
+    "subtitle": "Plural nouns",
     "kind": "cloze",
     "intro": "German has five plural patterns: -e, -er, -en/-n, -s, and no ending (sometimes with an umlaut). The plural article is always die.",
     "items": [
@@ -387,7 +406,8 @@
    },
    {
     "id": "a1-regular-verbs",
-    "name": "Regular verbs (present tense)",
+    "name": "Präsens regelmäßiger Verben",
+    "subtitle": "Regular verbs (present tense)",
     "kind": "cloze",
     "intro": "Drop -en from the infinitive to get the stem, then add: ich -e, du -st, er/sie/es -t, wir -en, ihr -t, sie/Sie -en.",
     "items": [
@@ -407,7 +427,8 @@
    },
    {
     "id": "a1-stem-changing",
-    "name": "Stem-changing verbs",
+    "name": "Präsens mit Vokalwechsel",
+    "subtitle": "Stem-changing verbs",
     "kind": "cloze",
     "intro": "Some common verbs change their vowel in the du and er/sie/es forms: e becomes i or ie, a becomes ä. ich, wir, ihr and sie/Sie stay regular.",
     "items": [
@@ -429,7 +450,8 @@
    },
    {
     "id": "a1-nominative-accusative",
-    "name": "Nominative & accusative",
+    "name": "Nominativ & Akkusativ",
+    "subtitle": "Nominative & accusative",
     "kind": "cloze",
     "intro": "The subject is nominative, the direct object is accusative. Only masculine articles change: der → den, ein → einen, kein → keinen. die, das, eine and ein stay the same.",
     "items": [
@@ -451,7 +473,8 @@
    },
    {
     "id": "a1-possessive",
-    "name": "Possessive articles",
+    "name": "Possessivartikel (mein, dein …)",
+    "subtitle": "Possessive articles",
     "kind": "cloze",
     "intro": "mein (my), dein (your), unser (our). The ending depends on the gender of the thing owned: mein Vater, meine Mutter, mein Kind.",
     "items": [
@@ -469,7 +492,8 @@
    },
    {
     "id": "a1-word-order",
-    "name": "Word order, questions, negation",
+    "name": "Wortstellung, Fragen, Negation",
+    "subtitle": "Word order, questions, negation",
     "kind": "cloze",
     "intro": "In a statement the conjugated verb is always in second position. In yes/no questions it comes first. Negate nouns with kein- (same endings as ein-); negate everything else with nicht.",
     "items": [
@@ -490,7 +514,8 @@
    },
    {
     "id": "a1-modal-verbs",
-    "name": "Modal verbs",
+    "name": "Modalverben (können, müssen …)",
+    "subtitle": "Modal verbs",
     "kind": "cloze",
     "intro": "können, müssen, wollen, sollen, dürfen, mögen. The modal is conjugated in position 2; the main verb goes to the end as an infinitive: Ich muss heute arbeiten.",
     "items": [
@@ -510,7 +535,8 @@
    },
    {
     "id": "a1-separable",
-    "name": "Separable verbs",
+    "name": "Trennbare Verben (auf-, ein-)",
+    "subtitle": "Separable verbs",
     "kind": "cloze",
     "intro": "Separable prefixes (auf-, ein-, an-, mit-, fern-) detach and go to the end of the clause: Ich stehe um sieben Uhr auf.",
     "items": [
@@ -526,7 +552,8 @@
    },
    {
     "id": "a1-imperative",
-    "name": "Imperative",
+    "name": "Imperativ (du, ihr, Sie)",
+    "subtitle": "Imperative",
     "kind": "cloze",
     "intro": "Three forms: du (stem, often no -e), ihr (normal present form without ihr), Sie (infinitive + Sie).",
     "items": [
@@ -542,7 +569,8 @@
    },
    {
     "id": "a1-perfect",
-    "name": "Perfect tense",
+    "name": "Perfekt: haben/sein + Partizip II",
+    "subtitle": "The perfect tense",
     "kind": "cloze",
     "intro": "The spoken past: haben or sein + past participle. Movement and change-of-state verbs (gehen, fahren, kommen, aufstehen) use sein; most others use haben.",
     "items": [
@@ -561,7 +589,8 @@
    },
    {
     "id": "a1-time-prepositions",
-    "name": "Time & place prepositions",
+    "name": "Präpositionen der Zeit und des Ortes",
+    "subtitle": "Time & place prepositions",
     "kind": "cloze",
     "intro": "am + day/part of day, im + month/season/year, um + clock time, in + city/country. Learn these as fixed pairs.",
     "items": [
@@ -579,7 +608,8 @@
    },
    {
     "id": "a1-numbers-time",
-    "name": "Numbers & time",
+    "name": "Zahlen, Datum und Uhrzeit",
+    "subtitle": "Numbers, dates and time",
     "kind": "cloze",
     "intro": "Clock time: um, halb (half to the next hour), Viertel nach / Viertel vor. Dates use ordinal numbers with am.",
     "items": [
@@ -603,6 +633,7 @@
    {
     "id": "a2-work-office",
     "name": "Work & office",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Abstract work nouns: note that -ung, -schaft and -keit are feminine, while -ling and -or tend to be masculine.",
     "items": [
@@ -623,6 +654,7 @@
    {
     "id": "a2-society-media",
     "name": "Society & media",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Words ending in -ion and -ität are always feminine: die Information, die Universität.",
     "items": [
@@ -643,6 +675,7 @@
    {
     "id": "a2-feelings",
     "name": "Feelings & abstract nouns",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Abstract nouns are worth drilling early because they appear constantly in A2 reading.",
     "items": [
@@ -663,6 +696,7 @@
    {
     "id": "a2-travel",
     "name": "Travel & city",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Travel vocabulary for A2: booking, trips and directions.",
     "items": [
@@ -683,6 +717,7 @@
    {
     "id": "a2-health",
     "name": "Health",
+    "subtitle": "",
     "kind": "noun",
     "intro": "Health vocabulary pairs well with modal verbs and the imperative.",
     "items": [
@@ -698,6 +733,7 @@
    {
     "id": "a2-reflexive",
     "name": "Reflexive verbs",
+    "subtitle": "",
     "kind": "verb",
     "intro": "The action falls back on the subject: Ich freue mich. The reflexive pronoun changes with the person (mich, dich, sich, uns, euch).",
     "items": [
@@ -714,6 +750,7 @@
    {
     "id": "a2-dative-verbs",
     "name": "Verbs with the dative",
+    "subtitle": "",
     "kind": "verb",
     "intro": "These verbs take a dative object, not an accusative one: Ich helfe dir. Mir gefällt das.",
     "items": [
@@ -728,6 +765,7 @@
    {
     "id": "a2-irregular-a2",
     "name": "More irregular verbs",
+    "subtitle": "",
     "kind": "verb",
     "intro": "More strong and inseparable verbs that are common at A2. Inseparable prefixes (be-, er-, ver-, ent-) never separate.",
     "items": [
@@ -743,7 +781,8 @@
    },
    {
     "id": "a2-dative-case",
-    "name": "Dative case",
+    "name": "Dativ: dem / der / dem",
+    "subtitle": "The dative case",
     "kind": "cloze",
     "intro": "The dative marks the indirect object and follows certain verbs (helfen, danken, gehören, folgen, antworten) and prepositions (mit, bei, aus, nach, von). Masculine der becomes dem, feminine die becomes der, neuter das becomes dem; plural die becomes den.",
     "items": [
@@ -760,7 +799,8 @@
    },
    {
     "id": "a2-dative-pronouns",
-    "name": "Dative pronouns",
+    "name": "Personalpronomen im Dativ (mir, dir …)",
+    "subtitle": "Dative pronouns",
     "kind": "cloze",
     "intro": "Dative personal pronouns are mir, dir, ihm, ihr, uns, euch, ihnen. They are used with dative verbs like helfen, danken, geben, gefallen, gehören, zeigen.",
     "items": [
@@ -776,7 +816,8 @@
    },
    {
     "id": "a2-two-way-prepositions",
-    "name": "Two-way prepositions",
+    "name": "Wechselpräpositionen (in, an, auf …)",
+    "subtitle": "Two-way prepositions",
     "kind": "cloze",
     "intro": "Wechselpräpositionen (in, an, auf, über, unter, vor, hinter, neben, zwischen) take the accusative for direction (Wohin?) and the dative for location (Wo?).",
     "items": [
@@ -795,7 +836,8 @@
    },
    {
     "id": "a2-adjective-endings-definite",
-    "name": "Adjective endings after der/die/das",
+    "name": "Adjektivendungen nach der/die/das",
+    "subtitle": "Adjective endings after der/die/das",
     "kind": "cloze",
     "intro": "After the definite article (der/die/das, den, dem), adjectives take the weak endings -e or -en. The ending is -e in the nominative singular and accusative neuter/feminine, and -en everywhere else.",
     "items": [
@@ -813,7 +855,8 @@
    },
    {
     "id": "a2-adjective-endings-indefinite",
-    "name": "Adjective endings after ein/eine/kein/mein",
+    "name": "Adjektivendungen nach ein/kein/mein",
+    "subtitle": "Adjective endings after ein/kein/mein",
     "kind": "cloze",
     "intro": "After ein/eine/kein/mein the adjective takes the strong ending where the article has no ending (masc. nom. -er, fem. nom. -e, neut. nom./acc. -es, masc. acc. -en) and -en in the dative and plural.",
     "items": [
@@ -831,7 +874,8 @@
    },
    {
     "id": "a2-preterite",
-    "name": "Preterite (Präteritum)",
+    "name": "Präteritum",
+    "subtitle": "The simple past",
     "kind": "cloze",
     "intro": "The Präteritum is the simple past, common in writing. Learn the forms of sein (war), haben (hatte), and the modal and strong verbs: ging, kam, sah, konnte, musste.",
     "items": [
@@ -849,7 +893,8 @@
    },
    {
     "id": "a2-subordinate-clauses",
-    "name": "Subordinate clauses (dass / weil / wenn)",
+    "name": "Nebensätze mit dass / weil / wenn",
+    "subtitle": "Subordinate clauses",
     "kind": "cloze",
     "intro": "After the conjunctions dass, weil, wenn (and ob), the conjugated verb moves to the end of the clause.",
     "items": [
@@ -867,7 +912,8 @@
    },
    {
     "id": "a2-comparative-superlative",
-    "name": "Comparative and superlative",
+    "name": "Komparativ und Superlativ",
+    "subtitle": "Comparative & superlative",
     "kind": "cloze",
     "intro": "The comparative adds -er (schnell → schneller), the superlative uses am -sten or the + -ste. Learn the irregulars gern/lieber/am liebsten and gut/besser/am besten.",
     "items": [
@@ -885,7 +931,8 @@
    },
    {
     "id": "a2-reflexive-verbs",
-    "name": "Reflexive verbs (accusative)",
+    "name": "Reflexive Verben (Akkusativ)",
+    "subtitle": "Reflexive verbs",
     "kind": "cloze",
     "intro": "Reflexive verbs use a pronoun that refers back to the subject: mich, dich, sich, uns, euch, sich. Common ones: sich freuen, sich interessieren, sich treffen, sich beeilen, sich waschen, sich erinnern.",
     "items": [
@@ -903,7 +950,8 @@
    },
    {
     "id": "a2-konjunktiv2-basics",
-    "name": "Konjunktiv II basics",
+    "name": "Konjunktiv II: hätte, wäre, würde",
+    "subtitle": "Konjunktiv II basics",
     "kind": "cloze",
     "intro": "Konjunktiv II expresses polite requests and unreal conditions. Common forms: hätte (haben), wäre (sein), würde + infinitive (for most other verbs).",
     "items": [
@@ -921,7 +969,8 @@
    },
    {
     "id": "a2-relative-clauses",
-    "name": "Relative clauses",
+    "name": "Relativsätze",
+    "subtitle": "Relative clauses",
     "kind": "cloze",
     "intro": "Relative clauses are introduced by a relative pronoun (der, die, das, den, dem …) that agrees with the noun it refers to. The conjugated verb goes to the end of the clause.",
     "items": [
@@ -939,7 +988,8 @@
    },
    {
     "id": "a2-genitive",
-    "name": "Genitive case",
+    "name": "Genitiv: des / der",
+    "subtitle": "The genitive case",
     "kind": "cloze",
     "intro": "The genitive shows possession. Masculine and neuter nouns take des + -s (des Mannes), feminine and plural take der (der Frau, der Kinder).",
     "items": [
@@ -958,6 +1008,7 @@
    {
     "id": "a2-core-verb",
     "name": "Core verbs (frequency)",
+    "subtitle": "",
     "kind": "verb",
     "intro": "High-frequency verbs with principal parts.",
     "items": [
@@ -1232,6 +1283,7 @@
    {
     "id": "a2-core-adj",
     "name": "Core adjs (frequency)",
+    "subtitle": "",
     "kind": "adj",
     "intro": "High-frequency adjectives with comparison forms.",
     "items": [
@@ -1630,6 +1682,7 @@
    {
     "id": "a2-core-noun",
     "name": "Core nouns (frequency)",
+    "subtitle": "",
     "kind": "noun",
     "intro": "High-frequency nouns with their article and plural.",
     "items": [
@@ -2188,7 +2241,8 @@
   "groups": [
    {
     "id": "b1-infinitive-zu",
-    "name": "Infinitive with zu",
+    "name": "Infinitiv mit zu",
+    "subtitle": "Infinitive with zu",
     "kind": "cloze",
     "intro": "Use zu + infinitive after verbs like vergessen, versuchen, vorhaben and after expressions like Es ist wichtig. With separable verbs, zu goes between the prefix and the stem: aufstehen -> aufzustehen.",
     "items": [
@@ -2205,7 +2259,8 @@
    },
    {
     "id": "b1-um-zu-damit",
-    "name": "um ... zu and damit",
+    "name": "um … zu / damit",
+    "subtitle": "Purpose clauses",
     "kind": "cloze",
     "intro": "Use um ... zu + infinitive when both clauses have the same subject. When the subjects are different, use damit + a full clause.",
     "items": [
@@ -2222,7 +2277,8 @@
    },
    {
     "id": "b1-temporal-clauses",
-    "name": "Temporal clauses",
+    "name": "Temporalsätze (als, wenn, nachdem …)",
+    "subtitle": "Time clauses",
     "kind": "cloze",
     "intro": "als is used for a single event in the past, wenn for repeated events or the future, nachdem for an earlier action, bevor for a later action, and während for something happening at the same time. The conjugated verb goes to the end of the clause.",
     "items": [
@@ -2238,7 +2294,8 @@
    },
    {
     "id": "b1-indirect-questions",
-    "name": "Indirect questions",
+    "name": "Indirekte Fragen (ob, W-Frage)",
+    "subtitle": "Indirect questions",
     "kind": "cloze",
     "intro": "In indirect questions the verb moves to the end. Use ob for yes/no questions and a question word (wann, wo, wie, was) when the question starts with one.",
     "items": [
@@ -2255,6 +2312,7 @@
    {
     "id": "b1-plusquamperfekt",
     "name": "Plusquamperfekt",
+    "subtitle": "The past perfect",
     "kind": "cloze",
     "intro": "The Plusquamperfekt describes the earlier of two past events. Use hatte or war (Präteritum of haben/sein) + the past participle. Use war with verbs that form the perfect with sein.",
     "items": [
@@ -2270,7 +2328,8 @@
    },
    {
     "id": "b1-passive",
-    "name": "Passive voice",
+    "name": "Passiv: werden + Partizip II",
+    "subtitle": "The passive voice",
     "kind": "cloze",
     "intro": "The passive is formed with werden + past participle: Das Haus wird gebaut. In the past use wurde/wurden + past participle: Das Haus wurde gebaut.",
     "items": [
@@ -2286,7 +2345,8 @@
    },
    {
     "id": "b1-future",
-    "name": "Future",
+    "name": "Futur I (werden + Infinitiv)",
+    "subtitle": "The future",
     "kind": "cloze",
     "intro": "Futur I is werden + infinitive: Ich werde dich anrufen. In everyday German the present tense is very often used for the future: Morgen gehe ich zum Arzt.",
     "items": [
@@ -2302,7 +2362,8 @@
    },
    {
     "id": "b1-konjunktiv2-full",
-    "name": "Konjunktiv II",
+    "name": "Konjunktiv II (Vergangenheit, irreale Bedingung)",
+    "subtitle": "Konjunktiv II",
     "kind": "cloze",
     "intro": "Konjunktiv II expresses unreal situations and polite requests. Learn hätte, wäre, würde. For the past, use hätte/wäre + past participle: Ich hätte dir geholfen.",
     "items": [
@@ -2319,7 +2380,8 @@
    },
    {
     "id": "b1-verbs-with-prepositions",
-    "name": "Verbs with prepositions",
+    "name": "Verben mit Präpositionen (warten auf …)",
+    "subtitle": "Verbs with prepositions",
     "kind": "cloze",
     "intro": "Many German verbs take a fixed preposition. Learn them together: warten auf (+ Akk.), sich freuen auf/über (+ Akk.), denken an (+ Akk.), sich interessieren für (+ Akk.), Angst haben vor (+ Dat.).",
     "items": [
@@ -2336,7 +2398,8 @@
    },
    {
     "id": "b1-connectors",
-    "name": "Connectors and word order",
+    "name": "Konnektoren und Wortstellung",
+    "subtitle": "Connectors and word order",
     "kind": "cloze",
     "intro": "deshalb (therefore), trotzdem (nevertheless) and außerdem (besides) are adverbs: they take position 1, so the verb comes next (inversion). denn (because) is a coordinating conjunction and keeps normal word order.",
     "items": [
@@ -2352,7 +2415,8 @@
    },
    {
     "id": "b1-genitive-prepositions",
-    "name": "Prepositions with the genitive",
+    "name": "Präpositionen mit Genitiv (wegen, trotz …)",
+    "subtitle": "Genitive prepositions",
     "kind": "cloze",
     "intro": "The prepositions wegen (because of), trotz (despite), während (during) and statt (instead of) take the genitive: wegen des Regens, trotz des Wetters, während der Pause, statt des Autos.",
     "items": [
@@ -2368,7 +2432,8 @@
    },
    {
     "id": "b1-n-declension",
-    "name": "Weak masculine nouns (n-declension)",
+    "name": "N-Deklination (der Junge → den Jungen)",
+    "subtitle": "Weak masculine nouns",
     "kind": "cloze",
     "intro": "Some masculine nouns (der Junge, der Student, der Kollege, der Nachbar, der Kunde, der Mensch) add -en or -n in every case except the nominative singular: der Junge, den Jungen, dem Jungen, des Jungen.",
     "items": [
@@ -2386,6 +2451,7 @@
    {
     "id": "b1-core-noun",
     "name": "Core nouns (frequency)",
+    "subtitle": "",
     "kind": "noun",
     "intro": "High-frequency nouns with their article and plural.",
     "items": [
@@ -2978,6 +3044,7 @@
    {
     "id": "b1-core-adj",
     "name": "Core adjs (frequency)",
+    "subtitle": "",
     "kind": "adj",
     "intro": "High-frequency adjectives with comparison forms.",
     "items": [
@@ -3335,6 +3402,7 @@
    {
     "id": "b1-core-verb",
     "name": "Core verbs (frequency)",
+    "subtitle": "",
     "kind": "verb",
     "intro": "High-frequency verbs with principal parts.",
     "items": [
@@ -3616,7 +3684,8 @@
   "groups": [
    {
     "id": "b2-konjunktiv2-vergangenheit",
-    "name": "Konjunktiv II: past",
+    "name": "Konjunktiv II der Vergangenheit (hätte gemacht)",
+    "subtitle": "Konjunktiv II: past",
     "kind": "cloze",
     "intro": "Past unreal: hätte/wäre (Konjunktiv II of haben/sein) + past participle. Use hätte for most verbs and wäre for verbs of motion/change plus sein, bleiben and werden.",
     "items": [
@@ -3634,7 +3703,8 @@
    },
    {
     "id": "b2-irreale-bedingungen",
-    "name": "Unreal conditions",
+    "name": "Irreale Bedingung: wenn / Verb-erst",
+    "subtitle": "Unreal conditions",
     "kind": "cloze",
     "intro": "Unreal conditions use Konjunktiv II. A conditional can drop 'wenn': the verb then moves to the front (Hätte ich Zeit, …), and the main clause often starts with 'dann'.",
     "items": [
@@ -3650,7 +3720,8 @@
    },
    {
     "id": "b2-konzessivsaetze",
-    "name": "Concessive clauses",
+    "name": "Konzessivsätze (obwohl, trotzdem …)",
+    "subtitle": "Concessive clauses",
     "kind": "cloze",
     "intro": "'obwohl' and 'auch wenn' introduce a subordinate clause (verb goes last). 'trotzdem' and 'dennoch' are adverbs that begin the main clause, so the verb stays in second position.",
     "items": [
@@ -3666,7 +3737,8 @@
    },
    {
     "id": "b2-als-ob",
-    "name": "Irreal comparison: als ob / als",
+    "name": "Irrealer Vergleich: als ob / als",
+    "subtitle": "Irreal comparison: als ob",
     "kind": "cloze",
     "intro": "For irreal comparisons use 'als ob' or 'als wenn' + Konjunktiv II (verb last after ob). With bare 'als' the verb comes second: Er tut, als wäre er krank.",
     "items": [
@@ -3682,7 +3754,8 @@
    },
    {
     "id": "b2-zweiteilige-konnektoren",
-    "name": "Two-part connectors",
+    "name": "Zweiteilige Konnektoren (entweder … oder, je … desto)",
+    "subtitle": "Two-part connectors",
     "kind": "cloze",
     "intro": "Two-part connectors pair up: entweder … oder, sowohl … als auch, nicht nur … sondern auch, zwar … aber, je … desto (je + verb last, desto + comparative + verb second).",
     "items": [
@@ -3699,7 +3772,8 @@
    },
    {
     "id": "b2-passiversatzformen",
-    "name": "Passive alternatives",
+    "name": "Passiversatzformen (sein + zu, sich lassen)",
+    "subtitle": "Passive alternatives",
     "kind": "cloze",
     "intro": "The werden-passive can be replaced by: sein + zu + infinitive (= can/must be done), sich lassen + infinitive, or an active sentence with 'man'.",
     "items": [
@@ -3715,7 +3789,8 @@
    },
    {
     "id": "b2-partizip-adjektive",
-    "name": "Participles as adjectives",
+    "name": "Partizipien als Adjektive",
+    "subtitle": "Participles as adjectives",
     "kind": "cloze",
     "intro": "Partizip I (infinitive + d) is active/ongoing (das schlafende Kind); Partizip II is passive/completed (die gebaute Brücke). They take normal adjective endings.",
     "items": [
@@ -3731,7 +3806,8 @@
    },
    {
     "id": "b2-nominalisierung",
-    "name": "Nominalisation",
+    "name": "Nominalisierung (Verben → Nomen)",
+    "subtitle": "Nominalisation",
     "kind": "cloze",
     "intro": "Verbs and adjectives can become nouns. Infinitives become neuter nouns (das Lesen, das Schwimmen); adjectives take suffixes like -heit/-keit/-ung (die Freundlichkeit, die Lösung).",
     "items": [
@@ -3747,7 +3823,8 @@
    },
    {
     "id": "b2-subjektive-modalverben",
-    "name": "Subjective modal verbs",
+    "name": "Subjektive Modalverben (Vermutung)",
+    "subtitle": "Subjective modal verbs",
     "kind": "cloze",
     "intro": "Modal verbs express assumptions: müssen = very likely, dürfte = probably, könnte = possibly, soll = reportedly (what others say).",
     "items": [
@@ -3763,7 +3840,8 @@
    },
    {
     "id": "b2-futur2",
-    "name": "Futur II",
+    "name": "Futur II (werden + Partizip II)",
+    "subtitle": "The future perfect",
     "kind": "cloze",
     "intro": "Futur II = werden + past participle + haben/sein. It describes an action completed in the future, or an assumption about the past (Er wird angekommen sein).",
     "items": [
@@ -3779,7 +3857,8 @@
    },
    {
     "id": "b2-relativsaetze-was-wo",
-    "name": "Relative clauses: was, wo, wer",
+    "name": "Relativsätze mit was, wo, wer",
+    "subtitle": "Relative clauses: was, wo, wer",
     "kind": "cloze",
     "intro": "'was' is used after alles, nichts, etwas or to refer to a whole clause; 'wo' replaces a place preposition; 'wer' introduces a free relative clause as the subject (Wer …, der …).",
     "items": [
@@ -3795,7 +3874,8 @@
    },
    {
     "id": "b2-adjektive-praepositionen",
-    "name": "Adjectives with fixed prepositions",
+    "name": "Adjektive mit Präpositionen (interessiert an …)",
+    "subtitle": "Adjectives with prepositions",
     "kind": "cloze",
     "intro": "Many adjectives govern a fixed preposition: interessiert an, stolz auf, abhängig von, Angst vor, bekannt für, zufrieden mit, verantwortlich für, gespannt auf.",
     "items": [
@@ -3812,6 +3892,7 @@
    {
     "id": "b2-core-adj",
     "name": "Core adjs (frequency)",
+    "subtitle": "",
     "kind": "adj",
     "intro": "High-frequency adjectives with comparison forms.",
     "items": [
@@ -4167,6 +4248,7 @@
    {
     "id": "b2-core-verb",
     "name": "Core verbs (frequency)",
+    "subtitle": "",
     "kind": "verb",
     "intro": "High-frequency verbs with principal parts.",
     "items": [
@@ -4425,6 +4507,7 @@
    {
     "id": "b2-core-noun",
     "name": "Core nouns (frequency)",
+    "subtitle": "",
     "kind": "noun",
     "intro": "High-frequency nouns with their article and plural.",
     "items": [
@@ -5042,7 +5125,8 @@
   "groups": [
    {
     "id": "c1-erweiterte-partizipialattribute",
-    "name": "Erweiterte Partizipialattribute",
+    "name": "Erweiterte Partizipialattribute (die von ihm geschriebene E-Mail)",
+    "subtitle": "Extended participle attributes",
     "kind": "cloze",
     "intro": "An extended participle attribute stands between the article and the noun: article + extra information + participle + adjective ending + noun (die von ihm geschriebene E-Mail). The participle takes the normal adjective ending.",
     "items": [
@@ -5059,6 +5143,7 @@
    {
     "id": "c1-partizipialkonstruktionen",
     "name": "Partizipialkonstruktionen",
+    "subtitle": "Participial clauses",
     "kind": "cloze",
     "intro": "Participial clauses replace subordinate clauses and contain no finite verb. The participle leads the clause and its subject must match the subject of the main clause (Von der Reise erschöpft, ging sie ins Bett).",
     "items": [
@@ -5074,7 +5159,8 @@
    },
    {
     "id": "c1-funktionsverbgefuege",
-    "name": "Funktionsverbgefüge",
+    "name": "Funktionsverbgefüge (zur Verfügung stehen)",
+    "subtitle": "Noun + verb phrases",
     "kind": "cloze",
     "intro": "Fixed noun+verb units where the noun carries the meaning and the verb is 'light' (zur Verfügung stehen = to be available). Learn each noun together with its fixed preposition and verb.",
     "items": [
@@ -5090,7 +5176,8 @@
    },
    {
     "id": "c1-konjunktiv1",
-    "name": "Konjunktiv I",
+    "name": "Konjunktiv I (indirekte Rede)",
+    "subtitle": "Konjunktiv I",
     "kind": "cloze",
     "intro": "Konjunktiv I marks indirect speech, letting a speaker report without endorsing. Key forms: sein → sei, haben → habe, werden → werde; most other verbs add -e (er komme, er müsse).",
     "items": [
@@ -5106,7 +5193,8 @@
    },
    {
     "id": "c1-nominalstil",
-    "name": "Nominalstil",
+    "name": "Nominalstil vs. Verbalstil",
+    "subtitle": "Nominal vs. verbal style",
     "kind": "cloze",
     "intro": "Nominal style replaces a verb or clause with a noun, typically formed with -ung or -heit/-keit, or with an infinitive used as a noun. It is characteristic of formal and academic German.",
     "items": [
@@ -5122,7 +5210,8 @@
    },
    {
     "id": "c1-konnektoren-c1",
-    "name": "Konnektoren (C1)",
+    "name": "Konnektoren (C1: sofern, zumal, indes)",
+    "subtitle": "Advanced connectors",
     "kind": "cloze",
     "intro": "Advanced connectors: sofern (provided that), zumal (especially since), insofern (insofar / as far as), indes (while / however), and freilich / allerdings (admittedly / however).",
     "items": [
@@ -5138,7 +5227,8 @@
    },
    {
     "id": "c1-wortbildung",
-    "name": "Wortbildung",
+    "name": "Wortbildung (Präfixe, Suffixe)",
+    "subtitle": "Word formation",
     "kind": "cloze",
     "intro": "Prefixes and suffixes change meaning: un- = not, miss- = wrongly; -heit / -keit / -ung turn adjectives or verbs into nouns, and -bar means '-able'.",
     "items": [
@@ -5154,7 +5244,8 @@
    },
    {
     "id": "c1-vorfeldbesetzung",
-    "name": "Vorfeldbesetzung",
+    "name": "Vorfeldbesetzung (Betonung)",
+    "subtitle": "Fronting for emphasis",
     "kind": "cloze",
     "intro": "Any element can take the Vorfeld (position 1) for emphasis or theme-rheme structure, but the finite verb then stays in position 2 (Gestern habe ich ... gearbeitet).",
     "items": [
@@ -5171,6 +5262,7 @@
    {
     "id": "c1-ausklammerung",
     "name": "Ausklammerung",
+    "subtitle": "Extraposition",
     "kind": "cloze",
     "intro": "Heavy or informationally important elements can be moved out of the sentence bracket and placed after the finite verb (Ich habe ihn gesehen, den Mann).",
     "items": [
@@ -5186,7 +5278,8 @@
    },
    {
     "id": "c1-relativ-was-auch-immer",
-    "name": "wer/was auch immer",
+    "name": "wer / was auch immer, egal wie",
+    "subtitle": "Whatever / whoever",
     "kind": "cloze",
     "intro": "Indefinite relative clauses: wer = 'whoever', was = 'whatever'; was auch immer / egal wie = 'whatever / no matter how'.",
     "items": [
@@ -5202,7 +5295,8 @@
    },
    {
     "id": "c1-praepositionale-attribute",
-    "name": "Präpositionale Attribute",
+    "name": "Präpositionale Attribute (das Interesse an …)",
+    "subtitle": "Prepositional attributes",
     "kind": "cloze",
     "intro": "Many nouns take a fixed preposition: Interesse an, Angst vor, Wunsch nach, Hoffnung auf, Freude über, Zweifel an, Kritik an, Mangel an.",
     "items": [
@@ -5219,6 +5313,7 @@
    {
     "id": "c1-core-noun",
     "name": "Core nouns (frequency)",
+    "subtitle": "",
     "kind": "noun",
     "intro": "High-frequency nouns with their article and plural.",
     "items": [
@@ -5836,6 +5931,7 @@
    {
     "id": "c1-core-verb",
     "name": "Core verbs (frequency)",
+    "subtitle": "",
     "kind": "verb",
     "intro": "High-frequency verbs with principal parts.",
     "items": [
@@ -6085,6 +6181,7 @@
    {
     "id": "c1-core-adj",
     "name": "Core adjs (frequency)",
+    "subtitle": "",
     "kind": "adj",
     "intro": "High-frequency adjectives with comparison forms.",
     "items": [
@@ -6449,7 +6546,8 @@
   "groups": [
    {
     "id": "c2-register-stilebenen",
-    "name": "Register & Stilebenen",
+    "name": "Register & Stilebenen (gehoben / umgangssprachlich)",
+    "subtitle": "Register & style",
     "kind": "cloze",
     "intro": "German distinguishes register: colloquial (kriegen, kaputt), neutral, formal/elevated (erhalten, defekt) and literary (Antlitz, verscheiden). Choose the word that matches the register.",
     "items": [
@@ -6465,7 +6563,8 @@
    },
    {
     "id": "c2-distanz-konjunktiv1",
-    "name": "Distanz-Konjunktiv I",
+    "name": "Distanz-Konjunktiv I (Presse)",
+    "subtitle": "Reportive Konjunktiv I",
     "kind": "cloze",
     "intro": "In press and reporting, Konjunktiv I signals that a claim is being quoted rather than endorsed (Er sagte, er sei ...; die Zahl sei gestiegen).",
     "items": [
@@ -6481,7 +6580,8 @@
    },
    {
     "id": "c2-komplexe-nominalsyntax",
-    "name": "Komplexe Nominalsyntax",
+    "name": "Komplexe Nominalsyntax (Genitivketten)",
+    "subtitle": "Complex noun phrases",
     "kind": "cloze",
     "intro": "Long noun phrases stack genitives and nested attributes (die Entscheidung des Gerichts der zweiten Instanz). The article must agree with the noun it directly precedes.",
     "items": [
@@ -6497,7 +6597,8 @@
    },
    {
     "id": "c2-idiomatik",
-    "name": "Idiomatik",
+    "name": "Idiomatik (Redewendungen)",
+    "subtitle": "Idioms",
     "kind": "cloze",
     "intro": "Fixed idiomatic expressions (Redewendungen) whose meaning is not literal: jemandem die Daumen drücken, den Nagel auf den Kopf treffen, ins Fettnäpfchen treten.",
     "items": [
@@ -6513,7 +6614,8 @@
    },
    {
     "id": "c2-gehoberene-kollokationen",
-    "name": "Gehobene Kollokationen",
+    "name": "Gehobene Kollokationen (Kritik üben)",
+    "subtitle": "Elevated collocations",
     "kind": "cloze",
     "intro": "Elevated verb+noun collocations: eine Entscheidung treffen, Kritik üben, Wert legen auf, eine Rede halten, Konsequenzen ziehen, eine Diagnose stellen.",
     "items": [
@@ -6529,7 +6631,8 @@
    },
    {
     "id": "c2-seltene-literarische-formen",
-    "name": "Seltene literarische Formen",
+    "name": "Seltene und literarische Formen",
+    "subtitle": "Rare & literary forms",
     "kind": "cloze",
     "intro": "Literary and archaic forms: the dative -e (im Jahre, am Tage, auf Erden, zu Hause) and the genitive -es (des Hofes, des Ruhmes).",
     "items": [
@@ -6545,7 +6648,8 @@
    },
    {
     "id": "c2-wortstellung-komplex",
-    "name": "Wortstellung (komplex)",
+    "name": "Komplexe Wortstellung (Partizipialphrasen)",
+    "subtitle": "Complex word order",
     "kind": "cloze",
     "intro": "Combines extended participle attributes in the Vorfeld with Ausklammerung: Der von den Experten erstellte Bericht lag endlich vor.",
     "items": [
@@ -6562,6 +6666,7 @@
    {
     "id": "c2-core-noun",
     "name": "Core nouns (frequency)",
+    "subtitle": "",
     "kind": "noun",
     "intro": "High-frequency nouns with their article and plural.",
     "items": [
@@ -7196,6 +7301,7 @@
    {
     "id": "c2-core-verb",
     "name": "Core verbs (frequency)",
+    "subtitle": "",
     "kind": "verb",
     "intro": "High-frequency verbs with principal parts.",
     "items": [
@@ -7441,6 +7547,7 @@
    {
     "id": "c2-core-adj",
     "name": "Core adjs (frequency)",
+    "subtitle": "",
     "kind": "adj",
     "intro": "High-frequency adjectives with comparison forms.",
     "items": [
