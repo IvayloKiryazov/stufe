@@ -4,7 +4,9 @@ import {
   BarChart3,
   BookOpen,
   GraduationCap,
+  Headphones,
   Home,
+  Languages,
   Library,
   Menu,
   Monitor,
@@ -13,6 +15,7 @@ import {
   Sun,
   X,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { cn } from "./lib/cn";
 import { useTheme, type Theme } from "./lib/theme";
@@ -20,16 +23,44 @@ import Today from "./routes/Today";
 import Study from "./routes/Study";
 import Browse from "./routes/Browse";
 import Grammar from "./routes/Grammar";
+import Reading from "./routes/Reading";
+import Dictation from "./routes/Dictation";
+import Translate from "./routes/Translate";
 import Settings from "./routes/Settings";
 import Placeholder from "./routes/Placeholder";
 
-const NAV = [
-  { to: "/", label: "Today", icon: Home, end: true },
-  { to: "/study", label: "Study", icon: GraduationCap },
-  { to: "/browse", label: "Browse", icon: Library },
-  { to: "/grammar", label: "Grammar", icon: BookOpen },
-  { to: "/stats", label: "Stats", icon: BarChart3 },
-  { to: "/settings", label: "Settings", icon: SettingsIcon },
+interface NavItem {
+  to: string;
+  label: string;
+  icon: LucideIcon;
+  end?: boolean;
+}
+
+const NAV: { label: string; items: NavItem[] }[] = [
+  {
+    label: "Learn",
+    items: [
+      { to: "/", label: "Today", icon: Home, end: true },
+      { to: "/study", label: "Study", icon: GraduationCap },
+      { to: "/browse", label: "Browse", icon: Library },
+      { to: "/grammar", label: "Grammar", icon: BookOpen },
+    ],
+  },
+  {
+    label: "Practice",
+    items: [
+      { to: "/reading", label: "Reading", icon: BookOpen },
+      { to: "/dictation", label: "Dictation", icon: Headphones },
+      { to: "/translate", label: "Translate", icon: Languages },
+    ],
+  },
+  {
+    label: "You",
+    items: [
+      { to: "/stats", label: "Stats", icon: BarChart3 },
+      { to: "/settings", label: "Settings", icon: SettingsIcon },
+    ],
+  },
 ];
 
 const NEXT_THEME: Record<Theme, Theme> = { auto: "light", light: "dark", dark: "auto" };
@@ -65,23 +96,30 @@ export default function App() {
             <X className="h-5 w-5" />
           </Button>
         </div>
-        <nav className="mt-6 flex flex-col gap-1">
-          {NAV.map(({ to, label, icon: Icon, end }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={end}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                cn(
-                  "flex items-center gap-3 rounded-md px-3 py-2 text-sm",
-                  isActive ? "bg-soft font-medium" : "hover:bg-soft",
-                )
-              }
-            >
-              <Icon className="h-4 w-4" />
-              {label}
-            </NavLink>
+        <nav className="mt-6 flex flex-col gap-4">
+          {NAV.map((section) => (
+            <div key={section.label}>
+              <div className="px-3 pb-1 text-xs uppercase tracking-wide text-muted">{section.label}</div>
+              <div className="flex flex-col gap-1">
+                {section.items.map(({ to, label, icon: Icon, end }) => (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    end={end}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      cn(
+                        "flex items-center gap-3 rounded-md px-3 py-2 text-sm",
+                        isActive ? "bg-soft font-medium" : "hover:bg-soft",
+                      )
+                    }
+                  >
+                    <Icon className="h-4 w-4" />
+                    {label}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
           ))}
         </nav>
       </aside>
@@ -103,6 +141,10 @@ export default function App() {
             <Route path="/browse" element={<Browse />} />
             <Route path="/grammar" element={<Grammar />} />
             <Route path="/grammar/:level/:group" element={<Grammar />} />
+            <Route path="/reading" element={<Reading />} />
+            <Route path="/reading/:id" element={<Reading />} />
+            <Route path="/dictation" element={<Dictation />} />
+            <Route path="/translate" element={<Translate />} />
             <Route path="/stats" element={<Placeholder title="Stats" />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
