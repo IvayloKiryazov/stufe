@@ -13,25 +13,20 @@ the built `docs/`.
   · #39 Settings · #41 tests/CI/Pages
 - #40 lazy-load data (open, optional perf)
 
-## Phase 2 — Content QA (open)
+## Phase 2 — Content QA (DONE)
 
-- #42 Bunpro-style naming + lesson grouping + a validation test
-- #43 automated checks (articles, plurals, glosses, duplicates)
-- #44–#48 fact-check batches (curated + auto deck A2/B1/B2-C1-C2), run as
-  sub-agent passes citing sources
+- #42 Bunpro-style naming + validation test · #43 automated checks
+  (`tools/check_content.py`)
+- #44/#45 curated grammar, reading, nouns, verbs fully reviewed (1 fix)
+- #46–#48 auto deck: meta-gloss filtering + sampled review (300 items) +
+  `content/overrides.json`. Residual: sense selection for polysemous words is
+  still heuristic — full per-item verification is a standing task.
 
-Known issues to fix here: the auto deck takes the **first** Wiktionary sense
-(e.g. `alle → "finished; gone"`), and C1/C2 group names are German-only while
-A1–B2 are English (normalise to the Bunpro convention).
+## Phase 3 — SRS depth & curriculum (DONE)
 
-## Phase 3 — SRS depth & curriculum (open)
-
-- #49 leech auto-suspend, vacation/streak-freeze, review forecast, wrap-up,
-  burned-items study
-- #50 **separate SRS tracks for gender / plural / case** (the WaniKani
-  meaning-vs-reading analogue)
-- #51 course-first path + CEFR-ish sequencing + grammar depth (structure,
-  caution, related points)
+- #49 leech auto-suspend, vacation mode, 14-day forecast, wrap-up, burned study
+- #50 separate SRS tracks for **gender** and **plural** (case drills remain)
+- #51 course-first path (linear A1–B1) in Browse; frequency deck behind a tab
 
 ## Phase 4 — Modalities (open)
 
