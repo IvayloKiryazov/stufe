@@ -1,0 +1,794 @@
+{
+ "sehen": {
+  "present": [
+   "sehe",
+   "siehst",
+   "sieht",
+   "sehen",
+   "seht",
+   "sehen"
+  ],
+  "preterite": "sah",
+  "participle": "gesehen"
+ },
+ "geben": {
+  "present": [
+   "gebe",
+   "gibst",
+   "gibt",
+   "geben",
+   "gebt",
+   "geben"
+  ],
+  "preterite": "gab",
+  "participle": "gegeben"
+ },
+ "sein": {
+  "present": [
+   "bin",
+   "bist",
+   "ist",
+   "sind",
+   "seid",
+   "sind"
+  ],
+  "preterite": "war",
+  "participle": "gewesen"
+ },
+ "arbeiten": {
+  "present": [
+   "arbeite",
+   "arbeitest",
+   "arbeitet",
+   "arbeiten",
+   "arbeitet",
+   "arbeiten"
+  ],
+  "preterite": "arbeitete",
+  "participle": "gearbeitet"
+ },
+ "nehmen": {
+  "present": [
+   "nehme",
+   "nimmst",
+   "nimmt",
+   "nehmen",
+   "nehmt",
+   "nehmen"
+  ],
+  "preterite": "nahm",
+  "participle": "genommen"
+ },
+ "gehen": {
+  "present": [
+   "gehe",
+   "gehst",
+   "geht",
+   "gehen",
+   "geht",
+   "gehen"
+  ],
+  "preterite": "ging",
+  "participle": "gegangen"
+ },
+ "fahren": {
+  "present": [
+   "fahre",
+   "fährst",
+   "fährt",
+   "fahren",
+   "fahrt",
+   "fahren"
+  ],
+  "preterite": "fuhr",
+  "participle": "gefahren"
+ },
+ "spielen": {
+  "present": [
+   "spiele",
+   "spielst",
+   "spielt",
+   "spielen",
+   "spielt",
+   "spielen"
+  ],
+  "preterite": "spielte",
+  "participle": "gespielt"
+ },
+ "helfen": {
+  "present": [
+   "helfe",
+   "hilfst",
+   "hilft",
+   "helfen",
+   "helft",
+   "helfen"
+  ],
+  "preterite": "half",
+  "participle": "geholfen"
+ },
+ "gehören": {
+  "present": [
+   "gehöre",
+   "gehörst",
+   "gehört",
+   "gehören",
+   "gehört",
+   "gehören"
+  ],
+  "preterite": "gehörte",
+  "participle": "gehört"
+ },
+ "aufstehen": {
+  "present": [
+   "stehe auf",
+   "stehst auf",
+   "steht auf",
+   "stehen auf",
+   "steht auf",
+   "stehen auf"
+  ],
+  "preterite": "stand auf",
+  "participle": "aufgestanden"
+ },
+ "verstehen": {
+  "present": [
+   "verstehe",
+   "verstehst",
+   "versteht",
+   "verstehen",
+   "versteht",
+   "verstehen"
+  ],
+  "preterite": "verstand",
+  "participle": "verstanden"
+ },
+ "essen": {
+  "present": [
+   "esse",
+   "isst",
+   "isst",
+   "essen",
+   "esst",
+   "essen"
+  ],
+  "preterite": "aß",
+  "participle": "gegessen"
+ },
+ "trinken": {
+  "present": [
+   "trinke",
+   "trinkst",
+   "trinkt",
+   "trinken",
+   "trinkt",
+   "trinken"
+  ],
+  "preterite": "trank",
+  "participle": "getrunken"
+ },
+ "sprechen": {
+  "present": [
+   "spreche",
+   "sprichst",
+   "spricht",
+   "sprechen",
+   "sprecht",
+   "sprechen"
+  ],
+  "preterite": "sprach",
+  "participle": "gesprochen"
+ },
+ "kommen": {
+  "present": [
+   "komme",
+   "kommst",
+   "kommt",
+   "kommen",
+   "kommt",
+   "kommen"
+  ],
+  "preterite": "kam",
+  "participle": "gekommen"
+ },
+ "heißen": {
+  "present": [
+   "heiße",
+   "heißt",
+   "heißt",
+   "heißen",
+   "heißt",
+   "heißen"
+  ],
+  "preterite": "hieß",
+  "participle": "geheißen"
+ },
+ "haben": {
+  "present": [
+   "habe",
+   "hast",
+   "hat",
+   "haben",
+   "habt",
+   "haben"
+  ],
+  "preterite": "hatte",
+  "participle": "gehabt"
+ },
+ "schreiben": {
+  "present": [
+   "schreibe",
+   "schreibst",
+   "schreibt",
+   "schreiben",
+   "schreibt",
+   "schreiben"
+  ],
+  "preterite": "schrieb",
+  "participle": "geschrieben"
+ },
+ "werden": {
+  "present": [
+   "werde",
+   "wirst",
+   "wird",
+   "werden",
+   "werdet",
+   "werden"
+  ],
+  "preterite": "wurde",
+  "participle": "geworden"
+ },
+ "bekommen": {
+  "present": [
+   "bekomme",
+   "bekommst",
+   "bekommt",
+   "bekommen",
+   "bekommt",
+   "bekommen"
+  ],
+  "preterite": "bekam",
+  "participle": "bekommen"
+ },
+ "finden": {
+  "present": [
+   "finde",
+   "findest",
+   "findet",
+   "finden",
+   "findet",
+   "finden"
+  ],
+  "preterite": "fand",
+  "participle": "gefunden"
+ },
+ "machen": {
+  "present": [
+   "mache",
+   "machst",
+   "macht",
+   "machen",
+   "macht",
+   "machen"
+  ],
+  "preterite": "machte",
+  "participle": "gemacht"
+ },
+ "anfangen": {
+  "present": [
+   "fange an",
+   "fängst an",
+   "fängt an",
+   "fangen an",
+   "fangt an",
+   "fangen an"
+  ],
+  "preterite": "fing an",
+  "participle": "angefangen"
+ },
+ "fragen": {
+  "present": [
+   "frage",
+   "fragst",
+   "fragt",
+   "fragen",
+   "fragt",
+   "fragen"
+  ],
+  "preterite": "fragte",
+  "participle": "gefragt"
+ },
+ "antworten": {
+  "present": [
+   "antworte",
+   "antwortest",
+   "antwortet",
+   "antworten",
+   "antwortet",
+   "antworten"
+  ],
+  "preterite": "antwortete",
+  "participle": "geantwortet"
+ },
+ "lesen": {
+  "present": [
+   "lese",
+   "liest",
+   "liest",
+   "lesen",
+   "lest",
+   "lesen"
+  ],
+  "preterite": "las",
+  "participle": "gelesen"
+ },
+ "gratulieren": {
+  "present": [
+   "gratuliere",
+   "gratulierst",
+   "gratuliert",
+   "gratulieren",
+   "gratuliert",
+   "gratulieren"
+  ],
+  "preterite": "gratulierte",
+  "participle": "gratuliert"
+ },
+ "fernsehen": {
+  "present": [
+   "sehe fern",
+   "siehst fern",
+   "sieht fern",
+   "sehen fern",
+   "seht fern",
+   "sehen fern"
+  ],
+  "preterite": "sah fern",
+  "participle": "ferngesehen"
+ },
+ "gefallen": {
+  "present": [
+   "gefalle",
+   "gefällst",
+   "gefällt",
+   "gefallen",
+   "gefallt",
+   "gefallen"
+  ],
+  "preterite": "gefiel",
+  "participle": "gefallen"
+ },
+ "wohnen": {
+  "present": [
+   "wohne",
+   "wohnst",
+   "wohnt",
+   "wohnen",
+   "wohnt",
+   "wohnen"
+  ],
+  "preterite": "wohnte",
+  "participle": "gewohnt"
+ },
+ "wissen": {
+  "present": [
+   "weiß",
+   "weißt",
+   "weiß",
+   "wissen",
+   "wisst",
+   "wissen"
+  ],
+  "preterite": "wusste",
+  "participle": "gewusst"
+ },
+ "folgen": {
+  "present": [
+   "folge",
+   "folgst",
+   "folgt",
+   "folgen",
+   "folgt",
+   "folgen"
+  ],
+  "preterite": "folgte",
+  "participle": "gefolgt"
+ },
+ "bleiben": {
+  "present": [
+   "bleibe",
+   "bleibst",
+   "bleibt",
+   "bleiben",
+   "bleibt",
+   "bleiben"
+  ],
+  "preterite": "blieb",
+  "participle": "geblieben"
+ },
+ "können": {
+  "present": [
+   "kann",
+   "kannst",
+   "kann",
+   "können",
+   "könnt",
+   "können"
+  ],
+  "preterite": "konnte",
+  "participle": "gekonnt"
+ },
+ "sagen": {
+  "present": [
+   "sage",
+   "sagst",
+   "sagt",
+   "sagen",
+   "sagt",
+   "sagen"
+  ],
+  "preterite": "sagte",
+  "participle": "gesagt"
+ },
+ "wollen": {
+  "present": [
+   "will",
+   "willst",
+   "will",
+   "wollen",
+   "wollt",
+   "wollen"
+  ],
+  "preterite": "wollte",
+  "participle": "gewollt"
+ },
+ "hören": {
+  "present": [
+   "höre",
+   "hörst",
+   "hört",
+   "hören",
+   "hört",
+   "hören"
+  ],
+  "preterite": "hörte",
+  "participle": "gehört"
+ },
+ "müssen": {
+  "present": [
+   "muss",
+   "musst",
+   "muss",
+   "müssen",
+   "müsst",
+   "müssen"
+  ],
+  "preterite": "musste",
+  "participle": "gemusst"
+ },
+ "setzen": {
+  "present": [
+   "setze",
+   "setzt",
+   "setzt",
+   "setzen",
+   "setzt",
+   "setzen"
+  ],
+  "preterite": "setzte",
+  "participle": "gesetzt"
+ },
+ "vergessen": {
+  "present": [
+   "vergesse",
+   "vergisst",
+   "vergisst",
+   "vergessen",
+   "vergesst",
+   "vergessen"
+  ],
+  "preterite": "vergaß",
+  "participle": "vergessen"
+ },
+ "kaufen": {
+  "present": [
+   "kaufe",
+   "kaufst",
+   "kauft",
+   "kaufen",
+   "kauft",
+   "kaufen"
+  ],
+  "preterite": "kaufte",
+  "participle": "gekauft"
+ },
+ "dürfen": {
+  "present": [
+   "darf",
+   "darfst",
+   "darf",
+   "dürfen",
+   "dürft",
+   "dürfen"
+  ],
+  "preterite": "durfte",
+  "participle": "gedurft"
+ },
+ "sollen": {
+  "present": [
+   "soll",
+   "sollst",
+   "soll",
+   "sollen",
+   "sollt",
+   "sollen"
+  ],
+  "preterite": "sollte",
+  "participle": "gesollt"
+ },
+ "mögen": {
+  "present": [
+   "mag",
+   "magst",
+   "mag",
+   "mögen",
+   "mögt",
+   "mögen"
+  ],
+  "preterite": "mochte",
+  "participle": "gemocht"
+ },
+ "erklären": {
+  "present": [
+   "erkläre",
+   "erklärst",
+   "erklärt",
+   "erklären",
+   "erklärt",
+   "erklären"
+  ],
+  "preterite": "erklärte",
+  "participle": "erklärt"
+ },
+ "passieren": {
+  "present": [
+   "passiere",
+   "passierst",
+   "passiert",
+   "passieren",
+   "passiert",
+   "passieren"
+  ],
+  "preterite": "passierte",
+  "participle": "passiert"
+ },
+ "danken": {
+  "present": [
+   "danke",
+   "dankst",
+   "dankt",
+   "danken",
+   "dankt",
+   "danken"
+  ],
+  "preterite": "dankte",
+  "participle": "gedankt"
+ },
+ "schlafen": {
+  "present": [
+   "schlafe",
+   "schläfst",
+   "schläft",
+   "schlafen",
+   "schlaft",
+   "schlafen"
+  ],
+  "preterite": "schlief",
+  "participle": "geschlafen"
+ },
+ "erkennen": {
+  "present": [
+   "erkenne",
+   "erkennst",
+   "erkennt",
+   "erkennen",
+   "erkennt",
+   "erkennen"
+  ],
+  "preterite": "erkannte",
+  "participle": "erkannt"
+ },
+ "lernen": {
+  "present": [
+   "lerne",
+   "lernst",
+   "lernt",
+   "lernen",
+   "lernt",
+   "lernen"
+  ],
+  "preterite": "lernte",
+  "participle": "gelernt"
+ },
+ "freuen": {
+  "present": [
+   "freue",
+   "freust",
+   "freut",
+   "freuen",
+   "freut",
+   "freuen"
+  ],
+  "preterite": "freute",
+  "participle": "gefreut"
+ },
+ "fühlen": {
+  "present": [
+   "fühle",
+   "fühlst",
+   "fühlt",
+   "fühlen",
+   "fühlt",
+   "fühlen"
+  ],
+  "preterite": "fühlte",
+  "participle": "gefühlt"
+ },
+ "anbieten": {
+  "present": [
+   "biete an",
+   "bietest an",
+   "bietet an",
+   "bieten an",
+   "bietet an",
+   "bieten an"
+  ],
+  "preterite": "bot an",
+  "participle": "angeboten"
+ },
+ "treffen": {
+  "present": [
+   "treffe",
+   "triffst",
+   "trifft",
+   "treffen",
+   "trefft",
+   "treffen"
+  ],
+  "preterite": "traf",
+  "participle": "getroffen"
+ },
+ "brauchen": {
+  "present": [
+   "brauche",
+   "brauchst",
+   "braucht",
+   "brauchen",
+   "braucht",
+   "brauchen"
+  ],
+  "preterite": "brauchte",
+  "participle": "gebraucht"
+ },
+ "erinnern": {
+  "present": [
+   "erinnre",
+   "erinnerst",
+   "erinnert",
+   "erinnern",
+   "erinnert",
+   "erinnern"
+  ],
+  "preterite": "erinnerte",
+  "participle": "erinnert"
+ },
+ "interessieren": {
+  "present": [
+   "interessiere",
+   "interessierst",
+   "interessiert",
+   "interessieren",
+   "interessiert",
+   "interessieren"
+  ],
+  "preterite": "interessierte",
+  "participle": "interessiert"
+ },
+ "vorstellen": {
+  "present": [
+   "stelle vor",
+   "stellst vor",
+   "stellt vor",
+   "stellen vor",
+   "stellt vor",
+   "stellen vor"
+  ],
+  "preterite": "stellte vor",
+  "participle": "vorgestellt"
+ },
+ "beschreiben": {
+  "present": [
+   "beschreibe",
+   "beschreibst",
+   "beschreibt",
+   "beschreiben",
+   "beschreibt",
+   "beschreiben"
+  ],
+  "preterite": "beschrieb",
+  "participle": "beschrieben"
+ },
+ "entscheiden": {
+  "present": [
+   "entscheide",
+   "entscheidest",
+   "entscheidet",
+   "entscheiden",
+   "entscheidet",
+   "entscheiden"
+  ],
+  "preterite": "entschied",
+  "participle": "entschieden"
+ },
+ "empfehlen": {
+  "present": [
+   "empfehle",
+   "empfiehlst",
+   "empfiehlt",
+   "empfehlen",
+   "empfehlt",
+   "empfehlen"
+  ],
+  "preterite": "empfahl",
+  "participle": "empfohlen"
+ },
+ "einladen": {
+  "present": [
+   "lade ein",
+   "lädst ein",
+   "lädt ein",
+   "laden ein",
+   "ladet ein",
+   "laden ein"
+  ],
+  "preterite": "lud ein",
+  "participle": "eingeladen"
+ },
+ "beeilen": {
+  "present": [
+   "beeile",
+   "beeilst",
+   "beeilt",
+   "beeilen",
+   "beeilt",
+   "beeilen"
+  ],
+  "preterite": "beeilte",
+  "participle": "beeilt"
+ },
+ "mitkommen": {
+  "present": [
+   "komme mit",
+   "kommst mit",
+   "kommt mit",
+   "kommen mit",
+   "kommt mit",
+   "kommen mit"
+  ],
+  "preterite": "kam mit",
+  "participle": "mitgekommen"
+ },
+ "einkaufen": {
+  "present": [
+   "kaufe ein",
+   "kaufst ein",
+   "kauft ein",
+   "kaufen ein",
+   "kauft ein",
+   "kaufen ein"
+  ],
+  "preterite": "kaufte ein",
+  "participle": "eingekauft"
+ }
+}
