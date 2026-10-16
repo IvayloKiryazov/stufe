@@ -2,6 +2,7 @@ export const HOURS = [0, 4, 8, 24, 72, 168, 336, 720];
 const HOUR = 3600e3;
 export const PASS_BOX = 3;
 export const PASS_RATIO = 0.8;
+export const LEECH_THRESHOLD = 8;
 
 export interface Entry {
   box: number;

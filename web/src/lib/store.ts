@@ -1,4 +1,4 @@
-import { applyGrade, isActive, markKnown as srsMarkKnown, resume as srsResume, suspend as srsSuspend, type Entry } from "./srsCore";
+import { applyGrade, isActive, markKnown as srsMarkKnown, resume as srsResume, suspend as srsSuspend, LEECH_THRESHOLD, type Entry } from "./srsCore";
 import { bump, type History } from "./stats";
 
 export interface Settings {
@@ -9,6 +9,7 @@ export interface Settings {
   goalNew: number;
   goalReviews: number;
   fontScale: number;
+  vacation: boolean;
 }
 
 export interface Progress {
@@ -29,6 +30,7 @@ const DEFAULTS: Progress = {
     goalNew: 20,
     goalReviews: 50,
     fontScale: 1,
+    vacation: false,
   },
 };
 
@@ -79,7 +81,9 @@ export const store = {
   /** Grade an item; returns the previous entry (for undo). */
   grade(id: string, ok: boolean): Entry | null {
     const prev = state.p[id] ?? null;
-    commit({ ...state, p: { ...state.p, [id]: applyGrade(prev, ok, Date.now()) } });
+    let next = applyGrade(prev, ok, Date.now());
+    if ((next.lapses ?? 0) >= LEECH_THRESHOLD) next = { ...next, suspended: true };
+    commit({ ...state, p: { ...state.p, [id]: next } });
     return prev;
   },
   restore(id: string, prev: Entry | null) {

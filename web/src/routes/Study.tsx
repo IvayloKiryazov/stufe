@@ -146,6 +146,7 @@ export default function Study() {
       .sort((a, b) => (progress.p[b].lapses ?? 0) - (progress.p[a].lapses ?? 0))
       .slice(0, 20);
     const passedIds = Object.keys(progress.p).filter((id) => deck.by[id] && passed(progress.p[id])).slice(0, 20);
+    const burnedIds = Object.keys(progress.p).filter((id) => deck.by[id] && (progress.p[id].box ?? 0) >= 7).slice(0, 20);
     return (
       <div className="space-y-6">
         <h1 className="text-3xl font-bold">Study</h1>
@@ -159,8 +160,12 @@ export default function Study() {
           </Card>
           <Card>
             <CardTitle>Lessons</CardTitle>
-            <p className="mb-3 text-sm text-muted">Learn new items</p>
-            <Button onClick={study.startLessons}>Start lessons</Button>
+            <p className="mb-3 text-sm text-muted">
+              {progress.settings.vacation ? "Paused (vacation mode)" : "Learn new items"}
+            </p>
+            <Button onClick={study.startLessons} disabled={progress.settings.vacation}>
+              Start lessons
+            </Button>
           </Card>
           <Card className="sm:col-span-2">
             <CardTitle>Extra study</CardTitle>
@@ -171,6 +176,9 @@ export default function Study() {
               </Button>
               <Button variant="outline" disabled={!passedIds.length} onClick={() => study.startReviews(true, shuffle(passedIds))}>
                 Passed ({passedIds.length})
+              </Button>
+              <Button variant="outline" disabled={!burnedIds.length} onClick={() => study.startReviews(true, shuffle(burnedIds))}>
+                Burned ({burnedIds.length})
               </Button>
               <Button variant="outline" onClick={() => study.startReviews(true)}>
                 Any learned
@@ -213,6 +221,9 @@ export default function Study() {
         <span>
           {pos}/{session.total}
         </span>
+        <Button variant="ghost" size="sm" onClick={study.wrapUp}>
+          Wrap up
+        </Button>
         <Button variant="ghost" size="sm" onClick={study.stop}>
           Stop
         </Button>
@@ -289,6 +300,9 @@ export default function Study() {
                   {session.last?.ok ? "Correct" : "Not quite"}
                 </p>
                 {stage && <Chip>{stageName(stage.box)}</Chip>}
+                {session.lastId && store.state.p[session.lastId]?.suspended && (
+                  <p className="text-sm text-muted">Leech — auto-suspended. Resume it from Extra study → Leeches.</p>
+                )}
                 <Reveal it={it} />
                 {session.last?.msg && <p className="text-sm text-muted">{session.last.msg}</p>}
                 <div className="flex flex-wrap gap-2">

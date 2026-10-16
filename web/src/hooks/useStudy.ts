@@ -28,6 +28,7 @@ export interface Session {
   seen: Record<string, true>;
   prev: Record<string, Entry | null>;
   finished: boolean;
+  wrapUp: boolean;
 }
 
 function mk(mode: Mode, ids: string[]): Session {
@@ -44,6 +45,7 @@ function mk(mode: Mode, ids: string[]): Session {
     seen: {},
     prev: {},
     finished: false,
+    wrapUp: false,
   };
 }
 
@@ -93,6 +95,12 @@ export function useStudy(deck: Deck | null) {
   );
 
   const stop = useCallback(() => setSession(null), []);
+
+  /* Finish the current card and end the session (no new cards pulled in). */
+  const wrapUp = useCallback(() => {
+    if (!session) return;
+    setSession({ ...session, queue: session.queue.slice(0, 1), wrapUp: true });
+  }, [session]);
 
   const submit = useCallback(
     (given: string) => {
@@ -194,5 +202,6 @@ export function useStudy(deck: Deck | null) {
     suspendCurrent,
     knowCurrent,
     stop,
+    wrapUp,
   };
 }

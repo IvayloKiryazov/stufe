@@ -40,9 +40,14 @@ interface Entry { box; due; lapses?; reps?; last?; hist?: number[];
                   suspended?: boolean; known?: boolean }
 ```
 
-- **suspend** — excluded from reviews/lessons until resumed.
+- **suspend** — excluded from reviews/lessons until resumed. An item is
+  **auto-suspended** once it reaches `LEECH_THRESHOLD` (8) lapses.
 - **known** — marked as known; burned (box 7) and excluded.
 - `isActive(entry)` = present and neither suspended nor known.
+
+**Vacation mode** (setting) pauses new lessons. **Wrap up** ends a session after
+the current card. A **14-day review forecast** is shown on the Stats screen, and
+burned items can be studied from Extra study.
 
 ## A study session (`useStudy`)
 
@@ -87,6 +92,7 @@ dates and review load (`reviews/day ≈ newPerDay × 7`).
 
 ## Known gaps (roadmap)
 
-See [roadmap.md](roadmap.md): leech auto-suspend, vacation/streak-freeze, a
-review forecast, wrap-up, and **separate SRS tracks for gender / plural / case**
-(the WaniKani meaning-vs-reading analogue) are planned (issues #49, #50).
+See [roadmap.md](roadmap.md): **separate SRS tracks for gender / plural / case**
+(the WaniKani meaning-vs-reading analogue, #50) and a true CEFR path (#51)
+remain. Leech auto-suspend, vacation mode, the review forecast, wrap-up and
+burned-item study are implemented (#49).

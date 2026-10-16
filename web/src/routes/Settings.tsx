@@ -118,6 +118,14 @@ export default function Settings() {
             <span>Audio (browser German voices)</span>
             <input type="checkbox" checked={s.voice} onChange={(e) => store.setSettings({ voice: e.target.checked })} />
           </label>
+          <label className="flex items-center justify-between gap-4 text-sm">
+            <span>Vacation mode (pause new lessons)</span>
+            <input
+              type="checkbox"
+              checked={s.vacation}
+              onChange={(e) => store.setSettings({ vacation: e.target.checked })}
+            />
+          </label>
         </div>
       </Card>
 

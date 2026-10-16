@@ -4,7 +4,7 @@ import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
 import { addDays, daysToFinish, reviewLoad } from "../lib/projection";
 import { itemsOfLevel } from "../lib/selectors";
-import { passed } from "../lib/srsCore";
+import { isActive, passed } from "../lib/srsCore";
 import { recentDays, streak, totals } from "../lib/stats";
 
 const HEAT = ["var(--soft)", "#a7dcc0", "#6cc79e", "#37a878", "#1d7d57"];
@@ -30,6 +30,21 @@ export default function Stats() {
     .sort((a, b) => (progress.p[b].lapses ?? 0) - (progress.p[a].lapses ?? 0))
     .slice(0, 20);
   const perDay = progress.settings.newPerLesson || 5;
+
+  const dayStart = (d: number) => {
+    const x = new Date(now);
+    x.setHours(0, 0, 0, 0);
+    x.setDate(x.getDate() + d);
+    return x.getTime();
+  };
+  const forecast = Array.from({ length: 14 }, (_, d) => {
+    const start = dayStart(d);
+    const end = start + 86400000;
+    const count = Object.keys(progress.p).filter(
+      (id) => deck.by[id] && isActive(progress.p[id]) && progress.p[id].due >= start && progress.p[id].due < end,
+    ).length;
+    return { d, count };
+  });
   let cum = 0;
   const projections = deck.levels.map((L, i) => {
     const ids = itemsOfLevel(deck, i);
@@ -69,6 +84,23 @@ export default function Stats() {
             </div>
             <p className="mt-3 text-sm text-muted">
               {t.new} new items and {t.reviews} reviews over {t.days} active days.
+            </p>
+          </Card>
+          <Card>
+            <CardTitle>Next 14 days</CardTitle>
+            <div className="flex items-end gap-1">
+              {forecast.map((f) => (
+                <div key={f.d} className="flex-1" title={`+${f.d}d: ${f.count}`}>
+                  <div
+                    className="w-full rounded-t opacity-70"
+                    style={{ height: `${Math.min(80, f.count * 3) + 2}px`, backgroundColor: "var(--ink)" }}
+                  />
+                </div>
+              ))}
+            </div>
+            <p className="mt-2 text-sm text-muted">
+              Due today {forecast[0].count} · tomorrow {forecast[1].count} · next 7 days{" "}
+              {forecast.slice(0, 7).reduce((n, f) => n + f.count, 0)}
             </p>
           </Card>
           {leeches.length > 0 && (

@@ -31,6 +31,7 @@ export function dueIds(deck: Deck, p: Progress, now = Date.now()): string[] {
 }
 
 export function newAvailableCount(deck: Deck, p: Progress): number {
+  if (p.settings.vacation) return 0;
   let n = 0;
   deck.levels.forEach((_, i) => {
     if (!unlocked(deck, i, p)) return;
@@ -41,6 +42,7 @@ export function newAvailableCount(deck: Deck, p: Progress): number {
 
 export function availableIds(deck: Deck, p: Progress, limit = Infinity): string[] {
   const out: string[] = [];
+  if (p.settings.vacation) return out;
   for (let i = 0; i < deck.levels.length; i++) {
     if (!unlocked(deck, i, p)) continue;
     for (const id of itemsOfLevel(deck, i)) {
