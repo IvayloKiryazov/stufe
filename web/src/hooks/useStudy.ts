@@ -67,6 +67,17 @@ export function useStudy(deck: Deck | null) {
     [deck],
   );
 
+  const startGroupPractice = useCallback(
+    (levelIdx: number, groupId: string) => {
+      if (!deck) return;
+      const g = deck.levels[levelIdx]?.groups.find((x) => x.id === groupId);
+      if (!g) return;
+      const ids = g.items.filter((id) => deck.by[id]);
+      if (ids.length) setSession(mk("practice", shuffle(ids)));
+    },
+    [deck],
+  );
+
   const startReviews = useCallback(
     (practice = false, explicit?: string[]) => {
       if (!deck) return;
@@ -173,6 +184,7 @@ export function useStudy(deck: Deck | null) {
     session,
     startLessons,
     startGroup,
+    startGroupPractice,
     startReviews,
     lessonNext,
     submit,

@@ -19,6 +19,7 @@ import { useTheme, type Theme } from "./lib/theme";
 import Today from "./routes/Today";
 import Study from "./routes/Study";
 import Browse from "./routes/Browse";
+import Grammar from "./routes/Grammar";
 import Settings from "./routes/Settings";
 import Placeholder from "./routes/Placeholder";
 
@@ -100,7 +101,8 @@ export default function App() {
             <Route path="/" element={<Today />} />
             <Route path="/study" element={<Study />} />
             <Route path="/browse" element={<Browse />} />
-            <Route path="/grammar" element={<Placeholder title="Grammar" />} />
+            <Route path="/grammar" element={<Grammar />} />
+            <Route path="/grammar/:level/:group" element={<Grammar />} />
             <Route path="/stats" element={<Placeholder title="Stats" />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>

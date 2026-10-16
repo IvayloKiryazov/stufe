@@ -114,14 +114,16 @@ export default function Study() {
     if (session?.phase === "ask") setValue("");
   }, [session?.queue[0], session?.phase]);
 
-  // Auto-start a group lesson when arriving from Browse (?group=...&level=...).
+  // Auto-start a session when arriving from Browse or Grammar.
   useEffect(() => {
     if (startedRef.current || !deck || session) return;
     const g = params.get("group");
     const lvl = params.get("level");
+    const mode = params.get("mode");
     if (g && lvl != null) {
       startedRef.current = true;
-      study.startGroup(Number(lvl), g);
+      if (mode === "practice") study.startGroupPractice(Number(lvl), g);
+      else study.startGroup(Number(lvl), g);
     }
   }, [deck, params, session, study]);
 
