@@ -9,10 +9,13 @@ import {
   Languages,
   Library,
   Menu,
+  Mic,
   Monitor,
   Moon,
+  PenLine,
   Settings as SettingsIcon,
   Sun,
+  Volume2,
   X,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -25,6 +28,10 @@ import Study from "./routes/Study";
 import Browse from "./routes/Browse";
 import Grammar from "./routes/Grammar";
 import Reading from "./routes/Reading";
+import Listening from "./routes/Listening";
+import Pronunciation from "./routes/Pronunciation";
+import Speaking from "./routes/Speaking";
+import Writing from "./routes/Writing";
 import Dictation from "./routes/Dictation";
 import Translate from "./routes/Translate";
 import Settings from "./routes/Settings";
@@ -53,6 +60,10 @@ const NAV: { label: string; items: NavItem[] }[] = [
     label: "Practice",
     items: [
       { to: "/reading", label: "Reading", icon: BookOpen },
+      { to: "/listening", label: "Listening", icon: Headphones },
+      { to: "/pronunciation", label: "Pronunciation", icon: Volume2 },
+      { to: "/speaking", label: "Speaking", icon: Mic },
+      { to: "/writing", label: "Writing", icon: PenLine },
       { to: "/dictation", label: "Dictation", icon: Headphones },
       { to: "/translate", label: "Translate", icon: Languages },
     ],
@@ -152,6 +163,10 @@ export default function App() {
             <Route path="/grammar/:level/:group" element={<Grammar />} />
             <Route path="/reading" element={<Reading />} />
             <Route path="/reading/:id" element={<Reading />} />
+            <Route path="/listening" element={<Listening />} />
+            <Route path="/pronunciation" element={<Pronunciation />} />
+            <Route path="/speaking" element={<Speaking />} />
+            <Route path="/writing" element={<Writing />} />
             <Route path="/dictation" element={<Dictation />} />
             <Route path="/translate" element={<Translate />} />
             <Route path="/stats" element={<Stats />} />
