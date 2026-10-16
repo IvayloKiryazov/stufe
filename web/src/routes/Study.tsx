@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Volume2 } from "lucide-react";
 import { Art } from "../components/Art";
 import { Button } from "../components/ui/button";
@@ -107,10 +107,23 @@ export default function Study() {
   const { session } = study;
   const inputRef = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState("");
+  const [params] = useSearchParams();
+  const startedRef = useRef(false);
 
   useEffect(() => {
     if (session?.phase === "ask") setValue("");
   }, [session?.queue[0], session?.phase]);
+
+  // Auto-start a group lesson when arriving from Browse (?group=...&level=...).
+  useEffect(() => {
+    if (startedRef.current || !deck || session) return;
+    const g = params.get("group");
+    const lvl = params.get("level");
+    if (g && lvl != null) {
+      startedRef.current = true;
+      study.startGroup(Number(lvl), g);
+    }
+  }, [deck, params, session, study]);
 
   if (error) {
     return (

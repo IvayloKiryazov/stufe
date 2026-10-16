@@ -18,6 +18,7 @@ import { cn } from "./lib/cn";
 import { useTheme, type Theme } from "./lib/theme";
 import Today from "./routes/Today";
 import Study from "./routes/Study";
+import Browse from "./routes/Browse";
 import Settings from "./routes/Settings";
 import Placeholder from "./routes/Placeholder";
 
@@ -98,7 +99,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Today />} />
             <Route path="/study" element={<Study />} />
-            <Route path="/browse" element={<Placeholder title="Browse" />} />
+            <Route path="/browse" element={<Browse />} />
             <Route path="/grammar" element={<Placeholder title="Grammar" />} />
             <Route path="/stats" element={<Placeholder title="Stats" />} />
             <Route path="/settings" element={<Settings />} />
