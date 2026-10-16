@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { useTheme, type Theme } from "../lib/theme";
+import { Button } from "../components/ui/button";
 import { Card, CardTitle } from "../components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 
@@ -25,6 +27,18 @@ export default function Settings() {
               <SelectItem value="dark">Dark</SelectItem>
             </SelectContent>
           </Select>
+        </div>
+      </Card>
+
+      <Card>
+        <CardTitle>More</CardTitle>
+        <div className="flex flex-wrap gap-2">
+          <Button asChild variant="outline">
+            <Link to="/help">Help</Link>
+          </Button>
+          <Button asChild variant="outline">
+            <Link to="/credits">Credits &amp; licenses</Link>
+          </Button>
         </div>
       </Card>
     </div>

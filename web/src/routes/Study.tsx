@@ -12,6 +12,8 @@ import { useStudy } from "../hooks/useStudy";
 import type { Item } from "../lib/data";
 import { speechText } from "../lib/judge";
 import { dueIds } from "../lib/selectors";
+import { passed } from "../lib/srsCore";
+import { shuffle } from "../lib/shuffle";
 import { stageName } from "../lib/stages";
 import { store } from "../lib/store";
 import { speak } from "../lib/tts";
@@ -139,6 +141,11 @@ export default function Study() {
 
   if (!session) {
     const due = dueIds(deck, progress).length;
+    const leeches = Object.keys(progress.p)
+      .filter((id) => deck.by[id] && (progress.p[id].lapses ?? 0) > 0)
+      .sort((a, b) => (progress.p[b].lapses ?? 0) - (progress.p[a].lapses ?? 0))
+      .slice(0, 20);
+    const passedIds = Object.keys(progress.p).filter((id) => deck.by[id] && passed(progress.p[id])).slice(0, 20);
     return (
       <div className="space-y-6">
         <h1 className="text-3xl font-bold">Study</h1>
@@ -155,12 +162,20 @@ export default function Study() {
             <p className="mb-3 text-sm text-muted">Learn new items</p>
             <Button onClick={study.startLessons}>Start lessons</Button>
           </Card>
-          <Card>
-            <CardTitle>Practice</CardTitle>
-            <p className="mb-3 text-sm text-muted">No schedule change</p>
-            <Button variant="outline" onClick={() => study.startReviews(true)}>
-              Practice
-            </Button>
+          <Card className="sm:col-span-2">
+            <CardTitle>Extra study</CardTitle>
+            <p className="mb-3 text-sm text-muted">Practice without changing your schedule</p>
+            <div className="flex flex-wrap gap-2">
+              <Button variant="outline" disabled={!leeches.length} onClick={() => study.startReviews(true, shuffle(leeches))}>
+                Leeches ({leeches.length})
+              </Button>
+              <Button variant="outline" disabled={!passedIds.length} onClick={() => study.startReviews(true, shuffle(passedIds))}>
+                Passed ({passedIds.length})
+              </Button>
+              <Button variant="outline" onClick={() => study.startReviews(true)}>
+                Any learned
+              </Button>
+            </div>
           </Card>
         </div>
       </div>

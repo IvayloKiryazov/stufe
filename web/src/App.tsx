@@ -27,7 +27,9 @@ import Reading from "./routes/Reading";
 import Dictation from "./routes/Dictation";
 import Translate from "./routes/Translate";
 import Settings from "./routes/Settings";
-import Placeholder from "./routes/Placeholder";
+import Stats from "./routes/Stats";
+import Credits from "./routes/Credits";
+import Help from "./routes/Help";
 
 interface NavItem {
   to: string;
@@ -145,7 +147,9 @@ export default function App() {
             <Route path="/reading/:id" element={<Reading />} />
             <Route path="/dictation" element={<Dictation />} />
             <Route path="/translate" element={<Translate />} />
-            <Route path="/stats" element={<Placeholder title="Stats" />} />
+            <Route path="/stats" element={<Stats />} />
+            <Route path="/credits" element={<Credits />} />
+            <Route path="/help" element={<Help />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </main>
