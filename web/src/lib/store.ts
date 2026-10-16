@@ -8,6 +8,7 @@ export interface Settings {
   newPerLesson: number;
   goalNew: number;
   goalReviews: number;
+  fontScale: number;
 }
 
 export interface Progress {
@@ -27,6 +28,7 @@ const DEFAULTS: Progress = {
     newPerLesson: 5,
     goalNew: 20,
     goalReviews: 50,
+    fontScale: 1,
   },
 };
 

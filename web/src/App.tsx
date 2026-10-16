@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import {
   BarChart3,
@@ -19,6 +19,7 @@ import type { LucideIcon } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { cn } from "./lib/cn";
 import { useTheme, type Theme } from "./lib/theme";
+import { useProgress } from "./hooks/useProgress";
 import Today from "./routes/Today";
 import Study from "./routes/Study";
 import Browse from "./routes/Browse";
@@ -84,6 +85,12 @@ function ThemeToggle() {
 
 export default function App() {
   const [open, setOpen] = useState(false);
+  const progress = useProgress();
+
+  useEffect(() => {
+    document.documentElement.style.fontSize = `${16 * (progress.settings.fontScale || 1)}px`;
+  }, [progress.settings.fontScale]);
+
   return (
     <div className="min-h-full md:grid md:grid-cols-[15rem_1fr]">
       <aside
