@@ -75,6 +75,13 @@ def main() -> int:
         levels[level]["groups"].append(g)
         return g
 
+    group_cache: dict[str, dict] = {}
+
+    def ensure_group(level: str, group_id: str, name: str, kind: str, intro: str) -> dict:
+        if group_id not in group_cache:
+            group_cache[group_id] = add_group(level, group_id, name, kind, intro)
+        return group_cache[group_id]
+
     # --- curated nouns -> production cards -------------------------------
     for doc in load_content("nouns"):
         level = doc["level"]
@@ -106,6 +113,51 @@ def main() -> int:
                     used_attribution.add(hit[2])
                 group["items"].append(item["id"])
                 items.append(item)
+
+                # separate SRS tracks: article (gender) and plural
+                if article:
+                    gg = ensure_group(
+                        level,
+                        f"{level}-gender",
+                        "Article (der/die/das)",
+                        "gender",
+                        "Type the correct article for each noun.",
+                    )
+                    gitem = {
+                        "id": f"{level}-gender-{slug(word)}",
+                        "level": level,
+                        "group": gg["id"],
+                        "groupName": gg["name"],
+                        "kind": "gender",
+                        "prompt": word,
+                        "answer": article,
+                        "de": f"{article} {word}",
+                        "en": english,
+                        "note": grp.get("notes", {}).get(word, ""),
+                    }
+                    gg["items"].append(gitem["id"])
+                    items.append(gitem)
+                if plural:
+                    pg = ensure_group(
+                        level,
+                        f"{level}-plural",
+                        "Plural forms",
+                        "plural",
+                        "Type the plural form (with its article).",
+                    )
+                    pitem = {
+                        "id": f"{level}-plural-{slug(word)}",
+                        "level": level,
+                        "group": pg["id"],
+                        "groupName": pg["name"],
+                        "kind": "plural",
+                        "prompt": f"{article} {word}".strip(),
+                        "answer": plural,
+                        "de": plural,
+                        "en": english,
+                    }
+                    pg["items"].append(pitem["id"])
+                    items.append(pitem)
 
     # --- curated verbs -> production cards --------------------------------
     for doc in load_content("verbs"):

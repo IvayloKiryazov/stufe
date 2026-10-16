@@ -90,9 +90,16 @@ sentence grader in `lib/grade.ts` (`equals`, `tokenSimilarity`).
 `streak`, `totals`, `recentDays` (heatmap). `lib/projection.ts` estimates finish
 dates and review load (`reviews/day ≈ newPerDay × 7`).
 
+## Separate tracks (gender / plural)
+
+Curated nouns also generate two extra SRS items (kinds `gender` and `plural`):
+type the article for a bare noun, or type the plural form. This mirrors
+WaniKani's meaning-vs-reading split — the same noun is drilled as vocabulary, as
+gender, and as plural, each on its own schedule. Case drills remain a future
+item.
+
 ## Known gaps (roadmap)
 
-See [roadmap.md](roadmap.md): **separate SRS tracks for gender / plural / case**
-(the WaniKani meaning-vs-reading analogue, #50) and a true CEFR path (#51)
-remain. Leech auto-suspend, vacation mode, the review forecast, wrap-up and
-burned-item study are implemented (#49).
+See [roadmap.md](roadmap.md): **case drills** and a true CEFR path (#51) remain.
+Leech auto-suspend, vacation mode, the review forecast, wrap-up, burned-item
+study (#49) and the gender/plural tracks (#50) are implemented.

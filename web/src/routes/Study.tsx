@@ -24,6 +24,8 @@ function labelFor(it: Item): string {
   if (it.kind === "noun") return "German word with its article";
   if (it.kind === "verb") return "Verb (infinitive)";
   if (it.kind === "adj") return "Adjective";
+  if (it.kind === "gender") return "Article (der/die/das)";
+  if (it.kind === "plural") return "Plural form";
   return "Fill in the blank";
 }
 
@@ -42,6 +44,13 @@ function Prompt({ it }: { it: Item }) {
         <p className="text-muted">{it.en}</p>
         {it.hint && <Chip lang="de">{it.hint}</Chip>}
       </>
+    );
+  }
+  if (it.kind === "gender" || it.kind === "plural") {
+    return (
+      <p className="font-serif text-2xl" lang="de">
+        {it.prompt}
+      </p>
     );
   }
   return <p className="font-serif text-2xl">{it.en}</p>;
@@ -78,6 +87,14 @@ function Reveal({ it }: { it: Item }) {
         <>
           <p className="font-serif text-xl" lang="de">
             {(it.prompt ?? "").replace("___", it.answer ?? "")}
+          </p>
+          <p className="text-muted">{it.en}</p>
+        </>
+      )}
+      {(it.kind === "gender" || it.kind === "plural") && (
+        <>
+          <p className="font-serif text-xl" lang="de">
+            {it.de}
           </p>
           <p className="text-muted">{it.en}</p>
         </>

@@ -49,7 +49,7 @@ class DatasetTest(unittest.TestCase):
             self.assertTrue(i.get("level"), i["id"])
             self.assertTrue(i.get("group"), i["id"])
             self.assertTrue(i.get("groupName"), i["id"])
-            self.assertIn(i["kind"], {"noun", "verb", "adj", "cloze"}, i["id"])
+            self.assertIn(i["kind"], {"noun", "verb", "adj", "cloze", "gender", "plural"}, i["id"])
 
 
 if __name__ == "__main__":
