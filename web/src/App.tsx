@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import {
   BarChart3,
@@ -24,20 +24,20 @@ import { cn } from "./lib/cn";
 import { useTheme, type Theme } from "./lib/theme";
 import { useProgress } from "./hooks/useProgress";
 import Today from "./routes/Today";
-import Study from "./routes/Study";
-import Browse from "./routes/Browse";
-import Grammar from "./routes/Grammar";
-import Reading from "./routes/Reading";
-import Listening from "./routes/Listening";
-import Pronunciation from "./routes/Pronunciation";
-import Speaking from "./routes/Speaking";
-import Writing from "./routes/Writing";
-import Dictation from "./routes/Dictation";
-import Translate from "./routes/Translate";
-import Settings from "./routes/Settings";
-import Stats from "./routes/Stats";
-import Credits from "./routes/Credits";
-import Help from "./routes/Help";
+const Study = lazy(() => import("./routes/Study"));
+const Browse = lazy(() => import("./routes/Browse"));
+const Grammar = lazy(() => import("./routes/Grammar"));
+const Reading = lazy(() => import("./routes/Reading"));
+const Listening = lazy(() => import("./routes/Listening"));
+const Pronunciation = lazy(() => import("./routes/Pronunciation"));
+const Speaking = lazy(() => import("./routes/Speaking"));
+const Writing = lazy(() => import("./routes/Writing"));
+const Dictation = lazy(() => import("./routes/Dictation"));
+const Translate = lazy(() => import("./routes/Translate"));
+const Settings = lazy(() => import("./routes/Settings"));
+const Stats = lazy(() => import("./routes/Stats"));
+const Credits = lazy(() => import("./routes/Credits"));
+const Help = lazy(() => import("./routes/Help"));
 
 interface NavItem {
   to: string;
@@ -155,7 +155,8 @@ export default function App() {
           </div>
         </header>
         <main className="mx-auto w-full max-w-3xl flex-1 p-4 md:p-8">
-          <Routes>
+          <Suspense fallback={<p className="text-muted">Loading…</p>}>
+            <Routes>
             <Route path="/" element={<Today />} />
             <Route path="/study" element={<Study />} />
             <Route path="/browse" element={<Browse />} />
@@ -174,6 +175,7 @@ export default function App() {
             <Route path="/help" element={<Help />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
+          </Suspense>
         </main>
       </div>
 

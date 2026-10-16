@@ -10,6 +10,7 @@ export interface Settings {
   goalReviews: number;
   fontScale: number;
   vacation: boolean;
+  reminders: boolean;
 }
 
 export interface Progress {
@@ -31,6 +32,7 @@ const DEFAULTS: Progress = {
     goalReviews: 50,
     fontScale: 1,
     vacation: false,
+    reminders: false,
   },
 };
 

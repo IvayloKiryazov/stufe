@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Card, CardTitle, Stat } from "../components/ui/card";
@@ -10,6 +11,22 @@ import { dayKey, streak } from "../lib/stats";
 export default function Today() {
   const { deck, error } = useDeck();
   const progress = useProgress();
+
+  // Review reminder: once per day, if due and permitted.
+  useEffect(() => {
+    if (!deck || !progress.settings.reminders) return;
+    if (typeof Notification === "undefined" || Notification.permission !== "granted") return;
+    const due = dueIds(deck, progress).length;
+    if (due <= 0) return;
+    const key = dayKey(Date.now());
+    if (localStorage.getItem("stufe-reminded") === key) return;
+    try {
+      new Notification("Reviews due", { body: `${due} review${due === 1 ? "" : "s"} waiting in Stufe.` });
+      localStorage.setItem("stufe-reminded", key);
+    } catch {
+      /* ignore */
+    }
+  }, [deck, progress]);
 
   if (error) {
     return (

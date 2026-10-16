@@ -126,6 +126,23 @@ export default function Settings() {
               onChange={(e) => store.setSettings({ vacation: e.target.checked })}
             />
           </label>
+          <label className="flex items-center justify-between gap-4 text-sm">
+            <span>Review reminders</span>
+            <input
+              type="checkbox"
+              checked={s.reminders}
+              onChange={async (e) => {
+                if (e.target.checked && "Notification" in window) {
+                  try {
+                    await Notification.requestPermission();
+                  } catch {
+                    /* ignore */
+                  }
+                }
+                store.setSettings({ reminders: e.target.checked });
+              }}
+            />
+          </label>
         </div>
       </Card>
 
