@@ -28,15 +28,19 @@ the built `docs/`.
 - #50 separate SRS tracks for **gender** and **plural** (case drills remain)
 - #51 course-first path (linear A1–B1) in Browse; frequency deck behind a tab
 
-## Phase 4 — Modalities (open)
+## Phase 4 — Modalities (DONE)
 
 - #52 listening comprehension · #53 pronunciation & alphabet · #54 speaking
-  (self-assessed) · #55 writing drills
+  (self-assessed, MediaRecorder) · #55 writing drills
 
-## Phase 5 — Platform (open)
+## Phase 5 — Platform (DONE)
 
-- #56 lazy-load data / code-split · #57 i18n for the UI · #58 reminders + PWA
-  service worker
+- #56 route-level code splitting (lazy routes)
+- #57 i18n: interface language (en/de) for the shell and Today (coverage is
+  incremental — more screens can be translated by adding keys to `lib/i18n.ts`)
+- #58 service worker (offline) + review reminders
+- #40 sync-data is done and the bundle is split; **per-level lazy loading of
+  `items.json` is still deferred** (the deck loads as one file).
 
 ## Honest state of the deck
 

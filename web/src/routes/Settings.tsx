@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { useProgress } from "../hooks/useProgress";
 import { store } from "../lib/store";
 import { useTheme, type Theme } from "../lib/theme";
+import { t } from "../lib/i18n";
 
 function NumberRow({
   label,
@@ -94,6 +95,18 @@ export default function Settings() {
                 <SelectItem value="1">Normal</SelectItem>
                 <SelectItem value="1.15">Large</SelectItem>
                 <SelectItem value="1.3">Extra large</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div className="flex items-center justify-between gap-4 text-sm">
+            <span>{t(s.language, "common.language")}</span>
+            <Select value={s.language} onValueChange={(v) => store.setSettings({ language: v as "en" | "de" })}>
+              <SelectTrigger className="w-40" aria-label="Interface language">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="en">English</SelectItem>
+                <SelectItem value="de">Deutsch</SelectItem>
               </SelectContent>
             </Select>
           </div>

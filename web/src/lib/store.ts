@@ -11,6 +11,7 @@ export interface Settings {
   fontScale: number;
   vacation: boolean;
   reminders: boolean;
+  language: "en" | "de";
 }
 
 export interface Progress {
@@ -33,6 +34,7 @@ const DEFAULTS: Progress = {
     fontScale: 1,
     vacation: false,
     reminders: false,
+    language: "en",
   },
 };
 

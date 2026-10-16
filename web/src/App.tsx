@@ -23,6 +23,7 @@ import { Button } from "./components/ui/button";
 import { cn } from "./lib/cn";
 import { useTheme, type Theme } from "./lib/theme";
 import { useProgress } from "./hooks/useProgress";
+import { t } from "./lib/i18n";
 import Today from "./routes/Today";
 const Study = lazy(() => import("./routes/Study"));
 const Browse = lazy(() => import("./routes/Browse"));
@@ -41,38 +42,38 @@ const Help = lazy(() => import("./routes/Help"));
 
 interface NavItem {
   to: string;
-  label: string;
+  key: string;
   icon: LucideIcon;
   end?: boolean;
 }
 
-const NAV: { label: string; items: NavItem[] }[] = [
+const NAV: { key: string; items: NavItem[] }[] = [
   {
-    label: "Learn",
+    key: "nav.learn",
     items: [
-      { to: "/", label: "Today", icon: Home, end: true },
-      { to: "/study", label: "Study", icon: GraduationCap },
-      { to: "/browse", label: "Browse", icon: Library },
-      { to: "/grammar", label: "Grammar", icon: BookOpen },
+      { to: "/", key: "nav.today", icon: Home, end: true },
+      { to: "/study", key: "nav.study", icon: GraduationCap },
+      { to: "/browse", key: "nav.browse", icon: Library },
+      { to: "/grammar", key: "nav.grammar", icon: BookOpen },
     ],
   },
   {
-    label: "Practice",
+    key: "nav.practice",
     items: [
-      { to: "/reading", label: "Reading", icon: BookOpen },
-      { to: "/listening", label: "Listening", icon: Headphones },
-      { to: "/pronunciation", label: "Pronunciation", icon: Volume2 },
-      { to: "/speaking", label: "Speaking", icon: Mic },
-      { to: "/writing", label: "Writing", icon: PenLine },
-      { to: "/dictation", label: "Dictation", icon: Headphones },
-      { to: "/translate", label: "Translate", icon: Languages },
+      { to: "/reading", key: "nav.reading", icon: BookOpen },
+      { to: "/listening", key: "nav.listening", icon: Headphones },
+      { to: "/pronunciation", key: "nav.pronunciation", icon: Volume2 },
+      { to: "/speaking", key: "nav.speaking", icon: Mic },
+      { to: "/writing", key: "nav.writing", icon: PenLine },
+      { to: "/dictation", key: "nav.dictation", icon: Headphones },
+      { to: "/translate", key: "nav.translate", icon: Languages },
     ],
   },
   {
-    label: "You",
+    key: "nav.you",
     items: [
-      { to: "/stats", label: "Stats", icon: BarChart3 },
-      { to: "/settings", label: "Settings", icon: SettingsIcon },
+      { to: "/stats", key: "nav.stats", icon: BarChart3 },
+      { to: "/settings", key: "nav.settings", icon: SettingsIcon },
     ],
   },
 ];
@@ -97,6 +98,7 @@ function ThemeToggle() {
 export default function App() {
   const [open, setOpen] = useState(false);
   const progress = useProgress();
+  const lang = progress.settings.language;
 
   useEffect(() => {
     document.documentElement.style.fontSize = `${16 * (progress.settings.fontScale || 1)}px`;
@@ -118,10 +120,10 @@ export default function App() {
         </div>
         <nav className="mt-6 flex flex-col gap-4">
           {NAV.map((section) => (
-            <div key={section.label}>
-              <div className="px-3 pb-1 text-xs uppercase tracking-wide text-muted">{section.label}</div>
+            <div key={section.key}>
+              <div className="px-3 pb-1 text-xs uppercase tracking-wide text-muted">{t(lang, section.key)}</div>
               <div className="flex flex-col gap-1">
-                {section.items.map(({ to, label, icon: Icon, end }) => (
+                {section.items.map(({ to, key, icon: Icon, end }) => (
                   <NavLink
                     key={to}
                     to={to}
@@ -135,7 +137,7 @@ export default function App() {
                     }
                   >
                     <Icon className="h-4 w-4" />
-                    {label}
+                    {t(lang, key)}
                   </NavLink>
                 ))}
               </div>
