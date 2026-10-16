@@ -7,12 +7,17 @@ import {
   Home,
   Library,
   Menu,
+  Monitor,
+  Moon,
   Settings as SettingsIcon,
+  Sun,
   X,
 } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { cn } from "./lib/cn";
+import { useTheme, type Theme } from "./lib/theme";
 import Today from "./routes/Today";
+import Settings from "./routes/Settings";
 import Placeholder from "./routes/Placeholder";
 
 const NAV = [
@@ -23,6 +28,23 @@ const NAV = [
   { to: "/stats", label: "Stats", icon: BarChart3 },
   { to: "/settings", label: "Settings", icon: SettingsIcon },
 ];
+
+const NEXT_THEME: Record<Theme, Theme> = { auto: "light", light: "dark", dark: "auto" };
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme();
+  const Icon = theme === "dark" ? Moon : theme === "light" ? Sun : Monitor;
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      aria-label={`Theme: ${theme}. Switch to ${NEXT_THEME[theme]}.`}
+      onClick={() => setTheme(NEXT_THEME[theme])}
+    >
+      <Icon className="h-5 w-5" />
+    </Button>
+  );
+}
 
 export default function App() {
   const [open, setOpen] = useState(false);
@@ -62,11 +84,14 @@ export default function App() {
       </aside>
 
       <div className="flex min-h-full flex-col">
-        <header className="flex items-center gap-3 border-b border-line bg-surface px-4 py-3 md:hidden">
-          <Button variant="ghost" size="icon" onClick={() => setOpen(true)} aria-label="Open menu">
+        <header className="flex items-center gap-2 border-b border-line bg-surface px-3 py-2">
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setOpen(true)} aria-label="Open menu">
             <Menu className="h-5 w-5" />
           </Button>
-          <span className="font-serif text-lg font-bold">Stufe</span>
+          <span className="font-serif text-lg font-bold md:hidden">Stufe</span>
+          <div className="ml-auto">
+            <ThemeToggle />
+          </div>
         </header>
         <main className="mx-auto w-full max-w-3xl flex-1 p-4 md:p-8">
           <Routes>
@@ -75,7 +100,7 @@ export default function App() {
             <Route path="/browse" element={<Placeholder title="Browse" />} />
             <Route path="/grammar" element={<Placeholder title="Grammar" />} />
             <Route path="/stats" element={<Placeholder title="Stats" />} />
-            <Route path="/settings" element={<Placeholder title="Settings" />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </main>
       </div>
