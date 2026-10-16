@@ -53,7 +53,7 @@ export default function Today() {
                 {today.new ?? 0} / {progress.settings.goalNew}
               </span>
             </div>
-            <Progress value={newPct} />
+            <Progress value={newPct} label="New items goal" />
           </div>
           <div>
             <div className="mb-1 flex justify-between text-sm">
@@ -62,7 +62,7 @@ export default function Today() {
                 {today.reviews ?? 0} / {progress.settings.goalReviews}
               </span>
             </div>
-            <Progress value={revPct} />
+            <Progress value={revPct} label="Reviews goal" />
           </div>
         </div>
       </Card>

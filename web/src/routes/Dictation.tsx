@@ -47,8 +47,8 @@ export default function Dictation() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3 text-sm text-muted">
-        <span>Dictation</span>
-        <Progress className="flex-1" value={(i / queue.length) * 100} />
+        <h1 className="text-sm font-normal">Dictation</h1>
+        <Progress className="flex-1" value={(i / queue.length) * 100} label="Session progress" />
         <span>
           {i + 1}/{queue.length}
         </span>

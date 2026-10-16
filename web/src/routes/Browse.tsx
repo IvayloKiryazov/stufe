@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion";
 import { Button } from "../components/ui/button";
 import { Progress } from "../components/ui/progress";
-import { Tabs, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
 import type { Group } from "../lib/data";
@@ -23,12 +22,19 @@ export default function Browse() {
     <div className="space-y-6">
       <header className="flex flex-wrap items-center justify-between gap-3">
         <h1 className="text-3xl font-bold">Browse</h1>
-        <Tabs value={mode} onValueChange={(v) => setMode(v as "course" | "vocab")}>
-          <TabsList>
-            <TabsTrigger value="course">Course</TabsTrigger>
-            <TabsTrigger value="vocab">Vocabulary</TabsTrigger>
-          </TabsList>
-        </Tabs>
+        <div className="flex gap-1 rounded-lg bg-soft p-1">
+          {(["course", "vocab"] as const).map((m) => (
+            <Button
+              key={m}
+              size="sm"
+              variant={mode === m ? "default" : "ghost"}
+              aria-pressed={mode === m}
+              onClick={() => setMode(m)}
+            >
+              {m === "course" ? "Course" : "Vocabulary"}
+            </Button>
+          ))}
+        </div>
       </header>
       <p className="text-sm text-muted">
         {mode === "course"
@@ -66,7 +72,7 @@ export default function Browse() {
                             <span className="text-xs text-muted">locked</span>
                           )}
                         </div>
-                        <Progress value={total ? (done / total) * 100 : 0} />
+                        <Progress value={total ? (done / total) * 100 : 0} label={`${g.name} progress`} />
                         <div className="text-xs text-muted">
                           {done} / {total}
                         </div>

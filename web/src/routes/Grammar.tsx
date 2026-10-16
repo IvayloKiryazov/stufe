@@ -92,7 +92,7 @@ export default function Grammar() {
                         {done} / {total}
                       </span>
                     </div>
-                    <Progress className="mt-2" value={total ? (done / total) * 100 : 0} />
+                    <Progress className="mt-2" value={total ? (done / total) * 100 : 0} label={`${g.name} progress`} />
                   </Link>
                 );
               })}

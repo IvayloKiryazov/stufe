@@ -73,7 +73,7 @@ export default function Settings() {
           <div className="flex items-center justify-between gap-4 text-sm">
             <span>Theme</span>
             <Select value={theme} onValueChange={(v) => setTheme(v as Theme)}>
-              <SelectTrigger className="w-40">
+              <SelectTrigger className="w-40" aria-label="Theme">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -86,7 +86,7 @@ export default function Settings() {
           <div className="flex items-center justify-between gap-4 text-sm">
             <span>Text size</span>
             <Select value={String(s.fontScale)} onValueChange={(v) => store.setSettings({ fontScale: Number(v) })}>
-              <SelectTrigger className="w-40">
+              <SelectTrigger className="w-40" aria-label="Text size">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>

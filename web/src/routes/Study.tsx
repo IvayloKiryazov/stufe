@@ -209,7 +209,7 @@ export default function Study() {
     <div className="space-y-4">
       <div className="flex items-center gap-3 text-sm text-muted">
         <span className="capitalize">{session.mode}</span>
-        <Progress value={(pos / session.total) * 100} className="flex-1" />
+        <Progress value={(pos / session.total) * 100} className="flex-1" label="Session progress" />
         <span>
           {pos}/{session.total}
         </span>
