@@ -1,0 +1,30 @@
+{
+  "freq-a2-ver-haben": {
+    "en": "to have"
+  },
+  "freq-a2-adj-gewesen": {
+    "en": "former, erstwhile; been (past participle of sein)"
+  },
+  "freq-b1-nou-schrank": {
+    "en": "cabinet; cupboard; wardrobe"
+  },
+  "freq-b1-adj-spitze": {
+    "en": "pointed, pointy; (colloquial) great, awesome"
+  },
+  "freq-b2-adj-ohnmächtig": {
+    "en": "unconscious"
+  },
+  "freq-b2-nou-betrieb": {
+    "en": "operation; business; company; industry"
+  },
+  "freq-c1-adj-roter": {
+    "en": "red (inflected form of rot)"
+  },
+  "freq-c1-ver-verborgen": {
+    "en": "hidden (past participle of verbergen); to hide",
+    "forms": "verbirgt, verbarg, verborgen"
+  },
+  "freq-c2-nou-urteilsvermögen": {
+    "sentence_de": "Urteilsvermögen lässt sich nicht auslagern."
+  }
+}

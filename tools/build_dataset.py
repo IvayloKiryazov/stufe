@@ -197,6 +197,18 @@ def main() -> int:
             if len(parts) > 1 and parts[0] in ("der", "die", "das"):
                 it["mnemonic"] = gender_mnemonic(parts[1], parts[0])
 
+    # --- curated overrides (id -> partial item) ---------------------------
+    overrides_path = ROOT / "content" / "overrides.json"
+    if overrides_path.exists():
+        overrides = json.loads(overrides_path.read_text(encoding="utf-8"))
+        applied = 0
+        for it in items:
+            patch = overrides.get(it["id"])
+            if patch:
+                it.update(patch)
+                applied += 1
+        print(f"overrides applied: {applied}")
+
     # --- reading passages -------------------------------------------------
     passages: list[dict] = []
     for path in sorted((ROOT / "content" / "reading").glob("*.json")):

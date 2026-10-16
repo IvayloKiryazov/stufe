@@ -87,6 +87,22 @@ Keep the style consistent at every level.
 }
 ```
 
+## Overrides
+
+`content/overrides.json` is a map of **item id → field patch**, applied last by
+`build_dataset.py`. Use it to correct a generated item (e.g. a wrong gloss)
+without touching the pipeline:
+
+```json
+{ "freq-a2-adj-alle": { "en": "all; everyone" } }
+```
+
+Known residual limitation: the auto deck picks the first *usable* Wiktionary
+sense, and **frequency is not meaning** — for polysemous words the gloss can be
+a less useful sense. Meta-glosses (`inflection of …`, `agent noun of …`) are
+filtered out, but full per-item verification is still a standing task (see the
+roadmap).
+
 ## Generated data (`data/`)
 
 | File | Contents |

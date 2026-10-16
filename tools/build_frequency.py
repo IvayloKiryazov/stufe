@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -32,7 +33,10 @@ STOP = set(
     dann ja nein doch wohl mal bitte danke
     etwas nichts alles jemand niemand
     heute gestern zurück vorbei hallo tschüss servus moin
-    soll muss kann darf will mag weiß gut los habe hast""".split()
+    soll muss kann darf will mag weiß gut los habe hast
+    alle allen aller alles viele vielen vieler wenige wenigen einige einigen
+    beide beiden manche manchen andere anderen anderer solche solchen
+    welche welchen jede jeder jedes jeden jedem sämtliche""".split()
 )
 
 
@@ -61,21 +65,54 @@ def _ipa(entry: dict) -> str:
     return next((s.get("ipa") for s in entry.get("sounds", []) if s.get("ipa")), "")
 
 
+def _clean_gloss(g: str) -> str:
+    g = re.sub(r"\s*\([^)]*\)", "", g)  # drop parentheticals
+    return re.sub(r"\s+", " ", g).strip(" ;,.")
+
+
+# glosses that describe a *form* rather than a meaning — never use as a card gloss
+META_RE = re.compile(
+    r"^(inflection of|form of|comparative of|superlative of|agent noun of|gerund of|"
+    r"past participle of|present participle of|plural of|genitive of|dative of|"
+    r"accusative of|nominative of|strong|weak|mixed|first-person|second-person|"
+    r"third-person|nominative|accusative|dative|genitive|singular|plural)\b",
+    re.IGNORECASE,
+)
+
+
+def _is_meta(g: str) -> bool:
+    return bool(META_RE.match(g))
+
+
 def _gloss_and_example(entry: dict):
     gloss = ""
+    # prefer a short, clean, non-meta gloss
+    for max_len in (60, 200):
+        for sense in entry.get("senses", []):
+            for g in sense.get("glosses") or []:
+                cg = _clean_gloss(g)
+                if cg and not _is_meta(cg) and len(cg) <= max_len:
+                    gloss = cg
+                    break
+            if gloss:
+                break
+        if gloss:
+            break
+    if not gloss:
+        return "", None  # only meta/form glosses -> not a real vocabulary card
     example = None
     for sense in entry.get("senses", []):
-        gl = sense.get("glosses") or []
-        if gl and not gloss:
-            gloss = gl[0]
         for ex in sense.get("examples") or []:
             if ex.get("type") == "quotation":
                 continue
             text = ex.get("text")
             tr = ex.get("translation") or ex.get("english")
-            if text and tr and len(text) <= 90 and "[...]" not in text:
-                example = (text, tr)
-                break
+            if not text or not tr or len(text) > 90 or "[...]" in text:
+                continue
+            if "please add" in text.lower() or "please add" in tr.lower():
+                continue
+            example = (text, tr)
+            break
         if example:
             break
     return gloss, example
