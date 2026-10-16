@@ -1,0 +1,51 @@
+# Roadmap
+
+Issues are tracked on GitHub (repo `IvayloKiryazov/stufe`). This is the map.
+
+## Phase 1 — UX redesign (DONE)
+
+Fullstack frontend rewrite: Vite + React + TS + Tailwind + Radix/shadcn, a real
+app shell, dashboard-first home, and the old vanilla app retired. Pages serves
+the built `docs/`.
+
+- #31 scaffold · #32 shell + design system · #33 Today · #34 Study · #35 Browse
+  · #36 Grammar · #37 Reading/Dictation/Translate · #38 Stats/Projections/Extras
+  · #39 Settings · #41 tests/CI/Pages
+- #40 lazy-load data (open, optional perf)
+
+## Phase 2 — Content QA (open)
+
+- #42 Bunpro-style naming + lesson grouping + a validation test
+- #43 automated checks (articles, plurals, glosses, duplicates)
+- #44–#48 fact-check batches (curated + auto deck A2/B1/B2-C1-C2), run as
+  sub-agent passes citing sources
+
+Known issues to fix here: the auto deck takes the **first** Wiktionary sense
+(e.g. `alle → "finished; gone"`), and C1/C2 group names are German-only while
+A1–B2 are English (normalise to the Bunpro convention).
+
+## Phase 3 — SRS depth & curriculum (open)
+
+- #49 leech auto-suspend, vacation/streak-freeze, review forecast, wrap-up,
+  burned-items study
+- #50 **separate SRS tracks for gender / plural / case** (the WaniKani
+  meaning-vs-reading analogue)
+- #51 course-first path + CEFR-ish sequencing + grammar depth (structure,
+  caution, related points)
+
+## Phase 4 — Modalities (open)
+
+- #52 listening comprehension · #53 pronunciation & alphabet · #54 speaking
+  (self-assessed) · #55 writing drills
+
+## Phase 5 — Platform (open)
+
+- #56 lazy-load data / code-split · #57 i18n for the UI · #58 reminders + PWA
+  service worker
+
+## Honest state of the deck
+
+~6,900 items: ~3,200 nouns, ~1,800 adjectives, ~1,300 verbs, ~625 grammar cloze.
+Levels are **frequency quantiles, not true CEFR**; the core vocabulary layer is
+broad but its glosses are unfact-checked (Phase 2). Reading/listening/speaking
+are minimal — see Phase 4.

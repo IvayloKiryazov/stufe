@@ -61,6 +61,12 @@ data/         generated deck (committed)
 tests/        Python pipeline/dataset tests
 ```
 
+## Documentation
+
+- [`documentation/`](documentation/) — architecture, content & pipeline, SRS,
+  testing, roadmap.
+- [`AGENTS.md`](AGENTS.md) — conventions for contributors and AI agents.
+
 ## Licensing
 
 Code: MIT (`LICENSE`). Data derives from Tatoeba (CC BY 2.0 FR),
