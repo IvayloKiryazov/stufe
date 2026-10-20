@@ -1,23 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Volume2 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card, CardTitle } from "../components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { useDeck } from "../hooks/useDeck";
+import { useProgress } from "../hooks/useProgress";
 import { speak } from "../lib/tts";
 
 export default function Listening() {
   const { deck } = useDeck();
+  const progress = useProgress();
   const [id, setId] = useState<string>("");
   const [rate, setRate] = useState("0.9");
   const [reveal, setReveal] = useState(false);
   const [answers, setAnswers] = useState<number[]>([]);
   const [checked, setChecked] = useState(false);
 
+  const passage = deck?.reading.find((r) => r.id === id) ?? deck?.reading[0] ?? null;
+
+  useEffect(() => {
+    if (!passage) return;
+    if (!progress.settings.autoSpeak || !progress.settings.voice) return;
+    speak(passage.text, { rate: Number(rate) });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [passage?.id, progress.settings.autoSpeak, progress.settings.voice]);
+
   if (!deck) return <p className="text-muted">Loading…</p>;
   if (!deck.reading.length) return <p className="text-muted">No passages available.</p>;
+  if (!passage) return <p className="text-muted">No passages available.</p>;
 
-  const passage = deck.reading.find((r) => r.id === id) ?? deck.reading[0];
   const score = passage.questions.reduce((n, q, i) => n + (answers[i] === q.answer ? 1 : 0), 0);
 
   const choose = (v: string) => {
@@ -76,7 +87,13 @@ export default function Listening() {
                     type="radio"
                     name={`l${qi}`}
                     checked={answers[qi] === oi}
-                    onChange={() => setAnswers((a) => a.map((v, i) => (i === qi ? oi : v)))}
+                    onChange={() =>
+                      setAnswers((a) => {
+                        const next = a.slice();
+                        next[qi] = oi;
+                        return next;
+                      })
+                    }
                   />
                   {opt}
                 </label>

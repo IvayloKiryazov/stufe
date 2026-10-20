@@ -144,15 +144,14 @@ export default function Settings() {
             <input
               type="checkbox"
               checked={s.reminders}
-              onChange={async (e) => {
-                if (e.target.checked && "Notification" in window) {
-                  try {
-                    await Notification.requestPermission();
-                  } catch {
-                    /* ignore */
-                  }
+              onChange={(e) => {
+                const on = e.target.checked;
+                store.setSettings({ reminders: on });
+                if (on && "Notification" in window && Notification.permission === "default") {
+                  void Notification.requestPermission().catch(() => {
+                    /* leave the setting enabled; the reminder simply won't fire */
+                  });
                 }
-                store.setSettings({ reminders: e.target.checked });
               }}
             />
           </label>

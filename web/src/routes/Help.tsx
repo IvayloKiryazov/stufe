@@ -2,6 +2,7 @@ import { Card, CardTitle } from "../components/ui/card";
 
 const ROWS: [string, string][] = [
   ["Enter", "Check your answer, then go to the next card"],
+  ["Backspace", "In review feedback, undo your last answer"],
   ["Esc", "Stop the current session"],
   ["ä ö ü ß", "Buttons under the answer field insert a special character"],
   ["Theme", "Toggle auto / light / dark from the top bar"],

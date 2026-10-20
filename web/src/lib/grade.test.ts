@@ -20,4 +20,12 @@ describe("grade", () => {
     expect(s).toBeGreaterThan(0.5);
     expect(s).toBeLessThan(1);
   });
+  it("is order-aware: scrambled words score low", () => {
+    expect(tokenSimilarity("der Mann ist groß", "groß ist Mann der")).toBeLessThan(0.5);
+    expect(tokenSimilarity("Ich trinke gern Kaffee", "Kaffee gern trinke Ich")).toBeLessThan(0.6);
+  });
+  it("requires the exact order for equality", () => {
+    expect(equals("der Mann ist groß", "groß ist Mann der")).toBe(false);
+    expect(equals("der Mann ist groß", "der mann ist gross")).toBe(true);
+  });
 });

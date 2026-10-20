@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Volume2 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
@@ -27,6 +27,16 @@ export default function Dictation() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deck]);
 
+  const currentId = queue[i];
+  const target = currentId && deck ? deck.by[currentId]?.sentence_de ?? "" : "";
+
+  useEffect(() => {
+    if (!currentId) return;
+    if (!progress.settings.autoSpeak || !progress.settings.voice) return;
+    speak(target);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentId, progress.settings.autoSpeak, progress.settings.voice]);
+
   if (!deck) return <p className="text-muted">Loading…</p>;
   if (!queue.length) return <p className="text-muted">No sentences available.</p>;
 
@@ -42,7 +52,6 @@ export default function Dictation() {
   }
 
   const item = deck.by[queue[i]];
-  const target = item.sentence_de ?? "";
 
   return (
     <div className="space-y-4">

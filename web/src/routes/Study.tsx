@@ -58,14 +58,14 @@ function Prompt({ it }: { it: Item }) {
 
 function Reveal({ it }: { it: Item }) {
   return (
-    <div className="space-y-1">
+    <div className="space-y-2 leading-relaxed">
       {it.kind === "noun" && (
         <>
-          <p className="font-serif text-xl" lang="de">
+          <p className="font-serif text-2xl" lang="de">
             <Art text={it.de ?? ""} />
           </p>
           {it.plural && (
-            <p className="font-serif text-muted" lang="de">
+            <p className="font-serif text-lg text-muted" lang="de">
               Plural: <Art text={it.plural} />
             </p>
           )}
@@ -73,11 +73,11 @@ function Reveal({ it }: { it: Item }) {
       )}
       {(it.kind === "verb" || it.kind === "adj") && (
         <>
-          <p className="font-serif text-xl" lang="de">
+          <p className="font-serif text-2xl" lang="de">
             {it.de}
           </p>
           {it.forms && (
-            <p className="font-serif text-muted" lang="de">
+            <p className="font-serif text-lg text-muted" lang="de">
               {it.forms}
             </p>
           )}
@@ -88,7 +88,7 @@ function Reveal({ it }: { it: Item }) {
           <p className="font-serif text-xl" lang="de">
             {(it.prompt ?? "").replace("___", it.answer ?? "")}
           </p>
-          <p className="text-muted">{it.en}</p>
+          <p className="text-base text-muted">{it.en}</p>
         </>
       )}
       {(it.kind === "gender" || it.kind === "plural") && (
@@ -96,25 +96,27 @@ function Reveal({ it }: { it: Item }) {
           <p className="font-serif text-xl" lang="de">
             {it.de}
           </p>
-          <p className="text-muted">{it.en}</p>
+          <p className="text-base text-muted">{it.en}</p>
         </>
       )}
-      {it.ipa && <p className="text-muted">{it.ipa}</p>}
+      {it.ipa && <p className="text-base text-muted">{it.ipa}</p>}
       {it.conjugation?.present && (
-        <p className="text-sm text-muted" lang="de">
+        <p className="text-base text-muted" lang="de">
           ich {it.conjugation.present[0]} · du {it.conjugation.present[1]} · er {it.conjugation.present[2]}
           <br />
           wir {it.conjugation.present[3]} · ihr {it.conjugation.present[4]} · sie {it.conjugation.present[5]}
         </p>
       )}
       {it.sentence_de && (
-        <p className="text-sm text-muted" lang="de">
+        <p className="font-serif text-lg" lang="de">
           <Art text={it.sentence_de} />
         </p>
       )}
-      {it.sentence_en && <p className="text-sm text-muted">{it.sentence_en}</p>}
-      {it.mnemonic && <p className="text-sm text-muted">{it.mnemonic}</p>}
-      {it.note && <p className="text-sm text-muted">{it.note}</p>}
+      {it.sentence_en && <p className="text-base text-muted">{it.sentence_en}</p>}
+      {it.mnemonic && (
+        <p className="border-l-2 border-line pl-3 text-base text-muted">{it.mnemonic}</p>
+      )}
+      {it.note && <p className="text-base text-muted">{it.note}</p>}
     </div>
   );
 }
@@ -145,6 +147,38 @@ export default function Study() {
       else study.startGroup(Number(lvl), g);
     }
   }, [deck, params, session, study]);
+
+  // Auto-play audio when a card's answer is revealed (lesson cards, or review
+  // feedback), if the learner enabled it in Settings.
+  const autoSpeak = progress.settings.autoSpeak && progress.settings.voice;
+  useEffect(() => {
+    if (!deck || !session || session.finished || !autoSpeak) return;
+    const isLesson = session.mode === "lesson";
+    const revealId = isLesson
+      ? session.queue[session.completed]
+      : session.phase === "fb"
+        ? session.queue[0]
+        : undefined;
+    const it = revealId ? deck.by[revealId] : undefined;
+    if (it) speak(speechText(it), { enabled: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session, deck, autoSpeak]);
+
+  // Keyboard: Esc stops the session; Backspace undoes the last answer in feedback.
+  useEffect(() => {
+    if (!session) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        study.stop();
+      } else if (e.key === "Backspace" && session.mode !== "lesson" && session.phase === "fb") {
+        e.preventDefault();
+        study.undo();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [session, study]);
 
   if (error) {
     return (
