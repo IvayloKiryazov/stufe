@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { NavLink, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes, useLocation } from "react-router-dom";
 import {
   BarChart3,
   BookOpen,
@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Button } from "./components/ui/button";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 import { cn } from "./lib/cn";
 import { useTheme, type Theme } from "./lib/theme";
 import { useProgress } from "./hooks/useProgress";
@@ -98,6 +99,7 @@ function ThemeToggle() {
 export default function App() {
   const [open, setOpen] = useState(false);
   const progress = useProgress();
+  const location = useLocation();
   const lang = progress.settings.language;
 
   useEffect(() => {
@@ -157,27 +159,29 @@ export default function App() {
           </div>
         </header>
         <main className="mx-auto w-full max-w-3xl flex-1 p-4 md:p-8">
-          <Suspense fallback={<p className="text-muted">Loading…</p>}>
-            <Routes>
-            <Route path="/" element={<Today />} />
-            <Route path="/study" element={<Study />} />
-            <Route path="/browse" element={<Browse />} />
-            <Route path="/grammar" element={<Grammar />} />
-            <Route path="/grammar/:level/:group" element={<Grammar />} />
-            <Route path="/reading" element={<Reading />} />
-            <Route path="/reading/:id" element={<Reading />} />
-            <Route path="/listening" element={<Listening />} />
-            <Route path="/pronunciation" element={<Pronunciation />} />
-            <Route path="/speaking" element={<Speaking />} />
-            <Route path="/writing" element={<Writing />} />
-            <Route path="/dictation" element={<Dictation />} />
-            <Route path="/translate" element={<Translate />} />
-            <Route path="/stats" element={<Stats />} />
-            <Route path="/credits" element={<Credits />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-          </Suspense>
+          <ErrorBoundary key={location.pathname}>
+            <Suspense fallback={<p className="text-muted">Loading…</p>}>
+              <Routes>
+                <Route path="/" element={<Today />} />
+                <Route path="/study" element={<Study />} />
+                <Route path="/browse" element={<Browse />} />
+                <Route path="/grammar" element={<Grammar />} />
+                <Route path="/grammar/:level/:group" element={<Grammar />} />
+                <Route path="/reading" element={<Reading />} />
+                <Route path="/reading/:id" element={<Reading />} />
+                <Route path="/listening" element={<Listening />} />
+                <Route path="/pronunciation" element={<Pronunciation />} />
+                <Route path="/speaking" element={<Speaking />} />
+                <Route path="/writing" element={<Writing />} />
+                <Route path="/dictation" element={<Dictation />} />
+                <Route path="/translate" element={<Translate />} />
+                <Route path="/stats" element={<Stats />} />
+                <Route path="/credits" element={<Credits />} />
+                <Route path="/help" element={<Help />} />
+                <Route path="/settings" element={<Settings />} />
+              </Routes>
+            </Suspense>
+          </ErrorBoundary>
         </main>
       </div>
 
