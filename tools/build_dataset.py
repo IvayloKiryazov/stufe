@@ -11,6 +11,7 @@ Enriches curated words with gender/plural (german-nouns) and a real example
 sentence (Tatoeba), then writes:
 
   data/items.json        flat array of every study item
+  data/items/<level>.json  the same items split per level (lazy-loaded by the app)
   data/levels.json       level -> group -> item-id structure
   data/attribution.json  credits for CC-BY sentences actually used
 """
@@ -282,6 +283,20 @@ def main() -> int:
     (data_dir / "levels.json").write_text(
         json.dumps(levels_out, ensure_ascii=False, indent=1), encoding="utf-8"
     )
+
+    # Per-level split so the app can load the deck on demand (issue #102).
+    items_dir = data_dir / "items"
+    items_dir.mkdir(exist_ok=True)
+    for stale in items_dir.glob("*.json"):
+        stale.unlink()
+    by_level: dict[str, list[dict]] = {lvl: [] for lvl in LEVEL_ORDER}
+    for it in items:
+        by_level.setdefault(it["level"], []).append(it)
+    for lvl, arr in by_level.items():
+        if arr:
+            (items_dir / f"{lvl}.json").write_text(
+                json.dumps(arr, ensure_ascii=False), encoding="utf-8"
+            )
     (data_dir / "attribution.json").write_text(
         json.dumps(sorted(used_attribution), ensure_ascii=False, indent=1),
         encoding="utf-8",

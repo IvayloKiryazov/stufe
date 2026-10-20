@@ -260,6 +260,7 @@ export default function Study() {
 
   const isLesson = session.mode === "lesson";
   const it = isLesson ? deck.by[session.queue[session.completed]] : deck.by[session.queue[0]];
+  if (!it) return <p className="text-muted">Loading…</p>;
   const pos = isLesson ? session.completed + 1 : session.completed;
   const fb = !isLesson && session.phase === "fb";
   const stage = fb && session.lastId ? store.state.p[session.lastId] : undefined;

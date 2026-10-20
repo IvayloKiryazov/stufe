@@ -107,7 +107,8 @@ roadmap).
 
 | File | Contents |
 | --- | --- |
-| `items.json` | flat array of every study item |
+| `items.json` | flat array of every study item (canonical, for validation) |
+| `items/<level>.json` | the same items split per level; the app loads these on demand |
 | `levels.json` | level → group → item-id structure |
 | `reading.json` | reading passages |
 | `attribution.json` | per-sentence Tatoeba credits |

@@ -61,10 +61,12 @@ through the `store` object (`grade`, `setEntry`, `suspend`, `markKnown`, `log`,
 
 ### Data loading
 
-`lib/data.ts` fetches `data/levels.json`, `data/items.json` and
-`data/reading.json` (cached in memory). `scripts/sync-data.mjs` copies the
-generated `data/*.json` into `web/public/data/` before `dev`/`build`, so the
-build carries the deck. `useDeck()` exposes `{ levels, by, reading }`.
+`lib/data.ts` loads `data/levels.json` and `data/reading.json` eagerly, then
+streams the deck per level from `data/items/<level>.json` (see #102). `by` grows
+as levels arrive and `subscribeDeck` notifies `useDeck()`, which exposes
+`{ levels, by, reading }`. `scripts/sync-data.mjs` copies an **allowlist** of the
+generated files into `web/public/data/` before `dev`/`build`, so build-time
+inputs (the frequency deck, a personal Anki import) never ship to the client.
 
 ### Routing
 

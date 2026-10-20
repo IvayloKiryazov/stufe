@@ -67,24 +67,60 @@ export interface Deck {
   reading: Reading[];
 }
 
-const cache = new Map<string, unknown>();
+const by: Record<string, Item> = {};
+const loadedLevels = new Set<string>();
+const inFlight = new Map<string, Promise<void>>();
+const listeners = new Set<() => void>();
 
-async function load<T>(name: string): Promise<T> {
-  if (cache.has(name)) return cache.get(name) as T;
-  const res = await fetch(`data/${name}`);
-  if (!res.ok) throw new Error(`${name} (${res.status})`);
-  const json = (await res.json()) as T;
-  cache.set(name, json);
-  return json;
+/** Subscribe to deck growth (items arriving per level). Returns an unsubscribe. */
+export function subscribeDeck(listener: () => void): () => void {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
 }
 
-export const loadLevels = () => load<Level[]>("levels.json");
-export const loadItems = () => load<Item[]>("items.json");
-export const loadReading = () => load<Reading[]>("reading.json").catch(() => [] as Reading[]);
+function emit() {
+  for (const l of listeners) l();
+}
 
+async function fetchJson<T>(url: string): Promise<T> {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`${url} (${res.status})`);
+  return (await res.json()) as T;
+}
+
+/**
+ * Load one level's items into the shared index. Idempotent and safe to call
+ * repeatedly; concurrent calls share a single request. Emits on completion.
+ */
+export function ensureLevel(levelId: string): Promise<void> {
+  if (loadedLevels.has(levelId)) return Promise.resolve();
+  const pending = inFlight.get(levelId);
+  if (pending) return pending;
+  const p = fetchJson<Item[]>(`data/items/${levelId}.json`)
+    .then((items) => {
+      for (const it of items) by[it.id] = it;
+      loadedLevels.add(levelId);
+      emit();
+    })
+    .finally(() => {
+      inFlight.delete(levelId);
+    });
+  inFlight.set(levelId, p);
+  return p;
+}
+
+export const loadedLevelCount = () => loadedLevels.size;
+
+/**
+ * Load the level index and reading passages, then stream the per-level item
+ * files in the background so the first screen paints without the whole deck.
+ * Cross-level screens fill in as `by` grows (see `subscribeDeck`).
+ */
 export async function loadDeck(): Promise<Deck> {
-  const [levels, items, reading] = await Promise.all([loadLevels(), loadItems(), loadReading()]);
-  const by: Record<string, Item> = {};
-  for (const i of items) by[i.id] = i;
+  const [levels, reading] = await Promise.all([
+    fetchJson<Level[]>("data/levels.json"),
+    fetchJson<Reading[]>("data/reading.json").catch(() => [] as Reading[]),
+  ]);
+  for (const L of levels) void ensureLevel(L.id).catch(() => {});
   return { levels, by, reading };
 }
