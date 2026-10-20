@@ -19,3 +19,38 @@ describe("store leech auto-suspend", () => {
     expect(store.state.p["y"].suspended).toBeFalsy();
   });
 });
+
+describe("store export/import", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    store.reset();
+  });
+
+  it("round-trips progress, history and settings", () => {
+    store.grade("a", true);
+    store.setSettings({ language: "de", autoSpeak: true });
+    store.log("reviews", 3);
+
+    const dump = store.export();
+    store.reset();
+    expect(Object.keys(store.state.p)).toHaveLength(0);
+
+    store.import(dump);
+    expect(store.state.p["a"]).toBeTruthy();
+    expect(store.state.settings.language).toBe("de");
+    expect(store.state.settings.autoSpeak).toBe(true);
+    expect(Object.keys(store.state.history).length).toBeGreaterThan(0);
+  });
+
+  it("fills missing settings from defaults on import", () => {
+    store.import(JSON.stringify({ p: {}, history: {} }));
+    expect(store.state.settings.newPerLesson).toBe(5);
+    expect(store.state.settings.language).toBe("en");
+  });
+
+  it("throws on malformed input and leaves state untouched", () => {
+    store.grade("b", true);
+    expect(() => store.import("not json")).toThrow();
+    expect(store.state.p["b"]).toBeTruthy();
+  });
+});
