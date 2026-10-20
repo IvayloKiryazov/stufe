@@ -143,7 +143,12 @@ python3 build_dataset.py      # -> data/items.json, levels.json, reading.json, a
 
 `build_dataset.py` always merges `data/vocab_frequency.json` and
 `data/vocab_personal.json` when present. Re-run it after any `content/` edit and
-commit the regenerated `data/`.
+commit the regenerated `data/`. It writes the canonical `data/items.json` and
+the same items split per level under `data/items/<level>.json` (loaded on demand
+by the app); `tools/verify_dataset.py` checks the two agree.
+
+Upstream sources are pinned by URL + sha256 in `tools/sources.lock.json`, so a
+rebuild is reproducible (`fetch_*.py --check` verifies `data/raw/`).
 
 ## Licensing
 

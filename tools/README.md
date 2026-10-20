@@ -8,10 +8,18 @@ loads from `data/`. Standard library only — Python 3.10+.
 ```bash
 cd tools
 python3 fetch_sources.py     # ~30 MB into data/raw/ (gitignored)
-python3 build_dataset.py     # -> data/items.json, data/levels.json, data/attribution.json
+python3 build_dataset.py     # -> data/items.json, data/items/<level>.json, data/levels.json, data/attribution.json
 ```
 
 `fetch_sources.py` skips files that already exist; pass `--force` to refresh.
+Downloads are checked against `sources.lock.json`; run
+`python3 fetch_sources.py --check` (and `fetch_kaikki.py --check`) to verify the
+local `data/raw/` without downloading.
+
+`build_dataset.py` writes the canonical flat `data/items.json` **and** the same
+items split per level under `data/items/<level>.json` (the app loads those on
+demand). `python3 verify_dataset.py` checks the split is consistent with
+`items.json`; CI runs it.
 
 ## Frequency deck (POS-aware)
 
@@ -44,6 +52,9 @@ mapping is inferred from the note type's field names (Word, Definition 1,
 German 1, English 1, IPA, Rank); use `--level` to force a CEFR level.
 
 ## Sources
+
+Pinned in `sources.lock.json` (URL + license + sha256) for reproducibility
+(#103). A rebuild either reproduces the deck or fails when upstream changed.
 
 | File | Upstream | License |
 | --- | --- | --- |

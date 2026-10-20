@@ -1,0 +1,29 @@
+{
+  "_comment": "Pinned upstream data sources for a reproducible deck (issue #103). The sha256 is the hash of the file as used by the pipeline (for deu.txt this is the extracted text, not the zip). fetch_*.py verify downloads against this lock; run `python3 fetch_sources.py --check` to verify the local data/raw/.",
+  "sources": {
+    "frequency.txt": {
+      "url": "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/de/de_full.txt",
+      "license": "MIT",
+      "sha256": "a5fc13f4efaaf70fd9226d11295fd3cd4c2264852ee1fad22c0abaf64acec8dc",
+      "bytes": 17479451
+    },
+    "nouns.csv": {
+      "url": "https://raw.githubusercontent.com/gambolputty/german-nouns/main/german_nouns/nouns.csv",
+      "license": "CC BY-SA 4.0",
+      "sha256": "7b34ca76bb753fa5d3d2b683ecc987824ae874b375ac999a797074fafba2768e",
+      "bytes": 20194356
+    },
+    "deu.txt": {
+      "url": "https://www.manythings.org/anki/deu-eng.zip",
+      "license": "CC BY 2.0 FR",
+      "sha256": "298229a6e518b046391ee558678032e78d30364366fd511ff1b481269b8bc380",
+      "bytes": 51760397
+    },
+    "kaikki-de.jsonl": {
+      "url": "https://kaikki.org/dictionary/German/kaikki.org-dictionary-German.jsonl",
+      "license": "CC BY-SA 4.0",
+      "sha256": "d7ae58be5479ebf607bb9f714e74d796f4df3e8b558478d8e9c7710c55510394",
+      "bytes": 1085014820
+    }
+  }
+}

@@ -20,20 +20,18 @@ import urllib.request
 import zipfile
 from pathlib import Path
 
+from sources import load_lock, verify
+
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
 
 UA = "Mozilla/5.0 (compatible; stufe-pipeline/1.0; +https://github.com/)"
 
-FREQUENCY_URL = (
-    "https://raw.githubusercontent.com/hermitdave/FrequencyWords/"
-    "master/content/2018/de/de_full.txt"
-)
-NOUNS_URL = (
-    "https://raw.githubusercontent.com/gambolputty/german-nouns/"
-    "main/german_nouns/nouns.csv"
-)
-SENTENCES_URL = "https://www.manythings.org/anki/deu-eng.zip"
+# URLs are pinned in sources.lock.json (issue #103).
+LOCK = load_lock()
+FREQUENCY_URL = LOCK["frequency.txt"]["url"]
+NOUNS_URL = LOCK["nouns.csv"]["url"]
+SENTENCES_URL = LOCK["deu.txt"]["url"]
 
 
 def download(url: str, dest: Path, force: bool) -> None:
@@ -67,13 +65,23 @@ def fetch_sentences(force: bool) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--force", action="store_true", help="re-download existing files")
+    ap.add_argument("--check", action="store_true", help="verify data/raw/ against the lock, no download")
     args = ap.parse_args()
+
+    names = ["frequency.txt", "nouns.csv", "deu.txt"]
+    if args.check:
+        print("Verifying data/raw/ against sources.lock.json:")
+        return 0 if all(verify(RAW / n, n, LOCK) for n in names) else 1
 
     RAW.mkdir(parents=True, exist_ok=True)
     print("Fetching sources into", RAW)
     download(FREQUENCY_URL, RAW / "frequency.txt", args.force)
     download(NOUNS_URL, RAW / "nouns.csv", args.force)
     fetch_sentences(args.force)
+    print("Verifying against sources.lock.json:")
+    if not all(verify(RAW / n, n, LOCK) for n in names):
+        print("ERROR: a source does not match the lock (upstream changed?).", file=sys.stderr)
+        return 1
     print("Done.")
     return 0
 
