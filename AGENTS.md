@@ -2,6 +2,9 @@
 
 Guidance for AI agents (and humans) working on this project. Read this first.
 
+**Starting fresh? Read [`HANDOFF.md`](HANDOFF.md) first** — current state, how to
+push upstream, the remaining work (issue map) and the lessons learned.
+
 ## What this is
 
 Stufe is a spaced-repetition trainer for German (a WaniKani + Bunpro analogue):
@@ -129,3 +132,20 @@ artifacts afterwards.
 - Keep `TASKS.md` and `documentation/` in sync when behaviour changes.
 - One logical change per commit; include the regenerated `data/` when content
   changes.
+
+## Lessons learned (hard-won)
+
+- **"It renders" is not "it works".** Render/a11y tests passed while real bugs
+  hid (listening radios, reminders toggle, order-blind similarity, a dead
+  `autoSpeak` setting). Write **interaction** tests.
+- **axe catches real bugs** (unnamed progress bars, misused Radix Tabs →
+  dangling `aria-controls`, heading order, contrast). Keep the a11y suite green.
+- **Frequency ≠ meaning.** The auto deck takes the first usable Wiktionary
+  sense; filter meta-glosses (`inflection of …`) and expect curated overrides.
+- **Mnemonics must earn their place** — a "just memorise" fallback is noise.
+- **Heuristics need negative tests**: sentence-initial homographs, German noun
+  capitalisation, plural-only nouns, gender in `genus 1`.
+- **Service workers go stale** — network-first (as now) or bump the cache each
+  deploy.
+- Be explicit about **done vs partial vs unverified**; never over-claim.
+- See [`HANDOFF.md`](HANDOFF.md) §5 for the prioritised remaining work.
