@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import type { Deck } from "../lib/data";
 import { judge } from "../lib/judge";
-import { availableIds, dueIds } from "../lib/selectors";
+import { availableIds, dueIds, upcomingIds } from "../lib/selectors";
 import { shuffle } from "../lib/shuffle";
 import type { Entry } from "../lib/srsCore";
 import { store } from "../lib/store";
@@ -96,6 +96,16 @@ export function useStudy(deck: Deck | null) {
 
   const stop = useCallback(() => setSession(null), []);
 
+  /** Study items that are due later (ahead of schedule). Grades count. */
+  const startAhead = useCallback(
+    (withinMs?: number) => {
+      if (!deck) return;
+      const ids = upcomingIds(deck, store.state, Date.now(), withinMs);
+      if (ids.length) setSession(mk("review", ids));
+    },
+    [deck],
+  );
+
   /* Finish the current card and end the session (no new cards pulled in). */
   const wrapUp = useCallback(() => {
     if (!session) return;
@@ -175,6 +185,7 @@ export function useStudy(deck: Deck | null) {
   );
   const suspendCurrent = useCallback(() => drop((id) => store.suspend(id)), [drop]);
   const knowCurrent = useCallback(() => drop((id) => store.markKnown(id)), [drop]);
+  const resetCurrent = useCallback(() => drop((id) => store.resetItem(id)), [drop]);
 
   const lessonNext = useCallback(() => {
     if (!session || !deck) return;
@@ -194,6 +205,7 @@ export function useStudy(deck: Deck | null) {
     startGroup,
     startGroupPractice,
     startReviews,
+    startAhead,
     lessonNext,
     submit,
     next,
@@ -201,6 +213,7 @@ export function useStudy(deck: Deck | null) {
     undo,
     suspendCurrent,
     knowCurrent,
+    resetCurrent,
     stop,
     wrapUp,
   };

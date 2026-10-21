@@ -54,3 +54,25 @@ describe("store export/import", () => {
     expect(store.state.p["b"]).toBeTruthy();
   });
 });
+
+describe("store reschedule / reset", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    store.reset();
+  });
+
+  it("reschedules an item to a given due time", () => {
+    store.grade("a", true);
+    store.reschedule("a", 12345);
+    expect(store.state.p["a"].due).toBe(12345);
+  });
+
+  it("resets an item to box 1 due now with lapses cleared", () => {
+    for (let i = 0; i < 3; i++) store.grade("a", false);
+    store.resetItem("a");
+    const e = store.state.p["a"];
+    expect(e.box).toBe(1);
+    expect(e.lapses).toBe(0);
+    expect(e.due).toBeLessThanOrEqual(Date.now());
+  });
+});

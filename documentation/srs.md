@@ -47,7 +47,9 @@ interface Entry { box; due; lapses?; reps?; last?; hist?: number[];
 
 **Vacation mode** (setting) pauses new lessons. **Wrap up** ends a session after
 the current card. A **14-day review forecast** is shown on the Stats screen, and
-burned items can be studied from Extra study.
+burned items can be studied from Extra study. **Study ahead** reviews items due
+later (next 24h) and still counts; an item's schedule can be **reset** (back to
+box 1, due now) from the feedback actions (#77).
 
 ## A study session (`useStudy`)
 
@@ -63,7 +65,8 @@ Modes: **lesson**, **review**, **practice**.
   changes the schedule**.
 
 Feedback actions: **Undo** (restore the previous entry), **Suspend**,
-**I know this**, and **I was right (typo)** for a wrong answer.
+**I know this**, **Reset** (schedule to box 1, due now), and
+**I was right (typo)** for a wrong answer.
 
 ## Judging answers
 

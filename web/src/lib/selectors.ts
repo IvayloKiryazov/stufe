@@ -30,6 +30,16 @@ export function dueIds(deck: Deck, p: Progress, now = Date.now()): string[] {
   return Object.keys(p.p).filter((id) => deck.by[id] && isActive(p.p[id]) && p.p[id].due <= now);
 }
 
+/**
+ * Active items due within the next `withinMs` (default 24h), soonest first.
+ * Used to "study ahead" of schedule (issue #77).
+ */
+export function upcomingIds(deck: Deck, p: Progress, now = Date.now(), withinMs = 86400e3): string[] {
+  return Object.keys(p.p)
+    .filter((id) => deck.by[id] && isActive(p.p[id]) && p.p[id].due > now && p.p[id].due <= now + withinMs)
+    .sort((a, b) => p.p[a].due - p.p[b].due);
+}
+
 export function newAvailableCount(deck: Deck, p: Progress): number {
   if (p.settings.vacation) return 0;
   let n = 0;

@@ -11,7 +11,7 @@ import { useProgress } from "../hooks/useProgress";
 import { useStudy } from "../hooks/useStudy";
 import type { Item } from "../lib/data";
 import { speechText } from "../lib/judge";
-import { dueIds } from "../lib/selectors";
+import { dueIds, upcomingIds } from "../lib/selectors";
 import { passed } from "../lib/srsCore";
 import { shuffle } from "../lib/shuffle";
 import { stageName } from "../lib/stages";
@@ -192,6 +192,7 @@ export default function Study() {
 
   if (!session) {
     const due = dueIds(deck, progress).length;
+    const ahead = upcomingIds(deck, progress).length;
     const leeches = Object.keys(progress.p)
       .filter((id) => deck.by[id] && (progress.p[id].lapses ?? 0) > 0)
       .sort((a, b) => (progress.p[b].lapses ?? 0) - (progress.p[a].lapses ?? 0))
@@ -235,6 +236,15 @@ export default function Study() {
                 Any learned
               </Button>
             </div>
+          </Card>
+          <Card className="sm:col-span-2">
+            <CardTitle>Study ahead</CardTitle>
+            <p className="mb-3 text-sm text-muted">
+              {ahead} item{ahead === 1 ? "" : "s"} due in the next 24 hours. Reviewing now still counts.
+            </p>
+            <Button variant="outline" disabled={!ahead} onClick={() => study.startAhead()}>
+              Study ahead ({ahead})
+            </Button>
           </Card>
         </div>
       </div>
@@ -369,6 +379,9 @@ export default function Study() {
                   </Button>
                   <Button variant="ghost" size="sm" onClick={study.knowCurrent}>
                     I know this
+                  </Button>
+                  <Button variant="ghost" size="sm" onClick={study.resetCurrent}>
+                    Reset
                   </Button>
                   {!session.last?.ok && (
                     <Button variant="link" size="sm" onClick={study.override}>

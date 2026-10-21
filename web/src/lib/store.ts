@@ -1,4 +1,4 @@
-import { applyGrade, isActive, markKnown as srsMarkKnown, resume as srsResume, suspend as srsSuspend, LEECH_THRESHOLD, type Entry } from "./srsCore";
+import { applyGrade, isActive, markKnown as srsMarkKnown, resetEntry, resume as srsResume, suspend as srsSuspend, LEECH_THRESHOLD, type Entry } from "./srsCore";
 import { bump, type History } from "./stats";
 
 export interface Settings {
@@ -104,6 +104,16 @@ export const store = {
   markKnown(id: string) {
     const e = state.p[id] ?? { box: 0, due: 0 };
     commit({ ...state, p: { ...state.p, [id]: srsMarkKnown(e) } });
+  },
+  /** Manually reschedule an item (set its due timestamp). */
+  reschedule(id: string, due: number) {
+    const e = state.p[id];
+    if (e) commit({ ...state, p: { ...state.p, [id]: { ...e, due } } });
+  },
+  /** Reset an item's schedule (box 1, due now, lapses cleared). */
+  resetItem(id: string) {
+    const e = state.p[id];
+    if (e) commit({ ...state, p: { ...state.p, [id]: resetEntry(e, Date.now()) } });
   },
   isActive(id: string) {
     return isActive(state.p[id]);

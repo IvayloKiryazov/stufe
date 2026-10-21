@@ -49,6 +49,19 @@ export function resume(e: Entry): Entry {
 export function markKnown(e: Entry): Entry {
   return { ...e, known: true, suspended: false, box: 7 };
 }
+/** Reset an item's schedule: back to box 1, due now, lapses cleared. */
+export function resetEntry(e: Entry, now: number): Entry {
+  return {
+    box: 1,
+    due: now,
+    lapses: 0,
+    reps: e.reps ?? 0,
+    last: now,
+    hist: e.hist ?? [],
+    suspended: false,
+    known: false,
+  };
+}
 export function passed(e?: Entry | null): boolean {
   return !!e && e.box >= PASS_BOX;
 }
