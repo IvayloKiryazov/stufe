@@ -51,6 +51,16 @@ class DatasetTest(unittest.TestCase):
             self.assertTrue(i.get("groupName"), i["id"])
             self.assertIn(i["kind"], {"noun", "verb", "adj", "cloze", "gender", "plural"}, i["id"])
 
+    def test_every_noun_has_gender_and_plural_tracks(self):
+        # #78: each noun with an article/plural also has its own drill cards.
+        nouns = [i for i in self.items if i["kind"] == "noun"]
+        gender_de = {i["de"] for i in self.items if i["kind"] == "gender"}
+        plural_prompt = {i["prompt"] for i in self.items if i["kind"] == "plural"}
+        for n in nouns:
+            self.assertIn(n["de"], gender_de, n["id"])
+            if n.get("plural"):
+                self.assertIn(n["de"], plural_prompt, n["id"])
+
 
 if __name__ == "__main__":
     unittest.main()

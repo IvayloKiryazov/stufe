@@ -231,6 +231,7 @@ def main() -> int:
             continue
         extra_items = json.loads(extra_path.read_text(encoding="utf-8"))
         groups: dict[str, dict] = {}
+        tracks = 0
         for it in extra_items:
             gid = it["group"]
             if gid not in groups:
@@ -241,7 +242,59 @@ def main() -> int:
             items.append(it)
             if it.get("attribution"):
                 used_attribution.add(it["attribution"])
-        print(f"{extra}: {len(extra_items):,} items")
+
+            # separate SRS tracks for every noun with a known article/plural (#78)
+            if it.get("kind") == "noun":
+                parts = (it.get("de") or "").split(" ", 1)
+                if len(parts) == 2 and parts[0] in ("der", "die", "das"):
+                    article, word = parts[0], parts[1]
+                    level, en = it["level"], it.get("en", "")
+                    gg = ensure_group(
+                        level,
+                        f"{level}-core-gender",
+                        "Core nouns: gender",
+                        "gender",
+                        "Type the article (der/die/das) for each core noun.",
+                    )
+                    gg["items"].append(f"{it['id']}-gender")
+                    items.append(
+                        {
+                            "id": f"{it['id']}-gender",
+                            "level": level,
+                            "group": gg["id"],
+                            "groupName": gg["name"],
+                            "kind": "gender",
+                            "prompt": word,
+                            "answer": article,
+                            "de": it["de"],
+                            "en": en,
+                        }
+                    )
+                    tracks += 1
+                    if it.get("plural"):
+                        pg = ensure_group(
+                            level,
+                            f"{level}-core-plural",
+                            "Core nouns: plural",
+                            "plural",
+                            "Type the plural form (with its article) for each core noun.",
+                        )
+                        pg["items"].append(f"{it['id']}-plural")
+                        items.append(
+                            {
+                                "id": f"{it['id']}-plural",
+                                "level": level,
+                                "group": pg["id"],
+                                "groupName": pg["name"],
+                                "kind": "plural",
+                                "prompt": it["de"],
+                                "answer": it["plural"],
+                                "de": it["plural"],
+                                "en": en,
+                            }
+                        )
+                        tracks += 1
+        print(f"{extra}: {len(extra_items):,} items, +{tracks:,} gender/plural tracks")
 
     # --- gender mnemonics for every noun ----------------------------------
     for it in items:

@@ -27,6 +27,8 @@ the built `docs/`.
 - #49 leech auto-suspend, vacation mode, 14-day forecast, wrap-up, burned study
 - #50 separate SRS tracks for **gender** and **plural** (case drills remain)
 - #51 course-first path (linear A1–B1) in Browse; frequency deck behind a tab
+- #78 the gender/plural tracks now cover the **whole** noun deck (auto nouns
+  too), not just curated ones
 
 ## Phase 4 — Modalities (DONE)
 

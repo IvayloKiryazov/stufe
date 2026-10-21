@@ -92,11 +92,13 @@ dates and review load (`reviews/day ≈ newPerDay × 7`).
 
 ## Separate tracks (gender / plural)
 
-Curated nouns also generate two extra SRS items (kinds `gender` and `plural`):
-type the article for a bare noun, or type the plural form. This mirrors
-WaniKani's meaning-vs-reading split — the same noun is drilled as vocabulary, as
-gender, and as plural, each on its own schedule. Case drills remain a future
-item.
+Every noun in the deck also generates two extra SRS items (kinds `gender` and
+`plural`): type the article for a bare noun, or type the plural form. This
+mirrors WaniKani's meaning-vs-reading split — the same noun is drilled as
+vocabulary, as gender, and as plural, each on its own schedule. Curated nouns
+and the frequency deck both do this; the auto deck's tracks live in
+`Core nouns: gender` / `Core nouns: plural` groups (issue #78). Case drills
+remain a future item.
 
 ## Known gaps (roadmap)
 
