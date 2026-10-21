@@ -26,6 +26,7 @@ function labelFor(it: Item): string {
   if (it.kind === "adj") return "Adjective";
   if (it.kind === "gender") return "Article (der/die/das)";
   if (it.kind === "plural") return "Plural form";
+  if (it.kind === "case") return "Article (case)";
   return "Fill in the blank";
 }
 
@@ -47,6 +48,13 @@ function Prompt({ it }: { it: Item }) {
     );
   }
   if (it.kind === "gender" || it.kind === "plural") {
+    return (
+      <p className="font-serif text-2xl" lang="de">
+        {it.prompt}
+      </p>
+    );
+  }
+  if (it.kind === "case") {
     return (
       <p className="font-serif text-2xl" lang="de">
         {it.prompt}
@@ -91,7 +99,7 @@ function Reveal({ it }: { it: Item }) {
           <p className="text-base text-muted">{it.en}</p>
         </>
       )}
-      {(it.kind === "gender" || it.kind === "plural") && (
+      {(it.kind === "gender" || it.kind === "plural" || it.kind === "case") && (
         <>
           <p className="font-serif text-xl" lang="de">
             {it.de}

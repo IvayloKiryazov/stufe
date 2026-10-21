@@ -100,8 +100,9 @@ Every noun in the deck also generates two extra SRS items (kinds `gender` and
 mirrors WaniKani's meaning-vs-reading split — the same noun is drilled as
 vocabulary, as gender, and as plural, each on its own schedule. Curated nouns
 and the frequency deck both do this; the auto deck's tracks live in
-`Core nouns: gender` / `Core nouns: plural` groups (issue #78). Case drills
-remain a future item.
+`Core nouns: gender` / `Core nouns: plural` groups (issue #78). Curated nouns
+also get a **case track** (`case` kind): type the definite article in the
+accusative, dative or genitive (issue #79).
 
 ## Known gaps (roadmap)
 

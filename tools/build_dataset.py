@@ -36,6 +36,14 @@ LEVEL_META = {
     "c2": "Mastery",
 }
 
+# definite-article forms per case for the case drill track (#79)
+CASE_LABELS = {"akk": "Akkusativ", "dat": "Dativ", "gen": "Genitiv"}
+CASE_FORMS = {
+    "der": {"akk": "den", "dat": "dem", "gen": "des"},
+    "die": {"akk": "die", "dat": "der", "gen": "der"},
+    "das": {"akk": "das", "dat": "dem", "gen": "des"},
+}
+
 
 def slug(text: str) -> str:
     text = text.lower()
@@ -138,6 +146,33 @@ def main() -> int:
                     }
                     gg["items"].append(gitem["id"])
                     items.append(gitem)
+                # separate SRS track: definite-article case forms (#79)
+                if article and article in CASE_FORMS:
+                    cg = ensure_group(
+                        level,
+                        f"{level}-case",
+                        "Case forms",
+                        "case",
+                        "Type the definite article in the given case (Akkusativ, Dativ, Genitiv).",
+                    )
+                    for case_key, case_label in CASE_LABELS.items():
+                        form = CASE_FORMS[article][case_key]
+                        cid = f"{level}-case-{slug(word)}-{case_key}"
+                        cg["items"].append(cid)
+                        items.append(
+                            {
+                                "id": cid,
+                                "level": level,
+                                "group": cg["id"],
+                                "groupName": cg["name"],
+                                "kind": "case",
+                                "prompt": f"{article} {word} — {case_label}",
+                                "answer": form,
+                                "de": form,
+                                "en": english,
+                                "note": grp.get("notes", {}).get(word, ""),
+                            }
+                        )
                 if plural:
                     pg = ensure_group(
                         level,

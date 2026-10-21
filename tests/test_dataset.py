@@ -49,7 +49,17 @@ class DatasetTest(unittest.TestCase):
             self.assertTrue(i.get("level"), i["id"])
             self.assertTrue(i.get("group"), i["id"])
             self.assertTrue(i.get("groupName"), i["id"])
-            self.assertIn(i["kind"], {"noun", "verb", "adj", "cloze", "gender", "plural"}, i["id"])
+            self.assertIn(i["kind"], {"noun", "verb", "adj", "cloze", "gender", "plural", "case"}, i["id"])
+
+    def test_case_items_are_valid(self):
+        # #79: definite-article case drill track.
+        cases = [i for i in self.items if i["kind"] == "case"]
+        self.assertTrue(cases, "no case items generated")
+        for i in cases:
+            self.assertIn(i["answer"], {"den", "dem", "des", "die", "der", "das"}, i["id"])
+            self.assertTrue(
+                any(label in i["prompt"] for label in ("Akkusativ", "Dativ", "Genitiv")), i["id"]
+            )
 
     def test_every_noun_has_gender_and_plural_tracks(self):
         # #78: each noun with an article/plural also has its own drill cards.

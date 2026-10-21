@@ -8,7 +8,7 @@ export function norm(s: string): string {
 }
 
 export function judge(item: Item, given: string): { ok: boolean; msg: string } {
-  const typed = item.kind === "cloze" || item.kind === "gender" || item.kind === "plural";
+  const typed = item.kind === "cloze" || item.kind === "gender" || item.kind === "plural" || item.kind === "case";
   const expected = typed ? [item.answer ?? "", ...(item.alt ?? [])] : [item.de ?? ""];
   const g = norm(given);
   const ok = g !== "" && expected.some((e) => norm(e) === g);

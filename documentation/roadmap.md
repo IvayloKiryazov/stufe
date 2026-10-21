@@ -31,6 +31,8 @@ the built `docs/`.
   too), not just curated ones
 - #80 the whole verb deck (1,433 verbs) now carries Wiktionary conjugation
   tables, not just the curated ones
+- #79 a **case track** (accusative/dative/genitive article forms) for the
+  curated nouns
 
 ## Phase 4 — Modalities (DONE)
 
