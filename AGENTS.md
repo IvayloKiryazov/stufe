@@ -5,6 +5,30 @@ Guidance for AI agents (and humans) working on this project. Read this first.
 **Starting fresh? Read [`HANDOFF.md`](HANDOFF.md) first** — current state, how to
 push upstream, the remaining work (issue map) and the lessons learned.
 
+## North star: Bunpro + WaniKani
+
+**Bunpro and WaniKani are the reference implementations.** When a design choice
+is unclear, do what they do, and check this section before inventing anything.
+
+- **SRS is fixed-interval and staged** (Apprentice → Guru → Master →
+  Enlightened → Burned). It is **not** adaptive. Do **not** add SM-2 or FSRS:
+  Bunpro explicitly rejected FSRS ("we think of Bunpro as an immersion tool
+  disguised as an SRS"; optimising intervals is not the point). See
+  `documentation/srs.md`.
+- **Reviews are cloze-driven and varied.** Bunpro's "secret" is forcing you to
+  read the language in *new and varying contexts* — multiple example sentences
+  per item, fill-in-the-blank — not repeating one static card. WaniKani splits
+  an item into meaning vs reading (we do the analogous gender/plural/case
+  tracks). Prefer richer, changing context over more schedule tuning.
+- **Decks follow CEFR levels** (Bunpro's model), with the possibility of custom
+  decks assembled from topics later.
+- **"Difficulty" is automatic** — derived from performance (SRS stage + leeches/
+  ghosts), never a manual Anki-style rating.
+- **Ghosts / leeches**: Bunpro re-serves sentences you got wrong as extra
+  "ghost" reviews; WaniKani auto-flags "leeches". We already auto-suspend
+  leeches and offer Extra study.
+- **Burned items** leave the queue; Extra study lets you re-drill them.
+
 ## What this is
 
 Stufe is a spaced-repetition trainer for German (a WaniKani + Bunpro analogue):
