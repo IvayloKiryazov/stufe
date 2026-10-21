@@ -11,6 +11,12 @@ python3 fetch_sources.py     # ~30 MB into data/raw/ (gitignored)
 python3 build_dataset.py     # -> data/items.json, data/items/<level>.json, data/levels.json, data/attribution.json
 ```
 
+`build_dataset.py` merges optional generated inputs when present:
+`data/conjugations.json`, `data/ipa.json` and `data/vocab_frequency.json`.
+Rebuild them from kaikki with `python3 build_conjugations.py` (curated + deck
+verbs), `python3 build_ipa.py` (curated IPA, issue #81) and
+`python3 build_frequency.py` (the frequency deck).
+
 `fetch_sources.py` skips files that already exist; pass `--force` to refresh.
 Downloads are checked against `sources.lock.json`; run
 `python3 fetch_sources.py --check` (and `fetch_kaikki.py --check`) to verify the

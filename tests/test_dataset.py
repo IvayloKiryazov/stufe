@@ -79,6 +79,17 @@ class DatasetTest(unittest.TestCase):
         for i in verbs:
             self.assertEqual(len(i["conjugation"]["present"]), 6, i["id"])
 
+    def test_curated_vocab_has_ipa(self):
+        # #81: curated vocab now gets IPA from Wiktionary (a couple of words
+        # genuinely have no IPA in the extract).
+        curated = [
+            i
+            for i in self.items
+            if not i["id"].startswith("freq-") and i["kind"] in ("noun", "verb", "adj")
+        ]
+        missing = [i["id"] for i in curated if not i.get("ipa")]
+        self.assertLessEqual(len(missing), 5, missing)
+
 
 if __name__ == "__main__":
     unittest.main()

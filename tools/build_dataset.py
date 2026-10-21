@@ -349,6 +349,21 @@ def main() -> int:
     if conj_attached:
         print(f"conjugations attached to {conj_attached:,} deck verbs")
 
+    # --- backfill missing IPA from the Wiktionary extract (#81) -----------
+    ipa_path = ROOT / "data" / "ipa.json"
+    if ipa_path.exists():
+        ipa_map = json.loads(ipa_path.read_text(encoding="utf-8"))
+        filled = 0
+        for it in items:
+            if it.get("kind") in ("noun", "verb", "adj") and not it.get("ipa"):
+                de = it.get("de") or ""
+                word = de.split(" ", 1)[1] if (it["kind"] == "noun" and " " in de) else de
+                base = word.replace("sich ", "").strip()
+                if base in ipa_map:
+                    it["ipa"] = ipa_map[base]
+                    filled += 1
+        print(f"IPA backfilled for {filled:,} items")
+
     # --- curated overrides (id -> partial item) ---------------------------
     overrides_path = ROOT / "content" / "overrides.json"
     if overrides_path.exists():

@@ -21,6 +21,8 @@ the built `docs/`.
 - #46–#48 auto deck: meta-gloss filtering + sampled review (300 items) +
   `content/overrides.json`. Residual: sense selection for polysemous words is
   still heuristic — full per-item verification is a standing task.
+- #81 curated vocabulary now carries IPA from Wiktionary (the auto deck already
+  did); `tools/build_ipa.py` builds the map.
 
 ## Phase 3 — SRS depth & curriculum (DONE)
 
