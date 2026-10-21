@@ -104,7 +104,10 @@ vocabulary, as gender, and as plural, each on its own schedule. Curated nouns
 and the frequency deck both do this; the auto deck's tracks live in
 `Core nouns: gender` / `Core nouns: plural` groups (issue #78). Curated nouns
 also get a **case track** (`case` kind): type the definite article in the
-accusative, dative or genitive (issue #79).
+accusative, dative or genitive (issue #79). Vocabulary words also get a
+**cloze track** (`vocab-cloze` kind): type the missing word into one of its
+example sentences, which rotate as you review — the meaning card and the cloze
+card are separate SRS items (issue #131).
 
 ## Known gaps (roadmap)
 

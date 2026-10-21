@@ -10,6 +10,7 @@ import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
 import { useStudy } from "../hooks/useStudy";
 import type { Item } from "../lib/data";
+import { blankWord, pickIndex } from "../lib/cloze";
 import { speechText } from "../lib/judge";
 import { dueIds, upcomingIds } from "../lib/selectors";
 import { MAX_BOX, passed } from "../lib/srsCore";
@@ -27,10 +28,32 @@ function labelFor(it: Item): string {
   if (it.kind === "gender") return "Article (der/die/das)";
   if (it.kind === "plural") return "Plural form";
   if (it.kind === "case") return "Article (case)";
+  if (it.kind === "vocab-cloze") return "Fill in the missing word";
   return "Fill in the blank";
 }
 
-function Prompt({ it }: { it: Item }) {
+function Prompt({ it, reps }: { it: Item; reps: number }) {
+  if (it.kind === "vocab-cloze") {
+    const exs = it.examples ?? [];
+    const ex = exs[pickIndex(exs.length, reps)];
+    const b = ex ? blankWord(ex.de, it.answer ?? "") : null;
+    return (
+      <>
+        <p className="font-serif text-2xl" lang="de">
+          {b ? (
+            <>
+              {b.before}
+              <span className="mx-1 inline-block w-[4ch] border-b-2 border-ink align-baseline" />
+              {b.after}
+            </>
+          ) : (
+            ex?.de ?? ""
+          )}
+        </p>
+        {ex?.en && <p className="text-muted">{ex.en}</p>}
+      </>
+    );
+  }
   if (it.kind === "cloze") {
     return (
       <>
@@ -106,6 +129,11 @@ function Reveal({ it }: { it: Item }) {
           </p>
           <p className="text-base text-muted">{it.en}</p>
         </>
+      )}
+      {it.kind === "vocab-cloze" && it.de && (
+        <p className="font-serif text-xl" lang="de">
+          <Art text={it.de} />
+        </p>
       )}
       {it.ipa && <p className="text-base text-muted">{it.ipa}</p>}
       {it.conjugation?.present && (
@@ -286,6 +314,8 @@ export default function Study() {
   const isLesson = session.mode === "lesson";
   const it = isLesson ? deck.by[session.queue[session.completed]] : deck.by[session.queue[0]];
   if (!it) return <p className="text-muted">Loading…</p>;
+  const currentId = isLesson ? session.queue[session.completed] : session.queue[0];
+  const reps = store.state.p[currentId]?.reps ?? 0;
   const pos = isLesson ? session.completed + 1 : session.completed;
   const fb = !isLesson && session.phase === "fb";
   const stage = fb && session.lastId ? store.state.p[session.lastId] : undefined;
@@ -308,7 +338,7 @@ export default function Study() {
 
       <Card className={fb ? (session.last?.ok ? "border-l-4 border-l-good" : "border-l-4 border-l-bad") : undefined}>
         <div className="mb-2 text-sm text-muted">{labelFor(it)}</div>
-        <Prompt it={it} />
+        <Prompt it={it} reps={reps} />
 
         {isLesson ? (
           <div className="mt-4 space-y-3 border-t border-line pt-4">

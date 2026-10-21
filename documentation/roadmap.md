@@ -35,6 +35,8 @@ the built `docs/`.
   tables, not just the curated ones
 - #79 a **case track** (accusative/dative/genitive article forms) for the
   curated nouns
+- #131 every vocab item now carries multiple example sentences and a
+  **cloze track** (fill the word into a rotating example sentence)
 
 ## Phase 4 — Modalities (DONE)
 

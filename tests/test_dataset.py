@@ -49,7 +49,7 @@ class DatasetTest(unittest.TestCase):
             self.assertTrue(i.get("level"), i["id"])
             self.assertTrue(i.get("group"), i["id"])
             self.assertTrue(i.get("groupName"), i["id"])
-            self.assertIn(i["kind"], {"noun", "verb", "adj", "cloze", "gender", "plural", "case"}, i["id"])
+            self.assertIn(i["kind"], {"noun", "verb", "adj", "cloze", "gender", "plural", "case", "vocab-cloze"}, i["id"])
 
     def test_case_items_are_valid(self):
         # #79: definite-article case drill track.
@@ -97,6 +97,17 @@ class DatasetTest(unittest.TestCase):
         for i in vocab:
             for ex in i.get("examples", []):
                 self.assertTrue(ex.get("de"), i["id"])
+
+    def test_vocab_cloze_items(self):
+        # #131: a fill-in-the-blank track derived from an example sentence.
+        clozes = [i for i in self.items if i["kind"] == "vocab-cloze"]
+        self.assertTrue(clozes, "no vocab-cloze items generated")
+        for i in clozes:
+            self.assertTrue(i["answer"], i["id"])
+            self.assertGreaterEqual(len(i.get("examples", [])), 1, i["id"])
+            self.assertTrue(
+                any(i["answer"] in ex["de"] for ex in i["examples"]), i["id"]
+            )
 
 
 if __name__ == "__main__":

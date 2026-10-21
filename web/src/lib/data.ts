@@ -1,4 +1,4 @@
-export type Kind = "noun" | "verb" | "adj" | "cloze" | "gender" | "plural" | "case";
+export type Kind = "noun" | "verb" | "adj" | "cloze" | "gender" | "plural" | "case" | "vocab-cloze";
 
 export interface Conjugation {
   present: string[];

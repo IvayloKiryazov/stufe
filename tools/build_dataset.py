@@ -363,6 +363,50 @@ def main() -> int:
                 with_examples += 1
         print(f"examples attached to {with_examples:,} vocabulary items")
 
+    # --- vocabulary cloze track: type the word into a sentence (#131) -----
+    cloze_added = 0
+    for it in list(items):
+        if it.get("kind") not in ("noun", "verb", "adj"):
+            continue
+        de = it.get("de") or ""
+        answer = de.split(" ", 1)[1] if (it["kind"] == "noun" and " " in de) else de
+        if not answer:
+            continue
+        usable = [
+            ex
+            for ex in it.get("examples", [])
+            if re.search(r"\b" + re.escape(answer) + r"\b", ex["de"])
+        ]
+        if not usable:
+            continue
+        level = it["level"]
+        auto = it["id"].startswith("freq-")
+        g = ensure_group(
+            level,
+            f"{level}-core-cloze" if auto else f"{level}-vocab-cloze",
+            "Core vocab: cloze" if auto else "Vocabulary cloze",
+            "vocab-cloze",
+            "Type the missing word into the sentence.",
+        )
+        cid = f"{it['id']}-cloze"
+        g["items"].append(cid)
+        items.append(
+            {
+                "id": cid,
+                "level": level,
+                "group": g["id"],
+                "groupName": g["name"],
+                "kind": "vocab-cloze",
+                "answer": answer,
+                "de": de,
+                "en": it.get("en", ""),
+                "hint": it.get("en", ""),
+                "examples": usable,
+            }
+        )
+        cloze_added += 1
+    print(f"vocab-cloze items: {cloze_added:,}")
+
     # --- gender mnemonics for every noun ----------------------------------
     for it in items:
         if it.get("kind") == "noun":
