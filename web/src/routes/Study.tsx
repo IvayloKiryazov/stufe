@@ -12,7 +12,7 @@ import { useStudy } from "../hooks/useStudy";
 import type { Item } from "../lib/data";
 import { speechText } from "../lib/judge";
 import { dueIds, upcomingIds } from "../lib/selectors";
-import { passed } from "../lib/srsCore";
+import { MAX_BOX, passed } from "../lib/srsCore";
 import { shuffle } from "../lib/shuffle";
 import { stageName } from "../lib/stages";
 import { store } from "../lib/store";
@@ -206,7 +206,7 @@ export default function Study() {
       .sort((a, b) => (progress.p[b].lapses ?? 0) - (progress.p[a].lapses ?? 0))
       .slice(0, 20);
     const passedIds = Object.keys(progress.p).filter((id) => deck.by[id] && passed(progress.p[id])).slice(0, 20);
-    const burnedIds = Object.keys(progress.p).filter((id) => deck.by[id] && (progress.p[id].box ?? 0) >= 7).slice(0, 20);
+    const burnedIds = Object.keys(progress.p).filter((id) => deck.by[id] && (progress.p[id].box ?? 0) >= MAX_BOX).slice(0, 20);
     return (
       <div className="space-y-6">
         <h1 className="text-3xl font-bold">Study</h1>

@@ -7,31 +7,33 @@ WaniKani/Bunpro, not an adaptive SM-2/FSRS.
 
 Implementation: `web/src/lib/srsCore.ts`.
 
-- Boxes **0–7**; each box has a fixed interval (hours):
+- SRS levels **1–12** (box 0 = not yet learned). Each level has a fixed wait
+  before the next review — **Bunpro's ladder**:
 
-  | box | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-  | --- | - | - | - | - | - | - | - | - |
-  | hours | – | 4 | 8 | 24 | 72 | 168 | 336 | 720 |
+  | level | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 |
+  | --- | - | - | - | - | - | - | - | - | - | -- | -- | -- |
+  | wait to next | 4h | 8h | 24h | 2d | 4d | 8d | 2w | 4w | 8w | 4mo | 6mo | – |
 
-- **Correct** → `box + 1` (capped at 7). **Wrong** → `box - 1`, or `box - 2`
-  once the box is ≥ 5 (leeches get punished harder). A wrong answer floors at
-  box 1.
-- `PASS_BOX = 3` (an item is "passed" from box 3 up). A level unlocks when
+- **Correct** → level + 1 (capped at 12). **Wrong** → level − 1 (floor 1):
+  Bunpro drops a single level per wrong answer (repeated misses become ghosts).
+- `PASS_BOX = 5` (an item is "passed" from Adept 2 up). A level unlocks when
   **80 %** (`PASS_RATIO`) of the previous level is passed.
+- Level **12 = Master** ("burned"): no further reviews; still drillable from
+  Extra study.
 - Every entry also tracks `lapses` (wrong count), `reps`, `last` and a short
   `hist` (last 10 grades, shown as dots on the card).
 
-### Stages (named, WaniKani-style)
+### Stages (named, Bunpro-style)
 
-`web/src/lib/stages.ts` maps boxes to names:
+`web/src/lib/stages.ts` maps SRS levels to names:
 
-| box | stage |
+| levels | stage |
 | --- | --- |
-| 0–1 | Apprentice |
-| 2–3 | Guru |
-| 4 | Master |
-| 5–6 | Enlightened |
-| 7 | Burned |
+| 1–3 | Beginner |
+| 4–6 | Adept |
+| 7–9 | Seasoned |
+| 10–11 | Expert |
+| 12 | Master |
 
 ### Entry state
 
@@ -42,7 +44,7 @@ interface Entry { box; due; lapses?; reps?; last?; hist?: number[];
 
 - **suspend** — excluded from reviews/lessons until resumed. An item is
   **auto-suspended** once it reaches `LEECH_THRESHOLD` (8) lapses.
-- **known** — marked as known; burned (box 7) and excluded.
+- **known** — marked as known; Master (level 12) and excluded.
 - `isActive(entry)` = present and neither suspended nor known.
 
 **Vacation mode** (setting) pauses new lessons. **Wrap up** ends a session after

@@ -41,7 +41,7 @@ content/  ->  tools/  ->  data/  ->  web/  ->  docs/  ->  GitHub Pages
 | **item** | one study card (a noun, verb, adjective, or a grammar cloze) |
 | **level** | a CEFR bucket: A1 … C2 |
 | **group** | a themed set of items within a level (e.g. `Food & drink`) |
-| **box / stage** | SRS box 0–7, named Apprentice → Burned |
+| **box / stage** | SRS level 1–12, named Beginner → Adept → Seasoned → Expert → Master (Bunpro) |
 | **cloze** | a sentence with a blank; the learner types the missing piece |
 | **ghost** | extra practice of already-passed items (no schedule change) |
 | **course** | the curated A1–B1 content (vs. the optional frequency deck) |

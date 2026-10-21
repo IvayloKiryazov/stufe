@@ -2,23 +2,25 @@ import { describe, expect, it } from "vitest";
 import { STAGES, stageName } from "./stages";
 
 describe("stageName", () => {
-  it("maps boxes to stage names", () => {
-    expect(stageName(0)).toBe("Apprentice");
-    expect(stageName(1)).toBe("Apprentice");
-    expect(stageName(2)).toBe("Guru");
-    expect(stageName(3)).toBe("Guru");
-    expect(stageName(4)).toBe("Master");
-    expect(stageName(5)).toBe("Enlightened");
-    expect(stageName(6)).toBe("Enlightened");
-    expect(stageName(7)).toBe("Burned");
+  it("maps Bunpro SRS levels to stage names", () => {
+    expect(stageName(0)).toBe("New");
+    expect(stageName(1)).toBe("Beginner");
+    expect(stageName(3)).toBe("Beginner");
+    expect(stageName(4)).toBe("Adept");
+    expect(stageName(6)).toBe("Adept");
+    expect(stageName(7)).toBe("Seasoned");
+    expect(stageName(9)).toBe("Seasoned");
+    expect(stageName(10)).toBe("Expert");
+    expect(stageName(11)).toBe("Expert");
+    expect(stageName(12)).toBe("Master");
   });
   it("clamps out-of-range boxes", () => {
-    expect(stageName(-3)).toBe("Apprentice");
-    expect(stageName(99)).toBe("Burned");
+    expect(stageName(-3)).toBe("New");
+    expect(stageName(99)).toBe("Master");
   });
-  it("covers 0..7 contiguously", () => {
+  it("covers 1..12 contiguously", () => {
     const covered: number[] = [];
     for (const s of STAGES) for (let b = s.min; b <= s.max; b++) covered.push(b);
-    expect(covered).toEqual([0, 1, 2, 3, 4, 5, 6, 7]);
+    expect(covered).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
   });
 });

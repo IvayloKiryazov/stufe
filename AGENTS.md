@@ -10,10 +10,10 @@ push upstream, the remaining work (issue map) and the lessons learned.
 **Bunpro and WaniKani are the reference implementations.** When a design choice
 is unclear, do what they do, and check this section before inventing anything.
 
-- **SRS is fixed-interval and staged** (Apprentice → Guru → Master →
-  Enlightened → Burned). It is **not** adaptive. Do **not** add SM-2 or FSRS:
-  Bunpro explicitly rejected FSRS ("we think of Bunpro as an immersion tool
-  disguised as an SRS"; optimising intervals is not the point). See
+- **SRS is fixed-interval and staged** (Bunpro's 12 levels: Beginner → Adept →
+  Seasoned → Expert → Master). It is **not** adaptive. Do **not** add SM-2 or
+  FSRS: Bunpro explicitly rejected FSRS ("we think of Bunpro as an immersion
+  tool disguised as an SRS"; optimising intervals is not the point). See
   `documentation/srs.md`.
 - **Reviews are cloze-driven and varied.** Bunpro's "secret" is forcing you to
   read the language in *new and varying contexts* — multiple example sentences
