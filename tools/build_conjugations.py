@@ -34,6 +34,12 @@ def target_verbs() -> set[str]:
             for entry in group["words"]:
                 word = entry[0]
                 verbs.add(word.replace("sich ", "").strip())
+    # the whole frequency verb deck too (#80)
+    freq = ROOT / "data" / "vocab_frequency.json"
+    if freq.exists():
+        for it in json.loads(freq.read_text(encoding="utf-8")):
+            if it.get("kind") == "verb" and it.get("de"):
+                verbs.add(it["de"].replace("sich ", "").strip())
     return verbs
 
 

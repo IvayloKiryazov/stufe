@@ -29,6 +29,8 @@ the built `docs/`.
 - #51 course-first path (linear A1–B1) in Browse; frequency deck behind a tab
 - #78 the gender/plural tracks now cover the **whole** noun deck (auto nouns
   too), not just curated ones
+- #80 the whole verb deck (1,433 verbs) now carries Wiktionary conjugation
+  tables, not just the curated ones
 
 ## Phase 4 — Modalities (DONE)
 

@@ -61,6 +61,14 @@ class DatasetTest(unittest.TestCase):
             if n.get("plural"):
                 self.assertIn(n["de"], plural_prompt, n["id"])
 
+    def test_verbs_have_conjugation_tables(self):
+        # #80: the whole verb deck is conjugated from Wiktionary.
+        verbs = [i for i in self.items if i["kind"] == "verb"]
+        missing = [i["id"] for i in verbs if not i.get("conjugation")]
+        self.assertEqual(missing, [], f"{len(missing)} verbs without conjugation")
+        for i in verbs:
+            self.assertEqual(len(i["conjugation"]["present"]), 6, i["id"])
+
 
 if __name__ == "__main__":
     unittest.main()

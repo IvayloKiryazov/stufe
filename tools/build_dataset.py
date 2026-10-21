@@ -303,6 +303,17 @@ def main() -> int:
             if len(parts) > 1 and parts[0] in ("der", "die", "das"):
                 it["mnemonic"] = gender_mnemonic(parts[1], parts[0])
 
+    # --- attach conjugations to every verb that has one (#80) -------------
+    conj_attached = 0
+    for it in items:
+        if it.get("kind") == "verb" and "conjugation" not in it:
+            base = (it.get("de") or "").replace("sich ", "").strip()
+            if base in conjugations:
+                it["conjugation"] = conjugations[base]
+                conj_attached += 1
+    if conj_attached:
+        print(f"conjugations attached to {conj_attached:,} deck verbs")
+
     # --- curated overrides (id -> partial item) ---------------------------
     overrides_path = ROOT / "content" / "overrides.json"
     if overrides_path.exists():
