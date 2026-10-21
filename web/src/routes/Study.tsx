@@ -115,12 +115,19 @@ function Reveal({ it }: { it: Item }) {
           wir {it.conjugation.present[3]} · ihr {it.conjugation.present[4]} · sie {it.conjugation.present[5]}
         </p>
       )}
-      {it.sentence_de && (
-        <p className="font-serif text-lg" lang="de">
-          <Art text={it.sentence_de} />
-        </p>
-      )}
-      {it.sentence_en && <p className="text-base text-muted">{it.sentence_en}</p>}
+      {(it.examples?.length
+        ? it.examples
+        : it.sentence_de
+          ? [{ de: it.sentence_de, en: it.sentence_en ?? "" }]
+          : []
+      ).map((ex, i) => (
+        <div key={i} className="space-y-0.5">
+          <p className="font-serif text-lg" lang="de">
+            <Art text={ex.de} />
+          </p>
+          {ex.en && <p className="text-base text-muted">{ex.en}</p>}
+        </div>
+      ))}
       {it.mnemonic && (
         <p className="border-l-2 border-line pl-3 text-base text-muted">{it.mnemonic}</p>
       )}

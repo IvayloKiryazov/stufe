@@ -23,7 +23,15 @@ import re
 import sys
 from pathlib import Path
 
-from common import ROOT, build_sentence_index, find_example, load_nouns, load_sentence_pairs
+from common import (
+    ROOT,
+    build_sentence_index,
+    build_sentence_index_multi,
+    find_example,
+    find_examples,
+    load_nouns,
+    load_sentence_pairs,
+)
 from mnemonic import gender_mnemonic
 
 LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
@@ -71,6 +79,7 @@ def main() -> int:
     nouns = load_nouns()
     pairs = load_sentence_pairs()
     index = build_sentence_index(pairs) if pairs else {}
+    multi = build_sentence_index_multi(pairs) if pairs else {}
 
     conj_path = ROOT / "data" / "conjugations.json"
     conjugations = json.loads(conj_path.read_text(encoding="utf-8")) if conj_path.exists() else {}
@@ -330,6 +339,29 @@ def main() -> int:
                         )
                         tracks += 1
         print(f"{extra}: {len(extra_items):,} items, +{tracks:,} gender/plural tracks")
+
+    # --- multiple example sentences per vocabulary item (#131) -----------
+    if multi:
+        with_examples = 0
+        for it in items:
+            if it.get("kind") not in ("noun", "verb", "adj"):
+                continue
+            de = it.get("de") or ""
+            if it["kind"] == "noun":
+                word = de.split(" ", 1)[1] if " " in de else de
+                extra = [it["plural"].split(" ", 1)[-1]] if it.get("plural") else []
+            else:
+                word, extra = de, []
+            ex: list[dict] = []
+            if it.get("sentence_de"):
+                ex.append({"de": it["sentence_de"], "en": it.get("sentence_en", "")})
+            for d, e, _a in find_examples(multi, word, extra, limit=3):
+                if all(x["de"] != d for x in ex):
+                    ex.append({"de": d, "en": e})
+            if ex:
+                it["examples"] = ex[:3]
+                with_examples += 1
+        print(f"examples attached to {with_examples:,} vocabulary items")
 
     # --- gender mnemonics for every noun ----------------------------------
     for it in items:

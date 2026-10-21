@@ -126,6 +126,7 @@ interface Item {
   de?; en?; plural?; forms?; ipa?; mnemonic?;       // vocab
   prompt?; answer?; alt?; hint?;                     // cloze
   sentence_de?; sentence_en?; attribution?;          // example
+  examples?: { de; en }[];                           // several graded examples
   conjugation?: { present: string[]; preterite; participle };
 }
 ```

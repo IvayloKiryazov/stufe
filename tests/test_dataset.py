@@ -80,8 +80,7 @@ class DatasetTest(unittest.TestCase):
             self.assertEqual(len(i["conjugation"]["present"]), 6, i["id"])
 
     def test_curated_vocab_has_ipa(self):
-        # #81: curated vocab now gets IPA from Wiktionary (a couple of words
-        # genuinely have no IPA in the extract).
+        # #81: curated vocab now gets IPA from Wiktionary.
         curated = [
             i
             for i in self.items
@@ -89,6 +88,15 @@ class DatasetTest(unittest.TestCase):
         ]
         missing = [i["id"] for i in curated if not i.get("ipa")]
         self.assertLessEqual(len(missing), 5, missing)
+
+    def test_vocab_items_have_examples(self):
+        # #131: most vocabulary items carry (multiple) example sentences.
+        vocab = [i for i in self.items if i["kind"] in ("noun", "verb", "adj")]
+        missing = [i for i in vocab if not i.get("examples")]
+        self.assertLess(len(missing) / len(vocab), 0.15, f"{len(missing)} without examples")
+        for i in vocab:
+            for ex in i.get("examples", []):
+                self.assertTrue(ex.get("de"), i["id"])
 
 
 if __name__ == "__main__":

@@ -130,6 +130,53 @@ def find_example(
     return None
 
 
+def build_sentence_index_multi(
+    pairs: list[tuple[str, str, str]],
+    *,
+    max_len: int = 70,
+    per_token: int = 3,
+) -> dict[str, list[tuple[str, str, str]]]:
+    """token (case-sensitive) -> up to ``per_token`` shortest sentences.
+
+    Like ``build_sentence_index`` but keeps several short sentences per token so
+    a card can show (and rotate) more than one example (#131).
+    """
+    index: dict[str, list[tuple[str, str, str]]] = {}
+    for de, en, attr in pairs:
+        if len(de) > max_len:
+            continue
+        for m in WORD_RE.finditer(de):
+            if m.start() == 0:
+                continue  # sentence-initial token: capitalisation is ambiguous
+            token = m.group(0)
+            bucket = index.setdefault(token, [])
+            entry = (de, en, attr)
+            if entry not in bucket:
+                bucket.append(entry)
+    for bucket in index.values():
+        bucket.sort(key=lambda t: len(t[0]))
+        del bucket[per_token:]
+    return index
+
+
+def find_examples(
+    index: dict[str, list[tuple[str, str, str]]],
+    lemma: str,
+    extra_forms: list[str] | None = None,
+    *,
+    limit: int = 3,
+) -> list[tuple[str, str, str]]:
+    """Up to ``limit`` short example sentences for a lemma and its forms."""
+    out: list[tuple[str, str, str]] = []
+    for form in [lemma] + list(extra_forms or []):
+        for hit in index.get(form, []):
+            if hit not in out:
+                out.append(hit)
+        if len(out) >= limit:
+            break
+    return out[:limit]
+
+
 def blank_sentence(sentence: str, surface: str) -> tuple[str, str] | None:
     """Replace a mid-sentence occurrence of ``surface`` with ___ .
 

@@ -26,6 +26,7 @@ export interface Item {
   note?: string;
   sentence_de?: string;
   sentence_en?: string;
+  examples?: { de: string; en: string }[];
   attribution?: string;
   conjugation?: Conjugation;
 }
