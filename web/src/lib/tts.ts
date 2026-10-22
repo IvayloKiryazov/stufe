@@ -1,3 +1,6 @@
+import type { Item } from "./data";
+import { speechText } from "./judge";
+
 let voice: SpeechSynthesisVoice | null = null;
 
 function pick() {
@@ -24,4 +27,28 @@ export function speak(text: string, opts: { rate?: number; enabled?: boolean } =
   } catch {
     /* ignore */
   }
+}
+
+let audio: HTMLAudioElement | null = null;
+
+/** Play a native recording (issue #97). Best-effort; ignores autoplay blocks. */
+export function playAudio(url: string) {
+  if (typeof window === "undefined") return;
+  try {
+    if (audio) audio.pause();
+    audio = new Audio(url);
+    void audio.play().catch(() => {});
+  } catch {
+    /* ignore */
+  }
+}
+
+/** Prefer the item's native recording; fall back to browser TTS. */
+export function speakItem(item: Item, opts: { rate?: number; enabled?: boolean } = {}) {
+  if (opts.enabled === false) return;
+  if (item.audio) {
+    playAudio(item.audio);
+    return;
+  }
+  speak(speechText(item), opts);
 }

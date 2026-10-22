@@ -11,13 +11,12 @@ import { useProgress } from "../hooks/useProgress";
 import { useStudy } from "../hooks/useStudy";
 import type { Item } from "../lib/data";
 import { blankWord, pickIndex } from "../lib/cloze";
-import { speechText } from "../lib/judge";
 import { dueIds, upcomingIds } from "../lib/selectors";
 import { MAX_BOX, passed } from "../lib/srsCore";
 import { shuffle } from "../lib/shuffle";
 import { stageName } from "../lib/stages";
 import { store } from "../lib/store";
-import { speak } from "../lib/tts";
+import { speakItem } from "../lib/tts";
 
 const UMLAUTS = ["ä", "ö", "ü", "ß"];
 
@@ -203,7 +202,7 @@ export default function Study() {
         ? session.queue[0]
         : undefined;
     const it = revealId ? deck.by[revealId] : undefined;
-    if (it) speak(speechText(it), { enabled: true });
+    if (it) speakItem(it, { enabled: true });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [session, deck, autoSpeak]);
 
@@ -343,7 +342,7 @@ export default function Study() {
         {isLesson ? (
           <div className="mt-4 space-y-3 border-t border-line pt-4">
             <Reveal it={it} />
-            <Button variant="ghost" size="sm" onClick={() => speak(speechText(it), { enabled: progress.settings.voice })}>
+            <Button variant="ghost" size="sm" onClick={() => speakItem(it, { enabled: progress.settings.voice })}>
               <Volume2 className="h-4 w-4" /> Listen
             </Button>
           </div>
@@ -413,7 +412,7 @@ export default function Study() {
                 <Reveal it={it} />
                 {session.last?.msg && <p className="text-sm text-muted">{session.last.msg}</p>}
                 <div className="flex flex-wrap gap-2">
-                  <Button variant="ghost" size="sm" onClick={() => speak(speechText(it), { enabled: progress.settings.voice })}>
+                  <Button variant="ghost" size="sm" onClick={() => speakItem(it, { enabled: progress.settings.voice })}>
                     <Volume2 className="h-4 w-4" /> Listen
                   </Button>
                   <Button variant="ghost" size="sm" onClick={study.undo}>

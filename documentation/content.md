@@ -123,7 +123,7 @@ interface Item {
   id; level; group; groupName;
   kind: "noun" | "verb" | "adj" | "cloze";
   intro?; note?;
-  de?; en?; plural?; forms?; ipa?; mnemonic?;       // vocab
+  de?; en?; plural?; forms?; ipa?; audio?; mnemonic?;   // vocab
   prompt?; answer?; alt?; hint?;                     // cloze
   sentence_de?; sentence_en?; attribution?;          // example
   examples?: { de; en }[];                           // several graded examples

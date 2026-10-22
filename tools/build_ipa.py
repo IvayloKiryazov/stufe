@@ -15,7 +15,7 @@ import json
 import sys
 from pathlib import Path
 
-from build_frequency import _ipa
+from build_frequency import _audio, _ipa
 from common import ROOT
 
 
@@ -44,6 +44,7 @@ def main() -> int:
     print(f"target words: {len(wanted)}")
 
     found: dict[str, str] = {}
+    audio: dict[str, str] = {}
     with kaikki.open(encoding="utf-8") as fh:
         for line in fh:
             if '"sounds"' not in line:
@@ -53,10 +54,15 @@ def main() -> int:
             except json.JSONDecodeError:
                 continue
             word = entry.get("word")
-            if word in wanted and word not in found:
-                ipa = _ipa(entry)
-                if ipa:
-                    found[word] = ipa
+            if word in wanted:
+                if word not in found:
+                    ipa = _ipa(entry)
+                    if ipa:
+                        found[word] = ipa
+                if word not in audio:
+                    a = _audio(entry)
+                    if a:
+                        audio[word] = a
 
     out = ROOT / "data" / "ipa.json"
     out.write_text(json.dumps(found, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -64,6 +70,10 @@ def main() -> int:
     missing = sorted(wanted - set(found))
     if missing:
         print(f"no IPA for {len(missing)} word(s): {', '.join(missing[:20])}")
+
+    audio_out = ROOT / "data" / "audio.json"
+    audio_out.write_text(json.dumps(audio, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"wrote {len(audio)} audio URLs -> {audio_out}")
     return 0
 
 

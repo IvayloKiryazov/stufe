@@ -18,6 +18,7 @@ export interface Item {
   plural?: string;
   forms?: string;
   ipa?: string;
+  audio?: string;
   mnemonic?: string;
   prompt?: string;
   answer?: string;

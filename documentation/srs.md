@@ -80,8 +80,10 @@ sentence grader in `lib/grade.ts` (`equals`, `tokenSimilarity`).
 
 ## Audio
 
-`web/src/lib/tts.ts` wraps the Web Speech API with a German (`de-DE`) voice
-(`speechSynthesis`). No downloads, no keys. Honours the `voice` setting.
+`web/src/lib/tts.ts`. Vocabulary items carry a **native recording** URL from
+Wiktionary/kaikki (Wikimedia Commons, ~98 % coverage); `speakItem()` plays it
+and falls back to the Web Speech API (`speechSynthesis`, German `de-DE`) for
+sentences and words without a recording. No keys, no downloads.
 
 ## Selectors
 

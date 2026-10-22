@@ -440,6 +440,21 @@ def main() -> int:
                     filled += 1
         print(f"IPA backfilled for {filled:,} items")
 
+    # --- backfill missing native audio from the Wiktionary extract (#97) ---
+    audio_path = ROOT / "data" / "audio.json"
+    if audio_path.exists():
+        audio_map = json.loads(audio_path.read_text(encoding="utf-8"))
+        filled = 0
+        for it in items:
+            if it.get("kind") in ("noun", "verb", "adj") and not it.get("audio"):
+                de = it.get("de") or ""
+                word = de.split(" ", 1)[1] if (it["kind"] == "noun" and " " in de) else de
+                base = word.replace("sich ", "").strip()
+                if base in audio_map:
+                    it["audio"] = audio_map[base]
+                    filled += 1
+        print(f"audio backfilled for {filled:,} items")
+
     # --- curated overrides (id -> partial item) ---------------------------
     overrides_path = ROOT / "content" / "overrides.json"
     if overrides_path.exists():

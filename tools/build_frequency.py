@@ -65,6 +65,15 @@ def _ipa(entry: dict) -> str:
     return next((s.get("ipa") for s in entry.get("sounds", []) if s.get("ipa")), "")
 
 
+def _audio(entry: dict) -> str:
+    """A Wikimedia Commons pronunciation URL (mp3 preferred, ogg fallback)."""
+    for s in entry.get("sounds", []):
+        url = s.get("mp3_url") or s.get("ogg_url")
+        if url:
+            return url
+    return ""
+
+
 def _clean_gloss(g: str) -> str:
     g = re.sub(r"\s*\([^)]*\)", "", g)  # drop parentheticals
     return re.sub(r"\s+", " ", g).strip(" ;,.")
@@ -138,7 +147,7 @@ def extract_noun(entry: dict):
     if not word or article is None or not gloss or _is_derived(entry):
         return None
     return {"word": word, "article": article, "plural": _plural(entry),
-            "gloss": gloss, "example": example, "ipa": _ipa(entry)}
+            "gloss": gloss, "example": example, "ipa": _ipa(entry), "audio": _audio(entry)}
 
 
 def extract_verb(entry: dict):
@@ -152,7 +161,7 @@ def extract_verb(entry: dict):
     if not conj:
         return None
     forms = ", ".join(x for x in (conj["present"][2], conj["preterite"], conj["participle"]) if x)
-    return {"word": word, "gloss": gloss, "example": example, "forms": forms, "ipa": _ipa(entry)}
+    return {"word": word, "gloss": gloss, "example": example, "forms": forms, "ipa": _ipa(entry), "audio": _audio(entry)}
 
 
 def extract_adj(entry: dict):
@@ -172,7 +181,7 @@ def extract_adj(entry: dict):
     forms = ""
     if comp and sup:
         forms = f"{comp}, {sup}"
-    return {"word": word, "gloss": gloss, "example": example, "forms": forms, "ipa": _ipa(entry)}
+    return {"word": word, "gloss": gloss, "example": example, "forms": forms, "ipa": _ipa(entry), "audio": _audio(entry)}
 
 
 def _item(level, word, kind, payload, rank):
@@ -186,6 +195,7 @@ def _item(level, word, kind, payload, rank):
         "sentence_de": payload["example"][0] if payload["example"] else "",
         "sentence_en": payload["example"][1] if payload["example"] else "",
         "ipa": payload.get("ipa", ""),
+        "audio": payload.get("audio", ""),
         "note": f"Frequency rank {rank}",
         "attribution": WIKT_ATTR if payload["example"] else "",
     }
