@@ -68,9 +68,11 @@ export default function Browse() {
   const { deck } = useDeck();
   const progress = useProgress();
   const [mode, setMode] = useState<"course" | "vocab">("course");
+  const [pos, setPos] = useState<"all" | "noun" | "verb" | "adj">("all");
 
   if (!deck) return <p className="text-muted">Loading…</p>;
-  const isVocab = (g: Group) => g.name.startsWith("Core ");
+  const isVocab = (g: Group) =>
+    g.name.startsWith("Core ") && (g.kind === "noun" || g.kind === "verb" || g.kind === "adj");
 
   return (
     <div className="space-y-6">
@@ -90,13 +92,29 @@ export default function Browse() {
           : "The optional frequency deck: thousands of high-frequency words by level."}
       </p>
 
+      {mode === "vocab" && (
+        <div className="flex flex-wrap gap-1">
+          {(["all", "noun", "verb", "adj"] as const).map((p) => (
+            <Button
+              key={p}
+              size="sm"
+              variant={pos === p ? "default" : "ghost"}
+              aria-pressed={pos === p}
+              onClick={() => setPos(p)}
+            >
+              {p === "all" ? "All" : p === "noun" ? "Nouns" : p === "verb" ? "Verbs" : "Adjectives"}
+            </Button>
+          ))}
+        </div>
+      )}
+
       {mode === "course" ? (
         <CoursePath deck={deck} progress={progress} />
       ) : (
         <Accordion type="multiple" className="rounded-xl border border-line bg-surface px-4">
           {deck.levels.map((level, i) => {
             const open = unlocked(deck, i, progress);
-            const groups = level.groups.filter(isVocab);
+            const groups = level.groups.filter((g) => isVocab(g) && (pos === "all" || g.kind === pos));
             if (!groups.length) return null;
             return (
               <AccordionItem key={level.id} value={level.id}>
