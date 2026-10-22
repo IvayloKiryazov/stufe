@@ -5,7 +5,7 @@ import { useProgress } from "../hooks/useProgress";
 import { addDays, daysToFinish, reviewLoad } from "../lib/projection";
 import { itemsOfLevel } from "../lib/selectors";
 import { isActive, passed } from "../lib/srsCore";
-import { recentDays, streak, totals } from "../lib/stats";
+import { heatmapWeeks, streak, totals } from "../lib/stats";
 
 const HEAT = ["var(--soft)", "#a7dcc0", "#6cc79e", "#37a878", "#1d7d57"];
 function heat(v: number, max: number): string {
@@ -23,8 +23,8 @@ export default function Stats() {
   const st = streak(progress.history, now);
   const started = Object.keys(progress.p).filter((id) => deck.by[id]).length;
   const passedCount = Object.keys(progress.p).filter((id) => deck.by[id] && passed(progress.p[id])).length;
-  const days = recentDays(progress.history, 35, now);
-  const max = Math.max(1, ...days.map((d) => d.total));
+  const weekly = heatmapWeeks(progress.history, 26, now);
+  const max = Math.max(1, ...weekly.flat().filter(Boolean).map((c) => c!.total));
   const leeches = Object.keys(progress.p)
     .filter((id) => deck.by[id] && (progress.p[id].lapses ?? 0) > 0)
     .sort((a, b) => (progress.p[b].lapses ?? 0) - (progress.p[a].lapses ?? 0))
@@ -71,16 +71,19 @@ export default function Stats() {
             <Stat value={passedCount} label="items passed" />
           </div>
           <Card>
-            <CardTitle>Last 5 weeks</CardTitle>
-            <div className="grid grid-cols-7 gap-1.5">
-              {days.map((d) => (
-                <span
-                  key={d.key}
-                  title={`${d.key}: ${d.total}`}
-                  className="aspect-square rounded"
-                  style={{ backgroundColor: heat(d.total, max) }}
-                />
-              ))}
+            <CardTitle>Activity</CardTitle>
+            <div className="overflow-x-auto pb-1">
+              <div className="grid grid-flow-col grid-rows-7 gap-1">
+                {weekly.flat().map((d, i) => (
+                  <span
+                    key={d?.key ?? `future-${i}`}
+                    title={d ? `${d.key}: ${d.total}` : undefined}
+                    aria-hidden={d ? undefined : true}
+                    className="h-3 w-3 rounded-sm"
+                    style={{ backgroundColor: d ? heat(d.total, max) : "transparent" }}
+                  />
+                ))}
+              </div>
             </div>
             <p className="mt-3 text-sm text-muted">
               {t.new} new items and {t.reviews} reviews over {t.days} active days.

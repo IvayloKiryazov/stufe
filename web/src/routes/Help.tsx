@@ -6,6 +6,9 @@ const ROWS: [string, string][] = [
   ["Esc", "Stop the current session"],
   ["ä ö ü ß", "Buttons under the answer field insert a special character"],
   ["Theme", "Toggle auto / light / dark from the top bar"],
+  ["Master (burned)", "At SRS level 12 an item leaves the review queue. Re-drill it from Study → Extra study → Burned."],
+  ["Leeches", "Items you keep failing are auto-suspended after 8 lapses; practice them from Study → Extra study → Leeches."],
+  ["Extra study", "Leeches / Passed / Burned practice never changes your schedule (like Bunpro ghosts)."],
 ];
 
 export default function Help() {

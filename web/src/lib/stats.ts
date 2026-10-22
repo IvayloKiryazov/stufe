@@ -68,3 +68,31 @@ export function recentDays(history: History, days: number, nowTs: number): DayCe
   }
   return out;
 }
+
+/**
+ * GitHub-contributions-style grid: `weeks` columns (oldest first) of 7 days
+ * (Sunday..Saturday). Days after today are `null` (future cells).
+ */
+export function heatmapWeeks(history: History, weeks: number, nowTs: number): (DayCell | null)[][] {
+  const today = new Date(nowTs);
+  today.setHours(12, 0, 0, 0);
+  const sundayThisWeek = new Date(today.getTime());
+  sundayThisWeek.setDate(sundayThisWeek.getDate() - today.getDay());
+  const grid: (DayCell | null)[][] = [];
+  for (let w = weeks - 1; w >= 0; w--) {
+    const col: (DayCell | null)[] = [];
+    for (let dow = 0; dow < 7; dow++) {
+      const d = new Date(sundayThisWeek.getTime());
+      d.setDate(d.getDate() - w * 7 + dow);
+      if (d.getTime() > today.getTime()) {
+        col.push(null);
+        continue;
+      }
+      const key = dayKey(d.getTime());
+      const h = history[key] ?? { new: 0, reviews: 0 };
+      col.push({ key, new: h.new ?? 0, reviews: h.reviews ?? 0, total: (h.new ?? 0) + (h.reviews ?? 0) });
+    }
+    grid.push(col);
+  }
+  return grid;
+}
