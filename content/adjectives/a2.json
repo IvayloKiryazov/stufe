@@ -1,0 +1,33 @@
+{
+  "level": "a2",
+  "groups": [
+    {
+      "id": "adjectives",
+      "name": "Describing the world",
+      "kind": "adj",
+      "intro": "Wider set of everyday adjectives.",
+      "words": [
+        ["wichtig", "important"],
+        ["interessant", "interesting"],
+        ["langweilig", "boring"],
+        ["gefährlich", "dangerous"],
+        ["ruhig", "quiet, calm"],
+        ["laut", "loud"],
+        ["freundlich", "friendly"],
+        ["höflich", "polite"],
+        ["gesund", "healthy"],
+        ["krank", "ill, sick"],
+        ["sauber", "clean"],
+        ["schmutzig", "dirty"],
+        ["voll", "full"],
+        ["leer", "empty"],
+        ["offen", "open"],
+        ["geschlossen", "closed"],
+        ["richtig", "correct, right"],
+        ["falsch", "wrong"],
+        ["frei", "free"],
+        ["beschäftigt", "busy"]
+      ]
+    }
+  ]
+}

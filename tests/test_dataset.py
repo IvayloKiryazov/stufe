@@ -115,6 +115,12 @@ class DatasetTest(unittest.TestCase):
         missing = [i["id"] for i in vocab if not i.get("source")]
         self.assertEqual(missing, [], f"{len(missing)} vocab items without a source")
 
+    def test_curated_adjectives(self):
+        # #59: hand-authored adjectives, enriched by the pipeline.
+        adj = [i for i in self.items if i["kind"] == "adj" and not i["id"].startswith("freq-")]
+        self.assertGreaterEqual(len(adj), 50)
+        self.assertTrue(all(i.get("examples") for i in adj), "an adjective lacks examples")
+
 
 if __name__ == "__main__":
     unittest.main()

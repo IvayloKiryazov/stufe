@@ -244,6 +244,32 @@ def main() -> int:
                 group["items"].append(item["id"])
                 items.append(item)
 
+    # --- curated adjectives -> production cards ---------------------------
+    for doc in load_content("adjectives"):
+        level = doc["level"]
+        for grp in doc["groups"]:
+            gid = f"{level}-{grp['id']}"
+            group = add_group(level, gid, grp["name"], "adj", grp.get("intro", ""))
+            for entry in grp["words"]:
+                word, english = entry[0], entry[1]
+                forms = entry[2] if len(entry) > 2 else ""
+                item = {
+                    "id": f"{gid}-{slug(word)}",
+                    "level": level,
+                    "group": gid,
+                    "groupName": grp["name"],
+                    "kind": "adj",
+                    "intro": grp.get("intro", ""),
+                    "de": word,
+                    "en": english,
+                    "forms": forms,
+                    "sentence_de": "",
+                    "sentence_en": "",
+                    "note": grp.get("notes", {}).get(word, ""),
+                }
+                group["items"].append(item["id"])
+                items.append(item)
+
     # --- curated grammar -> cloze cards -----------------------------------
     for doc in load_content("grammar"):
         level = doc["level"]

@@ -8,6 +8,7 @@
 content/
   nouns/<level>.json     themed noun lists           -> production cards
   verbs/<level>.json     verb lists + principal parts
+  adjectives/<level>.json adjective lists
   grammar/<level>.json   grammar points with cloze items
   reading/<level>.json   reading passages + questions
 ```

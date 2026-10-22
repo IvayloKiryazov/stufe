@@ -23,6 +23,8 @@ the built `docs/`.
   still heuristic — full per-item verification is a standing task.
 - #81 curated vocabulary now carries IPA from Wiktionary (the auto deck already
   did); `tools/build_ipa.py` builds the map.
+- #59 curated **adjectives** for A1–B1 (`content/adjectives/*.json`), enriched
+  with IPA, audio and examples like the other vocab.
 
 ## Phase 3 — SRS depth & curriculum (DONE)
 

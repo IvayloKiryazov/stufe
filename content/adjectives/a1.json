@@ -1,0 +1,33 @@
+{
+  "level": "a1",
+  "groups": [
+    {
+      "id": "adjectives",
+      "name": "Everyday adjectives",
+      "kind": "adj",
+      "intro": "Common adjectives used to describe people and things.",
+      "words": [
+        ["groß", "big, tall"],
+        ["klein", "small, little"],
+        ["gut", "good"],
+        ["schlecht", "bad"],
+        ["neu", "new"],
+        ["alt", "old"],
+        ["jung", "young"],
+        ["schnell", "fast, quick"],
+        ["langsam", "slow"],
+        ["schön", "beautiful, nice"],
+        ["hässlich", "ugly"],
+        ["heiß", "hot"],
+        ["kalt", "cold"],
+        ["teuer", "expensive"],
+        ["billig", "cheap"],
+        ["leicht", "light, easy"],
+        ["schwer", "heavy, difficult"],
+        ["glücklich", "happy"],
+        ["traurig", "sad"],
+        ["müde", "tired"]
+      ]
+    }
+  ]
+}

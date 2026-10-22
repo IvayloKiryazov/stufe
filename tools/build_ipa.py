@@ -31,6 +31,11 @@ def target_words() -> set[str]:
         for group in doc["groups"]:
             for entry in group["words"]:
                 words.add(entry[0].replace("sich ", "").strip())
+    for path in sorted((ROOT / "content" / "adjectives").glob("*.json")):
+        doc = json.loads(path.read_text(encoding="utf-8"))
+        for group in doc["groups"]:
+            for entry in group["words"]:
+                words.add(entry[0])
     return words
 
 

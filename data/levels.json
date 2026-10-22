@@ -1049,6 +1049,35 @@
     ]
    },
    {
+    "id": "a1-adjectives",
+    "name": "Everyday adjectives",
+    "subtitle": "",
+    "kind": "adj",
+    "intro": "Common adjectives used to describe people and things.",
+    "items": [
+     "a1-adjectives-gross",
+     "a1-adjectives-klein",
+     "a1-adjectives-gut",
+     "a1-adjectives-schlecht",
+     "a1-adjectives-neu",
+     "a1-adjectives-alt",
+     "a1-adjectives-jung",
+     "a1-adjectives-schnell",
+     "a1-adjectives-langsam",
+     "a1-adjectives-schoen",
+     "a1-adjectives-haesslich",
+     "a1-adjectives-heiss",
+     "a1-adjectives-kalt",
+     "a1-adjectives-teuer",
+     "a1-adjectives-billig",
+     "a1-adjectives-leicht",
+     "a1-adjectives-schwer",
+     "a1-adjectives-gluecklich",
+     "a1-adjectives-traurig",
+     "a1-adjectives-muede"
+    ]
+   },
+   {
     "id": "a1-pronouns",
     "name": "Personalpronomen (ich, du, er …)",
     "subtitle": "Subject pronouns",
@@ -1538,7 +1567,27 @@
      "a1-irregular-treffen-cloze",
      "a1-irregular-wissen-cloze",
      "a1-irregular-bleiben-cloze",
-     "a1-irregular-verstehen-cloze"
+     "a1-irregular-verstehen-cloze",
+     "a1-adjectives-gross-cloze",
+     "a1-adjectives-klein-cloze",
+     "a1-adjectives-gut-cloze",
+     "a1-adjectives-schlecht-cloze",
+     "a1-adjectives-neu-cloze",
+     "a1-adjectives-alt-cloze",
+     "a1-adjectives-jung-cloze",
+     "a1-adjectives-schnell-cloze",
+     "a1-adjectives-langsam-cloze",
+     "a1-adjectives-schoen-cloze",
+     "a1-adjectives-haesslich-cloze",
+     "a1-adjectives-heiss-cloze",
+     "a1-adjectives-kalt-cloze",
+     "a1-adjectives-teuer-cloze",
+     "a1-adjectives-billig-cloze",
+     "a1-adjectives-leicht-cloze",
+     "a1-adjectives-schwer-cloze",
+     "a1-adjectives-gluecklich-cloze",
+     "a1-adjectives-traurig-cloze",
+     "a1-adjectives-muede-cloze"
     ]
    }
   ]
@@ -1994,6 +2043,35 @@
      "a2-irregular-a2-beschreiben",
      "a2-irregular-a2-erkennen",
      "a2-irregular-a2-erklaeren"
+    ]
+   },
+   {
+    "id": "a2-adjectives",
+    "name": "Describing the world",
+    "subtitle": "",
+    "kind": "adj",
+    "intro": "Wider set of everyday adjectives.",
+    "items": [
+     "a2-adjectives-wichtig",
+     "a2-adjectives-interessant",
+     "a2-adjectives-langweilig",
+     "a2-adjectives-gefaehrlich",
+     "a2-adjectives-ruhig",
+     "a2-adjectives-laut",
+     "a2-adjectives-freundlich",
+     "a2-adjectives-hoeflich",
+     "a2-adjectives-gesund",
+     "a2-adjectives-krank",
+     "a2-adjectives-sauber",
+     "a2-adjectives-schmutzig",
+     "a2-adjectives-voll",
+     "a2-adjectives-leer",
+     "a2-adjectives-offen",
+     "a2-adjectives-geschlossen",
+     "a2-adjectives-richtig",
+     "a2-adjectives-falsch",
+     "a2-adjectives-frei",
+     "a2-adjectives-beschaeftigt"
     ]
    },
    {
@@ -4628,7 +4706,27 @@
      "a2-irregular-a2-bekommen-cloze",
      "a2-irregular-a2-beschreiben-cloze",
      "a2-irregular-a2-erkennen-cloze",
-     "a2-irregular-a2-erklaeren-cloze"
+     "a2-irregular-a2-erklaeren-cloze",
+     "a2-adjectives-wichtig-cloze",
+     "a2-adjectives-interessant-cloze",
+     "a2-adjectives-langweilig-cloze",
+     "a2-adjectives-gefaehrlich-cloze",
+     "a2-adjectives-ruhig-cloze",
+     "a2-adjectives-laut-cloze",
+     "a2-adjectives-freundlich-cloze",
+     "a2-adjectives-hoeflich-cloze",
+     "a2-adjectives-gesund-cloze",
+     "a2-adjectives-krank-cloze",
+     "a2-adjectives-sauber-cloze",
+     "a2-adjectives-schmutzig-cloze",
+     "a2-adjectives-voll-cloze",
+     "a2-adjectives-leer-cloze",
+     "a2-adjectives-offen-cloze",
+     "a2-adjectives-geschlossen-cloze",
+     "a2-adjectives-richtig-cloze",
+     "a2-adjectives-falsch-cloze",
+     "a2-adjectives-frei-cloze",
+     "a2-adjectives-beschaeftigt-cloze"
     ]
    },
    {
@@ -5800,6 +5898,35 @@
   "name": "B1",
   "title": "Intermediate",
   "groups": [
+   {
+    "id": "b1-adjectives-character",
+    "name": "Character & quality",
+    "subtitle": "",
+    "kind": "adj",
+    "intro": "Adjectives for describing character, moods and quality.",
+    "items": [
+     "b1-adjectives-character-zuverlaessig",
+     "b1-adjectives-character-ordentlich",
+     "b1-adjectives-character-ehrlich",
+     "b1-adjectives-character-geduldig",
+     "b1-adjectives-character-grosszuegig",
+     "b1-adjectives-character-neugierig",
+     "b1-adjectives-character-vernuenftig",
+     "b1-adjectives-character-anstrengend",
+     "b1-adjectives-character-spannend",
+     "b1-adjectives-character-peinlich",
+     "b1-adjectives-character-stolz",
+     "b1-adjectives-character-zufrieden",
+     "b1-adjectives-character-enttaeuscht",
+     "b1-adjectives-character-ueberrascht",
+     "b1-adjectives-character-deutlich",
+     "b1-adjectives-character-sorgfaeltig",
+     "b1-adjectives-character-vorsichtig",
+     "b1-adjectives-character-erfolgreich",
+     "b1-adjectives-character-notwendig",
+     "b1-adjectives-character-moeglich"
+    ]
+   },
    {
     "id": "b1-infinitive-zu",
     "name": "Infinitiv mit zu",
@@ -8446,6 +8573,35 @@
      "freq-b1-adj-achte",
      "freq-b1-adj-eklig",
      "freq-b1-adj-öffentlich"
+    ]
+   },
+   {
+    "id": "b1-vocab-cloze",
+    "name": "Vocabulary cloze",
+    "subtitle": "",
+    "kind": "vocab-cloze",
+    "intro": "Type the missing word into the sentence.",
+    "items": [
+     "b1-adjectives-character-zuverlaessig-cloze",
+     "b1-adjectives-character-ordentlich-cloze",
+     "b1-adjectives-character-ehrlich-cloze",
+     "b1-adjectives-character-geduldig-cloze",
+     "b1-adjectives-character-grosszuegig-cloze",
+     "b1-adjectives-character-neugierig-cloze",
+     "b1-adjectives-character-vernuenftig-cloze",
+     "b1-adjectives-character-anstrengend-cloze",
+     "b1-adjectives-character-spannend-cloze",
+     "b1-adjectives-character-peinlich-cloze",
+     "b1-adjectives-character-stolz-cloze",
+     "b1-adjectives-character-zufrieden-cloze",
+     "b1-adjectives-character-enttaeuscht-cloze",
+     "b1-adjectives-character-ueberrascht-cloze",
+     "b1-adjectives-character-deutlich-cloze",
+     "b1-adjectives-character-sorgfaeltig-cloze",
+     "b1-adjectives-character-vorsichtig-cloze",
+     "b1-adjectives-character-erfolgreich-cloze",
+     "b1-adjectives-character-notwendig-cloze",
+     "b1-adjectives-character-moeglich-cloze"
     ]
    },
    {

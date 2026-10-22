@@ -1,0 +1,33 @@
+{
+  "level": "b1",
+  "groups": [
+    {
+      "id": "adjectives-character",
+      "name": "Character & quality",
+      "kind": "adj",
+      "intro": "Adjectives for describing character, moods and quality.",
+      "words": [
+        ["zuverlässig", "reliable"],
+        ["ordentlich", "tidy, neat"],
+        ["ehrlich", "honest"],
+        ["geduldig", "patient"],
+        ["großzügig", "generous"],
+        ["neugierig", "curious"],
+        ["vernünftig", "reasonable, sensible"],
+        ["anstrengend", "exhausting, tiring"],
+        ["spannend", "exciting, thrilling"],
+        ["peinlich", "embarrassing"],
+        ["stolz", "proud"],
+        ["zufrieden", "content, satisfied"],
+        ["enttäuscht", "disappointed"],
+        ["überrascht", "surprised"],
+        ["deutlich", "clear, distinct"],
+        ["sorgfältig", "careful, thorough"],
+        ["vorsichtig", "careful, cautious"],
+        ["erfolgreich", "successful"],
+        ["notwendig", "necessary"],
+        ["möglich", "possible"]
+      ]
+    }
+  ]
+}
