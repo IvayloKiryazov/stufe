@@ -1,15 +1,18 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Volume2 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { useDeck } from "../hooks/useDeck";
-import type { Reading as Passage } from "../lib/data";
+import type { Deck, Item, Reading as Passage } from "../lib/data";
+import { buildGlossIndex, glossFor } from "../lib/gloss";
 import { speak } from "../lib/tts";
 
-function PassageView({ p }: { p: Passage }) {
+function PassageView({ p, deck }: { p: Passage; deck: Deck }) {
   const [answers, setAnswers] = useState<number[]>(() => p.questions.map(() => -1));
   const [checked, setChecked] = useState(false);
+  const [sel, setSel] = useState<Item | null>(null);
+  const index = useMemo(() => buildGlossIndex(deck), [deck]);
   const score = p.questions.reduce((n, q, i) => n + (answers[i] === q.answer ? 1 : 0), 0);
 
   return (
@@ -23,8 +26,30 @@ function PassageView({ p }: { p: Passage }) {
       </header>
       <Card>
         <p className="font-serif text-lg leading-relaxed" lang="de">
-          {p.text}
+          {p.text.split(/(\b[A-Za-zÄÖÜäöüß-]+\b)/).map((tok, i) =>
+            /^[A-Za-zÄÖÜäöüß-]+$/.test(tok) ? (
+              <button
+                key={i}
+                type="button"
+                onClick={() => setSel(glossFor(index, tok) ?? null)}
+                className="rounded hover:bg-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+              >
+                {tok}
+              </button>
+            ) : (
+              <span key={i}>{tok}</span>
+            ),
+          )}
         </p>
+        {sel && (
+          <p className="mt-2 border-t border-line pt-2 text-sm">
+            <b lang="de">{sel.de}</b> — <span className="text-muted">{sel.en}</span>
+            {sel.plural && <span className="text-muted"> · Pl. {sel.plural}</span>}
+            <Button variant="ghost" size="sm" className="ml-2" onClick={() => setSel(null)}>
+              Clear
+            </Button>
+          </p>
+        )}
         <Button variant="ghost" size="sm" className="mt-3" onClick={() => speak(p.text)}>
           <Volume2 className="h-4 w-4" /> Listen
         </Button>
@@ -80,7 +105,7 @@ export default function Reading() {
   if (!deck) return <p className="text-muted">Loading…</p>;
   if (id) {
     const p = deck.reading.find((r) => r.id === id);
-    return p ? <PassageView p={p} /> : <p className="text-muted">Passage not found.</p>;
+    return p ? <PassageView p={p} deck={deck} /> : <p className="text-muted">Passage not found.</p>;
   }
   return (
     <div className="space-y-6">
