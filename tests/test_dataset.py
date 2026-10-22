@@ -109,6 +109,12 @@ class DatasetTest(unittest.TestCase):
                 any(i["answer"] in ex["de"] for ex in i["examples"]), i["id"]
             )
 
+    def test_items_expose_a_source(self):
+        # #68: a verifiable/provenance reference per vocabulary item.
+        vocab = [i for i in self.items if i["kind"] in ("noun", "verb", "adj")]
+        missing = [i["id"] for i in vocab if not i.get("source")]
+        self.assertEqual(missing, [], f"{len(missing)} vocab items without a source")
+
 
 if __name__ == "__main__":
     unittest.main()

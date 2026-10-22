@@ -59,9 +59,9 @@ Playwright starts the built app with `vite preview` (see
 
 `.github/workflows/ci.yml`:
 
-- **pipeline** job — Python tests, `tools/check_content.py`, and
-  `tools/verify_dataset.py` (asserts the per-level split matches
-  `data/items.json`; see #104).
+- **pipeline** job — Python tests, `tools/check_content.py`,
+  `tools/verify_dataset.py` (per-level split matches `data/items.json`; #104) and
+  `tools/cross_check.py` (curated nouns vs the Wiktionary reference; #69/#92).
 - **web** job — `npm ci`, `npm run build`, `npm run test:unit`,
   `npx playwright install --with-deps chromium`, `npm run test:e2e`.
 

@@ -1,0 +1,778 @@
+{
+ "Haus": {
+  "article": "das",
+  "plural": "Häuser"
+ },
+ "Uhr": {
+  "article": "die",
+  "plural": "Uhren"
+ },
+ "Apfel": {
+  "article": "der",
+  "plural": "Äpfel"
+ },
+ "Herz": {
+  "article": "das",
+  "plural": ""
+ },
+ "Buch": {
+  "article": "das",
+  "plural": "Bücher"
+ },
+ "Fisch": {
+  "article": "der",
+  "plural": "Fische"
+ },
+ "Straße": {
+  "article": "die",
+  "plural": "Straßen"
+ },
+ "Fenster": {
+  "article": "das",
+  "plural": "Fenster"
+ },
+ "Tisch": {
+  "article": "der",
+  "plural": "Tische"
+ },
+ "Stadt": {
+  "article": "die",
+  "plural": "Städte"
+ },
+ "Fahrrad": {
+  "article": "das",
+  "plural": "Fahrräder"
+ },
+ "Freude": {
+  "article": "die",
+  "plural": "Freuden"
+ },
+ "Gabel": {
+  "article": "die",
+  "plural": "Gabeln"
+ },
+ "Garten": {
+  "article": "der",
+  "plural": "Gärten"
+ },
+ "Zahn": {
+  "article": "der",
+  "plural": "Zähne"
+ },
+ "Arzt": {
+  "article": "der",
+  "plural": "Ärzte"
+ },
+ "Ärztin": {
+  "article": "die",
+  "plural": "Ärztinnen"
+ },
+ "Nacht": {
+  "article": "die",
+  "plural": "Nächte"
+ },
+ "Auge": {
+  "article": "das",
+  "plural": "Augen"
+ },
+ "Zucker": {
+  "article": "der",
+  "plural": "Zucker"
+ },
+ "Schnee": {
+  "article": "der",
+  "plural": ""
+ },
+ "Gesundheit": {
+  "article": "die",
+  "plural": ""
+ },
+ "Schmerz": {
+  "article": "der",
+  "plural": "Schmerzen"
+ },
+ "Zeit": {
+  "article": "die",
+  "plural": "Zeiten"
+ },
+ "Käse": {
+  "article": "der",
+  "plural": "Käse"
+ },
+ "Zug": {
+  "article": "der",
+  "plural": "Züge"
+ },
+ "Wasser": {
+  "article": "das",
+  "plural": "Wasser"
+ },
+ "Schlüssel": {
+  "article": "der",
+  "plural": "Schlüssel"
+ },
+ "Freundin": {
+  "article": "die",
+  "plural": "Freundinnen"
+ },
+ "Wein": {
+  "article": "der",
+  "plural": "Weine"
+ },
+ "Sprache": {
+  "article": "die",
+  "plural": "Sprachen"
+ },
+ "Gefühl": {
+  "article": "das",
+  "plural": "Gefühle"
+ },
+ "Frau": {
+  "article": "die",
+  "plural": "Frauen"
+ },
+ "Feuer": {
+  "article": "das",
+  "plural": "Feuer"
+ },
+ "Küche": {
+  "article": "die",
+  "plural": "Küchen"
+ },
+ "Familie": {
+  "article": "die",
+  "plural": "Familien"
+ },
+ "Baum": {
+  "article": "der",
+  "plural": "Bäume"
+ },
+ "Mädchen": {
+  "article": "das",
+  "plural": "Mädchen"
+ },
+ "Junge": {
+  "article": "der",
+  "plural": "Jungen"
+ },
+ "Lehrer": {
+  "article": "der",
+  "plural": "Lehrer"
+ },
+ "Vater": {
+  "article": "der",
+  "plural": "Väter"
+ },
+ "Fuß": {
+  "article": "der",
+  "plural": "Füße"
+ },
+ "Blume": {
+  "article": "die",
+  "plural": "Blumen"
+ },
+ "Fleisch": {
+  "article": "das",
+  "plural": ""
+ },
+ "Kopf": {
+  "article": "der",
+  "plural": "Köpfe"
+ },
+ "Ohr": {
+  "article": "das",
+  "plural": "Ohren"
+ },
+ "Nase": {
+  "article": "die",
+  "plural": "Nasen"
+ },
+ "Zimmer": {
+  "article": "das",
+  "plural": "Zimmer"
+ },
+ "Freund": {
+  "article": "der",
+  "plural": "Freunde"
+ },
+ "Schuh": {
+  "article": "der",
+  "plural": "Schuhe"
+ },
+ "Kaffee": {
+  "article": "der",
+  "plural": "Kaffees"
+ },
+ "Abend": {
+  "article": "der",
+  "plural": "Abende"
+ },
+ "Angst": {
+  "article": "die",
+  "plural": "Ängste"
+ },
+ "Arm": {
+  "article": "der",
+  "plural": "Arme"
+ },
+ "Auto": {
+  "article": "das",
+  "plural": "Autos"
+ },
+ "Bank": {
+  "article": "die",
+  "plural": "Bänke"
+ },
+ "Berg": {
+  "article": "der",
+  "plural": "Berge"
+ },
+ "Bier": {
+  "article": "das",
+  "plural": "Biere"
+ },
+ "Butter": {
+  "article": "die",
+  "plural": ""
+ },
+ "Chef": {
+  "article": "der",
+  "plural": "Chefs"
+ },
+ "Computer": {
+  "article": "der",
+  "plural": "Computer"
+ },
+ "Ei": {
+  "article": "das",
+  "plural": "Eier"
+ },
+ "Firma": {
+  "article": "die",
+  "plural": "Firmen"
+ },
+ "Grund": {
+  "article": "der",
+  "plural": "Gründe"
+ },
+ "Haar": {
+  "article": "das",
+  "plural": "Haare"
+ },
+ "Hand": {
+  "article": "die",
+  "plural": "Hände"
+ },
+ "Himmel": {
+  "article": "der",
+  "plural": "Himmel"
+ },
+ "Hose": {
+  "article": "die",
+  "plural": "Hosen"
+ },
+ "Hotel": {
+  "article": "das",
+  "plural": "Hotels"
+ },
+ "Hut": {
+  "article": "der",
+  "plural": "Hüte"
+ },
+ "Information": {
+  "article": "die",
+  "plural": "Informationen"
+ },
+ "Kind": {
+  "article": "das",
+  "plural": "Kinder"
+ },
+ "Koffer": {
+  "article": "der",
+  "plural": "Koffer"
+ },
+ "Lehrerin": {
+  "article": "die",
+  "plural": "Lehrerinnen"
+ },
+ "Luft": {
+  "article": "die",
+  "plural": "Lüfte"
+ },
+ "Mann": {
+  "article": "der",
+  "plural": "Männer"
+ },
+ "Meer": {
+  "article": "das",
+  "plural": "Meere"
+ },
+ "Mensch": {
+  "article": "der",
+  "plural": "Menschen"
+ },
+ "Minute": {
+  "article": "die",
+  "plural": "Minuten"
+ },
+ "Mond": {
+  "article": "der",
+  "plural": "Monde"
+ },
+ "Mutter": {
+  "article": "die",
+  "plural": "Mütter"
+ },
+ "Name": {
+  "article": "der",
+  "plural": "Namen"
+ },
+ "Park": {
+  "article": "der",
+  "plural": "Parks"
+ },
+ "Pause": {
+  "article": "die",
+  "plural": "Pausen"
+ },
+ "Problem": {
+  "article": "das",
+  "plural": "Probleme"
+ },
+ "Regen": {
+  "article": "der",
+  "plural": "Regen"
+ },
+ "Restaurant": {
+  "article": "das",
+  "plural": "Restaurants"
+ },
+ "Rock": {
+  "article": "der",
+  "plural": "Röcke"
+ },
+ "Sonne": {
+  "article": "die",
+  "plural": "Sonnen"
+ },
+ "Student": {
+  "article": "der",
+  "plural": "Studenten"
+ },
+ "Tag": {
+  "article": "der",
+  "plural": "Tage"
+ },
+ "Tasche": {
+  "article": "die",
+  "plural": "Taschen"
+ },
+ "Team": {
+  "article": "das",
+  "plural": "Teams"
+ },
+ "Tee": {
+  "article": "der",
+  "plural": "Tees"
+ },
+ "Telefon": {
+  "article": "das",
+  "plural": "Telefone"
+ },
+ "Teller": {
+  "article": "der",
+  "plural": "Teller"
+ },
+ "Ticket": {
+  "article": "das",
+  "plural": "Tickets"
+ },
+ "Wind": {
+  "article": "der",
+  "plural": "Winde"
+ },
+ "Wort": {
+  "article": "das",
+  "plural": "Wörter"
+ },
+ "Milch": {
+  "article": "die",
+  "plural": "Milchen"
+ },
+ "Jahr": {
+  "article": "das",
+  "plural": "Jahre"
+ },
+ "Verkehr": {
+  "article": "der",
+  "plural": "Verkehre"
+ },
+ "Bahn": {
+  "article": "die",
+  "plural": "Bahnen"
+ },
+ "Bahnhof": {
+  "article": "der",
+  "plural": "Bahnhöfe"
+ },
+ "Bus": {
+  "article": "der",
+  "plural": "Busse"
+ },
+ "Brot": {
+  "article": "das",
+  "plural": "Brote"
+ },
+ "Kuchen": {
+  "article": "der",
+  "plural": "Kuchen"
+ },
+ "Stuhl": {
+  "article": "der",
+  "plural": "Stühle"
+ },
+ "Kartoffel": {
+  "article": "die",
+  "plural": "Kartoffeln"
+ },
+ "Bett": {
+  "article": "das",
+  "plural": "Betten"
+ },
+ "Tür": {
+  "article": "die",
+  "plural": "Türen"
+ },
+ "Schiff": {
+  "article": "das",
+  "plural": "Schiffe"
+ },
+ "Kirche": {
+  "article": "die",
+  "plural": "Kirchen"
+ },
+ "Bauch": {
+  "article": "der",
+  "plural": "Bäuche"
+ },
+ "Stunde": {
+  "article": "die",
+  "plural": "Stunden"
+ },
+ "Salz": {
+  "article": "das",
+  "plural": "Salze"
+ },
+ "Messer": {
+  "article": "das",
+  "plural": "Messer"
+ },
+ "Obst": {
+  "article": "das",
+  "plural": ""
+ },
+ "Krankenhaus": {
+  "article": "das",
+  "plural": "Krankenhäuser"
+ },
+ "Flugzeug": {
+  "article": "das",
+  "plural": "Flugzeuge"
+ },
+ "Flughafen": {
+  "article": "der",
+  "plural": "Flughäfen"
+ },
+ "Mantel": {
+  "article": "der",
+  "plural": "Mäntel"
+ },
+ "Fluss": {
+  "article": "der",
+  "plural": "Flüsse"
+ },
+ "Morgen": {
+  "article": "der",
+  "plural": "Morgen"
+ },
+ "Lampe": {
+  "article": "die",
+  "plural": "Lampen"
+ },
+ "Suppe": {
+  "article": "die",
+  "plural": "Suppen"
+ },
+ "Mund": {
+  "article": "der",
+  "plural": "Münder"
+ },
+ "Arbeit": {
+  "article": "die",
+  "plural": "Arbeiten"
+ },
+ "Gesellschaft": {
+  "article": "die",
+  "plural": "Gesellschaften"
+ },
+ "Eingang": {
+  "article": "der",
+  "plural": "Eingänge"
+ },
+ "Bruder": {
+  "article": "der",
+  "plural": "Brüder"
+ },
+ "Geschichte": {
+  "article": "die",
+  "plural": "Geschichten"
+ },
+ "Reise": {
+  "article": "die",
+  "plural": "Reisen"
+ },
+ "Ziel": {
+  "article": "das",
+  "plural": "Ziele"
+ },
+ "Saft": {
+  "article": "der",
+  "plural": "Säfte"
+ },
+ "Monat": {
+  "article": "der",
+  "plural": "Monate"
+ },
+ "Löffel": {
+  "article": "der",
+  "plural": "Löffel"
+ },
+ "Wetter": {
+  "article": "das",
+  "plural": "Wetter"
+ },
+ "Kollege": {
+  "article": "der",
+  "plural": "Kollegen"
+ },
+ "Woche": {
+  "article": "die",
+  "plural": "Wochen"
+ },
+ "Regierung": {
+  "article": "die",
+  "plural": "Regierungen"
+ },
+ "Schwester": {
+  "article": "die",
+  "plural": "Schwestern"
+ },
+ "Rechnung": {
+  "article": "die",
+  "plural": "Rechnungen"
+ },
+ "Markt": {
+  "article": "der",
+  "plural": "Märkte"
+ },
+ "Kleid": {
+  "article": "das",
+  "plural": "Kleider"
+ },
+ "Antwort": {
+  "article": "die",
+  "plural": "Antworten"
+ },
+ "Bein": {
+  "article": "das",
+  "plural": "Beine"
+ },
+ "Schule": {
+  "article": "die",
+  "plural": "Schulen"
+ },
+ "Frage": {
+  "article": "die",
+  "plural": "Fragen"
+ },
+ "Gegend": {
+  "article": "die",
+  "plural": "Gegenden"
+ },
+ "Gesetz": {
+  "article": "das",
+  "plural": "Gesetze"
+ },
+ "Glück": {
+  "article": "das",
+  "plural": ""
+ },
+ "Grenze": {
+  "article": "die",
+  "plural": "Grenzen"
+ },
+ "Hemd": {
+  "article": "das",
+  "plural": "Hemden"
+ },
+ "Jacke": {
+  "article": "die",
+  "plural": "Jacken"
+ },
+ "Kunde": {
+  "article": "der",
+  "plural": "Kunden"
+ },
+ "Socke": {
+  "article": "die",
+  "plural": "Socken"
+ },
+ "Urlaub": {
+  "article": "der",
+  "plural": "Urlaube"
+ },
+ "Werbung": {
+  "article": "die",
+  "plural": "Werbungen"
+ },
+ "Wunsch": {
+  "article": "der",
+  "plural": "Wünsche"
+ },
+ "Wohnung": {
+  "article": "die",
+  "plural": "Wohnungen"
+ },
+ "Unterschied": {
+  "article": "der",
+  "plural": "Unterschiede"
+ },
+ "Umwelt": {
+  "article": "die",
+  "plural": "Umwelten"
+ },
+ "Zeitung": {
+  "article": "die",
+  "plural": "Zeitungen"
+ },
+ "Krankheit": {
+  "article": "die",
+  "plural": "Krankheiten"
+ },
+ "Möglichkeit": {
+  "article": "die",
+  "plural": "Möglichkeiten"
+ },
+ "Apotheke": {
+  "article": "die",
+  "plural": "Apotheken"
+ },
+ "Büro": {
+  "article": "das",
+  "plural": "Büros"
+ },
+ "Bewegung": {
+  "article": "die",
+  "plural": "Bewegungen"
+ },
+ "Internet": {
+  "article": "das",
+  "plural": ""
+ },
+ "Meinung": {
+  "article": "die",
+  "plural": "Meinungen"
+ },
+ "Kultur": {
+  "article": "die",
+  "plural": "Kulturen"
+ },
+ "Idee": {
+  "article": "die",
+  "plural": "Ideen"
+ },
+ "Beruf": {
+  "article": "der",
+  "plural": "Berufe"
+ },
+ "Interesse": {
+  "article": "das",
+  "plural": "Interessen"
+ },
+ "Erfahrung": {
+  "article": "die",
+  "plural": "Erfahrungen"
+ },
+ "Termin": {
+  "article": "der",
+  "plural": "Termine"
+ },
+ "Ernährung": {
+  "article": "die",
+  "plural": ""
+ },
+ "Projekt": {
+  "article": "das",
+  "plural": "Projekte"
+ },
+ "Karte": {
+  "article": "die",
+  "plural": "Karten"
+ },
+ "Wochenende": {
+  "article": "das",
+  "plural": "Wochenenden"
+ },
+ "Schüler": {
+  "article": "der",
+  "plural": "Schüler"
+ },
+ "Nachricht": {
+  "article": "die",
+  "plural": "Nachrichten"
+ },
+ "Vertrag": {
+  "article": "der",
+  "plural": "Verträge"
+ },
+ "Fahrkarte": {
+  "article": "die",
+  "plural": "Fahrkarten"
+ },
+ "Aufgabe": {
+  "article": "die",
+  "plural": "Aufgaben"
+ },
+ "Bewerbung": {
+  "article": "die",
+  "plural": "Bewerbungen"
+ },
+ "Medikament": {
+  "article": "das",
+  "plural": "Medikamente"
+ },
+ "Geschäft": {
+  "article": "das",
+  "plural": "Geschäfte"
+ },
+ "Umgebung": {
+  "article": "die",
+  "plural": "Umgebungen"
+ },
+ "Gehalt": {
+  "article": "der",
+  "plural": "Gehalte"
+ },
+ "Ausgang": {
+  "article": "der",
+  "plural": "Ausgänge"
+ },
+ "Besprechung": {
+  "article": "die",
+  "plural": "Besprechungen"
+ },
+ "Ausflug": {
+  "article": "der",
+  "plural": "Ausflüge"
+ }
+}

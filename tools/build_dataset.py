@@ -455,6 +455,15 @@ def main() -> int:
                     filled += 1
         print(f"audio backfilled for {filled:,} items")
 
+    # --- per-item source reference (#68) ----------------------------------
+    for it in items:
+        if it.get("attribution"):
+            it["source"] = it["attribution"]
+        elif it.get("kind") in ("noun", "verb", "adj"):
+            it["source"] = "Wiktionary (CC BY-SA 4.0)"
+        elif it.get("kind") == "cloze" and not it["id"].startswith("freq-"):
+            it["source"] = "Stufe content (MIT)"
+
     # --- curated overrides (id -> partial item) ---------------------------
     overrides_path = ROOT / "content" / "overrides.json"
     if overrides_path.exists():

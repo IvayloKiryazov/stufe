@@ -139,20 +139,27 @@ def build_sentence_index_multi(
     """token (case-sensitive) -> up to ``per_token`` shortest sentences.
 
     Like ``build_sentence_index`` but keeps several short sentences per token so
-    a card can show (and rotate) more than one example (#131).
+    a card can show (and rotate) more than one example (#131). Buckets are kept
+    tiny (``cap``) so common words stay linear rather than quadratic.
     """
+    cap = max(per_token * 2, 4)
     index: dict[str, list[tuple[str, str, str]]] = {}
     for de, en, attr in pairs:
         if len(de) > max_len:
             continue
+        entry = (de, en, attr)
         for m in WORD_RE.finditer(de):
             if m.start() == 0:
                 continue  # sentence-initial token: capitalisation is ambiguous
-            token = m.group(0)
-            bucket = index.setdefault(token, [])
-            entry = (de, en, attr)
-            if entry not in bucket:
+            bucket = index.setdefault(m.group(0), [])
+            if entry in bucket:
+                continue
+            if len(bucket) < cap:
                 bucket.append(entry)
+            else:
+                longest = max(bucket, key=lambda t: len(t[0]))
+                if len(de) < len(longest[0]):
+                    bucket[bucket.index(longest)] = entry
     for bucket in index.values():
         bucket.sort(key=lambda t: len(t[0]))
         del bucket[per_token:]

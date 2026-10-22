@@ -25,7 +25,9 @@ local `data/raw/` without downloading.
 `build_dataset.py` writes the canonical flat `data/items.json` **and** the same
 items split per level under `data/items/<level>.json` (the app loads those on
 demand). `python3 verify_dataset.py` checks the split is consistent with
-`items.json`; CI runs it.
+`items.json`; `python3 build_reference.py` builds a Wiktionary noun reference and
+`python3 cross_check.py` compares the curated gender/plural against it. CI runs
+all three.
 
 ## Frequency deck (POS-aware)
 
