@@ -13,6 +13,7 @@ const SCREENS: { name: string; hash: string }[] = [
   { name: "writing", hash: "#/writing" },
   { name: "dictation", hash: "#/dictation" },
   { name: "translate", hash: "#/translate" },
+  { name: "search", hash: "#/search" },
   { name: "stats", hash: "#/stats" },
   { name: "settings", hash: "#/settings" },
   { name: "credits", hash: "#/credits" },

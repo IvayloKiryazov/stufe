@@ -13,6 +13,7 @@ import {
   Monitor,
   Moon,
   PenLine,
+  Search as SearchIcon,
   Settings as SettingsIcon,
   Sun,
   Volume2,
@@ -37,6 +38,7 @@ const Writing = lazy(() => import("./routes/Writing"));
 const Dictation = lazy(() => import("./routes/Dictation"));
 const Translate = lazy(() => import("./routes/Translate"));
 const Settings = lazy(() => import("./routes/Settings"));
+const Search = lazy(() => import("./routes/Search"));
 const Stats = lazy(() => import("./routes/Stats"));
 const Credits = lazy(() => import("./routes/Credits"));
 const Help = lazy(() => import("./routes/Help"));
@@ -73,6 +75,7 @@ const NAV: { key: string; items: NavItem[] }[] = [
   {
     key: "nav.you",
     items: [
+      { to: "/search", key: "nav.search", icon: SearchIcon },
       { to: "/stats", key: "nav.stats", icon: BarChart3 },
       { to: "/settings", key: "nav.settings", icon: SettingsIcon },
     ],
@@ -175,6 +178,7 @@ export default function App() {
                 <Route path="/writing" element={<Writing />} />
                 <Route path="/dictation" element={<Dictation />} />
                 <Route path="/translate" element={<Translate />} />
+                <Route path="/search" element={<Search />} />
                 <Route path="/stats" element={<Stats />} />
                 <Route path="/credits" element={<Credits />} />
                 <Route path="/help" element={<Help />} />
