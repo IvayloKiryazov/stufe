@@ -2,6 +2,7 @@ import { Card, CardTitle, Stat } from "../components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
+import { CAN_DO, EXAM, SKILLS } from "../lib/cefr";
 import { addDays, daysToFinish, reviewLoad } from "../lib/projection";
 import { itemsOfLevel } from "../lib/selectors";
 import { isActive, passed } from "../lib/srsCore";
@@ -60,6 +61,7 @@ export default function Stats() {
       <Tabs defaultValue="overview">
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="levels">Levels</TabsTrigger>
           <TabsTrigger value="projections">Projections</TabsTrigger>
         </TabsList>
 
@@ -122,6 +124,49 @@ export default function Stats() {
               </div>
             </Card>
           )}
+        </TabsContent>
+
+        <TabsContent value="levels" className="space-y-4 pt-4">
+          <Card>
+            <CardTitle>What you can do at each level</CardTitle>
+            <div className="space-y-4">
+              {deck.levels.map((L, i) => {
+                const ids = itemsOfLevel(deck, i);
+                const done = ids.filter((id) => passed(progress.p[id])).length;
+                return (
+                  <div key={L.id}>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-medium">
+                        {L.name} · {L.title}
+                      </span>
+                      <span className="text-xs text-muted">
+                        {done}/{ids.length}
+                      </span>
+                    </div>
+                    <ul className="mt-1 list-disc space-y-0.5 pl-5 text-sm text-muted">
+                      {(CAN_DO[L.id] ?? []).map((c) => (
+                        <li key={c}>{c}</li>
+                      ))}
+                    </ul>
+                    {EXAM[L.id] && <p className="mt-1 text-xs text-muted">{EXAM[L.id]}</p>}
+                  </div>
+                );
+              })}
+            </div>
+          </Card>
+          <Card>
+            <CardTitle>Skills</CardTitle>
+            <p className="text-sm text-muted">
+              The app drills these skills across the Learn and Practice sections:
+            </p>
+            <div className="mt-2 flex flex-wrap gap-1">
+              {SKILLS.map((s) => (
+                <span key={s.key} className="rounded-full bg-soft px-3 py-0.5 text-xs text-muted">
+                  {s.label}
+                </span>
+              ))}
+            </div>
+          </Card>
         </TabsContent>
 
         <TabsContent value="projections" className="space-y-4 pt-4">

@@ -29,6 +29,7 @@ export interface Item {
   sentence_en?: string;
   examples?: { de: string; en: string }[];
   attribution?: string;
+  source?: string;
   conjugation?: Conjugation;
 }
 
