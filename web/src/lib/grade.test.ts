@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { equals, fold, tokenSimilarity } from "./grade";
+import { equals, fold, tokenSimilarity, wordDiff } from "./grade";
 
 describe("grade", () => {
   it("folds umlauts and sharp s", () => {
@@ -27,5 +27,11 @@ describe("grade", () => {
   it("requires the exact order for equality", () => {
     expect(equals("der Mann ist groß", "groß ist Mann der")).toBe(false);
     expect(equals("der Mann ist groß", "der mann ist gross")).toBe(true);
+  });
+  it("wordDiff reports missing and extra words", () => {
+    expect(wordDiff("Ich trinke Kaffee", "Ich trinke gern Kaffee").missing).toEqual(["gern"]);
+    const d = wordDiff("Ich trinke Tee gern", "Ich trinke gern Kaffee");
+    expect(d.extra).toContain("tee");
+    expect(d.missing).toContain("kaffee");
   });
 });

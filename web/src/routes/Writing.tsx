@@ -3,7 +3,7 @@ import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { Progress } from "../components/ui/progress";
 import { useDeck } from "../hooks/useDeck";
-import { tokenSimilarity } from "../lib/grade";
+import { tokenSimilarity, wordDiff } from "../lib/grade";
 import { shuffle } from "../lib/shuffle";
 
 export default function Writing() {
@@ -26,6 +26,7 @@ export default function Writing() {
   const item = deck.by[sentences[i]];
   const target = item.sentence_de ?? "";
   const sim = model != null ? Math.round(tokenSimilarity(text, target) * 100) : 0;
+  const diff = model != null ? wordDiff(text, target) : null;
 
   return (
     <div className="space-y-4">
@@ -62,12 +63,25 @@ export default function Writing() {
             Next
           </Button>
         </div>
-        {model != null && (
-          <div className="mt-4 border-t border-line pt-4">
+        {model != null && diff && (
+          <div className="mt-4 space-y-1 border-t border-line pt-4">
             <p className="font-serif" lang="de">
               {target}
             </p>
-            <p className="text-sm text-muted">Your text matches the model by about {sim}%.</p>
+            <p className="text-sm text-muted">About {sim}% of your words match the model.</p>
+            {diff.missing.length > 0 && (
+              <p className="text-sm">
+                <b>Missing:</b> <span lang="de">{diff.missing.join(", ")}</span>
+              </p>
+            )}
+            {diff.extra.length > 0 && (
+              <p className="text-sm text-bad">
+                Extra: <span lang="de">{diff.extra.join(", ")}</span>
+              </p>
+            )}
+            {diff.missing.length === 0 && diff.extra.length === 0 && (
+              <p className="text-sm text-good">Perfect match.</p>
+            )}
           </div>
         )}
       </Card>

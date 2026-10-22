@@ -43,3 +43,27 @@ export function tokenSimilarity(a: string, b: string): number {
   if (!A.length || !B.length) return 0;
   return lcsLength(A, B) / Math.max(A.length, B.length);
 }
+
+export interface WordDiff {
+  matched: string[];
+  missing: string[];
+  extra: string[];
+}
+
+/** Word-level (multiset) diff for writing feedback. */
+export function wordDiff(given: string, target: string): WordDiff {
+  const A = normalizeSentence(given).split(" ").filter(Boolean);
+  const remaining = normalizeSentence(target).split(" ").filter(Boolean);
+  const matched: string[] = [];
+  const extra: string[] = [];
+  for (const word of A) {
+    const i = remaining.indexOf(word);
+    if (i >= 0) {
+      matched.push(word);
+      remaining.splice(i, 1);
+    } else {
+      extra.push(word);
+    }
+  }
+  return { matched, missing: remaining, extra };
+}
