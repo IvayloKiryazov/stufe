@@ -19,6 +19,42 @@
         { "q": "Was macht die Familie gern?", "options": ["wandern", "schwimmen", "einkaufen"], "answer": 0 },
         { "q": "Warum gehen sie früh nach Hause?", "options": ["weil es regnet", "weil sie müde sind", "weil sie Hunger haben"], "answer": 0 }
       ]
+    },
+    {
+      "id": "a2-supermarkt",
+      "title": "Einkaufen im Supermarkt",
+      "text": "Jeden Samstag geht Lena in den Supermarkt. Sie kauft Obst, Gemüse und Brot. Milch und Käse stehen auf ihrer Liste. An der Kasse bezahlt sie mit Karte. Dann trägt sie die Taschen nach Hause.",
+      "glossary": [
+        ["der Supermarkt", "supermarket"],
+        ["das Obst", "fruit"],
+        ["das Gemüse", "vegetables"],
+        ["die Kasse", "checkout"],
+        ["bezahlen", "to pay"],
+        ["die Tasche", "bag"]
+      ],
+      "questions": [
+        { "q": "Wann geht Lena einkaufen?", "options": ["am Samstag", "am Montag", "am Abend"], "answer": 0 },
+        { "q": "Was steht auf ihrer Liste?", "options": ["Milch und Käse", "Kaffee und Tee", "Fleisch und Fisch"], "answer": 0 },
+        { "q": "Wie bezahlt sie?", "options": ["mit Karte", "mit Bargeld", "mit dem Handy"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "a2-arzt",
+      "title": "Beim Arzt",
+      "text": "Paul fühlt sich nicht gut. Er hat Kopfschmerzen und Fieber. Am Morgen ruft er die Praxis an und bekommt einen Termin. Der Arzt untersucht ihn und sagt: „Sie brauchen Ruhe.“ Paul bleibt zwei Tage zu Hause.",
+      "glossary": [
+        ["sich fühlen", "to feel"],
+        ["die Kopfschmerzen", "headache"],
+        ["das Fieber", "fever"],
+        ["der Termin", "appointment"],
+        ["untersuchen", "to examine"],
+        ["die Ruhe", "rest"]
+      ],
+      "questions": [
+        { "q": "Was hat Paul?", "options": ["Kopfschmerzen und Fieber", "Bauchschmerzen", "Zahnschmerzen"], "answer": 0 },
+        { "q": "Was macht er am Morgen?", "options": ["er ruft die Praxis an", "er geht zur Arbeit", "er kauft Medikamente"], "answer": 0 },
+        { "q": "Wie lange bleibt Paul zu Hause?", "options": ["zwei Tage", "eine Woche", "einen Tag"], "answer": 0 }
+      ]
     }
   ]
 }

@@ -21,6 +21,41 @@
         { "q": "Was hat die Regierung beschlossen?", "options": ["neue Gesetze", "neue Steuern", "neue Straßen"], "answer": 0 },
         { "q": "Was sagen Kritiker?", "options": ["Die Maßnahmen reichen nicht aus.", "Alles ist perfekt.", "Es gibt keine Probleme."], "answer": 0 }
       ]
+    },
+    {
+      "id": "b1-dialog-cafe",
+      "title": "Im Café (Dialog)",
+      "text": "Kellner: Guten Tag! Was möchten Sie trinken? — Gast: Ich nehme einen Kaffee, bitte. — Kellner: Mit Milch und Zucker? — Gast: Nur mit Milch, danke. Haben Sie auch Kuchen? — Kellner: Ja, wir haben Apfelkuchen und Käsekuchen. — Gast: Dann nehme ich ein Stück Apfelkuchen.",
+      "glossary": [
+        ["der Kellner", "waiter"],
+        ["der Gast", "guest"],
+        ["der Zucker", "sugar"],
+        ["der Kuchen", "cake"],
+        ["ein Stück", "a piece"]
+      ],
+      "questions": [
+        { "q": "Was möchte der Gast trinken?", "options": ["einen Kaffee", "einen Tee", "einen Saft"], "answer": 0 },
+        { "q": "Wie möchte der Gast den Kaffee?", "options": ["nur mit Milch", "mit Milch und Zucker", "ohne Milch"], "answer": 0 },
+        { "q": "Welchen Kuchen nimmt der Gast?", "options": ["Apfelkuchen", "Käsekuchen", "Schokoladenkuchen"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "b1-umzug",
+      "title": "Umzug nach Berlin",
+      "text": "Vor zwei Jahren ist Sara nach Berlin gezogen. Am Anfang war es schwierig: Sie kannte niemanden und die Wohnungssuche dauerte lange. Mittlerweile hat sie neue Freunde gefunden und einen guten Job. Obwohl die Mieten hoch sind, möchte sie in der Stadt bleiben.",
+      "glossary": [
+        ["der Umzug", "move (relocation)"],
+        ["ziehen", "to move (house)"],
+        ["die Wohnungssuche", "flat hunt"],
+        ["mittlerweile", "meanwhile"],
+        ["obwohl", "although"],
+        ["die Miete", "rent"]
+      ],
+      "questions": [
+        { "q": "Wann ist Sara nach Berlin gezogen?", "options": ["vor zwei Jahren", "vor einem Monat", "letztes Jahr"], "answer": 0 },
+        { "q": "Was war am Anfang schwierig?", "options": ["die Wohnungssuche", "die Arbeit", "das Essen"], "answer": 0 },
+        { "q": "Warum bleibt sie in der Stadt?", "options": ["wegen der Freunde und des Jobs", "wegen der Mieten", "wegen des Wetters"], "answer": 0 }
+      ]
     }
   ]
 }
