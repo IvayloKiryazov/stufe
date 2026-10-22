@@ -110,10 +110,14 @@ deck (even spread), not by raw rank.
 
 `.github/workflows/pages.yml` uploads `docs/` as the Pages artifact.
 `.github/workflows/ci.yml` runs the Python tests and the web build/unit/e2e/a11y.
-Both trigger on push to `main`. There is no runtime server; the service worker
-was retired with the old app (a PWA service worker is a future item, #58).
+Both trigger on push to `main`. There is no runtime server. A service worker
+(`web/public/sw.js`) precaches the shell, serves hashed assets cache-first and
+the deck/index network-first, so the app works offline after a first visit
+(#100); it is versioned (`stufe-v2`) to avoid stale caches.
 
 ## Data & privacy
 
-Everything runs locally; progress never leaves the device. A backup can be
+Everything runs locally; progress never leaves the device. Progress is kept in
+`localStorage` and mirrored to IndexedDB (with a persistent-storage request), so
+clearing `localStorage` alone doesn't lose it (#99). A backup can also be
 exported/imported from Settings (JSON).
