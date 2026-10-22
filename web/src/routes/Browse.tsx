@@ -46,7 +46,7 @@ function CoursePath({ deck, progress }: { deck: Deck; progress: Prog }) {
             <div className="flex items-start justify-between gap-2">
               <div>
                 <div className="text-sm font-medium">
-                  {g.name}
+                  {idx + 1}. {g.name}
                   {next && <span className="ml-2 rounded bg-soft px-2 py-0.5 text-xs">Next</span>}
                 </div>
                 {g.subtitle && <div className="text-xs text-muted">{g.subtitle}</div>}

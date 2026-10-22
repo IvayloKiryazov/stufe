@@ -11,7 +11,7 @@ import { useProgress } from "../hooks/useProgress";
 import { useStudy } from "../hooks/useStudy";
 import type { Item } from "../lib/data";
 import { blankWord, pickIndex } from "../lib/cloze";
-import { dueIds, upcomingIds } from "../lib/selectors";
+import { dueIds, itemsOfLevel, nextUp, upcomingIds } from "../lib/selectors";
 import { MAX_BOX, passed } from "../lib/srsCore";
 import { shuffle } from "../lib/shuffle";
 import { stageName } from "../lib/stages";
@@ -235,6 +235,8 @@ export default function Study() {
   if (!session) {
     const due = dueIds(deck, progress).length;
     const ahead = upcomingIds(deck, progress).length;
+    const prevIdx = (nextUp(deck, progress)?.levelIdx ?? 0) - 1;
+    const prevPassed = prevIdx >= 0 ? itemsOfLevel(deck, prevIdx).filter((id) => passed(progress.p[id])) : [];
     const leeches = Object.keys(progress.p)
       .filter((id) => deck.by[id] && (progress.p[id].lapses ?? 0) > 0)
       .sort((a, b) => (progress.p[b].lapses ?? 0) - (progress.p[a].lapses ?? 0))
@@ -276,6 +278,9 @@ export default function Study() {
               </Button>
               <Button variant="outline" onClick={() => study.startReviews(true)}>
                 Any learned
+              </Button>
+              <Button variant="outline" disabled={!prevPassed.length} onClick={() => study.startReviews(true, shuffle(prevPassed))}>
+                Previous level ({prevPassed.length})
               </Button>
             </div>
           </Card>
