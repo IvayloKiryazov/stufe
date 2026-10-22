@@ -30,4 +30,5 @@ def gender_mnemonic(word: str, article: str) -> str:
     suffix = _ending(word, BY_ARTICLE[article])
     if suffix:
         return f"{article}: words ending in -{suffix} are usually {article}."
-    return f"{article}: no tell-tale ending — just memorise \"{article} {word}\"."
+    # No useful rule: return nothing rather than a "just memorise" filler (#129).
+    return ""

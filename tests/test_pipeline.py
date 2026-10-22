@@ -175,8 +175,9 @@ class MnemonicTest(unittest.TestCase):
     def test_masculine_ending(self):
         self.assertIn("-ling", mnemonic.gender_mnemonic("Frühling", "der"))
 
-    def test_fallback(self):
-        self.assertIn("memorise", mnemonic.gender_mnemonic("Mann", "der"))
+    def test_no_useless_fallback(self):
+        # #129: no "just memorise" filler when there is no useful rule.
+        self.assertEqual("", mnemonic.gender_mnemonic("Mann", "der"))
 
 
 if __name__ == "__main__":
