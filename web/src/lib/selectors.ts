@@ -1,4 +1,4 @@
-import type { Deck } from "./data";
+import type { Deck, Group } from "./data";
 import { PASS_RATIO, isActive, passed } from "./srsCore";
 import type { Progress } from "./store";
 
@@ -63,4 +63,21 @@ export function availableIds(deck: Deck, p: Progress, limit = Infinity): string[
     }
   }
   return out;
+}
+
+export interface NextUp {
+  levelIdx: number;
+  group: Group;
+}
+
+/** The next incomplete course group (the "up next" on Today). */
+export function nextUp(deck: Deck, p: Progress): NextUp | null {
+  for (let i = 0; i < deck.levels.length; i++) {
+    for (const g of deck.levels[i].groups) {
+      if (g.name.startsWith("Core ")) continue; // course only
+      const done = g.items.filter((id) => passed(p.p[id])).length;
+      if (g.items.length === 0 || done < g.items.length) return { levelIdx: i, group: g };
+    }
+  }
+  return null;
 }

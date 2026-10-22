@@ -5,7 +5,7 @@ import { Card, CardTitle, Stat } from "../components/ui/card";
 import { Progress } from "../components/ui/progress";
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
-import { dueIds, newAvailableCount } from "../lib/selectors";
+import { dueIds, nextUp } from "../lib/selectors";
 import { dayKey, streak } from "../lib/stats";
 import { t } from "../lib/i18n";
 
@@ -42,7 +42,7 @@ export default function Today() {
   const now = Date.now();
   const lang = progress.settings.language;
   const due = dueIds(deck, progress, now).length;
-  const fresh = newAvailableCount(deck, progress);
+  const next = nextUp(deck, progress);
   const today = progress.history[dayKey(now)] ?? { new: 0, reviews: 0 };
   const st = streak(progress.history, now);
   const goalNew = progress.settings.goalNew || 1;
@@ -90,10 +90,24 @@ export default function Today() {
         <Button asChild>
           <Link to="/study">{t(lang, "today.start")}</Link>
         </Button>
-        <span className="text-sm text-muted">
-          {fresh.toLocaleString()} {t(lang, "today.newAvailable")}
-        </span>
       </div>
+
+      {next && (
+        <Card>
+          <CardTitle>{t(lang, "today.upNext")}</CardTitle>
+          <p className="mb-3 text-sm text-muted">{next.group.name}</p>
+          <div className="flex flex-wrap gap-2">
+            <Button asChild>
+              <Link to={`/study?group=${encodeURIComponent(next.group.id)}&level=${next.levelIdx}`}>
+                {t(lang, "today.startGroup")}
+              </Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link to="/browse">{t(lang, "today.browse")}</Link>
+            </Button>
+          </div>
+        </Card>
+      )}
     </div>
   );
 }

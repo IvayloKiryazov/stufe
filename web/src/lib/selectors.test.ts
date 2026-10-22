@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Deck } from "./data";
-import { dueIds, upcomingIds } from "./selectors";
+import { dueIds, nextUp, upcomingIds } from "./selectors";
 import type { Entry } from "./srsCore";
 import type { Progress } from "./store";
 
@@ -38,5 +38,25 @@ describe("selectors: due / upcoming", () => {
   it("excludes suspended items", () => {
     const suspended = mk({ b: { box: 2, due: NOW + HOUR, suspended: true } });
     expect(upcomingIds(deck, suspended, NOW, 24 * HOUR)).toEqual([]);
+  });
+});
+
+describe("selectors: nextUp", () => {
+  const course: Deck = {
+    ...deck,
+    levels: [
+      {
+        id: "a1",
+        name: "A1",
+        title: "Beginner",
+        groups: [{ id: "g1", name: "Group one", kind: "noun", intro: "", items: ["a"] }],
+      },
+    ],
+  };
+  it("returns the first incomplete course group", () => {
+    expect(nextUp(course, mk({}))?.group.id).toBe("g1");
+  });
+  it("returns null once the group is passed", () => {
+    expect(nextUp(course, mk({ a: { box: 5, due: 0 } }))).toBeNull();
   });
 });

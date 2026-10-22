@@ -28,6 +28,9 @@ export const MESSAGES: Record<Lang, Record<string, string>> = {
     "today.reviews": "Reviews",
     "today.start": "Start session",
     "today.newAvailable": "new items available",
+    "today.upNext": "Up next",
+    "today.startGroup": "Start lesson",
+    "today.browse": "Browse",
     "common.language": "Interface language",
   },
   de: {
@@ -57,6 +60,9 @@ export const MESSAGES: Record<Lang, Record<string, string>> = {
     "today.reviews": "Wiederholungen",
     "today.start": "Einheit starten",
     "today.newAvailable": "neue Karten verfügbar",
+    "today.upNext": "Als Nächstes",
+    "today.startGroup": "Lektion starten",
+    "today.browse": "Übersicht",
     "common.language": "Sprache der Oberfläche",
   },
 };
