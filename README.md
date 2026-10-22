@@ -72,4 +72,5 @@ tests/        Python pipeline/dataset tests
 Code: MIT (`LICENSE`). Data derives from Tatoeba (CC BY 2.0 FR),
 german-nouns / Wiktionary (CC BY-SA 4.0) and FrequencyWords (MIT); the combined
 `data/` files are therefore CC BY-SA 4.0. See `CONTRIBUTING.md` for the content
-schema and `TASKS.md` for the roadmap.
+schema, and [`documentation/roadmap.md`](documentation/roadmap.md) plus the
+GitHub issues for the roadmap.

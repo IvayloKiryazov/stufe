@@ -3,7 +3,8 @@
 ## Overview
 
 Stufe is a **static** app: there is no server and no database. All study logic
-runs in the browser and progress is stored in `localStorage`.
+runs in the browser and progress is stored in `localStorage` (mirrored to
+IndexedDB).
 
 ```
 ┌────────────┐   build   ┌────────────┐   serve   ┌──────────────┐
@@ -14,6 +15,18 @@ runs in the browser and progress is stored in `localStorage`.
 ┌────────────┐  generate  ┌────────────┐  author  ┌────────────┐
 │  data/     │ ◄───────── │  tools/    │ ◄──────── │ content/   │
 └────────────┘            └────────────┘           └────────────┘
+```
+
+```mermaid
+flowchart LR
+  content["content/ (authored JSON)"] --> tools["tools/ pipeline (Python)"]
+  sources["open data: Tatoeba, german-nouns, kaikki"] --> tools
+  tools --> data["data/ (generated deck)<br/>items.json + items/&lt;level&gt;.json"]
+  data --> app["web/ (React SPA)"]
+  app --> docs["docs/ (build output)"]
+  docs --> pages["GitHub Pages / PWA"]
+  app -- "fetch data/items/&lt;level&gt;.json" --> data
+  app <--> store["store (localStorage + IndexedDB)"]
 ```
 
 ## The app (`web/`)
