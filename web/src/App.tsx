@@ -5,6 +5,7 @@ import {
   BookOpen,
   GraduationCap,
   Headphones,
+  HelpCircle,
   Home,
   Languages,
   Library,
@@ -22,6 +23,7 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { ErrorBoundary } from "./components/ErrorBoundary";
+import { Shortcuts } from "./components/Shortcuts";
 import { cn } from "./lib/cn";
 import { useTheme, type Theme } from "./lib/theme";
 import { useProgress } from "./hooks/useProgress";
@@ -101,6 +103,7 @@ function ThemeToggle() {
 
 export default function App() {
   const [open, setOpen] = useState(false);
+  const [shortcuts, setShortcuts] = useState(false);
   const progress = useProgress();
   const location = useLocation();
   const lang = progress.settings.language;
@@ -108,6 +111,19 @@ export default function App() {
   useEffect(() => {
     document.documentElement.style.fontSize = `${16 * (progress.settings.fontScale || 1)}px`;
   }, [progress.settings.fontScale]);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      const el = e.target as HTMLElement | null;
+      const typing = el && (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.isContentEditable);
+      if (e.key === "?" && !typing) {
+        e.preventDefault();
+        setShortcuts((v) => !v);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <div className="min-h-full md:grid md:grid-cols-[15rem_1fr]">
@@ -157,7 +173,15 @@ export default function App() {
             <Menu className="h-5 w-5" />
           </Button>
           <span className="font-serif text-lg font-bold md:hidden">Stufe</span>
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Keyboard shortcuts"
+              onClick={() => setShortcuts(true)}
+            >
+              <HelpCircle className="h-5 w-5" />
+            </Button>
             <ThemeToggle />
           </div>
         </header>
@@ -188,6 +212,8 @@ export default function App() {
           </ErrorBoundary>
         </main>
       </div>
+
+      <Shortcuts open={shortcuts} onClose={() => setShortcuts(false)} />
 
       {open && (
         <div className="fixed inset-0 z-30 bg-black/30 md:hidden" onClick={() => setOpen(false)} aria-hidden />

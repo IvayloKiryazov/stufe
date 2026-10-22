@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Card, CardTitle, Stat } from "../components/ui/card";
+import { Onboarding } from "../components/Onboarding";
 import { Progress } from "../components/ui/progress";
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
@@ -56,6 +57,8 @@ export default function Today() {
         <h1 className="text-3xl font-bold">{t(lang, "today.title")}</h1>
         <p className="text-muted">{t(lang, "today.subtitle")}</p>
       </header>
+
+      <Onboarding />
 
       <div className="grid grid-cols-2 gap-3">
         <Stat value={due} label={t(lang, "today.reviewsDue")} />
