@@ -94407,24 +94407,6 @@
   "attribution": "CC-BY 2.0 (France) Attribution: tatoeba.org #1141163 (CK) & #3770536 (mauersegler)"
  },
  {
-  "id": "freq-c2-nou-freud",
-  "level": "c2",
-  "group": "c2-core-noun",
-  "groupName": "Core nouns (frequency)",
-  "kind": "noun",
-  "en": "apocopic form of Freude",
-  "sentence_de": "Des einen Freud ist des anderen Leid.",
-  "sentence_en": "One man's meat is another man's poison.",
-  "ipa": "/fʁɔʏ̯t/",
-  "audio": "https://upload.wikimedia.org/wikipedia/commons/transcoded/4/4d/De-Freud.ogg/De-Freud.ogg.mp3",
-  "freqRank": 11120,
-  "note": "Frequency rank 11120",
-  "de": "die Freud",
-  "plural": "die Freuden",
-  "intro": "High-frequency nouns with their article and plural.",
-  "attribution": "CC-BY 2.0 (France) Attribution: tatoeba.org #67212 (CK) & #945567 (Miyako)"
- },
- {
   "id": "freq-c2-nou-rezeption",
   "level": "c2",
   "group": "c2-core-noun",
@@ -107226,5 +107208,23 @@
   "plural": "",
   "intro": "High-frequency nouns with their article and plural.",
   "attribution": "CC-BY 2.0 (France) Attribution: tatoeba.org #3533901 (Hybrid) & #3707547 (Sicaria)"
+ },
+ {
+  "id": "freq-c2-ver-bewerben",
+  "level": "c2",
+  "group": "c2-core-verb",
+  "groupName": "Core verbs (frequency)",
+  "kind": "verb",
+  "en": "to apply",
+  "sentence_de": "Er bewirbt sich um sie.",
+  "sentence_en": "He tries to win her favour/favor. / He courts her.",
+  "ipa": "/bəˈvɛrbən/",
+  "audio": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/cb/De-bewerben.ogg/De-bewerben.ogg.mp3",
+  "freqRank": 12903,
+  "note": "Frequency rank 12903",
+  "attribution": "Wiktionary (CC BY-SA 4.0)",
+  "de": "bewerben",
+  "forms": "bewirbt, bewarb, beworben",
+  "intro": "High-frequency verbs with principal parts."
  }
 ]

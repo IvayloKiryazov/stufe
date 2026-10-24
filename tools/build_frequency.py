@@ -89,7 +89,9 @@ META_RE = re.compile(
     r"formerly standard spelling of|alternative spelling of|alternative form of|"
     r"obsolete spelling of|obsolete|archaic|misspelling of|abbreviation of|"
     r"acronym of|clipping of|diminutive of|comparative degree of|"
-    r"superlative degree of)\b",
+    r"superlative degree of|apocopic form of|syncopic form of|obsolete form of|"
+    r"rare form of|nonstandard form of|nonstandard spelling of|"
+    r"eye dialect|pronunciation spelling of)\b",
     re.IGNORECASE,
 )
 

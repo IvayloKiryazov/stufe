@@ -15713,7 +15713,8 @@
      "freq-c2-ver-beitreten",
      "freq-c2-ver-zurückschicken",
      "freq-c2-ver-enthüllen",
-     "freq-c2-ver-hinhalten"
+     "freq-c2-ver-hinhalten",
+     "freq-c2-ver-bewerben"
     ]
    },
    {
@@ -16593,7 +16594,6 @@
      "freq-c2-nou-russe",
      "freq-c2-nou-salut",
      "freq-c2-nou-zeh",
-     "freq-c2-nou-freud",
      "freq-c2-nou-rezeption",
      "freq-c2-nou-dreizehn",
      "freq-c2-nou-anflug",
@@ -17934,7 +17934,6 @@
      "freq-c2-nou-russe-gender",
      "freq-c2-nou-salut-gender",
      "freq-c2-nou-zeh-gender",
-     "freq-c2-nou-freud-gender",
      "freq-c2-nou-rezeption-gender",
      "freq-c2-nou-dreizehn-gender",
      "freq-c2-nou-anflug-gender",
@@ -19061,7 +19060,6 @@
      "freq-c2-nou-russe-plural",
      "freq-c2-nou-salut-plural",
      "freq-c2-nou-zeh-plural",
-     "freq-c2-nou-freud-plural",
      "freq-c2-nou-rezeption-plural",
      "freq-c2-nou-dreizehn-plural",
      "freq-c2-nou-anflug-plural",
@@ -20923,7 +20921,6 @@
      "freq-c2-nou-bettler-cloze",
      "freq-c2-ver-ausfallen-cloze",
      "freq-c2-nou-zeh-cloze",
-     "freq-c2-nou-freud-cloze",
      "freq-c2-nou-rezeption-cloze",
      "freq-c2-nou-zulassung-cloze",
      "freq-c2-nou-abtreibung-cloze",
@@ -21446,7 +21443,8 @@
      "freq-c2-nou-übersee-cloze",
      "freq-c2-nou-londoner-cloze",
      "freq-c2-ver-hinhalten-cloze",
-     "freq-c2-nou-schutzengel-cloze"
+     "freq-c2-nou-schutzengel-cloze",
+     "freq-c2-ver-bewerben-cloze"
     ]
    }
   ]
