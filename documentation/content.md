@@ -114,6 +114,9 @@ roadmap).
 | `reading.json` | reading passages |
 | `attribution.json` | per-sentence Tatoeba credits |
 | `conjugations.json` | verb conjugation tables |
+| `cefr.json` | word → CEFR band (frequency-anchored; see ADR-4) |
+| `ipa.json` / `audio.json` | curated IPA and native-audio URLs |
+| `reference_nouns.json` | Wiktionary noun reference used by `cross_check.py` |
 | `vocab_frequency.json` | the core vocabulary deck (nouns/verbs/adjectives) |
 | `vocab_personal.json` | optional local Anki import (gitignored) |
 
@@ -122,35 +125,39 @@ roadmap).
 ```ts
 interface Item {
   id; level; group; groupName;
-  kind: "noun" | "verb" | "adj" | "cloze";
+  kind: "noun" | "verb" | "adj" | "cloze" | "gender" | "plural" | "case" | "vocab-cloze";
   intro?; note?;
-  de?; en?; plural?; forms?; ipa?; audio?; mnemonic?;   // vocab
-  prompt?; answer?; alt?; hint?;                     // cloze
-  sentence_de?; sentence_en?; attribution?;          // example
-  examples?: { de; en }[];                           // several graded examples
+  de?; en?; plural?; forms?; ipa?; audio?; mnemonic?; freqRank?;  // vocab
+  prompt?; answer?; alt?; hint?;                                  // cloze / drills
+  sentence_de?; sentence_en?; attribution?; source?;              // example + provenance
+  examples?: { de; en }[];                                        // several graded examples
   conjugation?: { present: string[]; preterite; participle };
 }
 ```
 
 ## Running the pipeline
 
-```bash
-cd tools
-python3 fetch_sources.py      # ~30 MB
-python3 fetch_kaikki.py       # ~1.1 GB (only needed for the core deck)
-python3 build_frequency.py    # -> data/vocab_frequency.json
-python3 build_conjugations.py # -> data/conjugations.json
-python3 build_dataset.py      # -> data/items.json, levels.json, reading.json, attribution.json
-```
+Commands, sources and reproducibility are in
+[`tools/README.md`](../tools/README.md). Key points:
 
-`build_dataset.py` always merges `data/vocab_frequency.json` and
-`data/vocab_personal.json` when present. Re-run it after any `content/` edit and
-commit the regenerated `data/`. It writes the canonical `data/items.json` and
-the same items split per level under `data/items/<level>.json` (loaded on demand
-by the app); `tools/verify_dataset.py` checks the two agree.
+- `build_dataset.py` merges `data/vocab_frequency.json` and
+  `data/vocab_personal.json` when present. Re-run it after any `content/` edit and
+  commit the regenerated `data/`.
+- It writes the canonical `data/items.json` **and** `data/items/<level>.json`
+  (loaded on demand); `tools/verify_dataset.py` checks they agree.
+- Upstream sources are pinned by URL + sha256 in `tools/sources.lock.json`, so a
+  rebuild is reproducible (`fetch_*.py --check` verifies `data/raw/`).
 
-Upstream sources are pinned by URL + sha256 in `tools/sources.lock.json`, so a
-rebuild is reproducible (`fetch_*.py --check` verifies `data/raw/`).
+### Verification tooling
+
+- `verify_dataset.py` — the per-level split matches `data/items.json`.
+- `cross_check.py` — curated noun article/plural vs a Wiktionary reference
+  (article mismatches fail CI, plural mismatches warn).
+- `verify_report.py --sample N` — field coverage, gloss sanity and a
+  translator-checkable sample; **report only**.
+
+Policy (ADR-7): **report first, then fix** from authoritative sources or
+`content/overrides.json` — never invent "verified" data.
 
 ## Licensing
 

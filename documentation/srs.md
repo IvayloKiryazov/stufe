@@ -55,7 +55,7 @@ box 1, due now) from the feedback actions (#77).
 
 ## A study session (`useStudy`)
 
-Modes: **lesson**, **review**, **practice**.
+Modes: **lesson**, **review**, **practice**, **checkpoint**.
 
 - **Lesson** — a batch of `newPerLesson` new items (default 5). Teaching cards
   show the answer immediately; on the last card the batch is committed
@@ -63,8 +63,10 @@ Modes: **lesson**, **review**, **practice**.
   reviews.
 - **Review** — the due items, shuffled. Ask → check → feedback → next. A wrong
   answer is pushed to the back of the queue and must be cleared to finish.
-- **Practice** (and "Extra study": leeches / passed / any learned) — **never
-  changes the schedule**.
+- **Practice** (and "Extra study": leeches / passed / previous level / any
+  learned) — **never changes the schedule**.
+- **Checkpoint** — a scored sample of a level's items (target 80 %); also does
+  not change the schedule. Launched from Stats → Levels.
 
 Feedback actions: **Undo** (restore the previous entry), **Suspend**,
 **I know this**, **Reset** (schedule to box 1, due now), and
@@ -88,16 +90,17 @@ sentences and words without a recording. No keys, no downloads.
 ## Selectors
 
 `web/src/lib/selectors.ts` derives everything from `{ deck, progress }`:
-`itemsOfLevel`, `levelStats`, `unlocked`, `dueIds`, `newAvailableCount`,
-`availableIds`.
+`itemsOfLevel`, `levelStats`, `unlocked`, `dueIds`, `upcomingIds`,
+`newAvailableCount`, `availableIds`, `nextUp`.
 
 ## History & stats
 
 `web/src/lib/stats.ts` keeps a per-day log `{ new, reviews }` and computes
-`streak`, `totals`, `recentDays` (heatmap). `lib/projection.ts` estimates finish
-dates and review load (`reviews/day ≈ newPerDay × 7`).
+`streak`, `totals`, `recentDays`, and `heatmapWeeks` (the 26-week
+contributions-style grid). `lib/projection.ts` estimates finish dates and review
+load (`reviews/day ≈ newPerDay × 7`).
 
-## Separate tracks (gender / plural)
+## Separate tracks (gender / plural / case / cloze)
 
 Every noun in the deck also generates two extra SRS items (kinds `gender` and
 `plural`): type the article for a bare noun, or type the plural form. This
@@ -113,6 +116,8 @@ card are separate SRS items (issue #131).
 
 ## Known gaps (roadmap)
 
-See [roadmap.md](roadmap.md): **case drills** and a true CEFR path (#51) remain.
-Leech auto-suspend, vacation mode, the review forecast, wrap-up, burned-item
-study (#49) and the gender/plural tracks (#50) are implemented.
+See [roadmap.md](roadmap.md). The gender/plural tracks (#78), case track (#79),
+cloze track (#131), conjugations (#80), leech auto-suspend, vacation mode, the
+review forecast, wrap-up and burned-item study (#49) are implemented. Still
+open: per-deck settings (#76), interleaving (#90), and the CEFR/verification work
+in the CEFR/QA epics.

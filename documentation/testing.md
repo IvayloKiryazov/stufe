@@ -11,10 +11,11 @@ python3 -m unittest discover -s tests -v
 - `tests/test_pipeline.py` — `common.load_nouns` (gender columns, plural-only),
   the case-sensitive sentence index, `blank_sentence`, `build_frequency.extract_noun`
   (gender/plural/gloss/IPA/example, gerund rejection), `build_conjugations.extract_conjugation`,
-  `mnemonic.gender_mnemonic`.
+  `mnemonic.gender_mnemonic` / `verb_hint`.
 - `tests/test_dataset.py` — the generated deck: unique ids, cloze items have `___`
   and an answer, nouns carry an article, every level reference resolves, required
-  fields present.
+  fields present, gender/plural/case/cloze tracks, conjugations, IPA, examples and
+  `source`.
 - `tests/test_reading.py` — reading passages are well-formed.
 - `tests/test_anki.py` — builds a synthetic `.apkg` and checks parsing/mapping.
 
@@ -27,8 +28,9 @@ cd web && npm run test:unit
 ```
 
 `web/src/lib/*.test.ts` cover the pure modules: `stages`, `stats`, `projection`,
-`grade`, `srsCore`, `cn`. **Put logic in `lib/` and test it here** rather than
-burying it in components.
+`grade`, `srsCore`, `selectors`, `data`, `cloze`, `gloss`, `search`, `cefr`,
+`store`, `cn`, and the `ErrorBoundary` component. **Put logic in `lib/` and test
+it here** rather than burying it in components.
 
 ## 3. Browser (Playwright + axe)
 
@@ -38,6 +40,8 @@ cd web && npm run build && npm run test:e2e
 
 - `web/e2e/smoke.spec.ts` — the app loads; a lesson runs into a review; the theme
   toggle works; a grammar "cram" starts a session.
+- `web/e2e/interactions.spec.ts` — per-screen interactions: listening option,
+  settings toggles, reading answers, dictation/translate grading, browse→study.
 - `web/e2e/a11y.spec.ts` — runs **axe-core** over every screen and asserts **zero
   violations**. This is the guardrail for accessibility.
 
@@ -60,8 +64,9 @@ Playwright starts the built app with `vite preview` (see
 `.github/workflows/ci.yml`:
 
 - **pipeline** job — Python tests, `tools/check_content.py`,
-  `tools/verify_dataset.py` (per-level split matches `data/items.json`; #104) and
-  `tools/cross_check.py` (curated nouns vs the Wiktionary reference; #69/#92).
+  `tools/verify_dataset.py` (per-level split matches `data/items.json`; #104),
+  `tools/cross_check.py` (curated nouns vs the Wiktionary reference; #69/#92) and
+  `tools/verify_report.py` (deck report; #66/#67).
 - **web** job — `npm ci`, `npm run build`, `npm run test:unit`,
   `npx playwright install --with-deps chromium`, `npm run test:e2e`.
 

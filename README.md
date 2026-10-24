@@ -61,12 +61,15 @@ tools/        data pipeline
 content/      authored content
 data/         generated deck (committed)
 tests/        Python pipeline/dataset tests
+documentation/ human docs
 ```
 
 ## Documentation
 
 - [`documentation/roadmap.md`](documentation/roadmap.md) — **what is done,
   partial and left** (start here).
+- [`documentation/decisions.md`](documentation/decisions.md) — why core choices
+  were made (north star, SRS, CEFR, verification, offline…).
 - [`documentation/`](documentation/) — architecture, content & pipeline, SRS,
   testing.
 - [`AGENTS.md`](AGENTS.md) — conventions and the Bunpro + WaniKani north star.

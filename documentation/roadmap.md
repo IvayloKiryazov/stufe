@@ -141,18 +141,16 @@ Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / 
   both are committed.
 - The SRS rename has **no migration**: a saved `box` 1–7 now maps to different
   SRS levels (only matters if a user had progress).
-- `HANDOFF.md` §2 claims `write`/`edit` produce root-owned files; in this
-  environment they do **not** (verified `ivaylo:ivaylo`).
 - e2e smoke does not exercise the **checkpoint** or **cloze** modes; the axe
   suite does not render non-default tabs (the Stats "Levels" tab is untested).
 
-## Decisions needed before the open items can proceed
+## Decisions taken
 
-1. **#71 CEFR list** — which authoritative wordlist? (Profile Deutsch / Goethe).
-2. **#84 ASR** — which engine (on-device Web Speech / Whisper.cpp / cloud)?
-3. **#66/#70 verification** — what source policy, and do we auto-fix or only
-   **report** disagreements (recommended: report + `content/overrides.json`)?
-4. **#75** — confirm re-scope away from SM-2/FSRS toward Bunpro/WaniKani
-   fidelity (or keep it open as "not planned").
-5. **#99** — accept IndexedDB as good-enough, or add File System Access
-   "back up to file"?
+All resolved and recorded in [`decisions.md`](decisions.md): north star
+(ADR-1), 12-level SRS / no SM-2/FSRS (ADR-2, #75 closed), CEFR frequency-anchored
+(ADR-4), verification report→fix (ADR-7), durable progress via IndexedDB + file
+backup (ADR-8), offline deck precache (ADR-9), Web Speech ASR (ADR-10).
+
+**Only optional decision left:** whether to accept the **Goethe Wortlisten
+licence** and drop the official A1–B1 lists in as the CEFR authority (otherwise
+the frequency-anchored bands stay).
