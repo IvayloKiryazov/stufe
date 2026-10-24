@@ -1,0 +1,25 @@
+{
+  "level": "b2",
+  "groups": [
+    {
+      "id": "adjectives",
+      "name": "B2 adjectives",
+      "kind": "adj",
+      "intro": "Adjectives for nuanced description and argument.",
+      "words": [
+        ["erheblich", "considerable, significant"],
+        ["umfangreich", "extensive"],
+        ["vielfältig", "varied, diverse"],
+        ["bedeutend", "significant, important"],
+        ["angemessen", "appropriate"],
+        ["aufwendig", "elaborate, costly"],
+        ["gründlich", "thorough"],
+        ["kurzfristig", "short-term"],
+        ["langfristig", "long-term"],
+        ["gegenseitig", "mutual"],
+        ["wesentlich", "essential"],
+        ["zusätzlich", "additional"]
+      ]
+    }
+  ]
+}

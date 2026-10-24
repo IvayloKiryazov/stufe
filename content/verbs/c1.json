@@ -1,0 +1,22 @@
+{
+  "level": "c1",
+  "groups": [
+    {
+      "id": "verbs",
+      "name": "Advanced verbs",
+      "kind": "verb",
+      "intro": "Verbs common in formal and academic German.",
+      "words": [
+        ["berücksichtigen", "to take into account", "berücksichtigt, berücksichtigte, berücksichtigt"],
+        ["voraussetzen", "to presuppose", "setzt voraus, setzte voraus, vorausgesetzt"],
+        ["ermitteln", "to determine, find out", "ermittelt, ermittelte, ermittelt"],
+        ["gewährleisten", "to guarantee", "gewährleistet, gewährleistete, gewährleistet"],
+        ["bewältigen", "to cope with", "bewältigt, bewältigte, bewältigt"],
+        ["erfordern", "to require", "erfordert, erforderte, erfordert"],
+        ["beitragen", "to contribute", "trägt bei, trug bei, beigetragen"],
+        ["verwirklichen", "to realise, implement", "verwirklicht, verwirklichte, verwirklicht"],
+        ["hinterfragen", "to question, scrutinise", "hinterfragt, hinterfragte, hinterfragt"]
+      ]
+    }
+  ]
+}

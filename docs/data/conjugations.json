@@ -839,6 +839,18 @@
   "preterite": "steuerte",
   "participle": "gesteuert"
  },
+ "erfordern": {
+  "present": [
+   "erfordre",
+   "erforderst",
+   "erfordert",
+   "erfordern",
+   "erfordert",
+   "erfordern"
+  ],
+  "preterite": "erforderte",
+  "participle": "erfordert"
+ },
  "überwachen": {
   "present": [
    "überwache",
@@ -10811,6 +10823,18 @@
   "preterite": "besprach",
   "participle": "besprochen"
  },
+ "erörtern": {
+  "present": [
+   "erörtre",
+   "erörterst",
+   "erörtert",
+   "erörtern",
+   "erörtert",
+   "erörtern"
+  ],
+  "preterite": "erörterte",
+  "participle": "erörtert"
+ },
  "starren": {
   "present": [
    "starre",
@@ -11159,6 +11183,18 @@
   "preterite": "schaute an",
   "participle": "angeschaut"
  },
+ "gewährleisten": {
+  "present": [
+   "gewährleiste",
+   "gewährleistest",
+   "gewährleistet",
+   "gewährleisten",
+   "gewährleistet",
+   "gewährleisten"
+  ],
+  "preterite": "gewährleistete",
+  "participle": "gewährleistet"
+ },
  "enthalten": {
   "present": [
    "enthalte",
@@ -11290,6 +11326,18 @@
   ],
   "preterite": "trug bei",
   "participle": "beigetragen"
+ },
+ "abwägen": {
+  "present": [
+   "wäge ab",
+   "wägst ab",
+   "wägt ab",
+   "wägen ab",
+   "wägt ab",
+   "wägen ab"
+  ],
+  "preterite": "wog ab",
+  "participle": "abgewogen"
  },
  "anwenden": {
   "present": [
@@ -13163,6 +13211,18 @@
   "preterite": "bumste",
   "participle": "gebumst"
  },
+ "voraussetzen": {
+  "present": [
+   "setze voraus",
+   "setzt voraus",
+   "setzt voraus",
+   "setzen voraus",
+   "setzt voraus",
+   "setzen voraus"
+  ],
+  "preterite": "setzte voraus",
+  "participle": "vorausgesetzt"
+ },
  "ketten": {
   "present": [
    "kette",
@@ -13763,6 +13823,18 @@
   "preterite": "beachtete",
   "participle": "beachtet"
  },
+ "berücksichtigen": {
+  "present": [
+   "berücksichtige",
+   "berücksichtigst",
+   "berücksichtigt",
+   "berücksichtigen",
+   "berücksichtigt",
+   "berücksichtigen"
+  ],
+  "preterite": "berücksichtigte",
+  "participle": "berücksichtigt"
+ },
  "sicherstellen": {
   "present": [
    "stelle sicher",
@@ -14098,6 +14170,18 @@
   ],
   "preterite": "hielt fest",
   "participle": "festgehalten"
+ },
+ "verwirklichen": {
+  "present": [
+   "verwirkliche",
+   "verwirklichst",
+   "verwirklicht",
+   "verwirklichen",
+   "verwirklicht",
+   "verwirklichen"
+  ],
+  "preterite": "verwirklichte",
+  "participle": "verwirklicht"
  },
  "wiederkommen": {
   "present": [
@@ -15443,6 +15527,18 @@
   "preterite": "herzte",
   "participle": "geherzt"
  },
+ "entkräften": {
+  "present": [
+   "entkräfte",
+   "entkräftest",
+   "entkräftet",
+   "entkräften",
+   "entkräftet",
+   "entkräften"
+  ],
+  "preterite": "entkräftete",
+  "participle": "entkräftet"
+ },
  "poltern": {
   "present": [
    "poltre",
@@ -15466,6 +15562,18 @@
   ],
   "preterite": "ging fort",
   "participle": "fortgegangen"
+ },
+ "hinterfragen": {
+  "present": [
+   "hinterfrage",
+   "hinterfragst",
+   "hinterfragt",
+   "hinterfragen",
+   "hinterfragt",
+   "hinterfragen"
+  ],
+  "preterite": "hinterfragte",
+  "participle": "hinterfragt"
  },
  "hochgehen": {
   "present": [
@@ -15694,6 +15802,18 @@
   ],
   "preterite": "brachte her",
   "participle": "hergebracht"
+ },
+ "veranschaulichen": {
+  "present": [
+   "veranschauliche",
+   "veranschaulichst",
+   "veranschaulicht",
+   "veranschaulichen",
+   "veranschaulicht",
+   "veranschaulichen"
+  ],
+  "preterite": "veranschaulichte",
+  "participle": "veranschaulicht"
  },
  "gutmachen": {
   "present": [

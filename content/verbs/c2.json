@@ -1,0 +1,19 @@
+{
+  "level": "c2",
+  "groups": [
+    {
+      "id": "verbs",
+      "name": "C2 verbs",
+      "kind": "verb",
+      "intro": "High-register verbs for argument and analysis.",
+      "words": [
+        ["erörtern", "to discuss, examine", "erörtert, erörterte, erörtert"],
+        ["abwägen", "to weigh up", "wägt ab, wog ab, abgewogen"],
+        ["veranschaulichen", "to illustrate", "veranschaulicht, veranschaulichte, veranschaulicht"],
+        ["belegen", "to substantiate, document", "belegt, belegte, belegt"],
+        ["erweisen", "to prove, turn out", "erweist, erwies, erwiesen"],
+        ["entkräften", "to refute, invalidate", "entkräftet, entkräftete, entkräftet"]
+      ]
+    }
+  ]
+}

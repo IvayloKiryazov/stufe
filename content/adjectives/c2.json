@@ -1,0 +1,19 @@
+{
+  "level": "c2",
+  "groups": [
+    {
+      "id": "adjectives",
+      "name": "C2 adjectives",
+      "kind": "adj",
+      "intro": "Adjectives for nuanced, high-register description.",
+      "words": [
+        ["differenziert", "differentiated, nuanced"],
+        ["sachlich", "objective, factual"],
+        ["präzise", "precise"],
+        ["weitreichend", "far-reaching"],
+        ["vorherrschend", "prevailing"],
+        ["ausschlaggebend", "decisive, crucial"]
+      ]
+    }
+  ]
+}

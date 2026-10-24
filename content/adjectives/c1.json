@@ -1,0 +1,23 @@
+{
+  "level": "c1",
+  "groups": [
+    {
+      "id": "adjectives",
+      "name": "C1 adjectives",
+      "kind": "adj",
+      "intro": "Adjectives for precise, formal description.",
+      "words": [
+        ["erforderlich", "required, necessary"],
+        ["nachhaltig", "sustainable, lasting"],
+        ["vergleichbar", "comparable"],
+        ["umstritten", "controversial"],
+        ["weitgehend", "largely"],
+        ["durchschnittlich", "average"],
+        ["beträchtlich", "considerable"],
+        ["vorläufig", "preliminary"],
+        ["allgemein", "general"],
+        ["entscheidend", "decisive"]
+      ]
+    }
+  ]
+}

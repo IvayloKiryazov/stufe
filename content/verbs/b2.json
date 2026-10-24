@@ -1,0 +1,25 @@
+{
+  "level": "b2",
+  "groups": [
+    {
+      "id": "verbs",
+      "name": "Useful B2 verbs",
+      "kind": "verb",
+      "intro": "Common verbs for discussion and argument.",
+      "words": [
+        ["entwickeln", "to develop", "entwickelt, entwickelte, entwickelt"],
+        ["entscheiden", "to decide", "entscheidet, entschied, entschieden"],
+        ["beeinflussen", "to influence", "beeinflusst, beeinflusste, beeinflusst"],
+        ["erreichen", "to reach, achieve", "erreicht, erreichte, erreicht"],
+        ["verändern", "to change", "verändert, veränderte, verändert"],
+        ["verbessern", "to improve", "verbessert, verbesserte, verbessert"],
+        ["beschreiben", "to describe", "beschreibt, beschrieb, beschrieben"],
+        ["erklären", "to explain", "erklärt, erklärte, erklärt"],
+        ["vergleichen", "to compare", "vergleicht, verglich, verglichen"],
+        ["unterstützen", "to support", "unterstützt, unterstützte, unterstützt"],
+        ["verursachen", "to cause", "verursacht, verursachte, verursacht"],
+        ["ermöglichen", "to enable", "ermöglicht, ermöglichte, ermöglicht"]
+      ]
+    }
+  ]
+}

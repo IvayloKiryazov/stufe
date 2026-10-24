@@ -1,0 +1,46 @@
+{
+  "level": "b2",
+  "groups": [
+    {
+      "id": "society",
+      "name": "Society & the world",
+      "kind": "noun",
+      "intro": "Abstract nouns for discussing society and current issues.",
+      "words": [
+        ["Gesellschaft", "society"],
+        ["Wirtschaft", "economy"],
+        ["Bildung", "education"],
+        ["Umwelt", "environment"],
+        ["Bevölkerung", "population"],
+        ["Regierung", "government"],
+        ["Wissenschaft", "science"],
+        ["Technik", "technology"],
+        ["Verkehr", "traffic, transport"],
+        ["Gesundheit", "health"]
+      ]
+    },
+    {
+      "id": "abstract",
+      "name": "Abstract concepts",
+      "kind": "noun",
+      "intro": "Useful abstract nouns for opinions and arguments.",
+      "words": [
+        ["Erfahrung", "experience"],
+        ["Entscheidung", "decision"],
+        ["Verantwortung", "responsibility"],
+        ["Möglichkeit", "possibility"],
+        ["Entwicklung", "development"],
+        ["Beziehung", "relationship"],
+        ["Einfluss", "influence"],
+        ["Vorteil", "advantage"],
+        ["Nachteil", "disadvantage"],
+        ["Lösung", "solution"],
+        ["Ergebnis", "result"],
+        ["Meinung", "opinion"],
+        ["Grund", "reason"],
+        ["Folge", "consequence"],
+        ["Ursache", "cause"]
+      ]
+    }
+  ]
+}

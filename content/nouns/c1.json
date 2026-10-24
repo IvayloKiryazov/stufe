@@ -1,0 +1,23 @@
+{
+  "level": "c1",
+  "groups": [
+    {
+      "id": "abstract",
+      "name": "Advanced abstract nouns",
+      "kind": "noun",
+      "intro": "Nouns for professional and academic registers.",
+      "words": [
+        ["Voraussetzung", "prerequisite, condition"],
+        ["Auswirkung", "effect, impact"],
+        ["Zusammenhang", "connection, context"],
+        ["Wettbewerb", "competition"],
+        ["Herausforderung", "challenge"],
+        ["Forschung", "research"],
+        ["Kenntnis", "knowledge"],
+        ["Bereitschaft", "willingness"],
+        ["Auseinandersetzung", "dispute, examination"],
+        ["Umsetzung", "implementation"]
+      ]
+    }
+  ]
+}

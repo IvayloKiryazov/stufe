@@ -1,0 +1,23 @@
+{
+  "level": "c2",
+  "groups": [
+    {
+      "id": "abstract",
+      "name": "C2 abstract nouns",
+      "kind": "noun",
+      "intro": "Formal nouns for precise, high-register expression.",
+      "words": [
+        ["Auslegung", "interpretation"],
+        ["Verhältnis", "relationship, ratio"],
+        ["Gegenstand", "subject, object"],
+        ["Anlass", "occasion, reason"],
+        ["Ausmaß", "extent"],
+        ["Auffassung", "view, conception"],
+        ["Beschaffenheit", "nature, quality"],
+        ["Tragweite", "significance, scope"],
+        ["Wechselwirkung", "interaction"],
+        ["Gegebenheit", "given circumstance"]
+      ]
+    }
+  ]
+}
