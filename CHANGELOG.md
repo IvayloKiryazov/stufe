@@ -1,31 +1,44 @@
 # Changelog
 
-Notable user-facing changes. Format loosely follows
-[Keep a Changelog](https://keepachangelog.com/).
+Notable user-facing changes. Loosely follows
+[Keep a Changelog](https://keepachangelog.com/). "Partial" items are noted
+explicitly — see [`documentation/roadmap.md`](documentation/roadmap.md).
 
 ## Unreleased
 
 ### Added
-- Bunpro-style **12-level SRS** (Beginner → Master) with the Bunpro interval
-  ladder; wrong answers drop one level.
+- Bunpro-style **12-level SRS** (Beginner → Master; 4h…6mo; one-level demotion;
+  Master = burned).
 - **Vocabulary cloze track**: fill the missing word into a rotating example
-  sentence (separate item from the meaning card).
+  sentence, separate from the meaning card.
 - **Multiple example sentences** per vocabulary item.
-- **Native pronunciation audio** for ~98% of vocabulary items (Wiktionary /
-  Wikimedia), with browser-TTS fallback.
-- **Search** over words and grammar points.
-- **Up-next** on Today and a GitHub-style **activity heatmap** in Stats.
-- **Burned / leech** explanations in Help.
-- **First-run onboarding** and a **keyboard shortcut** sheet ("?").
-- Gender/plural tracks for the whole noun deck; a **case track**; conjugation
-  tables for the whole verb deck; IPA for the curated vocabulary.
+- **Gender/plural tracks for the whole noun deck** and a **case track**
+  (accusative/dative/genitive) for curated nouns.
+- **Conjugation tables** for all verbs; **IPA** for the curated vocabulary.
+- **Native pronunciation audio** (~98 % of vocabulary) with browser-TTS fallback.
+- **Search** over words and grammar points; **browse by part of speech**.
+- **Level checkpoints** (scored, 80 % target) from Stats → Levels.
+- **"Up next"** on Today and a GitHub-style **activity heatmap** in Stats.
+- **CEFR panel**: can-do statements, exam alignment (Goethe/telc) and skills.
+- **Inline word glossing** in Reading; **word-level feedback** in Writing.
+- Curated **adjectives (A1–B2)** and **nouns/verbs/adjectives (B2/C1/C2)**;
+  extra reading passages and a café dialogue.
 - Route **error boundaries**; the deck loads **per level** on demand.
-- **Durable progress** (IndexedDB mirror + persistent-storage request) and true
-  **offline** support (service worker).
+- **Durable progress** (IndexedDB mirror + persistent-storage request).
+- **Offline** support (service-worker shell precache).
+- Onboarding card; a keyboard-shortcut sheet ("?").
+- Verification: **second-source cross-check** for curated nouns and a
+  per-item `source` field; reproducible deck checks in CI.
 
 ### Changed
-- The UI's SRS stage names are Bunpro's; the interval ladder replaced the
-  7-box Leitner hybrid.
+- UI stage names are Bunpro's; the interval ladder replaced the 7-box hybrid.
+- The "just memorise" gender-mnemonic filler was removed.
+
+### Partial (see roadmap)
+- i18n covers the shell, Today, Study, Browse, Stats, Settings and screen
+  titles only.
+- Offline **precaches the shell, not the deck**; durable progress does not use
+  File System Access.
 
 ## 2.0.0
 

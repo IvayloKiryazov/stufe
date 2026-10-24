@@ -18,8 +18,10 @@ npm install
 npm run dev        # http://localhost:5173
 ```
 
-`npm run dev`/`build` first run `scripts/sync-data.mjs`, which copies
-`data/*.json` into `web/public/data/`.
+`npm run dev`/`build` first run `scripts/sync-data.mjs`, which copies an
+**allowlist** of `data/` (levels, reading, attribution, conjugations, and the
+per-level `data/items/`) into `web/public/data/`; build-time inputs (the
+frequency deck, any personal Anki import) are never published.
 
 ## Build for Pages
 
@@ -63,9 +65,12 @@ tests/        Python pipeline/dataset tests
 
 ## Documentation
 
+- [`documentation/roadmap.md`](documentation/roadmap.md) — **what is done,
+  partial and left** (start here).
 - [`documentation/`](documentation/) — architecture, content & pipeline, SRS,
-  testing, roadmap.
-- [`AGENTS.md`](AGENTS.md) — conventions for contributors and AI agents.
+  testing.
+- [`AGENTS.md`](AGENTS.md) — conventions and the Bunpro + WaniKani north star.
+- [`HANDOFF.md`](HANDOFF.md) — current state and how to proceed.
 
 ## Licensing
 

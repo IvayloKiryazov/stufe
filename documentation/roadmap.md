@@ -1,64 +1,150 @@
-# Roadmap
+# Roadmap & status
 
-Issues are tracked on GitHub (repo `IvayloKiryazov/stufe`). This is the map.
+Single source of truth for **what is done, what is partial, and what is left**.
+Issues are on GitHub (`IvayloKiryazov/stufe`); this file says how far each one
+actually got. It is deliberately blunt about partial work — see
+[Known quality debt](#known-quality-debt) for issues that are closed but whose
+acceptance criteria are **not** met.
 
-## Phase 1 — UX redesign (DONE)
+North star: **Bunpro + WaniKani** (see [`AGENTS.md`](../AGENTS.md)).
 
-Fullstack frontend rewrite: Vite + React + TS + Tailwind + Radix/shadcn, a real
-app shell, dashboard-first home, and the old vanilla app retired. Pages serves
-the built `docs/`.
+Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / not started.
 
-- #31 scaffold · #32 shell + design system · #33 Today · #34 Study · #35 Browse
-  · #36 Grammar · #37 Reading/Dictation/Translate · #38 Stats/Projections/Extras
-  · #39 Settings · #41 tests/CI/Pages
-- #40 lazy-load data (open, optional perf)
+---
 
-## Phase 2 — Content QA (DONE)
+## Done ✅
 
-- #42 Bunpro-style naming + validation test · #43 automated checks
-  (`tools/check_content.py`)
-- #44/#45 curated grammar, reading, nouns, verbs fully reviewed (1 fix)
-- #46–#48 auto deck: meta-gloss filtering + sampled review (300 items) +
-  `content/overrides.json`. Residual: sense selection for polysemous words is
-  still heuristic — full per-item verification is a standing task.
-- #81 curated vocabulary now carries IPA from Wiktionary (the auto deck already
-  did); `tools/build_ipa.py` builds the map.
-- #59 curated **adjectives** for A1–B1 (`content/adjectives/*.json`), enriched
-  with IPA, audio and examples like the other vocab.
+### Architecture & engineering (epic #120)
+- #102 the deck is split per level (`data/items/<level>.json`) and streamed on
+  demand; `levels.json`/`reading.json` load eagerly, `by` grows.
+- #103 upstream sources pinned in `tools/sources.lock.json` (URL + sha256;
+  `fetch_*.py --check`).
+- #104 CI verifies the per-level split matches `data/items.json`
+  (`tools/verify_dataset.py`).
+- #105 route error boundaries with a friendly fallback.
+- #106 per-screen interaction e2e tests (search, reading, dictation, translate,
+  settings, browse).
+- #107 removed the orphaned root `node_modules/`.
 
-## Phase 3 — SRS depth & curriculum (DONE)
+### SRS (epic #117)
+- **Bunpro's 12-level ladder** (Beginner → Master; 4h…6mo; one-level demotion;
+  Master = burned). Replaces the old 7-box hybrid.
+- #78 gender + plural tracks for the **whole** noun deck.
+- #79 a **case** track (accusative/dative/genitive) for curated nouns.
+- #80 conjugation tables for **all 1,460 verbs**.
+- #77 study-ahead and per-item reset (`store.reschedule`/`resetItem`).
+- #131 multiple example sentences per item + a **vocabulary cloze track**
+  (fill the word into a rotating sentence).
 
-- #49 leech auto-suspend, vacation mode, 14-day forecast, wrap-up, burned study
-- #50 separate SRS tracks for **gender** and **plural** (case drills remain)
-- #51 course-first path (linear A1–B1) in Browse; frequency deck behind a tab
-- #78 the gender/plural tracks now cover the **whole** noun deck (auto nouns
-  too), not just curated ones
-- #80 the whole verb deck (1,433 verbs) now carries Wiktionary conjugation
-  tables, not just the curated ones
-- #79 a **case track** (accusative/dative/genitive article forms) for the
-  curated nouns
-- #131 every vocab item now carries multiple example sentences and a
-  **cloze track** (fill the word into a rotating example sentence)
+### UX (epic #118)
+- #93 search · #98 POS filter · #95 onboarding · #96 shortcut sheet ·
+  #132 "up next" on Today · #133 activity heatmap · #135 burned/leech help ·
+  #127 clearer review feedback · #126 Backspace undo.
 
-## Phase 4 — Modalities (DONE)
+### Platform (epic #119)
+- #99 progress mirrored to IndexedDB + persistent-storage request.
+- #100 service worker: shell precache, cache-first hashed assets,
+  network-first data.
 
-- #52 listening comprehension · #53 pronunciation & alphabet · #54 speaking
-  (self-assessed, MediaRecorder) · #55 writing drills
+### Data & media
+- #81 IPA for the curated vocabulary · #97 native pronunciation audio (~98 %) ·
+  #129 dropped the useless "just memorise" mnemonic · #131 examples.
 
-## Phase 5 — Platform (DONE)
+### Docs (epic #121)
+- #108 CONTRIBUTING rewrite · #109 TASKS retired · #110 CHANGELOG ·
+  #111 architecture diagram.
 
-- #56 route-level code splitting (lazy routes)
-- #57 i18n: interface language (en/de) for the shell and Today (coverage is
-  incremental — more screens can be translated by adding keys to `lib/i18n.ts`)
-- #58 service worker (offline) + review reminders
-- #40 sync-data is done and the bundle is split; **per-level lazy loading of
-  `items.json` is still deferred** (the deck loads as one file).
+### Bugs (from the rewrite review)
+- #122 listening radios · #123 reminders toggle · #124 order-aware grader ·
+  #125 auto-play wiring.
 
-## Honest state of the deck
+### CEFR (epic #116)
+- #72 can-do statements · #73 exam alignment · #74 skills (see partial notes).
 
-~7,300 items: nouns, adjectives, verbs, grammar cloze, plus separate **gender**
-and **plural** drill tracks for curated nouns. Levels are **frequency
-quantiles, not true CEFR**; the core vocabulary layer is broad and its
-meta-glosses are filtered, but sense selection for polysemous words is still
-heuristic (Phase 2). Listening/reading/speaking/writing now exist but content is
-small. Full per-item verification of the auto deck remains a standing task.
+---
+
+## Partial 🟡 (closed, but acceptance not fully met)
+
+| # | Issue | What is missing |
+| --- | --- | --- |
+| #63 | reading library | "dozens of passages across A1–C1" → only **8** (a1:2, a2:3, b1:3); no B2–C2 |
+| #65 | dialogues & authentic texts | only **1** dialogue passage |
+| #89 | factual checkpoints | quizzes existing items; the answers are **not** independently verified |
+| #96 | keyboard-only nav everywhere | only a shortcut sheet; not full keyboard navigation |
+| #98 | browse POS **and frequency rank** | POS filter only; no frequency-rank browsing |
+| #100 | true offline | **shell only** is precached; the deck is not, so a first offline visit fails |
+| #99 | durable progress | IndexedDB mirror only (cleared with site data); **no File System Access export** |
+| #68 | per-item source | a coarse `source` string, not a verifiable per-item reference |
+| #69 / #92 | cross-check / factual suite | curated **nouns** only (article/plural); no glosses, no auto deck, no learner tests |
+| #74 | skill-by-level | skills are listed, but there is **no per-skill progress** |
+| #132 | up-next **+ word picking** | up-next only |
+| #87 | graded readers | inline glossing done; the reader **library** (=#63) is not |
+| #134 | settings tests | only reminders + vacation are e2e-tested, not every control |
+| #59–#62 | curated content | **drafted, not human-verified** (B2/C1/C2 nouns/verbs/adjectives) |
+
+**Tracker discrepancy:** #61, #62 and #127 are **done but still show open**
+(the `Closes` keywords did not take).
+
+---
+
+## Not started ⛔ (open)
+
+**Verification (epic #113) — needs a source policy**
+- #66 verify the ~5,600 auto items · #67 gloss sense-selection (polysemous
+  words) · #70 an authoritative process + reviewed-content marker.
+
+**CEFR (epic #116)**
+- #71 replace frequency quantiles with a **real CEFR mapping** (needs a CEFR
+  wordlist choice, e.g. Profile Deutsch / Goethe Wortliste).
+
+**SRS / scheduling (epic #117)**
+- #75 "optional adaptive algorithm (SM-2/FSRS)" — **conflicts with the
+  north star** (Bunpro explicitly rejected FSRS); needs re-scoping, not
+  implementation as written. · #76 per-item difficulty / per-deck settings.
+
+**Content (epic #112)**
+- #82 714 vocabulary items still lack an example · #64 a dedicated listening
+  library.
+
+**Modalities (epic #114)**
+- #84 speaking with ASR (needs an engine) · #85 native-audio listening ·
+  #86 longer writing tasks.
+
+**Curriculum (epic #115)**
+- #88 full lesson/prerequisite model · #90 interleaving · #91 review-previous
+  (a basic version exists).
+
+**UX (epic #118)**
+- #94 full i18n (only shell/Today/Study/Browse/Stats/Settings/titles are
+  localised).
+
+**Mnemonics (epic #128)**
+- #130 per-word + user mnemonics · #83 verb/adjective mnemonics
+  (0/1460 verbs have one).
+
+**Platform (epic #119)**
+- #101 accounts & sync — **explicitly deferred** (recorded decision).
+
+---
+
+## Known quality debt
+
+- `data/items.json` (3.5 MB) is **duplicated** by `data/items/<level>.json`;
+  both are committed.
+- The SRS rename has **no migration**: a saved `box` 1–7 now maps to different
+  SRS levels (only matters if a user had progress).
+- `HANDOFF.md` §2 claims `write`/`edit` produce root-owned files; in this
+  environment they do **not** (verified `ivaylo:ivaylo`).
+- e2e smoke does not exercise the **checkpoint** or **cloze** modes; the axe
+  suite does not render non-default tabs (the Stats "Levels" tab is untested).
+
+## Decisions needed before the open items can proceed
+
+1. **#71 CEFR list** — which authoritative wordlist? (Profile Deutsch / Goethe).
+2. **#84 ASR** — which engine (on-device Web Speech / Whisper.cpp / cloud)?
+3. **#66/#70 verification** — what source policy, and do we auto-fix or only
+   **report** disagreements (recommended: report + `content/overrides.json`)?
+4. **#75** — confirm re-scope away from SM-2/FSRS toward Bunpro/WaniKani
+   fidelity (or keep it open as "not planned").
+5. **#99** — accept IndexedDB as good-enough, or add File System Access
+   "back up to file"?
