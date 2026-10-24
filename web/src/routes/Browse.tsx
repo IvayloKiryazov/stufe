@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Art } from "../components/Art";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../components/ui/accordion";
 import { Button } from "../components/ui/button";
+import { Card, CardTitle } from "../components/ui/card";
 import { Progress } from "../components/ui/progress";
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
@@ -70,11 +72,16 @@ export default function Browse() {
   const progress = useProgress();
   const [mode, setMode] = useState<"course" | "vocab">("course");
   const [pos, setPos] = useState<"all" | "noun" | "verb" | "adj">("all");
+  const [topN, setTopN] = useState(50);
   const lang = progress.settings.language;
 
   if (!deck) return <p className="text-muted">Loading…</p>;
   const isVocab = (g: Group) =>
     g.name.startsWith("Core ") && (g.kind === "noun" || g.kind === "verb" || g.kind === "adj");
+  const idxOf = (level: string) => deck.levels.findIndex((l) => l.id === level);
+  const ranked = Object.values(deck.by)
+    .filter((i) => i.freqRank && (i.kind === "noun" || i.kind === "verb" || i.kind === "adj"))
+    .sort((a, b) => (a.freqRank ?? 0) - (b.freqRank ?? 0));
 
   return (
     <div className="space-y-6">
@@ -108,6 +115,48 @@ export default function Browse() {
             </Button>
           ))}
         </div>
+      )}
+
+      {mode === "vocab" && (
+        <div className="flex flex-wrap items-center gap-1">
+          <span className="text-xs text-muted">Top by frequency:</span>
+          {[50, 100, 250].map((n) => (
+            <Button
+              key={n}
+              size="sm"
+              variant={topN === n ? "default" : "ghost"}
+              aria-pressed={topN === n}
+              onClick={() => setTopN(n)}
+            >
+              {n}
+            </Button>
+          ))}
+        </div>
+      )}
+
+      {mode === "vocab" && (
+        <Card>
+          <CardTitle>Top {topN} by frequency</CardTitle>
+          <ul className="space-y-1">
+            {ranked.slice(0, topN).map((it) => (
+              <li key={it.id} className="flex items-center justify-between gap-2 text-sm">
+                <span>
+                  <span className="text-xs text-muted">#{it.freqRank}</span>{" "}
+                  <span className="font-serif" lang="de">
+                    <Art text={it.de ?? ""} />
+                  </span>{" "}
+                  <span className="text-muted">— {it.en}</span>
+                </span>
+                <Link
+                  to={`/study?mode=practice&group=${encodeURIComponent(it.group)}&level=${idxOf(it.level)}`}
+                  className="text-xs text-muted underline"
+                >
+                  practice
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Card>
       )}
 
       {mode === "course" ? (

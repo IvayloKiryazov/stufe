@@ -37,7 +37,8 @@ Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / 
   (fill the word into a rotating sentence).
 
 ### UX (epic #118)
-- #93 search · #98 POS filter · #95 onboarding · #96 shortcut sheet ·
+- #93 search · #98 POS filter + a **top-by-frequency** browse (with `freqRank`) ·
+  #95 onboarding · #96 shortcut sheet ·
   #132 "up next" on Today · #133 activity heatmap · #135 burned/leech help ·
   #127 clearer review feedback · #126 Backspace undo.
 
@@ -73,7 +74,6 @@ Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / 
 | #65 | dialogues & authentic texts | only **1** dialogue passage |
 | #89 | factual checkpoints | quizzes existing items; the answers are **not** independently verified |
 | #96 | keyboard-only nav everywhere | only a shortcut sheet; not full keyboard navigation |
-| #98 | browse POS **and frequency rank** | POS filter only; no frequency-rank browsing |
 | #68 | per-item source | a coarse `source` string, not a verifiable per-item reference |
 | #69 / #92 | cross-check / factual suite | curated **nouns** only (article/plural); no glosses, no auto deck, no learner tests |
 | #74 | skill-by-level | skills are listed, but there is **no per-skill progress** |
