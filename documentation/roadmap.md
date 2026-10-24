@@ -98,9 +98,10 @@ Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / 
   wordlist choice, e.g. Profile Deutsch / Goethe Wortliste).
 
 **SRS / scheduling (epic #117)**
-- #75 "optional adaptive algorithm (SM-2/FSRS)" — **conflicts with the
-  north star** (Bunpro explicitly rejected FSRS); needs re-scoping, not
-  implementation as written. · #76 per-item difficulty / per-deck settings.
+- #75 "optional adaptive algorithm (SM-2/FSRS)" — **closed as not planned**:
+  it conflicts with the north star (Bunpro rejected FSRS; WaniKani uses fixed
+  intervals). Stay faithful to the staged model. · #76 per-item difficulty /
+  per-deck settings (open).
 
 **Content (epic #112)**
 - #82 714 vocabulary items still lack an example · #64 a dedicated listening

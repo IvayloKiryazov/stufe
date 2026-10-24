@@ -51,3 +51,30 @@ export async function requestPersist(): Promise<boolean> {
     return false;
   }
 }
+
+/** Store any structured-cloneable value under an arbitrary key (issue #99/#5). */
+export async function idbSetValue(key: string, value: unknown): Promise<void> {
+  try {
+    const db = await openDb();
+    await new Promise<void>((resolve, reject) => {
+      const req = db.transaction(STORE, "readwrite").objectStore(STORE).put(value, key);
+      req.onsuccess = () => resolve();
+      req.onerror = () => reject(req.error);
+    });
+  } catch {
+    /* best effort */
+  }
+}
+
+export async function idbGetValue<T>(key: string): Promise<T | null> {
+  try {
+    const db = await openDb();
+    return await new Promise<T | null>((resolve, reject) => {
+      const req = db.transaction(STORE, "readonly").objectStore(STORE).get(key);
+      req.onsuccess = () => resolve((req.result as T) ?? null);
+      req.onerror = () => reject(req.error);
+    });
+  } catch {
+    return null;
+  }
+}

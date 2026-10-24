@@ -4,6 +4,7 @@ import { Button } from "../components/ui/button";
 import { Card, CardTitle } from "../components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { useProgress } from "../hooks/useProgress";
+import { backupSupported, chooseBackupFile } from "../lib/backup";
 import { store } from "../lib/store";
 import { useTheme, type Theme } from "../lib/theme";
 import { t } from "../lib/i18n";
@@ -205,6 +206,32 @@ export default function Settings() {
           </div>
           {msg && <p className="text-sm text-muted">{msg}</p>}
         </div>
+      </Card>
+
+      <Card>
+        <CardTitle>Backup file</CardTitle>
+        {backupSupported() ? (
+          <>
+            <p className="text-sm text-muted">
+              Keep progress in a real file — it survives clearing browser data, and syncs if the
+              file is in a cloud folder.
+            </p>
+            <Button
+              variant="outline"
+              className="mt-3"
+              onClick={async () => {
+                const ok = await chooseBackupFile();
+                setMsg(ok ? "Backup file linked." : "Backup file not changed.");
+              }}
+            >
+              Keep a backup file…
+            </Button>
+          </>
+        ) : (
+          <p className="text-sm text-muted">
+            This browser doesn’t support file backups; use “Download backup” below.
+          </p>
+        )}
       </Card>
 
       <Card>

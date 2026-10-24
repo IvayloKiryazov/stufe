@@ -2,16 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 import App from "./App";
+import { initBackup, writeBackup } from "./lib/backup";
 import { idbGet, idbSet, requestPersist } from "./lib/persist";
 import { store } from "./lib/store";
 import { ThemeProvider } from "./lib/theme";
 import "./index.css";
 
 // Durable progress (#99): mirror every change to IndexedDB and restore it if
-// localStorage was cleared. Best-effort; never blocks the app.
+// localStorage was cleared. Also keep an optional user-chosen backup file up to
+// date (debounced). Best-effort; never blocks the app.
+let backupTimer: number | undefined;
 store.subscribe(() => {
   void idbSet(store.export());
+  window.clearTimeout(backupTimer);
+  backupTimer = window.setTimeout(() => void writeBackup(), 2000);
 });
+void initBackup();
 void requestPersist();
 void idbGet().then((text) => {
   if (text && localStorage.getItem("stufe-progress-v2") == null) {

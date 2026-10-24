@@ -5,6 +5,8 @@ import { Card } from "../components/ui/card";
 import { Progress } from "../components/ui/progress";
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
+import { asrSupported, listenOnce } from "../lib/asr";
+import { tokenSimilarity, wordDiff } from "../lib/grade";
 import { t } from "../lib/i18n";
 import { shuffle } from "../lib/shuffle";
 import { speak } from "../lib/tts";
@@ -16,6 +18,7 @@ export default function Speaking() {
   const [recording, setRecording] = useState(false);
   const [url, setUrl] = useState<string | null>(null);
   const [msg, setMsg] = useState("");
+  const [heard, setHeard] = useState("");
   const recRef = useRef<MediaRecorder | null>(null);
 
   const sentences = useMemo(
@@ -53,6 +56,19 @@ export default function Speaking() {
     setRecording(false);
   };
 
+  const speechCheck = async () => {
+    setMsg("");
+    setHeard("");
+    try {
+      const { transcript } = await listenOnce();
+      if (transcript) setHeard(transcript);
+      else setMsg("I didn't catch that — try again.");
+    } catch {
+      setMsg("Speech recognition isn't available in this browser.");
+    }
+  };
+  const diff = heard ? wordDiff(heard, target) : null;
+
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3 text-sm text-muted">
@@ -81,17 +97,46 @@ export default function Speaking() {
               <Mic className="h-4 w-4" /> Record
             </Button>
           )}
+          {asrSupported() && (
+            <Button variant="outline" onClick={speechCheck}>
+              <Mic className="h-4 w-4" /> Speech check
+            </Button>
+          )}
         </div>
         {url && (
           <audio className="mt-3 w-full" src={url} controls aria-label="Your recording" />
         )}
         {msg && <p className="mt-2 text-sm text-muted">{msg}</p>}
+        {heard && diff && (
+          <div className="mt-3 space-y-1 border-t border-line pt-3">
+            <p className="text-sm">
+              <b>I heard:</b> <span lang="de">{heard}</span>
+            </p>
+            <p className="text-sm text-muted">
+              {Math.round(tokenSimilarity(heard, target) * 100)}% match to the model.
+            </p>
+            {diff.missing.length > 0 && (
+              <p className="text-sm">
+                <b>Missing:</b> <span lang="de">{diff.missing.join(", ")}</span>
+              </p>
+            )}
+            {diff.extra.length > 0 && (
+              <p className="text-sm text-bad">
+                Extra: <span lang="de">{diff.extra.join(", ")}</span>
+              </p>
+            )}
+            {diff.missing.length === 0 && diff.extra.length === 0 && (
+              <p className="text-sm text-good">Spot on.</p>
+            )}
+          </div>
+        )}
         <div className="mt-4 flex gap-2">
           <Button
             onClick={() => {
               setI((n) => n + 1);
               setUrl(null);
               setMsg("");
+              setHeard("");
             }}
           >
             I said it
@@ -101,6 +146,7 @@ export default function Speaking() {
             onClick={() => {
               setUrl(null);
               setMsg("");
+              setHeard("");
             }}
           >
             Again
