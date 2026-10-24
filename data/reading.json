@@ -134,6 +134,136 @@
   "level": "a1"
  },
  {
+  "id": "a1-familie",
+  "title": "Meine Familie",
+  "text": "Das ist meine Familie. Mein Vater heißt Peter und meine Mutter heißt Sabine. Ich habe einen Bruder und eine Schwester. Wir wohnen in einem Haus mit einem Garten. Am Sonntag essen wir zusammen.",
+  "glossary": [
+   [
+    "der Vater",
+    "father"
+   ],
+   [
+    "die Mutter",
+    "mother"
+   ],
+   [
+    "der Bruder",
+    "brother"
+   ],
+   [
+    "die Schwester",
+    "sister"
+   ],
+   [
+    "das Haus",
+    "house"
+   ],
+   [
+    "der Garten",
+    "garden"
+   ],
+   [
+    "zusammen",
+    "together"
+   ]
+  ],
+  "questions": [
+   {
+    "q": "Wie heißt der Vater?",
+    "options": [
+     "Peter",
+     "Paul",
+     "Klaus"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Wie viele Geschwister hat die Person?",
+    "options": [
+     "einen Bruder und eine Schwester",
+     "nur einen Bruder",
+     "keine"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Wann isst die Familie zusammen?",
+    "options": [
+     "am Sonntag",
+     "am Montag",
+     "am Samstag"
+    ],
+    "answer": 0
+   }
+  ],
+  "level": "a1"
+ },
+ {
+  "id": "a1-wetter",
+  "title": "Das Wetter",
+  "text": "Heute ist das Wetter schön. Die Sonne scheint und es ist warm. Am Nachmittag kommen Wolken und es regnet. Ich nehme einen Regenschirm mit. Am Abend ist es wieder trocken.",
+  "glossary": [
+   [
+    "das Wetter",
+    "weather"
+   ],
+   [
+    "die Sonne",
+    "sun"
+   ],
+   [
+    "scheinen",
+    "to shine"
+   ],
+   [
+    "warm",
+    "warm"
+   ],
+   [
+    "die Wolke",
+    "cloud"
+   ],
+   [
+    "der Regenschirm",
+    "umbrella"
+   ],
+   [
+    "trocken",
+    "dry"
+   ]
+  ],
+  "questions": [
+   {
+    "q": "Wie ist das Wetter am Morgen?",
+    "options": [
+     "schön und warm",
+     "kalt und nass",
+     "windig"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Was passiert am Nachmittag?",
+    "options": [
+     "es regnet",
+     "es schneit",
+     "es ist sonnig"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Was nimmt die Person mit?",
+    "options": [
+     "einen Regenschirm",
+     "eine Jacke",
+     "einen Hut"
+    ],
+    "answer": 0
+   }
+  ],
+  "level": "a1"
+ },
+ {
   "id": "a2-wochenende",
   "title": "Ein Wochenende in den Bergen",
   "text": "Am Wochenende fahre ich mit meiner Familie in die Berge. Wir wandern gern und machen ein Picknick. Das Wetter ist schön, aber am Nachmittag regnet es. Deshalb gehen wir früh nach Hause. Am Abend kochen wir zusammen und sehen einen Film.",
@@ -510,5 +640,143 @@
    }
   ],
   "level": "b1"
+ },
+ {
+  "id": "b2-digitalisierung",
+  "title": "Digitalisierung im Alltag",
+  "text": "Die Digitalisierung verändert unseren Alltag rasant. Behörden, Banken und Geschäfte bieten ihre Leistungen zunehmend online an. Das spart Zeit, setzt aber voraus, dass alle einen Internetzugang haben. Kritiker befürchten, dass ältere Menschen dadurch benachteiligt werden. Deshalb fordern sie, weiterhin persönliche Anlaufstellen zu erhalten.",
+  "glossary": [
+   [
+    "die Digitalisierung",
+    "digitalisation"
+   ],
+   [
+    "rasant",
+    "rapid"
+   ],
+   [
+    "die Behörde",
+    "authority, agency"
+   ],
+   [
+    "die Leistung",
+    "service"
+   ],
+   [
+    "voraussetzen",
+    "to presuppose"
+   ],
+   [
+    "benachteiligen",
+    "to disadvantage"
+   ],
+   [
+    "fordern",
+    "to demand"
+   ],
+   [
+    "die Anlaufstelle",
+    "contact point"
+   ]
+  ],
+  "questions": [
+   {
+    "q": "Was verändert sich laut dem Text?",
+    "options": [
+     "unser Alltag",
+     "nur die Schulen",
+     "das Wetter"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Welche Voraussetzung nennt der Text?",
+    "options": [
+     "einen Internetzugang",
+     "ein Auto",
+     "viel Geld"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Was fordern Kritiker?",
+    "options": [
+     "persönliche Anlaufstellen",
+     "mehr Online-Angebote",
+     "höhere Preise"
+    ],
+    "answer": 0
+   }
+  ],
+  "level": "b2"
+ },
+ {
+  "id": "b2-ernaehrung",
+  "title": "Ernährung und Gesundheit",
+  "text": "Ernährungsexperten empfehlen, häufiger frisches Obst und Gemüse zu essen und stark verarbeitete Produkte zu meiden. Studien deuten darauf hin, dass eine ausgewogene Ernährung das Risiko bestimmter Krankheiten senkt. Allerdings ist es oft schwierig, im Alltag konsequent gesund zu essen, weil Zeit und Geld eine große Rolle spielen.",
+  "glossary": [
+   [
+    "die Ernährung",
+    "diet, nutrition"
+   ],
+   [
+    "empfehlen",
+    "to recommend"
+   ],
+   [
+    "verarbeitet",
+    "processed"
+   ],
+   [
+    "vermeiden",
+    "to avoid"
+   ],
+   [
+    "ausgewogen",
+    "balanced"
+   ],
+   [
+    "senken",
+    "to lower"
+   ],
+   [
+    "konsequent",
+    "consistent"
+   ],
+   [
+    "die Rolle spielen",
+    "to play a role"
+   ]
+  ],
+  "questions": [
+   {
+    "q": "Was empfehlen Experten?",
+    "options": [
+     "mehr Obst und Gemüse",
+     "mehr Fleisch",
+     "mehr Süßigkeiten"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Was senkt eine ausgewogene Ernährung?",
+    "options": [
+     "das Risiko bestimmter Krankheiten",
+     "den Preis",
+     "das Gewicht der Kinder"
+    ],
+    "answer": 0
+   },
+   {
+    "q": "Warum ist gesundes Essen oft schwierig?",
+    "options": [
+     "wegen Zeit und Geld",
+     "wegen des Geschmacks",
+     "wegen des Wetters"
+    ],
+    "answer": 0
+   }
+  ],
+  "level": "b2"
  }
 ]

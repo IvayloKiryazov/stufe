@@ -1,0 +1,45 @@
+{
+  "level": "b2",
+  "passages": [
+    {
+      "id": "b2-digitalisierung",
+      "title": "Digitalisierung im Alltag",
+      "text": "Die Digitalisierung verändert unseren Alltag rasant. Behörden, Banken und Geschäfte bieten ihre Leistungen zunehmend online an. Das spart Zeit, setzt aber voraus, dass alle einen Internetzugang haben. Kritiker befürchten, dass ältere Menschen dadurch benachteiligt werden. Deshalb fordern sie, weiterhin persönliche Anlaufstellen zu erhalten.",
+      "glossary": [
+        ["die Digitalisierung", "digitalisation"],
+        ["rasant", "rapid"],
+        ["die Behörde", "authority, agency"],
+        ["die Leistung", "service"],
+        ["voraussetzen", "to presuppose"],
+        ["benachteiligen", "to disadvantage"],
+        ["fordern", "to demand"],
+        ["die Anlaufstelle", "contact point"]
+      ],
+      "questions": [
+        { "q": "Was verändert sich laut dem Text?", "options": ["unser Alltag", "nur die Schulen", "das Wetter"], "answer": 0 },
+        { "q": "Welche Voraussetzung nennt der Text?", "options": ["einen Internetzugang", "ein Auto", "viel Geld"], "answer": 0 },
+        { "q": "Was fordern Kritiker?", "options": ["persönliche Anlaufstellen", "mehr Online-Angebote", "höhere Preise"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "b2-ernaehrung",
+      "title": "Ernährung und Gesundheit",
+      "text": "Ernährungsexperten empfehlen, häufiger frisches Obst und Gemüse zu essen und stark verarbeitete Produkte zu meiden. Studien deuten darauf hin, dass eine ausgewogene Ernährung das Risiko bestimmter Krankheiten senkt. Allerdings ist es oft schwierig, im Alltag konsequent gesund zu essen, weil Zeit und Geld eine große Rolle spielen.",
+      "glossary": [
+        ["die Ernährung", "diet, nutrition"],
+        ["empfehlen", "to recommend"],
+        ["verarbeitet", "processed"],
+        ["vermeiden", "to avoid"],
+        ["ausgewogen", "balanced"],
+        ["senken", "to lower"],
+        ["konsequent", "consistent"],
+        ["die Rolle spielen", "to play a role"]
+      ],
+      "questions": [
+        { "q": "Was empfehlen Experten?", "options": ["mehr Obst und Gemüse", "mehr Fleisch", "mehr Süßigkeiten"], "answer": 0 },
+        { "q": "Was senkt eine ausgewogene Ernährung?", "options": ["das Risiko bestimmter Krankheiten", "den Preis", "das Gewicht der Kinder"], "answer": 0 },
+        { "q": "Warum ist gesundes Essen oft schwierig?", "options": ["wegen Zeit und Geld", "wegen des Geschmacks", "wegen des Wetters"], "answer": 0 }
+      ]
+    }
+  ]
+}

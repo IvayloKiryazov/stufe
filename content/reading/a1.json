@@ -39,6 +39,44 @@
         { "q": "Wo bezahlt sie?", "options": ["an der Kasse", "an der Tür", "am Eingang"], "answer": 0 },
         { "q": "Wie ist der Verkäufer?", "options": ["freundlich", "müde", "traurig"], "answer": 0 }
       ]
+    },
+    {
+      "id": "a1-familie",
+      "title": "Meine Familie",
+      "text": "Das ist meine Familie. Mein Vater heißt Peter und meine Mutter heißt Sabine. Ich habe einen Bruder und eine Schwester. Wir wohnen in einem Haus mit einem Garten. Am Sonntag essen wir zusammen.",
+      "glossary": [
+        ["der Vater", "father"],
+        ["die Mutter", "mother"],
+        ["der Bruder", "brother"],
+        ["die Schwester", "sister"],
+        ["das Haus", "house"],
+        ["der Garten", "garden"],
+        ["zusammen", "together"]
+      ],
+      "questions": [
+        { "q": "Wie heißt der Vater?", "options": ["Peter", "Paul", "Klaus"], "answer": 0 },
+        { "q": "Wie viele Geschwister hat die Person?", "options": ["einen Bruder und eine Schwester", "nur einen Bruder", "keine"], "answer": 0 },
+        { "q": "Wann isst die Familie zusammen?", "options": ["am Sonntag", "am Montag", "am Samstag"], "answer": 0 }
+      ]
+    },
+    {
+      "id": "a1-wetter",
+      "title": "Das Wetter",
+      "text": "Heute ist das Wetter schön. Die Sonne scheint und es ist warm. Am Nachmittag kommen Wolken und es regnet. Ich nehme einen Regenschirm mit. Am Abend ist es wieder trocken.",
+      "glossary": [
+        ["das Wetter", "weather"],
+        ["die Sonne", "sun"],
+        ["scheinen", "to shine"],
+        ["warm", "warm"],
+        ["die Wolke", "cloud"],
+        ["der Regenschirm", "umbrella"],
+        ["trocken", "dry"]
+      ],
+      "questions": [
+        { "q": "Wie ist das Wetter am Morgen?", "options": ["schön und warm", "kalt und nass", "windig"], "answer": 0 },
+        { "q": "Was passiert am Nachmittag?", "options": ["es regnet", "es schneit", "es ist sonnig"], "answer": 0 },
+        { "q": "Was nimmt die Person mit?", "options": ["einen Regenschirm", "eine Jacke", "einen Hut"], "answer": 0 }
+      ]
     }
   ]
 }
