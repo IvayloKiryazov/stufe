@@ -4,12 +4,14 @@ import { Card } from "../components/ui/card";
 import { Progress } from "../components/ui/progress";
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
+import { t } from "../lib/i18n";
 import { equals, tokenSimilarity } from "../lib/grade";
 import { shuffle } from "../lib/shuffle";
 
 export default function Translate() {
   const { deck } = useDeck();
   const progress = useProgress();
+  const lang = progress.settings.language;
   const [i, setI] = useState(0);
   const [value, setValue] = useState("");
   const [phase, setPhase] = useState<"ask" | "fb">("ask");
@@ -58,7 +60,7 @@ export default function Translate() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3 text-sm text-muted">
-        <h1 className="text-sm font-normal">Translate</h1>
+        <h1 className="text-sm font-normal">{t(lang, "practice.translate")}</h1>
         <Progress className="flex-1" value={(i / queue.length) * 100} label="Session progress" />
         <span>
           {i + 1}/{queue.length}

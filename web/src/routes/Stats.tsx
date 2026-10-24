@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs"
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
 import { CAN_DO, EXAM, SKILLS } from "../lib/cefr";
+import { t as tr } from "../lib/i18n";
 import { addDays, daysToFinish, reviewLoad } from "../lib/projection";
 import { itemsOfLevel } from "../lib/selectors";
 import { isActive, passed } from "../lib/srsCore";
@@ -59,7 +60,7 @@ export default function Stats() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-bold">Stats</h1>
+      <h1 className="text-3xl font-bold">{tr(progress.settings.language, "stats.title")}</h1>
       <Tabs defaultValue="overview">
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>

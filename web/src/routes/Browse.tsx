@@ -5,6 +5,7 @@ import { Button } from "../components/ui/button";
 import { Progress } from "../components/ui/progress";
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
+import { t } from "../lib/i18n";
 import type { Deck, Group } from "../lib/data";
 import type { Progress as Prog } from "../lib/store";
 import { unlocked } from "../lib/selectors";
@@ -69,6 +70,7 @@ export default function Browse() {
   const progress = useProgress();
   const [mode, setMode] = useState<"course" | "vocab">("course");
   const [pos, setPos] = useState<"all" | "noun" | "verb" | "adj">("all");
+  const lang = progress.settings.language;
 
   if (!deck) return <p className="text-muted">Loading…</p>;
   const isVocab = (g: Group) =>
@@ -77,11 +79,11 @@ export default function Browse() {
   return (
     <div className="space-y-6">
       <header className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-3xl font-bold">Browse</h1>
+        <h1 className="text-3xl font-bold">{t(lang, "browse.title")}</h1>
         <div className="flex gap-1 rounded-lg bg-soft p-1">
           {(["course", "vocab"] as const).map((m) => (
             <Button key={m} size="sm" variant={mode === m ? "default" : "ghost"} aria-pressed={mode === m} onClick={() => setMode(m)}>
-              {m === "course" ? "Course" : "Vocabulary"}
+              {t(lang, m === "course" ? "browse.course" : "browse.vocabulary")}
             </Button>
           ))}
         </div>

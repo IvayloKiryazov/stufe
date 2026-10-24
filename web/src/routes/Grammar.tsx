@@ -4,6 +4,7 @@ import { Card, CardTitle } from "../components/ui/card";
 import { Progress } from "../components/ui/progress";
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
+import { t } from "../lib/i18n";
 import type { Deck } from "../lib/data";
 import { passed } from "../lib/srsCore";
 
@@ -57,6 +58,7 @@ function Point({ deck, levelIdx, groupId }: { deck: Deck; levelIdx: number; grou
 export default function Grammar() {
   const { deck } = useDeck();
   const progress = useProgress();
+  const lang = progress.settings.language;
   const { level, group } = useParams();
 
   if (!deck) return <p className="text-muted">Loading…</p>;
@@ -66,7 +68,7 @@ export default function Grammar() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-3xl font-bold">Grammar</h1>
+        <h1 className="text-3xl font-bold">{t(lang, "nav.grammar")}</h1>
         <p className="text-muted">Study a point, see the rule and examples.</p>
       </header>
       {deck.levels.map((L, i) => {

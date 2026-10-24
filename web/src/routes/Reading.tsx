@@ -3,9 +3,11 @@ import { Link, useParams } from "react-router-dom";
 import { Volume2 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
+import { useProgress } from "../hooks/useProgress";
 import { useDeck } from "../hooks/useDeck";
 import type { Deck, Item, Reading as Passage } from "../lib/data";
 import { buildGlossIndex, glossFor } from "../lib/gloss";
+import { t } from "../lib/i18n";
 import { speak } from "../lib/tts";
 
 function PassageView({ p, deck }: { p: Passage; deck: Deck }) {
@@ -101,6 +103,8 @@ function PassageView({ p, deck }: { p: Passage; deck: Deck }) {
 
 export default function Reading() {
   const { deck } = useDeck();
+  const progress = useProgress();
+  const lang = progress.settings.language;
   const { id } = useParams();
   if (!deck) return <p className="text-muted">Loading…</p>;
   if (id) {
@@ -110,7 +114,7 @@ export default function Reading() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-3xl font-bold">Reading</h1>
+        <h1 className="text-3xl font-bold">{t(lang, "practice.reading")}</h1>
         <p className="text-muted">Short passages with a glossary and comprehension questions.</p>
       </header>
       {deck.levels.map((L) => {

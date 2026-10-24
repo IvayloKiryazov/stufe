@@ -16,6 +16,7 @@ import { MAX_BOX, passed } from "../lib/srsCore";
 import { shuffle } from "../lib/shuffle";
 import { stageName } from "../lib/stages";
 import { store } from "../lib/store";
+import { t } from "../lib/i18n";
 import { speakItem } from "../lib/tts";
 
 const UMLAUTS = ["ä", "ö", "ü", "ß"];
@@ -166,6 +167,7 @@ function Reveal({ it }: { it: Item }) {
 export default function Study() {
   const { deck, error } = useDeck();
   const progress = useProgress();
+  const lang = progress.settings.language;
   const study = useStudy(deck);
   const { session } = study;
   const inputRef = useRef<HTMLInputElement>(null);
@@ -250,52 +252,54 @@ export default function Study() {
     const burnedIds = Object.keys(progress.p).filter((id) => deck.by[id] && (progress.p[id].box ?? 0) >= MAX_BOX).slice(0, 20);
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-bold">Study</h1>
+        <h1 className="text-3xl font-bold">{t(lang, "study.title")}</h1>
         <div className="grid gap-3 sm:grid-cols-2">
           <Card>
-            <CardTitle>Reviews</CardTitle>
-            <p className="mb-3 text-sm text-muted">{due} due</p>
+            <CardTitle>{t(lang, "study.reviews")}</CardTitle>
+            <p className="mb-3 text-sm text-muted">
+              {due} {t(lang, "study.due")}
+            </p>
             <Button onClick={() => study.startReviews(false)} disabled={!due}>
-              Start reviews
+              {t(lang, "study.startReviews")}
             </Button>
           </Card>
           <Card>
-            <CardTitle>Lessons</CardTitle>
+            <CardTitle>{t(lang, "study.lessons")}</CardTitle>
             <p className="mb-3 text-sm text-muted">
-              {progress.settings.vacation ? "Paused (vacation mode)" : "Learn new items"}
+              {t(lang, progress.settings.vacation ? "study.paused" : "study.learnNew")}
             </p>
             <Button onClick={study.startLessons} disabled={progress.settings.vacation}>
-              Start lessons
+              {t(lang, "study.startLessons")}
             </Button>
           </Card>
           <Card className="sm:col-span-2">
-            <CardTitle>Extra study</CardTitle>
-            <p className="mb-3 text-sm text-muted">Practice without changing your schedule</p>
+            <CardTitle>{t(lang, "study.extra")}</CardTitle>
+            <p className="mb-3 text-sm text-muted">{t(lang, "study.extraHint")}</p>
             <div className="flex flex-wrap gap-2">
               <Button variant="outline" disabled={!leeches.length} onClick={() => study.startReviews(true, shuffle(leeches))}>
-                Leeches ({leeches.length})
+                {t(lang, "study.leeches")} ({leeches.length})
               </Button>
               <Button variant="outline" disabled={!passedIds.length} onClick={() => study.startReviews(true, shuffle(passedIds))}>
-                Passed ({passedIds.length})
+                {t(lang, "study.passed")} ({passedIds.length})
               </Button>
               <Button variant="outline" disabled={!burnedIds.length} onClick={() => study.startReviews(true, shuffle(burnedIds))}>
-                Burned ({burnedIds.length})
+                {t(lang, "study.burned")} ({burnedIds.length})
               </Button>
               <Button variant="outline" onClick={() => study.startReviews(true)}>
-                Any learned
+                {t(lang, "study.anyLearned")}
               </Button>
               <Button variant="outline" disabled={!prevPassed.length} onClick={() => study.startReviews(true, shuffle(prevPassed))}>
-                Previous level ({prevPassed.length})
+                {t(lang, "study.previousLevel")} ({prevPassed.length})
               </Button>
             </div>
           </Card>
           <Card className="sm:col-span-2">
-            <CardTitle>Study ahead</CardTitle>
+            <CardTitle>{t(lang, "study.ahead")}</CardTitle>
             <p className="mb-3 text-sm text-muted">
-              {ahead} item{ahead === 1 ? "" : "s"} due in the next 24 hours. Reviewing now still counts.
+              {ahead} {t(lang, "study.aheadHint")}
             </p>
             <Button variant="outline" disabled={!ahead} onClick={() => study.startAhead()}>
-              Study ahead ({ahead})
+              {t(lang, "study.ahead")} ({ahead})
             </Button>
           </Card>
         </div>

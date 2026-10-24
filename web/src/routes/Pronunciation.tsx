@@ -1,6 +1,8 @@
 import { Volume2 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card, CardTitle } from "../components/ui/card";
+import { useProgress } from "../hooks/useProgress";
+import { t } from "../lib/i18n";
 import { speak } from "../lib/tts";
 
 // grapheme, example word, hint
@@ -39,10 +41,11 @@ const SOUNDS: [string, string, string][] = [
 ];
 
 export default function Pronunciation() {
+  const lang = useProgress().settings.language;
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-3xl font-bold">Pronunciation</h1>
+        <h1 className="text-3xl font-bold">{t(lang, "practice.pronunciation")}</h1>
         <p className="text-muted">The German alphabet sounds — tap to hear an example.</p>
       </header>
       <Card>

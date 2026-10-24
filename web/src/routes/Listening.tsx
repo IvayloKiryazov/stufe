@@ -5,11 +5,13 @@ import { Card, CardTitle } from "../components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
+import { t } from "../lib/i18n";
 import { speak } from "../lib/tts";
 
 export default function Listening() {
   const { deck } = useDeck();
   const progress = useProgress();
+  const lang = progress.settings.language;
   const [id, setId] = useState<string>("");
   const [rate, setRate] = useState("0.9");
   const [reveal, setReveal] = useState(false);
@@ -41,8 +43,8 @@ export default function Listening() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-3xl font-bold">Listening</h1>
-        <p className="text-muted">Listen to a passage, answer the questions, then reveal the text.</p>
+        <h1 className="text-3xl font-bold">{t(lang, "practice.listening")}</h1>
+        <p className="text-muted">{t(lang, "practice.listenHint")}</p>
       </header>
 
       <div className="flex flex-wrap items-center gap-3">

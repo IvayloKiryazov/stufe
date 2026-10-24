@@ -64,8 +64,8 @@ export default function Settings() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-3xl font-bold">Settings</h1>
-        <p className="text-muted">Preferences for the app.</p>
+        <h1 className="text-3xl font-bold">{t(s.language, "settings.title")}</h1>
+        <p className="text-muted">{t(s.language, "settings.subtitle")}</p>
       </header>
 
       <Card>

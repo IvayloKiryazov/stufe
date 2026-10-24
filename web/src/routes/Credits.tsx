@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Card, CardTitle } from "../components/ui/card";
+import { useProgress } from "../hooks/useProgress";
+import { t } from "../lib/i18n";
 
 export default function Credits() {
+  const lang = useProgress().settings.language;
   const [credits, setCredits] = useState<string[]>([]);
   useEffect(() => {
     fetch("data/attribution.json")
@@ -13,7 +16,7 @@ export default function Credits() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-3xl font-bold">Credits &amp; licenses</h1>
+        <h1 className="text-3xl font-bold">{t(lang, "nav.credits")}</h1>
         <p className="text-muted">Stufe is MIT-licensed. The language data comes from open sources.</p>
       </header>
       <Card>

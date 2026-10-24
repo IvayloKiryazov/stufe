@@ -3,11 +3,15 @@ import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { Progress } from "../components/ui/progress";
 import { useDeck } from "../hooks/useDeck";
+import { useProgress } from "../hooks/useProgress";
+import { t } from "../lib/i18n";
 import { tokenSimilarity, wordDiff } from "../lib/grade";
 import { shuffle } from "../lib/shuffle";
 
 export default function Writing() {
   const { deck } = useDeck();
+  const progress = useProgress();
+  const lang = progress.settings.language;
   const [i, setI] = useState(0);
   const [text, setText] = useState("");
   const [model, setModel] = useState<string | null>(null);
@@ -31,7 +35,7 @@ export default function Writing() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3 text-sm text-muted">
-        <h1 className="text-sm font-normal">Writing</h1>
+        <h1 className="text-sm font-normal">{t(lang, "practice.writing")}</h1>
         <Progress className="flex-1" value={(i / sentences.length) * 100} label="Session progress" />
         <span>
           {i + 1}/{sentences.length}

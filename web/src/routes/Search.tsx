@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Art } from "../components/Art";
 import { useDeck } from "../hooks/useDeck";
+import { useProgress } from "../hooks/useProgress";
 import type { Item } from "../lib/data";
+import { t } from "../lib/i18n";
 import { searchItems } from "../lib/search";
 
 function Result({ it, levelIdx }: { it: Item; levelIdx: number }) {
@@ -30,6 +32,7 @@ function Result({ it, levelIdx }: { it: Item; levelIdx: number }) {
 
 export default function Search() {
   const { deck } = useDeck();
+  const lang = useProgress().settings.language;
   const [q, setQ] = useState("");
 
   if (!deck) return <p className="text-muted">Loading…</p>;
@@ -39,7 +42,7 @@ export default function Search() {
   return (
     <div className="space-y-6">
       <header>
-        <h1 className="text-3xl font-bold">Search</h1>
+        <h1 className="text-3xl font-bold">{t(lang, "nav.search")}</h1>
         <p className="text-muted">Find words (German or English) and grammar points.</p>
       </header>
       <label className="block">
