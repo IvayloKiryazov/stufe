@@ -1,13 +1,30 @@
-// Offline support (issue #100): precache the shell, cache hashed assets
-// forever (they are immutable), and keep the deck/data network-first so a new
-// deploy is picked up without a stale cache.
-const VERSION = "stufe-v2";
+// Offline support (issue #100): precache the shell AND the deck (levels +
+// per-level item files), cache hashed assets forever (immutable), and keep
+// data network-first so a new deploy is picked up without a stale cache.
+const VERSION = "stufe-v3";
 const SHELL = ["./", "./manifest.webmanifest", "./icon.svg"];
 
+async function precache() {
+  const cache = await caches.open(VERSION);
+  for (const url of SHELL) {
+    await cache.add(url).catch(() => {});
+  }
+  // The deck: levels.json lists the per-level item files.
+  try {
+    const res = await fetch("./data/levels.json", { cache: "no-store" });
+    if (!res.ok) return;
+    await cache.put("./data/levels.json", res.clone());
+    const levels = await res.json();
+    const urls = levels.map((l) => `./data/items/${l.id}.json`);
+    urls.push("./data/reading.json", "./data/attribution.json", "./data/conjugations.json");
+    await Promise.all(urls.map((u) => cache.add(u).catch(() => {})));
+  } catch {
+    /* offline install: keep what we have */
+  }
+}
+
 self.addEventListener("install", (e) => {
-  e.waitUntil(
-    caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()),
-  );
+  e.waitUntil(precache().then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (e) => {

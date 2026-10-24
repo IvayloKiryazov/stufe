@@ -42,8 +42,10 @@ Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / 
   #127 clearer review feedback · #126 Backspace undo.
 
 ### Platform (epic #119)
-- #99 progress mirrored to IndexedDB + persistent-storage request.
-- #100 service worker: shell precache, cache-first hashed assets,
+- #99 progress mirrored to IndexedDB + persistent-storage request, plus an
+  optional **File System Access backup file** (survives clearing browser data;
+  syncs if the file is in a cloud folder).
+- #100 service worker precaches the **shell + deck**, cache-first hashed assets,
   network-first data.
 
 ### Data & media
@@ -72,8 +74,6 @@ Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / 
 | #89 | factual checkpoints | quizzes existing items; the answers are **not** independently verified |
 | #96 | keyboard-only nav everywhere | only a shortcut sheet; not full keyboard navigation |
 | #98 | browse POS **and frequency rank** | POS filter only; no frequency-rank browsing |
-| #100 | true offline | **shell only** is precached; the deck is not, so a first offline visit fails |
-| #99 | durable progress | IndexedDB mirror only (cleared with site data); **no File System Access export** |
 | #68 | per-item source | a coarse `source` string, not a verifiable per-item reference |
 | #69 / #92 | cross-check / factual suite | curated **nouns** only (article/plural); no glosses, no auto deck, no learner tests |
 | #74 | skill-by-level | skills are listed, but there is **no per-skill progress** |
