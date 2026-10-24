@@ -27,8 +27,11 @@ explicitly — see [`documentation/roadmap.md`](documentation/roadmap.md).
 - **Durable progress** (IndexedDB mirror + persistent-storage request).
 - **Offline** support (service-worker shell precache).
 - Onboarding card; a keyboard-shortcut sheet ("?").
-- Verification: **second-source cross-check** for curated nouns and a
-  per-item `source` field; reproducible deck checks in CI.
+- Verification: **second-source cross-check** for curated nouns, a per-item
+  `source` field, a **deck report** tool and reproducible deck checks in CI;
+  widened the meta-gloss filter (obsolete/spelling/degree glosses).
+- **CEFR re-levelling**: the auto deck is now levelled by frequency-anchored
+  CEFR bands (calibrated to official list sizes) with a `freqRank` tag.
 
 ### Changed
 - UI stage names are Bunpro's; the interval ladder replaced the 7-box hybrid.

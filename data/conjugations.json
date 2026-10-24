@@ -1151,6 +1151,18 @@
   "preterite": "schiss",
   "participle": "geschissen"
  },
+ "kacken": {
+  "present": [
+   "kacke",
+   "kackst",
+   "kackt",
+   "kacken",
+   "kackt",
+   "kacken"
+  ],
+  "preterite": "kackte",
+  "participle": "gekackt"
+ },
  "pfeifen": {
   "present": [
    "pfeife",
@@ -2063,6 +2075,18 @@
   "preterite": "maß",
   "participle": "gemessen"
  },
+ "lutschen": {
+  "present": [
+   "lutsche",
+   "lutschst",
+   "lutscht",
+   "lutschen",
+   "lutscht",
+   "lutschen"
+  ],
+  "preterite": "lutschte",
+  "participle": "gelutscht"
+ },
  "tanzen": {
   "present": [
    "tanze",
@@ -2206,6 +2230,18 @@
   ],
   "preterite": "tötete",
   "participle": "getötet"
+ },
+ "erwürgen": {
+  "present": [
+   "erwürge",
+   "erwürgst",
+   "erwürgt",
+   "erwürgen",
+   "erwürgt",
+   "erwürgen"
+  ],
+  "preterite": "erwürgte",
+  "participle": "erwürgt"
  },
  "jammern": {
   "present": [
@@ -4655,6 +4691,18 @@
   "preterite": "schwieg",
   "participle": "geschwiegen"
  },
+ "sehnen": {
+  "present": [
+   "sehne",
+   "sehnst",
+   "sehnt",
+   "sehnen",
+   "sehnt",
+   "sehnen"
+  ],
+  "preterite": "sehnte",
+  "participle": "gesehnt"
+ },
  "kämpfen": {
   "present": [
    "kämpfe",
@@ -4726,6 +4774,18 @@
   ],
   "preterite": "sendete",
   "participle": "gesendet"
+ },
+ "seufzen": {
+  "present": [
+   "seufze",
+   "seufzt",
+   "seufzt",
+   "seufzen",
+   "seufzt",
+   "seufzen"
+  ],
+  "preterite": "seufzte",
+  "participle": "geseufzt"
  },
  "senken": {
   "present": [
@@ -4954,6 +5014,18 @@
   ],
   "preterite": "weigerte",
   "participle": "geweigert"
+ },
+ "wischen": {
+  "present": [
+   "wische",
+   "wischst",
+   "wischt",
+   "wischen",
+   "wischt",
+   "wischen"
+  ],
+  "preterite": "wischte",
+  "participle": "gewischt"
  },
  "zögern": {
   "present": [
@@ -5207,6 +5279,18 @@
   "preterite": "duschte",
   "participle": "geduscht"
  },
+ "blühen": {
+  "present": [
+   "blühe",
+   "blühst",
+   "blüht",
+   "blühen",
+   "blüht",
+   "blühen"
+  ],
+  "preterite": "blühte",
+  "participle": "geblüht"
+ },
  "mitfahren": {
   "present": [
    "fahre mit",
@@ -5386,6 +5470,18 @@
   ],
   "preterite": "gedachte",
   "participle": "gedacht"
+ },
+ "neigen": {
+  "present": [
+   "neige",
+   "neigst",
+   "neigt",
+   "neigen",
+   "neigt",
+   "neigen"
+  ],
+  "preterite": "neigte",
+  "participle": "geneigt"
  },
  "bewundern": {
   "present": [
@@ -5698,6 +5794,18 @@
   ],
   "preterite": "berichtete",
   "participle": "berichtet"
+ },
+ "zitieren": {
+  "present": [
+   "zitiere",
+   "zitierst",
+   "zitiert",
+   "zitieren",
+   "zitiert",
+   "zitieren"
+  ],
+  "preterite": "zitierte",
+  "participle": "zitiert"
  },
  "rechtfertigen": {
   "present": [
@@ -7127,6 +7235,18 @@
   "preterite": "setzte ab",
   "participle": "abgesetzt"
  },
+ "blamieren": {
+  "present": [
+   "blamiere",
+   "blamierst",
+   "blamiert",
+   "blamieren",
+   "blamiert",
+   "blamieren"
+  ],
+  "preterite": "blamierte",
+  "participle": "blamiert"
+ },
  "scherzen": {
   "present": [
    "scherze",
@@ -7343,6 +7463,18 @@
   "preterite": "brach ab",
   "participle": "abgebrochen"
  },
+ "steigern": {
+  "present": [
+   "steigre",
+   "steigerst",
+   "steigert",
+   "steigern",
+   "steigert",
+   "steigern"
+  ],
+  "preterite": "steigerte",
+  "participle": "gesteigert"
+ },
  "erhöhen": {
   "present": [
    "erhöhe",
@@ -7426,6 +7558,30 @@
   ],
   "preterite": "wählte aus",
   "participle": "ausgewählt"
+ },
+ "abfeuern": {
+  "present": [
+   "feure ab",
+   "feuerst ab",
+   "feuert ab",
+   "feuern ab",
+   "feuert ab",
+   "feuern ab"
+  ],
+  "preterite": "feuerte ab",
+  "participle": "abgefeuert"
+ },
+ "unterbringen": {
+  "present": [
+   "bringe unter",
+   "bringst unter",
+   "bringt unter",
+   "bringen unter",
+   "bringt unter",
+   "bringen unter"
+  ],
+  "preterite": "brachte unter",
+  "participle": "untergebracht"
  },
  "aufstellen": {
   "present": [
@@ -7606,6 +7762,18 @@
   ],
   "preterite": "verführte",
   "participle": "verführt"
+ },
+ "sabotieren": {
+  "present": [
+   "sabotiere",
+   "sabotierst",
+   "sabotiert",
+   "sabotieren",
+   "sabotiert",
+   "sabotieren"
+  ],
+  "preterite": "sabotierte",
+  "participle": "sabotiert"
  },
  "wirken": {
   "present": [
@@ -7954,6 +8122,18 @@
   ],
   "preterite": "amüsierte",
   "participle": "amüsiert"
+ },
+ "renovieren": {
+  "present": [
+   "renoviere",
+   "renovierst",
+   "renoviert",
+   "renovieren",
+   "renoviert",
+   "renovieren"
+  ],
+  "preterite": "renovierte",
+  "participle": "renoviert"
  },
  "beichten": {
   "present": [
@@ -9095,6 +9275,18 @@
   "preterite": "probierte",
   "participle": "probiert"
  },
+ "beitreten": {
+  "present": [
+   "trete bei",
+   "trittst bei",
+   "tritt bei",
+   "treten bei",
+   "tretet bei",
+   "treten bei"
+  ],
+  "preterite": "trat bei",
+  "participle": "beigetreten"
+ },
  "versauen": {
   "present": [
    "versaue",
@@ -10007,6 +10199,18 @@
   "preterite": "verarbeitete",
   "participle": "verarbeitet"
  },
+ "ringen": {
+  "present": [
+   "ringe",
+   "ringst",
+   "ringt",
+   "ringen",
+   "ringt",
+   "ringen"
+  ],
+  "preterite": "rang",
+  "participle": "gerungen"
+ },
  "erfinden": {
   "present": [
    "erfinde",
@@ -10294,6 +10498,18 @@
   ],
   "preterite": "lud ein",
   "participle": "eingeladen"
+ },
+ "beladen": {
+  "present": [
+   "belade",
+   "belädst",
+   "belädt",
+   "beladen",
+   "beladet",
+   "beladen"
+  ],
+  "preterite": "belud",
+  "participle": "beladen"
  },
  "ausruhen": {
   "present": [
@@ -10787,6 +11003,18 @@
   "preterite": "trauerte",
   "participle": "getrauert"
  },
+ "rudern": {
+  "present": [
+   "rudre",
+   "ruderst",
+   "rudert",
+   "rudern",
+   "rudert",
+   "rudern"
+  ],
+  "preterite": "ruderte",
+  "participle": "gerudert"
+ },
  "benutzen": {
   "present": [
    "benutze",
@@ -10954,6 +11182,18 @@
   ],
   "preterite": "versuchte",
   "participle": "versucht"
+ },
+ "stützen": {
+  "present": [
+   "stütze",
+   "stützt",
+   "stützt",
+   "stützen",
+   "stützt",
+   "stützen"
+  ],
+  "preterite": "stützte",
+  "participle": "gestützt"
  },
  "versichern": {
   "present": [
@@ -11711,6 +11951,18 @@
   "preterite": "erlangte",
   "participle": "erlangt"
  },
+ "enthüllen": {
+  "present": [
+   "enthülle",
+   "enthüllst",
+   "enthüllt",
+   "enthüllen",
+   "enthüllt",
+   "enthüllen"
+  ],
+  "preterite": "enthüllte",
+  "participle": "enthüllt"
+ },
  "bewahren": {
   "present": [
    "bewahre",
@@ -11987,6 +12239,18 @@
   "preterite": "verkündete",
   "participle": "verkündet"
  },
+ "anstarren": {
+  "present": [
+   "starre an",
+   "starrst an",
+   "starrt an",
+   "starren an",
+   "starrt an",
+   "starren an"
+  ],
+  "preterite": "starrte an",
+  "participle": "angestarrt"
+ },
  "vernichten": {
   "present": [
    "vernichte",
@@ -12022,6 +12286,18 @@
   ],
   "preterite": "befand",
   "participle": "befunden"
+ },
+ "erlösen": {
+  "present": [
+   "erlöse",
+   "erlöst",
+   "erlöst",
+   "erlösen",
+   "erlöst",
+   "erlösen"
+  ],
+  "preterite": "erlöste",
+  "participle": "erlöst"
  },
  "säubern": {
   "present": [
@@ -12947,6 +13223,18 @@
   "preterite": "brachte bei",
   "participle": "beigebracht"
  },
+ "hinhalten": {
+  "present": [
+   "halte hin",
+   "hältst hin",
+   "hält hin",
+   "halten hin",
+   "haltet hin",
+   "halten hin"
+  ],
+  "preterite": "hielt hin",
+  "participle": "hingehalten"
+ },
  "operieren": {
   "present": [
    "operiere",
@@ -13127,6 +13415,18 @@
   "preterite": "fing ein",
   "participle": "eingefangen"
  },
+ "draufgehen": {
+  "present": [
+   "gehe drauf",
+   "gehst drauf",
+   "geht drauf",
+   "gehen drauf",
+   "geht drauf",
+   "gehen drauf"
+  ],
+  "preterite": "ging drauf",
+  "participle": "draufgegangen"
+ },
  "betreten": {
   "present": [
    "betrete",
@@ -13270,6 +13570,18 @@
   ],
   "preterite": "erstickte",
   "participle": "erstickt"
+ },
+ "entwischen": {
+  "present": [
+   "entwische",
+   "entwischst",
+   "entwischt",
+   "entwischen",
+   "entwischt",
+   "entwischen"
+  ],
+  "preterite": "entwischte",
+  "participle": "entwischt"
  },
  "verlieben": {
   "present": [
@@ -13463,18 +13775,6 @@
   "preterite": "ging durch",
   "participle": "durchgegangen"
  },
- "reinlegen": {
-  "present": [
-   "lege rein",
-   "legst rein",
-   "legt rein",
-   "legen rein",
-   "legt rein",
-   "legen rein"
-  ],
-  "preterite": "legte rein",
-  "participle": "reingelegt"
- },
  "langen": {
   "present": [
    "lange",
@@ -13498,6 +13798,18 @@
   ],
   "preterite": "gestattete",
   "participle": "gestattet"
+ },
+ "zufügen": {
+  "present": [
+   "füge zu",
+   "fügst zu",
+   "fügt zu",
+   "fügen zu",
+   "fügt zu",
+   "fügen zu"
+  ],
+  "preterite": "fügte zu",
+  "participle": "zugefügt"
  },
  "anrichten": {
   "present": [
@@ -13727,6 +14039,30 @@
   "preterite": "fuhr vor",
   "participle": "vorgefahren"
  },
+ "veranlassen": {
+  "present": [
+   "veranlasse",
+   "veranlasst",
+   "veranlasst",
+   "veranlassen",
+   "veranlasst",
+   "veranlassen"
+  ],
+  "preterite": "veranlasste",
+  "participle": "veranlasst"
+ },
+ "beteiligen": {
+  "present": [
+   "beteilige",
+   "beteiligst",
+   "beteiligt",
+   "beteiligen",
+   "beteiligt",
+   "beteiligen"
+  ],
+  "preterite": "beteiligte",
+  "participle": "beteiligt"
+ },
  "mitspielen": {
   "present": [
    "spiele mit",
@@ -13774,18 +14110,6 @@
   ],
   "preterite": "nötigte",
   "participle": "genötigt"
- },
- "nützen": {
-  "present": [
-   "nütze",
-   "nützt",
-   "nützt",
-   "nützen",
-   "nützt",
-   "nützen"
-  ],
-  "preterite": "nützte",
-  "participle": "genützt"
  },
  "aufspüren": {
   "present": [
@@ -13858,6 +14182,18 @@
   ],
   "preterite": "ermittelte",
   "participle": "ermittelt"
+ },
+ "nachweisen": {
+  "present": [
+   "weise nach",
+   "weist nach",
+   "weist nach",
+   "weisen nach",
+   "weist nach",
+   "weisen nach"
+  ],
+  "preterite": "wies nach",
+  "participle": "nachgewiesen"
  },
  "schweren": {
   "present": [
@@ -14663,6 +14999,18 @@
   "preterite": "legte ab",
   "participle": "abgelegt"
  },
+ "aufbringen": {
+  "present": [
+   "bringe auf",
+   "bringst auf",
+   "bringt auf",
+   "bringen auf",
+   "bringt auf",
+   "bringen auf"
+  ],
+  "preterite": "brachte auf",
+  "participle": "aufgebracht"
+ },
  "aufklären": {
   "present": [
    "kläre auf",
@@ -14770,6 +15118,18 @@
   ],
   "preterite": "verärgerte",
   "participle": "verärgert"
+ },
+ "vorführen": {
+  "present": [
+   "führe vor",
+   "führst vor",
+   "führt vor",
+   "führen vor",
+   "führt vor",
+   "führen vor"
+  ],
+  "preterite": "führte vor",
+  "participle": "vorgeführt"
  },
  "weitergehen": {
   "present": [
@@ -14950,6 +15310,18 @@
   ],
   "preterite": "gnadete",
   "participle": "gegnadet"
+ },
+ "erkunden": {
+  "present": [
+   "erkunde",
+   "erkundest",
+   "erkundet",
+   "erkunden",
+   "erkundet",
+   "erkunden"
+  ],
+  "preterite": "erkundete",
+  "participle": "erkundet"
  },
  "notieren": {
   "present": [
@@ -15431,18 +15803,6 @@
   "preterite": "fuhr zurück",
   "participle": "zurückgefahren"
  },
- "rankommen": {
-  "present": [
-   "komme ran",
-   "kommst ran",
-   "kommt ran",
-   "kommen ran",
-   "kommt ran",
-   "kommen ran"
-  ],
-  "preterite": "kam ran",
-  "participle": "rangekommen"
- },
  "runterkommen": {
   "present": [
    "komme runter",
@@ -15539,6 +15899,18 @@
   "preterite": "entkräftete",
   "participle": "entkräftet"
  },
+ "zurückschicken": {
+  "present": [
+   "schicke zurück",
+   "schickst zurück",
+   "schickt zurück",
+   "schicken zurück",
+   "schickt zurück",
+   "schicken zurück"
+  ],
+  "preterite": "schickte zurück",
+  "participle": "zurückgeschickt"
+ },
  "poltern": {
   "present": [
    "poltre",
@@ -15610,6 +15982,18 @@
   ],
   "preterite": "rannte weg",
   "participle": "weggerannt"
+ },
+ "zugreifen": {
+  "present": [
+   "greife zu",
+   "greifst zu",
+   "greift zu",
+   "greifen zu",
+   "greift zu",
+   "greifen zu"
+  ],
+  "preterite": "griff zu",
+  "participle": "zugegriffen"
  },
  "hintergehen": {
   "present": [
@@ -15683,6 +16067,18 @@
   "preterite": "sah nach",
   "participle": "nachgesehen"
  },
+ "abliefern": {
+  "present": [
+   "liefre ab",
+   "lieferst ab",
+   "liefert ab",
+   "liefern ab",
+   "liefert ab",
+   "liefern ab"
+  ],
+  "preterite": "lieferte ab",
+  "participle": "abgeliefert"
+ },
  "erforschen": {
   "present": [
    "erforsche",
@@ -15718,6 +16114,18 @@
   ],
   "preterite": "stufte",
   "participle": "gestuft"
+ },
+ "vorenthalten": {
+  "present": [
+   "enthalte vor",
+   "enthältst vor",
+   "enthält vor",
+   "enthalten vor",
+   "enthaltet vor",
+   "enthalten vor"
+  ],
+  "preterite": "enthielt vor",
+  "participle": "vorenthalten"
  },
  "loswerden": {
   "present": [
@@ -15779,6 +16187,18 @@
   "preterite": "kam heraus",
   "participle": "herausgekommen"
  },
+ "hinkommen": {
+  "present": [
+   "komme hin",
+   "kommst hin",
+   "kommt hin",
+   "kommen hin",
+   "kommt hin",
+   "kommen hin"
+  ],
+  "preterite": "kam hin",
+  "participle": "hingekommen"
+ },
  "einkommen": {
   "present": [
    "komme ein",
@@ -15815,6 +16235,18 @@
   "preterite": "veranschaulichte",
   "participle": "veranschaulicht"
  },
+ "verübeln": {
+  "present": [
+   "verüble",
+   "verübelst",
+   "verübelt",
+   "verübeln",
+   "verübelt",
+   "verübeln"
+  ],
+  "preterite": "verübelte",
+  "participle": "verübelt"
+ },
  "gutmachen": {
   "present": [
    "mache gut",
@@ -15839,6 +16271,18 @@
   "preterite": "zerschlug",
   "participle": "zerschlagen"
  },
+ "vorspielen": {
+  "present": [
+   "spiele vor",
+   "spielst vor",
+   "spielt vor",
+   "spielen vor",
+   "spielt vor",
+   "spielen vor"
+  ],
+  "preterite": "spielte vor",
+  "participle": "vorgespielt"
+ },
  "rausgehen": {
   "present": [
    "gehe raus",
@@ -15851,6 +16295,18 @@
   "preterite": "ging raus",
   "participle": "rausgegangen"
  },
+ "zurechtkommen": {
+  "present": [
+   "komme zurecht",
+   "kommst zurecht",
+   "kommt zurecht",
+   "kommen zurecht",
+   "kommt zurecht",
+   "kommen zurecht"
+  ],
+  "preterite": "kam zurecht",
+  "participle": "zurechtgekommen"
+ },
  "zurückholen": {
   "present": [
    "hole zurück",
@@ -15862,18 +16318,6 @@
   ],
   "preterite": "holte zurück",
   "participle": "zurückgeholt"
- },
- "rausfinden": {
-  "present": [
-   "finde raus",
-   "findest raus",
-   "findet raus",
-   "finden raus",
-   "findet raus",
-   "finden raus"
-  ],
-  "preterite": "fand raus",
-  "participle": "rausgefunden"
  },
  "hinfahren": {
   "present": [
@@ -15935,18 +16379,6 @@
   "preterite": "kam rein",
   "participle": "reingekommen"
  },
- "rausholen": {
-  "present": [
-   "hole raus",
-   "holst raus",
-   "holt raus",
-   "holen raus",
-   "holt raus",
-   "holen raus"
-  ],
-  "preterite": "holte raus",
-  "participle": "rausgeholt"
- },
  "abdrücken": {
   "present": [
    "drücke ab",
@@ -15958,6 +16390,18 @@
   ],
   "preterite": "drückte ab",
   "participle": "abgedrückt"
+ },
+ "zimmern": {
+  "present": [
+   "zimmre",
+   "zimmerst",
+   "zimmert",
+   "zimmern",
+   "zimmert",
+   "zimmern"
+  ],
+  "preterite": "zimmerte",
+  "participle": "gezimmert"
  },
  "weiterfahren": {
   "present": [
@@ -16030,6 +16474,18 @@
   ],
   "preterite": "blieb stehen",
   "participle": "stehengeblieben"
+ },
+ "scheppern": {
+  "present": [
+   "scheppre",
+   "schepperst",
+   "scheppert",
+   "scheppern",
+   "scheppert",
+   "scheppern"
+  ],
+  "preterite": "schepperte",
+  "participle": "gescheppert"
  },
  "bereithalten": {
   "present": [
@@ -16175,18 +16631,6 @@
   "preterite": "stand durch",
   "participle": "durchgestanden"
  },
- "rangehen": {
-  "present": [
-   "gehe ran",
-   "gehst ran",
-   "geht ran",
-   "gehen ran",
-   "geht ran",
-   "gehen ran"
-  ],
-  "preterite": "ging ran",
-  "participle": "rangegangen"
- },
  "reingehen": {
   "present": [
    "gehe rein",
@@ -16270,18 +16714,6 @@
   ],
   "preterite": "hatte zurück",
   "participle": "zurückgehabt"
- },
- "rüberkommen": {
-  "present": [
-   "komme rüber",
-   "kommst rüber",
-   "kommt rüber",
-   "kommen rüber",
-   "kommt rüber",
-   "kommen rüber"
-  ],
-  "preterite": "kam rüber",
-  "participle": "rübergekommen"
  },
  "nudeln": {
   "present": [
@@ -16379,18 +16811,6 @@
   "preterite": "überbrachte",
   "participle": "überbracht"
  },
- "rauswerfen": {
-  "present": [
-   "werfe raus",
-   "wirfst raus",
-   "wirft raus",
-   "werfen raus",
-   "werft raus",
-   "werfen raus"
-  ],
-  "preterite": "warf raus",
-  "participle": "rausgeworfen"
- },
  "zusammenbleiben": {
   "present": [
    "bleibe zusammen",
@@ -16402,18 +16822,6 @@
   ],
   "preterite": "blieb zusammen",
   "participle": "zusammengeblieben"
- },
- "rumhängen": {
-  "present": [
-   "hänge rum",
-   "hängst rum",
-   "hängt rum",
-   "hängen rum",
-   "hängt rum",
-   "hängen rum"
-  ],
-  "preterite": "hing rum",
-  "participle": "rumgehangen"
  },
  "rumlaufen": {
   "present": [

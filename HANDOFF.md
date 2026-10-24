@@ -74,8 +74,10 @@ python3 tools/cross_check.py
 
 # full deck rebuild (needs the ~1 GB kaikki extract)
 cd tools && python3 fetch_sources.py && python3 fetch_kaikki.py
-python3 build_frequency.py && python3 build_conjugations.py && python3 build_ipa.py
+python3 build_cefr.py && python3 build_frequency.py
+python3 build_conjugations.py && python3 build_ipa.py
 python3 build_reference.py && python3 build_dataset.py
+python3 verify_dataset.py && python3 cross_check.py && python3 verify_report.py
 ```
 
 ---

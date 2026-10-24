@@ -89,13 +89,20 @@ Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / 
 
 ## Not started ⛔ (open)
 
-**Verification (epic #113) — needs a source policy**
-- #66 verify the ~5,600 auto items · #67 gloss sense-selection (polysemous
-  words) · #70 an authoritative process + reviewed-content marker.
+**Verification (epic #113) — partial**
+- A **report tool** now exists (`tools/verify_report.py`: field coverage, gloss
+  sanity, a translator-checkable sample) and the **meta-gloss filter** was
+  widened (obsolete/archaic/spelling/degree glosses are dropped). Policy agreed:
+  **report first, then fix.**
+- Still open: #66 full per-item verification, #67 sense-selection for polysemous
+  words, #70 an authoritative reviewed-content process/marker.
 
-**CEFR (epic #116)**
-- #71 replace frequency quantiles with a **real CEFR mapping** (needs a CEFR
-  wordlist choice, e.g. Profile Deutsch / Goethe Wortliste).
+**CEFR (epic #116) — partial**
+- #71: the auto deck is re-levelled by **frequency-anchored CEFR bands**
+  (`data/cefr.json`, calibrated to official list sizes) and items carry
+  `freqRank`; words past C2 are "extra". This is an **approximation** — there is
+  no official machine-readable German CEFR list (the Goethe Wortlisten are
+  PDFs). Swapping in Goethe A1–B1 is a drop-in once the licence is settled.
 
 **SRS / scheduling (epic #117)**
 - #75 "optional adaptive algorithm (SM-2/FSRS)" — **closed as not planned**:

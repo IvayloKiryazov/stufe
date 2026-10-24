@@ -18,6 +18,7 @@ jobs:
       - run: python tools/check_content.py
       - run: python tools/verify_dataset.py
       - run: python tools/cross_check.py
+      - run: python tools/verify_report.py --sample 5
 
   web:
     name: Web build, unit, e2e, a11y

@@ -8,8 +8,16 @@ loads from `data/`. Standard library only — Python 3.10+.
 ```bash
 cd tools
 python3 fetch_sources.py     # ~30 MB into data/raw/ (gitignored)
+python3 build_cefr.py        # -> data/cefr.json (frequency-anchored CEFR bands)
 python3 build_dataset.py     # -> data/items.json, data/items/<level>.json, data/levels.json, data/attribution.json
 ```
+
+`build_cefr.py` assigns CEFR levels by frequency, calibrated to the official
+list sizes (A1≈650, A2≈650 more, B1≈1200, B2≈2500, C1≈3000, C2≈8000); words
+past C2 are "extra" (absent from the map, still frequency-tagged). It is an
+approximation — there is **no official machine-readable German CEFR list** (the
+Goethe Wortlisten are PDFs). `build_frequency.py` prefers `data/cefr.json` and
+falls back to quantiles; items also carry `freqRank`.
 
 `build_dataset.py` merges optional generated inputs when present:
 `data/conjugations.json`, `data/ipa.json` and `data/vocab_frequency.json`.
@@ -26,8 +34,10 @@ local `data/raw/` without downloading.
 items split per level under `data/items/<level>.json` (the app loads those on
 demand). `python3 verify_dataset.py` checks the split is consistent with
 `items.json`; `python3 build_reference.py` builds a Wiktionary noun reference and
-`python3 cross_check.py` compares the curated gender/plural against it. CI runs
-all three.
+`python3 cross_check.py` compares the curated gender/plural against it.
+`python3 verify_report.py --sample 20` prints a human-readable deck report
+(field coverage, gloss sanity, a translator-checkable sample) — report only.
+CI runs verify_dataset, cross_check and verify_report.
 
 ## Frequency deck (POS-aware)
 

@@ -30,6 +30,7 @@ export interface Item {
   examples?: { de: string; en: string }[];
   attribution?: string;
   source?: string;
+  freqRank?: number;
   conjugation?: Conjugation;
 }
 

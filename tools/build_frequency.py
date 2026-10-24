@@ -76,6 +76,7 @@ def _audio(entry: dict) -> str:
 
 def _clean_gloss(g: str) -> str:
     g = re.sub(r"\s*\([^)]*\)", "", g)  # drop parentheticals
+    g = re.sub(r"[()]", "", g)  # drop any stray parens
     return re.sub(r"\s+", " ", g).strip(" ;,.")
 
 
@@ -84,7 +85,11 @@ META_RE = re.compile(
     r"^(inflection of|form of|comparative of|superlative of|agent noun of|gerund of|"
     r"past participle of|present participle of|plural of|genitive of|dative of|"
     r"accusative of|nominative of|strong|weak|mixed|first-person|second-person|"
-    r"third-person|nominative|accusative|dative|genitive|singular|plural)\b",
+    r"third-person|nominative|accusative|dative|genitive|singular|plural|"
+    r"formerly standard spelling of|alternative spelling of|alternative form of|"
+    r"obsolete spelling of|obsolete|archaic|misspelling of|abbreviation of|"
+    r"acronym of|clipping of|diminutive of|comparative degree of|"
+    r"superlative degree of)\b",
     re.IGNORECASE,
 )
 
@@ -196,6 +201,7 @@ def _item(level, word, kind, payload, rank):
         "sentence_en": payload["example"][1] if payload["example"] else "",
         "ipa": payload.get("ipa", ""),
         "audio": payload.get("audio", ""),
+        "freqRank": rank,
         "note": f"Frequency rank {rank}",
         "attribution": WIKT_ATTR if payload["example"] else "",
     }
@@ -291,9 +297,15 @@ def main() -> int:
             if info:
                 rows.append(("noun", word, info, rank))
 
+    cefr_path = ROOT / "data" / "cefr.json"
+    cefr = json.loads(cefr_path.read_text(encoding="utf-8")) if cefr_path.exists() else {}
+
     items = []
     for idx, (kind, word, payload, rank) in enumerate(rows):
-        items.append(_item(level_for_index(idx, len(rows)), word, kind, payload, rank))
+        level = cefr.get(word) or level_for_index(idx, len(rows))
+        if level == "x":
+            level = level_for_index(idx, len(rows))
+        items.append(_item(level, word, kind, payload, rank))
 
     # fill missing examples from Tatoeba (CC BY)
     tatoeba = build_sentence_index(load_sentence_pairs())
