@@ -32,7 +32,7 @@ from common import (
     load_nouns,
     load_sentence_pairs,
 )
-from mnemonic import gender_mnemonic
+from mnemonic import gender_mnemonic, verb_hint
 
 LEVEL_ORDER = ["a1", "a2", "b1", "b2", "c1", "c2"]
 LEVEL_META = {
@@ -439,6 +439,17 @@ def main() -> int:
             parts = (it.get("de") or "").split(" ")
             if len(parts) > 1 and parts[0] in ("der", "die", "das"):
                 it["mnemonic"] = gender_mnemonic(parts[1], parts[0])
+
+    # --- verb hints (strong / separable) (#83) ----------------------------
+    verb_hints = 0
+    for it in items:
+        if it.get("kind") == "verb" and it.get("forms"):
+            hint = verb_hint(it["de"], it["forms"])
+            if hint:
+                it["mnemonic"] = hint
+                verb_hints += 1
+    if verb_hints:
+        print(f"verb hints added: {verb_hints:,}")
 
     # --- attach conjugations to every verb that has one (#80) -------------
     conj_attached = 0

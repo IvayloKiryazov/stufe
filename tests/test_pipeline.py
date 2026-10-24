@@ -179,6 +179,12 @@ class MnemonicTest(unittest.TestCase):
         # #129: no "just memorise" filler when there is no useful rule.
         self.assertEqual("", mnemonic.gender_mnemonic("Mann", "der"))
 
+    def test_verb_hint(self):
+        # #83: strong / separable hints from the principal parts.
+        self.assertIn("Separable", mnemonic.verb_hint("aufstehen", "steht auf, stand auf, aufgestanden"))
+        self.assertIn("Strong", mnemonic.verb_hint("gehen", "geht, ging, gegangen"))
+        self.assertEqual("", mnemonic.verb_hint("machen", "macht, machte, gemacht"))
+
 
 if __name__ == "__main__":
     unittest.main()

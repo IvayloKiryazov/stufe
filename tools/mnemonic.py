@@ -32,3 +32,28 @@ def gender_mnemonic(word: str, article: str) -> str:
         return f"{article}: words ending in -{suffix} are usually {article}."
     # No useful rule: return nothing rather than a "just memorise" filler (#129).
     return ""
+
+
+# common separable prefixes (trennbare Verben)
+SEPARABLE = [
+    "auf", "aus", "an", "ein", "mit", "vor", "zu", "weg", "zurück", "zusammen",
+    "ab", "bei", "nach", "her", "hin", "los", "fest", "frei", "hoch", "teil",
+    "wahr", "wieder", "durch", "über", "unter", "um", "voll",
+]
+
+
+def verb_hint(word: str, forms: str) -> str:
+    """A conservative hint for a verb, from its principal parts (#83).
+
+    Returns "" when there is nothing reliable to say (so no filler).
+    """
+    parts = [p.strip() for p in (forms or "").split(",") if p.strip()]
+    if not parts:
+        return ""
+    participle = parts[-1]
+    for prefix in sorted(SEPARABLE, key=len, reverse=True):
+        if word.startswith(prefix) and len(word) > len(prefix) + 1 and participle.startswith(prefix + "ge"):
+            return f"Separable (trennbar): the {prefix}- prefix goes to the end; participle {participle}."
+    if participle.endswith("en"):
+        return "Strong (irregular) verb — learn its forms by heart."
+    return ""
