@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { Button } from "../components/ui/button";
 import { Card, CardTitle, Stat } from "../components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { useDeck } from "../hooks/useDeck";
@@ -149,6 +151,9 @@ export default function Stats() {
                       ))}
                     </ul>
                     {EXAM[L.id] && <p className="mt-1 text-xs text-muted">{EXAM[L.id]}</p>}
+                    <Button asChild variant="outline" size="sm" className="mt-2">
+                      <Link to={`/study?mode=checkpoint&level=${i}`}>Checkpoint</Link>
+                    </Button>
                   </div>
                 );
               })}

@@ -1,12 +1,12 @@
 import { useCallback, useState } from "react";
 import type { Deck } from "../lib/data";
 import { judge } from "../lib/judge";
-import { availableIds, dueIds, upcomingIds } from "../lib/selectors";
+import { availableIds, dueIds, itemsOfLevel, upcomingIds } from "../lib/selectors";
 import { shuffle } from "../lib/shuffle";
 import type { Entry } from "../lib/srsCore";
 import { store } from "../lib/store";
 
-export type Mode = "lesson" | "review" | "practice";
+export type Mode = "lesson" | "review" | "practice" | "checkpoint";
 
 export interface Last {
   ok: boolean;
@@ -96,6 +96,16 @@ export function useStudy(deck: Deck | null) {
 
   const stop = useCallback(() => setSession(null), []);
 
+  /** A scored checkpoint over a level's items; does not change the schedule. */
+  const startCheckpoint = useCallback(
+    (levelIdx: number) => {
+      if (!deck) return;
+      const ids = itemsOfLevel(deck, levelIdx).filter((id) => deck.by[id]);
+      if (ids.length) setSession(mk("checkpoint", shuffle(ids).slice(0, 10)));
+    },
+    [deck],
+  );
+
   /** Study items that are due later (ahead of schedule). Grades count. */
   const startAhead = useCallback(
     (withinMs?: number) => {
@@ -127,7 +137,7 @@ export function useStudy(deck: Deck | null) {
         seen[id] = true;
         firstTotal++;
         if (j.ok) firstOK++;
-        if (session.mode !== "practice") prev[id] = store.grade(id, j.ok);
+        if (session.mode === "lesson" || session.mode === "review") prev[id] = store.grade(id, j.ok);
       }
       setSession({
         ...session,
@@ -156,7 +166,7 @@ export function useStudy(deck: Deck | null) {
 
   const override = useCallback(() => {
     if (!session?.last || !session.lastId) return;
-    if (session.last.first && session.mode !== "practice") {
+    if (session.last.first && (session.mode === "lesson" || session.mode === "review")) {
       store.restore(session.lastId, session.prev[session.lastId] ?? null);
       store.grade(session.lastId, true);
     }
@@ -169,7 +179,7 @@ export function useStudy(deck: Deck | null) {
 
   const undo = useCallback(() => {
     if (!session?.lastId) return;
-    if (session.mode !== "practice") store.restore(session.lastId, session.prev[session.lastId] ?? null);
+    if (session.mode === "lesson" || session.mode === "review") store.restore(session.lastId, session.prev[session.lastId] ?? null);
     setSession({ ...session, phase: "ask", last: null, given: "" });
   }, [session]);
 
@@ -177,7 +187,7 @@ export function useStudy(deck: Deck | null) {
     (fn: (id: string) => void) => {
       if (!session) return;
       const id = session.queue[0];
-      if (session.mode !== "practice") fn(id);
+      if (session.mode === "lesson" || session.mode === "review") fn(id);
       const queue = session.queue.slice(1);
       setSession({ ...session, queue, phase: "ask", last: null, given: "", finished: queue.length === 0 });
     },
@@ -206,6 +216,7 @@ export function useStudy(deck: Deck | null) {
     startGroupPractice,
     startReviews,
     startAhead,
+    startCheckpoint,
     lessonNext,
     submit,
     next,

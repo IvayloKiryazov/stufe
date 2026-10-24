@@ -183,6 +183,11 @@ export default function Study() {
     const g = params.get("group");
     const lvl = params.get("level");
     const mode = params.get("mode");
+    if (mode === "checkpoint" && lvl != null) {
+      startedRef.current = true;
+      study.startCheckpoint(Number(lvl));
+      return;
+    }
     if (g && lvl != null) {
       startedRef.current = true;
       if (mode === "practice") study.startGroupPractice(Number(lvl), g);
@@ -304,6 +309,11 @@ export default function Study() {
       <div className="space-y-6">
         <h1 className="text-3xl font-bold">Done</h1>
         <Card>
+          {session.mode === "checkpoint" && (
+            <p className={pct >= 80 ? "text-lg font-bold text-good" : "text-lg font-bold text-bad"}>
+              {pct >= 80 ? "Passed" : "Not passed yet"} — the target is 80%.
+            </p>
+          )}
           <p className="text-lg">
             {session.firstOK} of {session.firstTotal} right on the first try ({pct}%).
           </p>
