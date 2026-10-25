@@ -77,7 +77,7 @@ def main() -> int:
         for group in level["groups"]:
             for iid in group["items"]:
                 it = by_id.get(iid)
-                if not it:
+                if not it or it.get("kind") not in ("noun", "verb", "adj"):
                     continue
                 key = (it.get("de") or "").lower()
                 if key and key in seen:

@@ -117,6 +117,7 @@ roadmap).
 | `cefr.json` | word → CEFR band (frequency-anchored; see ADR-4) |
 | `ipa.json` / `audio.json` | curated IPA and native-audio URLs |
 | `reference_nouns.json` | Wiktionary noun reference used by `cross_check.py` |
+| `reference_nouns_german.json` | compact german-nouns reference for the auto deck (committed so CI can check it) |
 | `vocab_frequency.json` | the core vocabulary deck (nouns/verbs/adjectives) |
 | `vocab_personal.json` | optional local Anki import (gitignored) |
 

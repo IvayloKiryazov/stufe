@@ -20,6 +20,7 @@ python3 build_conjugations.py# -> data/conjugations.json
 python3 build_ipa.py         # -> data/ipa.json + data/audio.json
 python3 build_reference.py   # -> data/reference_nouns.json
 python3 build_dataset.py     # -> data/items/<level>.json, manifest.json, levels.json, reading.json, attribution.json
+python3 build_noun_reference.py  # -> data/reference_nouns_german.json (CI cross-check)
 ```
 
 `build_cefr.py` assigns CEFR by frequency, calibrated to the official list sizes
@@ -46,7 +47,9 @@ longer written or committed (ADR-5); use `common.load_items()` if you need it.
 - `verify_dataset.py` — per-level files, unique ids, level references and
   `manifest.json` counts/hashes all agree.
 - `cross_check.py` — curated noun article/plural vs the Wiktionary reference
-  **and auto nouns vs german-nouns** (auto disagreements are warnings).
+  **and auto nouns vs german-nouns** (auto disagreements are warnings). The
+  compact `data/reference_nouns_german.json` is committed so CI can run the
+  auto check without the raw CSV.
 - `verify_report.py --sample 20` — field/provenance coverage, `sourceRef` URLs,
   `exampleStatus: missing`, gloss sanity and a translator-checkable sample
   (report only).

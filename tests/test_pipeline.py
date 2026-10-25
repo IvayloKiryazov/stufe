@@ -175,6 +175,13 @@ class CrossCheckAutoTest(unittest.TestCase):
         self.assertEqual(auto_article, [("freq-a1-nou-haus", "der", "das")])
         self.assertEqual(auto_plural, [])
 
+    def test_accepts_the_committed_json_shape(self):
+        items = [{"id": "freq-a1-nou-haus", "kind": "noun", "de": "der Haus", "plural": "die Häuser"}]
+        nouns = {"Haus": {"article": "das", "plural": "die Häuser"}}
+        auto_article, auto_plural = cross_check.check_auto_nouns(items, nouns)
+        self.assertEqual(auto_article, [("freq-a1-nou-haus", "der", "das")])
+        self.assertEqual(auto_plural, [])
+
 
 class ConjugationTest(unittest.TestCase):
     def _entry(self):

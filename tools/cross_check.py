@@ -29,10 +29,12 @@ def check_auto_nouns(items: list[dict], nouns: dict) -> tuple[list[tuple], list[
         ref = nouns.get(word)
         if not ref:
             continue
-        if ref.article and ref.article != article:
-            auto_article.append((it["id"], article, ref.article))
-        if ref.plural and it.get("plural") and it["plural"] != ref.plural:
-            auto_plural.append((it["id"], it["plural"], ref.plural))
+        ref_article = ref["article"] if isinstance(ref, dict) else ref.article
+        ref_plural = ref["plural"] if isinstance(ref, dict) else ref.plural
+        if ref_article and ref_article != article:
+            auto_article.append((it["id"], article, ref_article))
+        if ref_plural and it.get("plural") and it["plural"] != ref_plural:
+            auto_plural.append((it["id"], it["plural"], ref_plural))
     return auto_article, auto_plural
 
 
@@ -70,7 +72,12 @@ def main() -> int:
                     plural_warnings.append((it["id"], it["answer"], expected))
 
     # The auto deck is built from Wiktionary; german-nouns is the second source.
-    auto_article, auto_plural = check_auto_nouns(items, load_nouns())
+    german_ref_path = ROOT / "data" / "reference_nouns_german.json"
+    if german_ref_path.exists():
+        german_nouns = json.loads(german_ref_path.read_text(encoding="utf-8"))
+    else:
+        german_nouns = load_nouns()
+    auto_article, auto_plural = check_auto_nouns(items, german_nouns)
 
     for item_id, got, want in plural_warnings[:20]:
         print(f"warn  {item_id}: plural {got!r} vs Wiktionary {want!r}")
