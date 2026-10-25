@@ -376,8 +376,16 @@ def main() -> int:
             if it["kind"] == "noun":
                 word = de.split(" ", 1)[1] if " " in de else de
                 extra = [it["plural"].split(" ", 1)[-1]] if it.get("plural") else []
-            else:
-                word, extra = de, []
+            elif it["kind"] == "verb":
+                word = de
+                conj = conjugations.get(word) or {}
+                extra = list(conj.get("present") or [])
+                for form in (conj.get("preterite"), conj.get("participle")):
+                    if form:
+                        extra.append(form)
+            else:  # adjective
+                word = de
+                extra = [p.strip() for p in (it.get("forms") or "").split(",") if p.strip()]
             ex: list[dict] = []
             if it.get("sentence_de"):
                 ex.append({"de": it["sentence_de"], "en": it.get("sentence_en", "")})
