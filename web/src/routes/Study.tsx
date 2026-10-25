@@ -186,14 +186,20 @@ export default function Study() {
     const lvl = params.get("level");
     const mode = params.get("mode");
     if (mode === "checkpoint" && lvl != null) {
+      const idx = Number(lvl);
+      // Wait until the level's items have streamed in, or the sample is empty.
+      if (!itemsOfLevel(deck, idx).some((id) => deck.by[id])) return;
       startedRef.current = true;
-      study.startCheckpoint(Number(lvl));
+      study.startCheckpoint(idx);
       return;
     }
     if (g && lvl != null) {
+      const idx = Number(lvl);
+      const grp = deck.levels[idx]?.groups.find((x) => x.id === g);
+      if (!grp || !grp.items.some((id) => deck.by[id])) return;
       startedRef.current = true;
-      if (mode === "practice") study.startGroupPractice(Number(lvl), g);
-      else study.startGroup(Number(lvl), g);
+      if (mode === "practice") study.startGroupPractice(idx, g);
+      else study.startGroup(idx, g);
     }
   }, [deck, params, session, study]);
 

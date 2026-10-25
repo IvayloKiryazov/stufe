@@ -141,8 +141,8 @@ Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / 
   both are committed.
 - The SRS rename has **no migration**: a saved `box` 1–7 now maps to different
   SRS levels (only matters if a user had progress).
-- e2e smoke does not exercise the **checkpoint** or **cloze** modes; the axe
-  suite does not render non-default tabs (the Stats "Levels" tab is untested).
+- The axe suite does not render non-default tabs (the Stats "Levels" tab is
+  untested).
 
 ## Decisions taken
 

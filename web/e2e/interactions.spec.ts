@@ -54,3 +54,14 @@ test("browse: starting a course group opens a study session", async ({ page }) =
   await page.locator('a[href*="study?group="]').first().click();
   await expect(page.getByRole("button", { name: "Wrap up" })).toBeVisible();
 });
+
+test("checkpoint: a scored level session starts", async ({ page }) => {
+  await page.goto("/#/study?mode=checkpoint&level=0");
+  await expect(page.locator('input[aria-label="Your answer"]')).toBeVisible();
+});
+
+test("vocab cloze: a fill-in-the-blank card starts", async ({ page }) => {
+  await page.goto("/#/study?mode=practice&group=a1-core-cloze&level=0");
+  await expect(page.getByText("Fill in the missing word")).toBeVisible();
+  await expect(page.locator('input[aria-label="Your answer"]')).toBeVisible();
+});
