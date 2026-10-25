@@ -127,6 +127,13 @@ export default function App() {
 
   return (
     <div className="min-h-full md:grid md:grid-cols-[15rem_1fr]">
+      <button
+        type="button"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-50 focus:rounded-md focus:border focus:border-line focus:bg-surface focus:px-3 focus:py-2"
+        onClick={() => document.getElementById("main")?.focus()}
+      >
+        Skip to content
+      </button>
       <aside
         className={cn(
           "fixed inset-y-0 left-0 z-40 w-64 border-r border-line bg-surface p-4 transition-transform md:static md:translate-x-0",
@@ -185,7 +192,7 @@ export default function App() {
             <ThemeToggle />
           </div>
         </header>
-        <main className="mx-auto w-full max-w-3xl flex-1 p-4 md:p-8">
+        <main id="main" tabIndex={-1} className="mx-auto w-full max-w-3xl flex-1 p-4 md:p-8">
           <ErrorBoundary key={location.pathname}>
             <Suspense fallback={<p className="text-muted">Loading…</p>}>
               <Routes>
