@@ -43,7 +43,7 @@ export default function Search() {
     <div className="space-y-6">
       <header>
         <h1 className="text-3xl font-bold">{t(lang, "nav.search")}</h1>
-        <p className="text-muted">Find words (German or English) and grammar points.</p>
+        <p className="text-muted">{t(lang, "search.hint")}</p>
       </header>
       <label className="block">
         <span className="sr-only">Search</span>
@@ -51,7 +51,7 @@ export default function Search() {
           type="search"
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          placeholder="Type at least two letters…"
+          placeholder={t(lang, "search.placeholder")}
           aria-label="Search"
           className="w-full rounded-md border-2 border-line bg-bg px-3 py-2 text-lg"
         />

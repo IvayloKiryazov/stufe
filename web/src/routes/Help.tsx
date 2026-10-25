@@ -22,7 +22,7 @@ export default function Help() {
         <p className="text-muted">Small things that make reviewing faster.</p>
       </header>
       <Card>
-        <CardTitle>Keyboard &amp; tips</CardTitle>
+        <CardTitle>{t(lang, "help.tips")}</CardTitle>
         <div className="space-y-1">
           {ROWS.map(([k, v]) => (
             <p key={k} className="text-sm">

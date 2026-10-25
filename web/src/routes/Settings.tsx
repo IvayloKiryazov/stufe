@@ -70,7 +70,7 @@ export default function Settings() {
       </header>
 
       <Card>
-        <CardTitle>Appearance</CardTitle>
+        <CardTitle>{t(s.language, "settings.appearance")}</CardTitle>
         <div className="space-y-3">
           <div className="flex items-center justify-between gap-4 text-sm">
             <span>Theme</span>
@@ -115,7 +115,7 @@ export default function Settings() {
       </Card>
 
       <Card>
-        <CardTitle>Study</CardTitle>
+        <CardTitle>{t(s.language, "settings.study")}</CardTitle>
         <div className="space-y-3">
           <NumberRow label="New items per lesson" value={s.newPerLesson} min={3} max={20} onChange={(n) => store.setSettings({ newPerLesson: n })} />
           <NumberRow label="Daily new goal" value={s.goalNew} min={0} max={200} onChange={(n) => store.setSettings({ goalNew: n })} />
@@ -160,7 +160,7 @@ export default function Settings() {
       </Card>
 
       <Card>
-        <CardTitle>Progress</CardTitle>
+        <CardTitle>{t(s.language, "settings.progress")}</CardTitle>
         <div className="space-y-3">
           <div className="flex flex-wrap gap-2">
             <Button variant="outline" onClick={download}>
@@ -209,7 +209,7 @@ export default function Settings() {
       </Card>
 
       <Card>
-        <CardTitle>Backup file</CardTitle>
+        <CardTitle>{t(s.language, "settings.backupFile")}</CardTitle>
         {backupSupported() ? (
           <>
             <p className="text-sm text-muted">
@@ -235,7 +235,7 @@ export default function Settings() {
       </Card>
 
       <Card>
-        <CardTitle>More</CardTitle>
+        <CardTitle>{t(s.language, "settings.more")}</CardTitle>
         <div className="flex flex-wrap gap-2">
           <Button asChild variant="outline">
             <Link to="/help">Help</Link>
