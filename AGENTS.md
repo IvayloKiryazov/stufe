@@ -59,8 +59,13 @@ backend**.
    violation. Rules: [`documentation/testing.md`](documentation/testing.md).
 5. **TypeScript is strict** (`noUnusedLocals`, `noUnusedParameters`); unused
    imports break the build.
-6. **Don't over-claim.** Several issues were closed while only partially done
-   (see roadmap §Partial). If acceptance isn't met, leave it open or split it.
+6. **Don't over-claim.** Several issues were partially done (see roadmap
+   §Partial). If acceptance isn't met, mark it partial or not planned and say
+   why. Never call model output “verified”.
+7. **Respect the scope decisions** (ADRs 14–17): no Goethe lists, no full human
+   verification (no reviewer), per-deck enable/new-day only (no interval
+   overrides), no AI-authored German learning content without review, and no
+   accounts/backend.
 
 ## Where code goes (`web/src/`)
 

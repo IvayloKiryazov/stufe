@@ -22,7 +22,7 @@ backed up to a user-chosen file. Core design choices are recorded in
 flowchart LR
   content["content/ (authored JSON)"] --> tools["tools/ pipeline (Python)"]
   sources["open data: Tatoeba, german-nouns, kaikki, FrequencyWords"] --> tools
-  tools --> data["data/ (generated deck)<br/>items.json + items/&lt;level&gt;.json"]
+  tools --> data["data/ (generated deck)<br/>items/&lt;level&gt;.json + manifest.json"]
   data --> app["web/ (React SPA)"]
   app --> docs["docs/ (build output)"]
   docs --> pages["GitHub Pages / PWA"]
@@ -66,12 +66,24 @@ scales the root font size.
 `lib/store.ts` is a tiny observable over `localStorage["stufe-progress-v2"]`:
 
 ```ts
-{ p: Record<itemId, Entry>, history: Record<dayKey, {new, reviews}>, settings }
+{
+  v: 3,
+  p: Record<itemId, Entry>,
+  history: Record<dayKey, {new, reviews}>,
+  settings,                       // includes per-deck enable/newPerDay
+  practice: Record<skill, {attempts, correct}>,
+  notes: Record<itemId, string>,  // user mnemonics
+  newDecks: Record<dayKey, Record<deck, number>>
+}
 ```
+
+Old 7-box entries are migrated onto the 12-level ladder on load/import (schema
+v3); backups are migrated the same way.
 
 Components read it via `useProgress()` (`useSyncExternalStore`); mutations go
 through `store` (`grade`, `setEntry`, `reschedule`, `resetItem`, `suspend`,
-`markKnown`, `log`, `setSettings`, `import`, `export`, `reset`). Every commit is
+`markKnown`/`markKnownMany`, `setNote`, `logPractice`, `logNewDeck`,
+`setDeck`, `log`, `setSettings`, `import`, `export`, `reset`). Every commit is
 mirrored to **IndexedDB** (`lib/persist.ts`) and, if the user granted one,
 written to a **backup file** via the File System Access API (`lib/backup.ts`).
 On startup, if `localStorage` is empty, the IndexedDB copy is restored.
@@ -79,11 +91,12 @@ On startup, if `localStorage` is empty, the IndexedDB copy is restored.
 ### Data loading
 
 `lib/data.ts` loads `data/levels.json` and `data/reading.json` eagerly, then
-streams the deck per level from `data/items/<level>.json`. `by` grows as levels
-arrive; `subscribeDeck` notifies `useDeck()`, which exposes
+streams the deck per level from `data/items/<level>.json` (canonical; ADR-5).
+`by` grows as levels arrive; `subscribeDeck` notifies `useDeck()`, which exposes
 `{ levels, by, reading }`. `scripts/sync-data.mjs` copies an **allowlist** of the
 generated files into `web/public/data/`, so build-time inputs (the frequency
-deck, a personal Anki import) never ship to the client.
+deck, a personal Anki import) never ship to the client. `data/manifest.json`
+holds per-level counts + sha256 for CI; the old flat `data/items.json` is gone.
 
 ### Routing
 
@@ -119,9 +132,11 @@ summary:
 - `build_ipa.py` — IPA + native-audio URLs for the curated vocabulary.
 - `build_reference.py` — a Wiktionary noun reference for cross-checking.
 - `build_dataset.py` — merges `content/` + generated inputs into
-  `data/items.json`, `data/items/<level>.json`, `levels.json`, `reading.json`,
-  `attribution.json`; also adds drill tracks, examples, mnemonics and `source`.
-- `verify_dataset.py` / `cross_check.py` / `verify_report.py` — checks (ADR-6/7).
+  `data/items/<level>.json`, `data/manifest.json`, `levels.json`,
+  `reading.json`, `attribution.json`; also adds drill tracks, examples,
+  mnemonics, `source`/`sourceRef` and `exampleStatus`.
+- `verify_dataset.py` / `cross_check.py` / `verify_report.py` — checks
+  (ADR-6/7/15).
 
 ## Deployment
 

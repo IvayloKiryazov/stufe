@@ -1,158 +1,170 @@
 # Roadmap & status
 
-Single source of truth for **what is done, what is partial, and what is left**.
-Issues are on GitHub (`IvayloKiryazov/stufe`); this file says how far each one
-actually got. It is deliberately blunt about partial work — see
-[Known quality debt](#known-quality-debt) for issues that are closed but whose
-acceptance criteria are **not** met.
+Single source of truth for **what is done, what is partial, and what is
+deliberately not planned**. Issues are on GitHub
+(`IvayloKiryazov/stufe`); this file explains how far each one actually got.
+It is deliberately blunt — see [Known debt](#known-debt).
 
-North star: **Bunpro + WaniKani** (see [`AGENTS.md`](../AGENTS.md)).
+North star: **Bunpro + WaniKani** (see [`AGENTS.md`](../AGENTS.md)). The project
+is a **free personal app**; there is no backend, no accounts, no paid
+translation, and no human content reviewer.
 
-Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / not started.
+Legend: ✅ done · 🟡 partial / best effort · ⛔ closed as not planned or deferred.
 
 ---
 
 ## Done ✅
 
 ### Architecture & engineering (epic #120)
-- #102 the deck is split per level (`data/items/<level>.json`) and streamed on
-  demand; `levels.json`/`reading.json` load eagerly, `by` grows.
-- #103 upstream sources pinned in `tools/sources.lock.json` (URL + sha256;
-  `fetch_*.py --check`).
-- #104 CI verifies the per-level split matches `data/items.json`
-  (`tools/verify_dataset.py`).
-- #105 route error boundaries with a friendly fallback.
-- #106 per-screen interaction e2e tests (search, reading, dictation, translate,
-  settings, browse).
+- #102 the deck is split per level (`data/items/<level>.json`) and streamed;
+  `levels.json`/`reading.json` load eagerly, `by` grows.
+- #103 upstream sources pinned in `tools/sources.lock.json` (URL + sha256).
+- #104 CI verifies the per-level deck + `data/manifest.json` (counts + hashes).
+- #105 route error boundaries.
+- #106 per-screen interaction e2e tests (34 Playwright specs incl. axe).
 - #107 removed the orphaned root `node_modules/`.
+- **ADR-5 change:** the 10 MB `data/items.json` duplicate is gone; per-level
+  files are canonical and `tools/common.load_items()` rebuilds the flat deck.
 
 ### SRS (epic #117)
-- **Bunpro's 12-level ladder** (Beginner → Master; 4h…6mo; one-level demotion;
-  Master = burned). Replaces the old 7-box hybrid.
-- #78 gender + plural tracks for the **whole** noun deck.
-- #79 a **case** track (accusative/dative/genitive) for curated nouns.
-- #80 conjugation tables for **all 1,460 verbs**.
-- #77 study-ahead and per-item reset (`store.reschedule`/`resetItem`).
-- #131 multiple example sentences per item + a **vocabulary cloze track**
-  (fill the word into a rotating sentence).
+- Bunpro's 12-level ladder (Beginner → Master; 4h…6mo; one-level demotion;
+  Master = burned).
+- #78 gender + plural tracks for the whole noun deck; #79 case track; #80
+  conjugations for all verbs; #77 study-ahead + reset; #131 multiple examples +
+  vocab-cloze track.
+- #76 per-deck controls: **enable/disable + new cards/day** for the course,
+  core vocabulary, gender, plural, case and cloze tracks. No interval overrides
+  (ADR-16).
+- **Schema v3 + migration:** old 7-box progress is mapped onto the 12-level
+  ladder; backups/imports are migrated too.
 
 ### UX (epic #118)
-- #93 search · #98 POS filter + a **top-by-frequency** browse (with `freqRank`) ·
-  #95 onboarding · #96 shortcut sheet ·
-  #132 "up next" on Today · #133 activity heatmap · #135 burned/leech help ·
-  #127 clearer review feedback · #126 Backspace undo.
+- #93 search · #98 POS + top-by-frequency browse · #95 onboarding · #96 shortcut
+  sheet + skip-to-content · #132 up-next · #133 heatmap · #135 burned/leech help
+  · #127 feedback · #126 Backspace undo.
+- #94 i18n: navigation, titles and the **body UI** of every screen are
+  localized (en/de), with a key-parity test and a German e2e switch test.
+  Grammar/reading content and pronunciation hints stay in their source language.
+- **Known-word placement:** Browse → Vocabulary has per-row “I know this” and a
+  two-step “Mark these N as known”, so a B2 learner can clear what she knows in
+  one pass (the use case behind per-deck settings).
+- **User mnemonics:** every reveal card has a per-item note stored locally.
 
 ### Platform (epic #119)
-- #99 progress mirrored to IndexedDB + persistent-storage request, plus an
-  optional **File System Access backup file** (survives clearing browser data;
-  syncs if the file is in a cloud folder).
-- #100 service worker precaches the **shell + deck**, cache-first hashed assets,
-  network-first data.
+- #99 progress mirrored to IndexedDB + persistent-storage request + optional
+  File System Access backup file.
+- #100 service worker precaches the shell + deck (`stufe-v3`).
+- #101 accounts/sync closed as not planned (ADR-8/ADR-12).
 
 ### Data & media
-- #81 IPA for the curated vocabulary · #97 native pronunciation audio (~98 %) ·
-  #129 dropped the useless "just memorise" mnemonic · #131 examples.
-
-### Docs (epic #121)
-- #108 CONTRIBUTING rewrite · #109 TASKS retired · #110 CHANGELOG ·
-  #111 architecture diagram.
-
-### Bugs (from the rewrite review)
-- #122 listening radios · #123 reminders toggle · #124 order-aware grader ·
-  #125 auto-play wiring.
+- #81 IPA · #97 native word audio (~99 %) · #131 examples.
+- #68 every vocabulary item exposes a **structured `sourceRef`** (Tatoeba
+  sentence URL or Wiktionary page) alongside the existing credit string.
+- #69 cross-check now also compares **auto nouns** against german-nouns
+  (articles/plurals), not only curated nouns.
+- #67 gloss selection scores senses instead of taking the first one (meta,
+  obsolete/archaic/rare/form-of senses are penalized); 8 overrides applied.
+- #82 example backfill improved (conjugation/comparison/plural forms, longer
+  Tatoeba sentences): 627 items still have no example, marked
+  `exampleStatus: "missing"` (was 656).
+- #92 verification harness: `check_content`, `verify_dataset`, `cross_check`
+  and `verify_report` are wired into CI; `sourceRef` makes items checkable.
 
 ### CEFR (epic #116)
-- #72 can-do statements · #73 exam alignment · #74 skills (see partial notes).
+- #72 can-do statements · #74 per-skill progress (SRS passed counts for
+  vocabulary/grammar/cloze; persisted practice accuracy for reading, listening,
+  writing and speaking).
+- #71 official Goethe lists closed as not planned (ADR-14); levels remain
+  frequency-anchored.
+- #73 exam-style practice closed as not planned (no authored exam content).
+
+### Content depth (epic #112)
+- Curated adjectives A1–C2, nouns/verbs A1–C2, 69 grammar groups, 12 reading
+  passages (A1 4, A2 3, B1 3, B2 2) including one café dialogue.
+- #63/#64/#65/#85/#86 are **not planned/deferred** (ADR-17): no AI-authored
+  German learning content and no human reviewer; the existing reading + TTS
+  listening stays.
+
+### Curriculum (epic #115)
+- Levels unlock at 80 % of the previous level; groups are ordered by level and
+  content order; reviews are due-driven and therefore interleaved across levels.
+- #88 explicit prerequisite graph, #90 a separate interleaving plan and #91 a
+  special previous-level scheduler are **not planned**: the due queue already
+  includes previous levels and the learner can unlock all levels for placement.
+- #89 checkpoints remain a scored sample of existing items (not independently
+  verified facts; see ADR-15).
+
+### Modalities (epic #114)
+- Reading tap-a-word glossing, speech-check (Web Speech transcript + word diff),
+  writing word-diff feedback, dictation/translation drills.
+- #84 phoneme scoring closed as not planned (ADR-10); #85 native listening
+  library deferred (no licence-clean sentence-audio source in the pipeline).
+
+### Docs (epic #121)
+- #108 CONTRIBUTING · #109 TASKS retired · #110 CHANGELOG · #111 architecture.
 
 ---
 
-## Partial 🟡 (closed, but acceptance not fully met)
+## Partial / best effort 🟡
 
-| # | Issue | What is missing |
+| # | Issue | Status |
 | --- | --- | --- |
-| #63 | reading library | "dozens of passages across A1–C1" → only **8** (a1:2, a2:3, b1:3); no B2–C2 |
-| #65 | dialogues & authentic texts | only **1** dialogue passage |
-| #89 | factual checkpoints | quizzes existing items; the answers are **not** independently verified |
-| #96 | keyboard-only nav everywhere | shortcut sheet + skip-to-content; not full keyboard navigation |
-| #68 | per-item source | a coarse `source` string, not a verifiable per-item reference |
-| #69 / #92 | cross-check / factual suite | curated **nouns** only (article/plural); no glosses, no auto deck, no learner tests |
-| #74 | skill-by-level | skills are listed, but there is **no per-skill progress** |
-| #132 | up-next **+ word picking** | up-next only |
-| #87 | graded readers | inline glossing done; the reader **library** (=#63) is not |
-| #134 | settings tests | only reminders + vacation are e2e-tested, not every control |
-| #59–#62 | curated content | **drafted, not human-verified** (B2/C1/C2 nouns/verbs/adjectives) |
-
-**Tracker discrepancy:** #61, #62 and #127 are **done but still show open**
-(the `Closes` keywords did not take).
+| #63 | reading library | 12 passages, no C1/C2; content additions deferred (ADR-17) |
+| #82 | examples | 627 vocabulary items still lack one (`exampleStatus: missing`) |
+| #89 | factual checkpoints | quiz existing items; not independently verified |
+| #96 | keyboard nav everywhere | shortcut sheet + skip-to-content, not full keyboard-only navigation |
+| #68 | per-item source | structured `sourceRef` for vocabulary/grammar, but not every generated track card |
+| #69/#92 | cross-check/factual suite | articles/plurals + structure; **gloss semantics/example translations are not machine-verified** |
+| #74 | skill-by-level | per-skill progress overall; modality practice is not split per level in the UI |
+| #132 | up-next | up-next only, no manual word picking |
+| #134 | settings tests | all controls now e2e-tested; backup/export/import round-trip unit-tested |
 
 ---
 
-## Not started ⛔ (open)
+## Closed as not planned / deferred ⛔
 
-**Verification (epic #113) — partial**
-- A **report tool** now exists (`tools/verify_report.py`: field coverage, gloss
-  sanity, a translator-checkable sample) and the **meta-gloss filter** was
-  widened (obsolete/archaic/spelling/degree glosses are dropped). Policy agreed:
-  **report first, then fix.**
-- Still open: #66 full per-item verification, #67 sense-selection for polysemous
-  words, #70 an authoritative reviewed-content process/marker.
-
-**CEFR (epic #116) — partial**
-- #71: the auto deck is re-levelled by **frequency-anchored CEFR bands**
-  (`data/cefr.json`, calibrated to official list sizes) and items carry
-  `freqRank`; words past C2 are "extra". This is an **approximation** — there is
-  no official machine-readable German CEFR list (the Goethe Wortlisten are
-  PDFs). Swapping in Goethe A1–B1 is a drop-in once the licence is settled.
-
-**SRS / scheduling (epic #117)**
-- #75 "optional adaptive algorithm (SM-2/FSRS)" — **closed as not planned**:
-  it conflicts with the north star (Bunpro rejected FSRS; WaniKani uses fixed
-  intervals). Stay faithful to the staged model. · #76 per-item difficulty /
-  per-deck settings (open).
-
-**Content (epic #112)**
-- #82 ~656 vocabulary items still lack an example (backfilled via conjugated /
-  comparison forms; still open) · #64 a dedicated listening
-  library.
-
-**Modalities (epic #114)**
-- #84 speaking: a Web Speech **speech check** (transcript + word diff) is done;
-  phoneme-level scoring is not. · #85 native-audio listening · #86 longer
-  writing tasks.
-
-**Curriculum (epic #115)**
-- #88 full lesson/prerequisite model · #90 interleaving · #91 review-previous
-  (a basic version exists).
-
-**UX (epic #118)**
-- #94 full i18n (only shell/Today/Study/Browse/Stats/Settings titles and screen
-  titles are localised; body strings remain English).
-
-**Mnemonics (epic #128)**
-- #130 per-word + user mnemonics · #83 verb/adjective mnemonics
-  (0/1460 verbs have one).
-
-**Platform (epic #119)**
-- #101 accounts & sync — **explicitly deferred** (recorded decision).
+- **#71 official CEFR lists** — licence/redistribution risk; frequency-anchored
+  approximate CEFR (ADR-4/ADR-14).
+- **#73 exam-style practice** — requires authored exam content; no reviewer.
+- **#101 accounts/sync** — no backend; file-based durability is sufficient
+  (ADR-8/ADR-12).
+- **#84 phoneme scoring** — needs an on-device model or cloud service; the
+  browser speech check is the final scope (ADR-10).
+- **#66/#70 full human verification** — no German speaker/paid reviewer; the
+  project ships best-effort provenance and honest markers (ADR-15).
+- **#63/#64/#65/#85/#86 content/listening/writing libraries** — no AI-authored
+  German learning content and no human review (ADR-17).
+- **#88/#90/#91 curriculum engine** — level/group order + due-driven reviews
+  already cover the practical need; a prerequisite graph/interleaving plan is
+  deliberately out of scope.
+- **#128/#129/#130 mnemonics** — #129 fallback removed; #130 user-authored
+  mnemonics shipped; curated per-word mnemonics are not planned (no authored
+  content).
+- **#112/#113/#114/#115/#116/#117/#118/#119/#120/#121 epics** — closed with the
+  completed children above.
 
 ---
 
-## Known quality debt
+## Known debt
 
-- `data/items.json` (3.5 MB) is **duplicated** by `data/items/<level>.json`;
-  both are committed.
-- The SRS rename has **no migration**: a saved `box` 1–7 now maps to different
-  SRS levels (only matters if a user had progress).
-- The axe suite does not render non-default tabs (the Stats "Levels" tab is
-  untested).
+- `data/vocab_frequency.json` (~3.9 MB) is still committed as the generated
+  input for `build_dataset.py`; a full rebuild needs it.
+- The app still starts fetching all per-level files in the background (the
+  split helps initial paint/route code, not total bandwidth). Cross-level
+  search/stats need all levels; optional future work.
+- Gloss sense selection remains heuristic; `content/overrides.json` is the
+  source of fixes. The report is translator-checkable but no translator is
+  available.
+- Pronunciation hints and grammar/reading content are intentionally not
+  translated; only UI chrome is localized.
 
 ## Decisions taken
 
-All resolved and recorded in [`decisions.md`](decisions.md): north star
-(ADR-1), 12-level SRS / no SM-2/FSRS (ADR-2, #75 closed), CEFR frequency-anchored
-(ADR-4), verification report→fix (ADR-7), durable progress via IndexedDB + file
-backup (ADR-8), offline deck precache (ADR-9), Web Speech ASR (ADR-10).
-
-**Only optional decision left:** whether to accept the **Goethe Wortlisten
-licence** and drop the official A1–B1 lists in as the CEFR authority (otherwise
-the frequency-anchored bands stay).
+All core decisions are recorded in [`decisions.md`](decisions.md): north star
+(ADR-1), 12-level SRS/no SM-2/FSRS (ADR-2), CEFR frequency-anchored and no
+Goethe lists (ADR-4/ADR-14), per-level canonical deck (ADR-5), pinned sources
+(ADR-6), verification report→fix/best effort (ADR-7/ADR-15), durable progress
+without accounts (ADR-8), offline deck (ADR-9), Web Speech speech check only
+(ADR-10), native audio + TTS (ADR-11), static site (ADR-12), licensing
+(ADR-13), per-deck controls (ADR-16), no unreviewed authored German content
+(ADR-17).

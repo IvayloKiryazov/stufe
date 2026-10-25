@@ -53,6 +53,16 @@ burned items can be studied from Extra study. **Study ahead** reviews items due
 later (next 24h) and still counts; an item's schedule can be **reset** (back to
 box 1, due now) from the feedback actions (#77).
 
+**Per-deck controls** (ADR-16): the course, core vocabulary, gender, plural,
+case and cloze decks can be enabled/disabled independently and have their own
+new-cards/day cap. Disabled decks are excluded from new lessons and due reviews;
+the fixed interval ladder itself is unchanged. Browse also supports marking
+known words individually or in bulk for a fast placement pass.
+
+**User mnemonics** live in `progress.notes` (per item, local only) and are
+edited on reveal cards. Practice accuracy is logged per skill/level in
+`progress.practice` for the Stats skills panel.
+
 ## A study session (`useStudy`)
 
 Modes: **lesson**, **review**, **practice**, **checkpoint**.
@@ -118,6 +128,6 @@ card are separate SRS items (issue #131).
 
 See [roadmap.md](roadmap.md). The gender/plural tracks (#78), case track (#79),
 cloze track (#131), conjugations (#80), leech auto-suspend, vacation mode, the
-review forecast, wrap-up and burned-item study (#49) are implemented. Still
-open: per-deck settings (#76), interleaving (#90), and the CEFR/verification work
-in the CEFR/QA epics.
+review forecast, wrap-up, burned-item study (#49) and per-deck settings (#76)
+are implemented. Interleaving (#90) is effectively provided by the due-driven
+queue; an explicit prerequisite/interleaving engine is deliberately not planned.

@@ -33,7 +33,7 @@ content/  ->  tools/  ->  data/  ->  web/  ->  docs/  ->  GitHub Pages
 
 - Author content as JSON in `content/`.
 - `tools/` enriches it with open data (gender, plural, IPA, audio, examples,
-  conjugations, CEFR) and builds `data/items.json` + `data/items/<level>.json`.
+  conjugations, CEFR) and builds `data/items/<level>.json` + `data/manifest.json`.
 - `web/` is a React SPA that loads the deck per level at runtime.
 - `npm run build` writes the app to `docs/`, which Pages serves.
 

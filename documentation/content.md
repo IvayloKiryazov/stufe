@@ -108,8 +108,8 @@ roadmap).
 
 | File | Contents |
 | --- | --- |
-| `items.json` | flat array of every study item (canonical, for validation) |
-| `items/<level>.json` | the same items split per level; the app loads these on demand |
+| `items/<level>.json` | every study item, split per level — **canonical** (ADR-5) |
+| `manifest.json` | per-level counts + sha256; CI verifies it |
 | `levels.json` | level → group → item-id structure |
 | `reading.json` | reading passages |
 | `attribution.json` | per-sentence Tatoeba credits |
@@ -130,6 +130,8 @@ interface Item {
   de?; en?; plural?; forms?; ipa?; audio?; mnemonic?; freqRank?;  // vocab
   prompt?; answer?; alt?; hint?;                                  // cloze / drills
   sentence_de?; sentence_en?; attribution?; source?;              // example + provenance
+  sourceRef?: { kind; url?; word?; id? };                         // checkable reference
+  exampleStatus?: "missing";                                      // explicit residual
   examples?: { de; en }[];                                        // several graded examples
   conjugation?: { present: string[]; preterite; participle };
 }
@@ -143,21 +145,26 @@ Commands, sources and reproducibility are in
 - `build_dataset.py` merges `data/vocab_frequency.json` and
   `data/vocab_personal.json` when present. Re-run it after any `content/` edit and
   commit the regenerated `data/`.
-- It writes the canonical `data/items.json` **and** `data/items/<level>.json`
-  (loaded on demand); `tools/verify_dataset.py` checks they agree.
+- It writes the canonical `data/items/<level>.json` (loaded on demand) and
+  `data/manifest.json`; `tools/verify_dataset.py` checks counts/hashes and
+  references.
 - Upstream sources are pinned by URL + sha256 in `tools/sources.lock.json`, so a
   rebuild is reproducible (`fetch_*.py --check` verifies `data/raw/`).
 
 ### Verification tooling
 
-- `verify_dataset.py` — the per-level split matches `data/items.json`.
+- `verify_dataset.py` — per-level files, unique ids, references and
+  `data/manifest.json` agree.
 - `cross_check.py` — curated noun article/plural vs a Wiktionary reference
-  (article mismatches fail CI, plural mismatches warn).
-- `verify_report.py --sample N` — field coverage, gloss sanity and a
-  translator-checkable sample; **report only**.
+  (article mismatches fail CI, plural mismatches warn) **and auto nouns vs
+  german-nouns** (reported as warnings).
+- `verify_report.py --sample N` — field/provenance coverage, `sourceRef` URLs,
+  `exampleStatus: missing`, gloss sanity and a translator-checkable sample;
+  **report only**.
 
-Policy (ADR-7): **report first, then fix** from authoritative sources or
-`content/overrides.json` — never invent "verified" data.
+Policy (ADR-7/ADR-15): **report first, then fix** from authoritative sources or
+`content/overrides.json` — never invent "verified" data. There is no human
+reviewer; gloss sense and example-translation quality remain residual risk.
 
 ## Licensing
 

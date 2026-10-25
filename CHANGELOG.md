@@ -1,47 +1,58 @@
 # Changelog
 
 Notable user-facing changes. Loosely follows
-[Keep a Changelog](https://keepachangelog.com/). "Partial" items are noted
-explicitly — see [`documentation/roadmap.md`](documentation/roadmap.md).
+[Keep a Changelog](https://keepachangelog.com/). Partial and not-planned items
+are explicit — see [`documentation/roadmap.md`](documentation/roadmap.md) and
+[`documentation/decisions.md`](documentation/decisions.md).
 
 ## Unreleased
 
 ### Added
 - Bunpro-style **12-level SRS** (Beginner → Master; 4h…6mo; one-level demotion;
-  Master = burned).
-- **Vocabulary cloze track**: fill the missing word into a rotating example
-  sentence, separate from the meaning card.
-- **Multiple example sentences** per vocabulary item.
-- **Gender/plural tracks for the whole noun deck** and a **case track**
-  (accusative/dative/genitive) for curated nouns.
-- **Conjugation tables** for all verbs; **IPA** for the curated vocabulary.
-- **Native pronunciation audio** (~98 % of vocabulary) with browser-TTS fallback.
-- **Search** over words and grammar points; **browse by part of speech**.
-- **Level checkpoints** (scored, 80 % target) from Stats → Levels.
-- **"Up next"** on Today and a GitHub-style **activity heatmap** in Stats.
-- **CEFR panel**: can-do statements, exam alignment (Goethe/telc) and skills.
-- **Inline word glossing** in Reading; **word-level feedback** in Writing.
-- Curated **adjectives (A1–B2)** and **nouns/verbs/adjectives (B2/C1/C2)**;
-  extra reading passages and a café dialogue.
-- Route **error boundaries**; the deck loads **per level** on demand.
-- **Durable progress** (IndexedDB mirror + persistent-storage request).
-- **Offline** support (service-worker shell precache).
-- Onboarding card; a keyboard-shortcut sheet ("?").
-- Verification: **second-source cross-check** for curated nouns, a per-item
-  `source` field, a **deck report** tool and reproducible deck checks in CI;
-  widened the meta-gloss filter (obsolete/spelling/degree glosses).
-- **CEFR re-levelling**: the auto deck is now levelled by frequency-anchored
-  CEFR bands (calibrated to official list sizes) with a `freqRank` tag.
+  Master = burned) and **vocabulary cloze** / gender / plural / case tracks.
+- **Per-deck controls**: enable/disable and new cards/day for the course, core
+  vocabulary, gender, plural, case and cloze tracks.
+- **Known-word placement** in Browse: mark one or many words as known in a
+  first pass (useful for a B2 learner clearing known vocabulary quickly).
+- **User mnemonics**: a per-item note box on reveal cards, stored on device.
+- **Per-skill progress** in Stats (vocabulary, grammar, cloze, reading,
+  listening, writing, speaking).
+- **Full UI i18n** (en/de): navigation and body UI, with a key-parity test and
+  a German e2e switch test.
+- **Structured per-item provenance** (`sourceRef`): Tatoeba sentence URL or
+  Wiktionary page for vocabulary/grammar items.
+- **Second-source cross-check for the auto deck**: auto noun articles/plurals
+  are compared with german-nouns; disagreements are reported.
+- **Sense-ranked gloss selection** (prefers primary/clean senses; penalizes
+  obsolete/archaic/rare/form-of senses).
+- **Verification report** now shows provenance coverage and residuals.
+- **All Settings controls e2e-tested**; axe covers Stats Levels/Projections.
+- **Progress schema v3** with a tested migration from the old 7-box schedule.
 
 ### Changed
-- UI stage names are Bunpro's; the interval ladder replaced the 7-box hybrid.
-- The "just memorise" gender-mnemonic filler was removed.
+- `data/items.json` is no longer committed; `data/items/<level>.json` is the
+  canonical deck and `data/manifest.json` records counts + sha256 for CI.
+- Old 7-box progress is migrated onto the 12-level ladder on load/import.
+- The deck now has ~19,996 items; 627 vocabulary items are explicitly marked
+  `exampleStatus: "missing"` (656 before the example backfill).
 
 ### Partial (see roadmap)
-- i18n covers the shell, Today, Study, Browse, Stats, Settings and screen
-  titles only.
-- Offline **precaches the shell, not the deck**; durable progress does not use
-  File System Access.
+- 12 reading passages (A1–B2, one dialogue); no C1/C2 and no dedicated
+  listening/writing libraries.
+- 627 vocabulary items still lack an example.
+- Gloss sense selection is heuristic; there is no human/paid reviewer.
+- Full keyboard-only navigation and per-level modality statistics are partial.
+
+### Not planned (recorded in ADRs)
+- Official Goethe CEFR lists (#71): licence/redistribution risk; levels stay
+  frequency-anchored (ADR-14).
+- Full human verification (#66/#70): no reviewer; provenance + best effort
+  (ADR-15).
+- Phoneme-level pronunciation scoring (#84): would need an on-device model or
+  cloud backend (ADR-10).
+- Accounts/sync (#101): static app, file backup is sufficient (ADR-8/12).
+- AI-authored German reading/listening/writing content (#63/#64/#65/#85/#86)
+  without review (ADR-17).
 
 ## 2.0.0
 
