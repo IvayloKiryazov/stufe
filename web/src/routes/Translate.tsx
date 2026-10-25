@@ -7,6 +7,7 @@ import { useProgress } from "../hooks/useProgress";
 import { t } from "../lib/i18n";
 import { equals, tokenSimilarity } from "../lib/grade";
 import { shuffle } from "../lib/shuffle";
+import { store } from "../lib/store";
 
 export default function Translate() {
   const { deck } = useDeck();
@@ -27,16 +28,14 @@ export default function Translate() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deck]);
 
-  if (!deck) return <p className="text-muted">Loading…</p>;
-  if (!queue.length) return <p className="text-muted">No sentences available.</p>;
+  if (!deck) return <p className="text-muted">{t(lang, "common.loading")}</p>;
+  if (!queue.length) return <p className="text-muted">{t(lang, "practice.noSentences")}</p>;
 
   if (i >= queue.length) {
     return (
       <div className="space-y-4">
-        <h1 className="text-3xl font-bold">Translation done</h1>
-        <p className="text-muted">
-          {okCount} / {queue.length} correct.
-        </p>
+        <h1 className="text-3xl font-bold">{t(lang, "practice.translateDone")}</h1>
+        <p className="text-muted">{t(lang, "practice.correctCount", { score: okCount, total: queue.length })}</p>
       </div>
     );
   }
@@ -47,6 +46,7 @@ export default function Translate() {
   const check = () => {
     const good = equals(value, target);
     setOk(good);
+    store.logPractice("translate", good, item.level);
     setSim(tokenSimilarity(value, target));
     if (good) setOkCount((n) => n + 1);
     setPhase("fb");
@@ -61,13 +61,13 @@ export default function Translate() {
     <div className="space-y-4">
       <div className="flex items-center gap-3 text-sm text-muted">
         <h1 className="text-sm font-normal">{t(lang, "practice.translate")}</h1>
-        <Progress className="flex-1" value={(i / queue.length) * 100} label="Session progress" />
+        <Progress className="flex-1" value={(i / queue.length) * 100} label={t(lang, "common.sessionProgress")} />
         <span>
           {i + 1}/{queue.length}
         </span>
       </div>
       <Card>
-        <p className="mb-2 text-sm text-muted">Translate into German</p>
+        <p className="mb-2 text-sm text-muted">{t(lang, "practice.translateInstruction")}</p>
         <p className="font-serif text-xl">{item.sentence_en}</p>
         <input
           value={value}
@@ -76,7 +76,7 @@ export default function Translate() {
           lang="de"
           autoComplete="off"
           spellCheck={false}
-          aria-label="Your German sentence"
+          aria-label={t(lang, "practice.translatePlaceholder")}
           className="mt-3 w-full rounded-md border-2 border-line bg-bg px-3 py-2 text-lg"
           onKeyDown={(e) => {
             if (e.key !== "Enter") return;
@@ -87,16 +87,18 @@ export default function Translate() {
         <div className="mt-3">
           {phase === "ask" ? (
             <Button disabled={!value.trim()} onClick={check}>
-              Check
+              {t(lang, "common.check")}
             </Button>
           ) : (
-            <Button onClick={next}>Next</Button>
+            <Button onClick={next}>{t(lang, "common.next")}</Button>
           )}
         </div>
         {phase === "fb" && (
           <div className="mt-4 border-t border-line pt-4">
             <p className={ok ? "font-bold text-good" : "font-bold text-bad"}>
-              {ok ? "Correct" : `Close (${Math.round(sim * 100)}% match)`}
+              {ok
+                ? t(lang, "common.correct")
+                : t(lang, "practice.closeMatch", { pct: Math.round(sim * 100) })}
             </p>
             <p className="font-serif" lang="de">
               {target}

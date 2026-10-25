@@ -65,3 +65,36 @@ test("vocab cloze: a fill-in-the-blank card starts", async ({ page }) => {
   await expect(page.getByText("Fill in the missing word")).toBeVisible();
   await expect(page.locator('input[aria-label="Your answer"]')).toBeVisible();
 });
+
+test("settings: every control is usable", async ({ page }) => {
+  await page.goto("/#/settings");
+  await page.getByLabel("Unlock all levels").check();
+  await expect(page.getByLabel("Unlock all levels")).toBeChecked();
+  await page.getByLabel("Audio (browser German voices)").uncheck();
+  await expect(page.getByLabel("Audio (browser German voices)")).not.toBeChecked();
+  await page.getByLabel("New items per lesson").fill("7");
+  await expect(page.getByLabel("New items per lesson")).toHaveValue("7");
+  await page.getByLabel("Daily new goal").fill("30");
+  await expect(page.getByLabel("Daily new goal")).toHaveValue("30");
+  await page.getByLabel("Article (gender) track").uncheck();
+  await expect(page.getByLabel("Article (gender) track")).not.toBeChecked();
+});
+
+test("browse: a known word can be removed from the first pass", async ({ page }) => {
+  await page.goto("/#/browse");
+  await page.getByRole("button", { name: "Vocabulary" }).click();
+  await page.getByRole("button", { name: "I know this" }).first().click();
+  await expect(page.getByText("known").first()).toBeVisible();
+});
+
+test("i18n: switching the interface language localizes screens", async ({ page }) => {
+  await page.goto("/#/settings");
+  await page.getByLabel("Interface language").click();
+  await page.getByRole("option", { name: "Deutsch" }).click();
+  await expect(page.getByRole("heading", { name: "Einstellungen" })).toBeVisible();
+  await page.goto("/#/study");
+  await expect(page.getByRole("heading", { name: "Lernen", exact: true })).toBeVisible();
+  await expect(page.getByText("Wiederholungen").first()).toBeVisible();
+  await page.goto("/#/browse");
+  await expect(page.getByRole("heading", { name: "Übersicht", exact: true })).toBeVisible();
+});

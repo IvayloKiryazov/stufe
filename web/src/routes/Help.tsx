@@ -3,14 +3,14 @@ import { useProgress } from "../hooks/useProgress";
 import { t } from "../lib/i18n";
 
 const ROWS: [string, string][] = [
-  ["Enter", "Check your answer, then go to the next card"],
-  ["Backspace", "In review feedback, undo your last answer"],
-  ["Esc", "Stop the current session"],
-  ["ä ö ü ß", "Buttons under the answer field insert a special character"],
-  ["Theme", "Toggle auto / light / dark from the top bar"],
-  ["Master (burned)", "At SRS level 12 an item leaves the review queue. Re-drill it from Study → Extra study → Burned."],
-  ["Leeches", "Items you keep failing are auto-suspended after 8 lapses; practice them from Study → Extra study → Leeches."],
-  ["Extra study", "Leeches / Passed / Burned practice never changes your schedule (like Bunpro ghosts)."],
+  ["Enter", "help.row.enter"],
+  ["Backspace", "help.row.backspace"],
+  ["Esc", "help.row.esc"],
+  ["ä ö ü ß", "help.row.umlauts"],
+  ["Theme", "help.row.theme"],
+  ["Master (burned)", "help.row.master"],
+  ["Leeches", "help.row.leeches"],
+  ["Extra study", "help.row.extra"],
 ];
 
 export default function Help() {
@@ -19,14 +19,14 @@ export default function Help() {
     <div className="space-y-6">
       <header>
         <h1 className="text-3xl font-bold">{t(lang, "nav.help")}</h1>
-        <p className="text-muted">Small things that make reviewing faster.</p>
+        <p className="text-muted">{t(lang, "help.subtitle")}</p>
       </header>
       <Card>
         <CardTitle>{t(lang, "help.tips")}</CardTitle>
         <div className="space-y-1">
-          {ROWS.map(([k, v]) => (
+          {ROWS.map(([k, key]) => (
             <p key={k} className="text-sm">
-              <b>{k}</b> — <span className="text-muted">{v}</span>
+              <b>{k}</b> — <span className="text-muted">{t(lang, key)}</span>
             </p>
           ))}
         </div>

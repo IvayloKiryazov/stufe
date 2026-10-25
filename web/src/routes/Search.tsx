@@ -35,7 +35,7 @@ export default function Search() {
   const lang = useProgress().settings.language;
   const [q, setQ] = useState("");
 
-  if (!deck) return <p className="text-muted">Loading…</p>;
+  if (!deck) return <p className="text-muted">{t(lang, "common.loading")}</p>;
   const results = searchItems(Object.values(deck.by), q);
   const idxOf = (level: string) => deck.levels.findIndex((l) => l.id === level);
 
@@ -46,19 +46,19 @@ export default function Search() {
         <p className="text-muted">{t(lang, "search.hint")}</p>
       </header>
       <label className="block">
-        <span className="sr-only">Search</span>
+        <span className="sr-only">{t(lang, "search.label")}</span>
         <input
           type="search"
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder={t(lang, "search.placeholder")}
-          aria-label="Search"
+          aria-label={t(lang, "search.label")}
           className="w-full rounded-md border-2 border-line bg-bg px-3 py-2 text-lg"
         />
       </label>
       {q.trim().length >= 2 && (
         <p className="text-sm text-muted">
-          {results.length} result{results.length === 1 ? "" : "s"}
+          {t(lang, "search.results", { n: results.length })}
         </p>
       )}
       <ul className="space-y-2">

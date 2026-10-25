@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useProgress } from "../hooks/useProgress";
+import { t } from "../lib/i18n";
 import { Button } from "./ui/button";
 import { Card, CardTitle } from "./ui/card";
 
@@ -15,21 +17,17 @@ function seen(): boolean {
 /** First-run explanation, dismissed once (issue #95). */
 export function Onboarding() {
   const [hidden, setHidden] = useState(seen);
+  const lang = useProgress().settings.language;
   if (hidden) return null;
   return (
     <Card>
-      <CardTitle>Welcome to Stufe</CardTitle>
-      <p className="text-base text-muted">
-        Spaced repetition for German — vocabulary and grammar as parallel SRS queues.
-      </p>
+      <CardTitle>{t(lang, "onboarding.title")}</CardTitle>
+      <p className="text-base text-muted">{t(lang, "onboarding.body")}</p>
       <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted">
-        <li>Learn new items in <b>lessons</b>, then keep them alive in <b>reviews</b>.</li>
-        <li>
-          A correct answer moves an item up one SRS level (Beginner → Adept → Seasoned → Expert →
-          Master); a wrong answer drops it one. Items that reach <b>Master</b> leave the queue.
-        </li>
-        <li>Reveal cards show the meaning, IPA, conjugation and example sentences.</li>
-        <li>Everything is stored on your device — no account needed.</li>
+        <li>{t(lang, "onboarding.lesson")}</li>
+        <li>{t(lang, "onboarding.stage")}</li>
+        <li>{t(lang, "onboarding.reveal")}</li>
+        <li>{t(lang, "onboarding.local")}</li>
       </ul>
       <div className="mt-4">
         <Button
@@ -42,7 +40,7 @@ export function Onboarding() {
             setHidden(true);
           }}
         >
-          Got it
+          {t(lang, "onboarding.gotIt")}
         </Button>
       </div>
     </Card>

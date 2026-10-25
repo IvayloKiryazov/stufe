@@ -1,15 +1,18 @@
 import { useEffect } from "react";
+import { useProgress } from "../hooks/useProgress";
+import { t } from "../lib/i18n";
 import { Button } from "./ui/button";
 
 const ROWS: [string, string][] = [
-  ["?", "Show this shortcut sheet"],
-  ["Enter", "Check your answer / go to the next card"],
-  ["Backspace", "Undo the last answer (in review feedback)"],
-  ["Esc", "Stop the current session"],
-  ["ä ö ü ß", "Buttons under the answer field insert a special character"],
+  ["?", "shortcuts.help"],
+  ["Enter", "shortcuts.enter"],
+  ["Backspace", "shortcuts.backspace"],
+  ["Esc", "shortcuts.esc"],
+  ["ä ö ü ß", "shortcuts.umlauts"],
 ];
 
 export function Shortcuts({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const lang = useProgress().settings.language;
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -28,20 +31,20 @@ export function Shortcuts({ open, onClose }: { open: boolean; onClose: () => voi
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="Keyboard shortcuts"
+        aria-label={t(lang, "common.shortcuts")}
         className="w-full max-w-md rounded-xl border border-line bg-surface p-5"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="mb-3 text-lg font-semibold">Keyboard shortcuts</h2>
+        <h2 className="mb-3 text-lg font-semibold">{t(lang, "shortcuts.title")}</h2>
         <div className="space-y-1">
-          {ROWS.map(([k, v]) => (
+          {ROWS.map(([k, key]) => (
             <p key={k} className="text-sm">
-              <b>{k}</b> — <span className="text-muted">{v}</span>
+              <b>{k}</b> — <span className="text-muted">{t(lang, key)}</span>
             </p>
           ))}
         </div>
         <div className="mt-4">
-          <Button onClick={onClose}>Close</Button>
+          <Button onClick={onClose}>{t(lang, "common.close")}</Button>
         </div>
       </div>
     </div>

@@ -46,10 +46,10 @@ export default function Pronunciation() {
     <div className="space-y-6">
       <header>
         <h1 className="text-3xl font-bold">{t(lang, "practice.pronunciation")}</h1>
-        <p className="text-muted">The German alphabet sounds — tap to hear an example.</p>
+        <p className="text-muted">{t(lang, "practice.pronunciationHint")}</p>
       </header>
       <Card>
-        <CardTitle>Sounds</CardTitle>
+        <CardTitle>{t(lang, "practice.sounds")}</CardTitle>
         <div className="grid gap-1 sm:grid-cols-2">
           {SOUNDS.map(([g, word, hint], i) => (
             <div key={i} className="flex items-center justify-between gap-2 border-b border-line py-2">
@@ -62,7 +62,7 @@ export default function Pronunciation() {
                 </span>
                 <span className="ml-2 text-xs text-muted">{hint}</span>
               </div>
-              <Button variant="ghost" size="icon" aria-label={`Play ${word}`} onClick={() => speak(word)}>
+              <Button variant="ghost" size="icon" aria-label={t(lang, "common.playWord", { word })} onClick={() => speak(word)}>
                 <Volume2 className="h-4 w-4" />
               </Button>
             </div>

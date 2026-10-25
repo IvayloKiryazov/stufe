@@ -1,5 +1,7 @@
 import { useCallback, useState } from "react";
 import type { Deck } from "../lib/data";
+import { deckKeyOfItem } from "../lib/decks";
+import type { DeckKey } from "../lib/store";
 import { judge } from "../lib/judge";
 import { availableIds, dueIds, itemsOfLevel, upcomingIds } from "../lib/selectors";
 import { shuffle } from "../lib/shuffle";
@@ -204,7 +206,16 @@ export function useStudy(deck: Deck | null) {
       return;
     }
     const now = Date.now();
-    session.queue.forEach((id) => store.setEntry(id, { box: 1, due: now }));
+    const counts: Partial<Record<DeckKey, number>> = {};
+    session.queue.forEach((id) => {
+      store.setEntry(id, { box: 1, due: now });
+      const it = deck.by[id];
+      if (it) {
+        const key = deckKeyOfItem(it);
+        counts[key] = (counts[key] ?? 0) + 1;
+      }
+    });
+    store.logNewDeck(counts);
     store.log("new", session.total);
     startReviews(false);
   }, [session, deck, startReviews]);

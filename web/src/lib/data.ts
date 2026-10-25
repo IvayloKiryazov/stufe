@@ -6,6 +6,14 @@ export interface Conjugation {
   participle: string;
 }
 
+export interface SourceRef {
+  kind: "tatoeba" | "wiktionary" | "content" | "derived" | string;
+  url?: string;
+  word?: string;
+  id?: number;
+  from?: string;
+}
+
 export interface Item {
   id: string;
   level: string;
@@ -30,6 +38,8 @@ export interface Item {
   examples?: { de: string; en: string }[];
   attribution?: string;
   source?: string;
+  sourceRef?: SourceRef;
+  exampleStatus?: "missing";
   freqRank?: number;
   conjugation?: Conjugation;
 }

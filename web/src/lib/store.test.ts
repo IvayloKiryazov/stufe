@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { LEECH_THRESHOLD } from "./srsCore";
-import { store } from "./store";
+import { PROGRESS_VERSION, store } from "./store";
 
 describe("store leech auto-suspend", () => {
   beforeEach(() => {
@@ -52,6 +52,81 @@ describe("store export/import", () => {
     store.grade("b", true);
     expect(() => store.import("not json")).toThrow();
     expect(store.state.p["b"]).toBeTruthy();
+  });
+});
+
+describe("progress schema migration", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    store.reset();
+  });
+
+  it("writes the current schema version", () => {
+    expect(store.state.v).toBe(PROGRESS_VERSION);
+    expect(JSON.parse(store.export()).v).toBe(PROGRESS_VERSION);
+  });
+
+  it("maps an old 7-box schedule onto the 12-level ladder", () => {
+    store.import(
+      JSON.stringify({
+        p: {
+          seven: { box: 7, due: 10 },
+          four: { box: 4, due: 20 },
+          zero: { box: 0, due: 0 },
+        },
+        history: {},
+      }),
+    );
+    expect(store.state.v).toBe(PROGRESS_VERSION);
+    expect(store.state.p.seven.box).toBe(12);
+    expect(store.state.p.four.box).toBe(7);
+    expect(store.state.p.zero.box).toBe(0);
+    expect(store.state.p.seven.due).toBe(10);
+  });
+
+  it("defaults new collections when importing an old backup", () => {
+    store.import(JSON.stringify({ p: {}, history: {} }));
+    expect(store.state.practice).toEqual({});
+    expect(store.state.notes).toEqual({});
+    expect(store.state.newDecks).toEqual({});
+    expect(store.state.settings.decks.course.enabled).toBe(true);
+  });
+});
+
+describe("store notes, practice and deck preferences", () => {
+  beforeEach(() => {
+    localStorage.clear();
+    store.reset();
+  });
+
+  it("stores and removes a user mnemonic", () => {
+    store.setNote("a", "  der Mann sieht aus wie ...  ");
+    expect(store.state.notes.a).toBe("der Mann sieht aus wie ...");
+    store.setNote("a", "   ");
+    expect(store.state.notes.a).toBeUndefined();
+  });
+
+  it("tracks practice accuracy", () => {
+    store.logPractice("reading", true);
+    store.logPractice("reading", false);
+    store.logPractice("reading", true);
+    expect(store.state.practice.reading).toEqual({ attempts: 3, correct: 2 });
+  });
+
+  it("tracks new items per deck for the day", () => {
+    store.logNewDeck({ course: 2, gender: 1 });
+    expect(store.state.newDecks[Object.keys(store.state.newDecks)[0]].course).toBe(2);
+  });
+
+  it("updates a single deck preference", () => {
+    store.setDeck("gender", { enabled: false, newPerDay: 0 });
+    expect(store.state.settings.decks.gender).toEqual({ enabled: false, newPerDay: 0 });
+    expect(store.state.settings.decks.course.enabled).toBe(true);
+  });
+
+  it("bulk-marks many items known", () => {
+    store.markKnownMany(["a", "b", "c"]);
+    for (const id of ["a", "b", "c"]) expect(store.state.p[id].known).toBe(true);
   });
 });
 

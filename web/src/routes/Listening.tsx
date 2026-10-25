@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { useDeck } from "../hooks/useDeck";
 import { useProgress } from "../hooks/useProgress";
 import { t } from "../lib/i18n";
+import { store } from "../lib/store";
 import { speak } from "../lib/tts";
 
 export default function Listening() {
@@ -27,9 +28,9 @@ export default function Listening() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [passage?.id, progress.settings.autoSpeak, progress.settings.voice]);
 
-  if (!deck) return <p className="text-muted">Loading…</p>;
-  if (!deck.reading.length) return <p className="text-muted">No passages available.</p>;
-  if (!passage) return <p className="text-muted">No passages available.</p>;
+  if (!deck) return <p className="text-muted">{t(lang, "common.loading")}</p>;
+  if (!deck.reading.length) return <p className="text-muted">{t(lang, "practice.noPassages")}</p>;
+  if (!passage) return <p className="text-muted">{t(lang, "practice.noPassages")}</p>;
 
   const score = passage.questions.reduce((n, q, i) => n + (answers[i] === q.answer ? 1 : 0), 0);
 
@@ -49,7 +50,7 @@ export default function Listening() {
 
       <div className="flex flex-wrap items-center gap-3">
         <Select value={passage.id} onValueChange={choose}>
-          <SelectTrigger className="w-56" aria-label="Passage">
+          <SelectTrigger className="w-56" aria-label={t(lang, "practice.passage")}>
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -61,22 +62,22 @@ export default function Listening() {
           </SelectContent>
         </Select>
         <Select value={rate} onValueChange={setRate}>
-          <SelectTrigger className="w-32" aria-label="Speed">
+          <SelectTrigger className="w-32" aria-label={t(lang, "practice.speed")}>
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="0.7">Slow</SelectItem>
-            <SelectItem value="0.9">Normal</SelectItem>
-            <SelectItem value="1.1">Fast</SelectItem>
+            <SelectItem value="0.7">{t(lang, "practice.slow")}</SelectItem>
+            <SelectItem value="0.9">{t(lang, "practice.normal")}</SelectItem>
+            <SelectItem value="1.1">{t(lang, "practice.fast")}</SelectItem>
           </SelectContent>
         </Select>
         <Button onClick={() => speak(passage.text, { rate: Number(rate) })}>
-          <Volume2 className="h-4 w-4" /> Play
+          <Volume2 className="h-4 w-4" /> {t(lang, "common.play")}
         </Button>
       </div>
 
       <Card>
-        <CardTitle>Questions</CardTitle>
+        <CardTitle>{t(lang, "common.questions")}</CardTitle>
         <div className="space-y-4">
           {passage.questions.map((q, qi) => (
             <fieldset key={qi}>
@@ -104,13 +105,20 @@ export default function Listening() {
           ))}
         </div>
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <Button onClick={() => setChecked(true)}>Check answers</Button>
+          <Button
+            onClick={() => {
+              setChecked(true);
+              store.logPractice("listening", score >= Math.ceil(passage.questions.length * 0.8), passage.level);
+            }}
+          >
+            {t(lang, "common.checkAnswers")}
+          </Button>
           <Button variant="outline" onClick={() => setReveal((r) => !r)}>
-            {reveal ? "Hide text" : "Show text"}
+            {t(lang, reveal ? "common.hideText" : "common.showText")}
           </Button>
           {checked && (
             <span className="text-sm">
-              {score} / {passage.questions.length} correct
+              {t(lang, "practice.correctCount", { score, total: passage.questions.length })}
             </span>
           )}
         </div>

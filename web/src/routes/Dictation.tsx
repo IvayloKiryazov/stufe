@@ -8,6 +8,7 @@ import { useProgress } from "../hooks/useProgress";
 import { t } from "../lib/i18n";
 import { equals } from "../lib/grade";
 import { shuffle } from "../lib/shuffle";
+import { store } from "../lib/store";
 import { speak } from "../lib/tts";
 
 export default function Dictation() {
@@ -39,16 +40,14 @@ export default function Dictation() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentId, progress.settings.autoSpeak, progress.settings.voice]);
 
-  if (!deck) return <p className="text-muted">Loading…</p>;
-  if (!queue.length) return <p className="text-muted">No sentences available.</p>;
+  if (!deck) return <p className="text-muted">{t(lang, "common.loading")}</p>;
+  if (!queue.length) return <p className="text-muted">{t(lang, "practice.noSentences")}</p>;
 
   if (i >= queue.length) {
     return (
       <div className="space-y-4">
-        <h1 className="text-3xl font-bold">Dictation done</h1>
-        <p className="text-muted">
-          {okCount} / {queue.length} correct.
-        </p>
+        <h1 className="text-3xl font-bold">{t(lang, "practice.dictationDone")}</h1>
+        <p className="text-muted">{t(lang, "practice.correctCount", { score: okCount, total: queue.length })}</p>
       </div>
     );
   }
@@ -59,15 +58,15 @@ export default function Dictation() {
     <div className="space-y-4">
       <div className="flex items-center gap-3 text-sm text-muted">
         <h1 className="text-sm font-normal">{t(lang, "practice.dictation")}</h1>
-        <Progress className="flex-1" value={(i / queue.length) * 100} label="Session progress" />
+        <Progress className="flex-1" value={(i / queue.length) * 100} label={t(lang, "common.sessionProgress")} />
         <span>
           {i + 1}/{queue.length}
         </span>
       </div>
       <Card>
-        <p className="mb-3 text-sm text-muted">Listen and type what you hear</p>
+        <p className="mb-3 text-sm text-muted">{t(lang, "practice.dictationInstruction")}</p>
         <Button variant="outline" onClick={() => speak(target)}>
-          <Volume2 className="h-4 w-4" /> Play
+          <Volume2 className="h-4 w-4" /> {t(lang, "common.play")}
         </Button>
         <input
           ref={inputRef}
@@ -77,13 +76,14 @@ export default function Dictation() {
           lang="de"
           autoComplete="off"
           spellCheck={false}
-          aria-label="Type what you hear"
+          aria-label={t(lang, "practice.typeWhatYouHear")}
           className="mt-3 w-full rounded-md border-2 border-line bg-bg px-3 py-2 text-lg"
           onKeyDown={(e) => {
             if (e.key !== "Enter") return;
             if (phase === "ask") {
               const good = equals(value, target);
               setOk(good);
+              store.logPractice("dictation", good, item.level);
               if (good) setOkCount((n) => n + 1);
               setPhase("fb");
             } else {
@@ -100,19 +100,20 @@ export default function Dictation() {
               onClick={() => {
                 const good = equals(value, target);
                 setOk(good);
+                store.logPractice("dictation", good, item.level);
                 if (good) setOkCount((n) => n + 1);
                 setPhase("fb");
               }}
             >
-              Check
+              {t(lang, "common.check")}
             </Button>
           ) : (
-            <Button onClick={() => { setI((n) => n + 1); setValue(""); setPhase("ask"); }}>Next</Button>
+            <Button onClick={() => { setI((n) => n + 1); setValue(""); setPhase("ask"); }}>{t(lang, "common.next")}</Button>
           )}
         </div>
         {phase === "fb" && (
           <div className="mt-4 border-t border-line pt-4">
-            <p className={ok ? "font-bold text-good" : "font-bold text-bad"}>{ok ? "Correct" : "Not quite"}</p>
+            <p className={ok ? "font-bold text-good" : "font-bold text-bad"}>{t(lang, ok ? "common.correct" : "common.notQuite")}</p>
             <p className="font-serif" lang="de">
               {target}
             </p>

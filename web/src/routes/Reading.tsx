@@ -8,19 +8,21 @@ import { useDeck } from "../hooks/useDeck";
 import type { Deck, Item, Reading as Passage } from "../lib/data";
 import { buildGlossIndex, glossFor } from "../lib/gloss";
 import { t } from "../lib/i18n";
+import { store } from "../lib/store";
 import { speak } from "../lib/tts";
 
 function PassageView({ p, deck }: { p: Passage; deck: Deck }) {
   const [answers, setAnswers] = useState<number[]>(() => p.questions.map(() => -1));
   const [checked, setChecked] = useState(false);
   const [sel, setSel] = useState<Item | null>(null);
+  const lang = useProgress().settings.language;
   const index = useMemo(() => buildGlossIndex(deck), [deck]);
   const score = p.questions.reduce((n, q, i) => n + (answers[i] === q.answer ? 1 : 0), 0);
 
   return (
     <div className="space-y-6">
       <Link to="/reading" className="text-sm text-muted">
-        ← All passages
+        {t(lang, "practice.allPassages")}
       </Link>
       <header>
         <h1 className="text-3xl font-bold">{p.title}</h1>
@@ -48,16 +50,16 @@ function PassageView({ p, deck }: { p: Passage; deck: Deck }) {
             <b lang="de">{sel.de}</b> — <span className="text-muted">{sel.en}</span>
             {sel.plural && <span className="text-muted"> · Pl. {sel.plural}</span>}
             <Button variant="ghost" size="sm" className="ml-2" onClick={() => setSel(null)}>
-              Clear
+              {t(lang, "common.clear")}
             </Button>
           </p>
         )}
         <Button variant="ghost" size="sm" className="mt-3" onClick={() => speak(p.text)}>
-          <Volume2 className="h-4 w-4" /> Listen
+          <Volume2 className="h-4 w-4" /> {t(lang, "common.listen")}
         </Button>
       </Card>
       <section>
-        <h2 className="mb-2 text-lg font-semibold">Glossary</h2>
+        <h2 className="mb-2 text-lg font-semibold">{t(lang, "practice.glossary")}</h2>
         <div className="space-y-1">
           {p.glossary.map(([de, en]) => (
             <p key={de} className="text-sm">
@@ -67,7 +69,7 @@ function PassageView({ p, deck }: { p: Passage; deck: Deck }) {
         </div>
       </section>
       <section>
-        <h2 className="mb-2 text-lg font-semibold">Questions</h2>
+        <h2 className="mb-2 text-lg font-semibold">{t(lang, "common.questions")}</h2>
         <div className="space-y-4">
           {p.questions.map((q, qi) => (
             <fieldset key={qi}>
@@ -89,10 +91,17 @@ function PassageView({ p, deck }: { p: Passage; deck: Deck }) {
           ))}
         </div>
         <div className="mt-4 flex items-center gap-3">
-          <Button onClick={() => setChecked(true)}>Check answers</Button>
+          <Button
+            onClick={() => {
+              setChecked(true);
+              store.logPractice("reading", score >= Math.ceil(p.questions.length * 0.8), p.level);
+            }}
+          >
+            {t(lang, "common.checkAnswers")}
+          </Button>
           {checked && (
             <span className="text-sm">
-              {score} / {p.questions.length} correct
+              {t(lang, "practice.correctCount", { score, total: p.questions.length })}
             </span>
           )}
         </div>
@@ -106,16 +115,16 @@ export default function Reading() {
   const progress = useProgress();
   const lang = progress.settings.language;
   const { id } = useParams();
-  if (!deck) return <p className="text-muted">Loading…</p>;
+  if (!deck) return <p className="text-muted">{t(lang, "common.loading")}</p>;
   if (id) {
     const p = deck.reading.find((r) => r.id === id);
-    return p ? <PassageView p={p} deck={deck} /> : <p className="text-muted">Passage not found.</p>;
+    return p ? <PassageView p={p} deck={deck} /> : <p className="text-muted">{t(lang, "practice.passageNotFound")}</p>;
   }
   return (
     <div className="space-y-6">
       <header>
         <h1 className="text-3xl font-bold">{t(lang, "practice.reading")}</h1>
-        <p className="text-muted">Short passages with a glossary and comprehension questions.</p>
+        <p className="text-muted">{t(lang, "practice.readingHint")}</p>
       </header>
       {deck.levels.map((L) => {
         const ps = deck.reading.filter((r) => r.level === L.id);

@@ -5,7 +5,7 @@ import { Card, CardTitle } from "../components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select";
 import { useProgress } from "../hooks/useProgress";
 import { backupSupported, chooseBackupFile } from "../lib/backup";
-import { store } from "../lib/store";
+import { DECKS, store } from "../lib/store";
 import { useTheme, type Theme } from "../lib/theme";
 import { t } from "../lib/i18n";
 
@@ -56,9 +56,9 @@ export default function Settings() {
   const restore = () => {
     try {
       store.import(importText);
-      setMsg("Restored.");
+      setMsg(t(s.language, "settings.restored"));
     } catch {
-      setMsg("That does not look like a valid backup.");
+      setMsg(t(s.language, "settings.invalid"));
     }
   };
 
@@ -73,41 +73,41 @@ export default function Settings() {
         <CardTitle>{t(s.language, "settings.appearance")}</CardTitle>
         <div className="space-y-3">
           <div className="flex items-center justify-between gap-4 text-sm">
-            <span>Theme</span>
+            <span>{t(s.language, "settings.theme")}</span>
             <Select value={theme} onValueChange={(v) => setTheme(v as Theme)}>
-              <SelectTrigger className="w-40" aria-label="Theme">
+              <SelectTrigger className="w-40" aria-label={t(s.language, "settings.themeAria")}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="auto">Auto</SelectItem>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
+                <SelectItem value="auto">{t(s.language, "settings.auto")}</SelectItem>
+                <SelectItem value="light">{t(s.language, "settings.light")}</SelectItem>
+                <SelectItem value="dark">{t(s.language, "settings.dark")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div className="flex items-center justify-between gap-4 text-sm">
-            <span>Text size</span>
+            <span>{t(s.language, "settings.textSize")}</span>
             <Select value={String(s.fontScale)} onValueChange={(v) => store.setSettings({ fontScale: Number(v) })}>
-              <SelectTrigger className="w-40" aria-label="Text size">
+              <SelectTrigger className="w-40" aria-label={t(s.language, "settings.textSizeAria")}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="0.9">Small</SelectItem>
-                <SelectItem value="1">Normal</SelectItem>
-                <SelectItem value="1.15">Large</SelectItem>
-                <SelectItem value="1.3">Extra large</SelectItem>
+                <SelectItem value="0.9">{t(s.language, "settings.small")}</SelectItem>
+                <SelectItem value="1">{t(s.language, "settings.normal")}</SelectItem>
+                <SelectItem value="1.15">{t(s.language, "settings.large")}</SelectItem>
+                <SelectItem value="1.3">{t(s.language, "settings.extraLarge")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
           <div className="flex items-center justify-between gap-4 text-sm">
             <span>{t(s.language, "common.language")}</span>
             <Select value={s.language} onValueChange={(v) => store.setSettings({ language: v as "en" | "de" })}>
-              <SelectTrigger className="w-40" aria-label="Interface language">
+              <SelectTrigger className="w-40" aria-label={t(s.language, "settings.languageAria")}>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="en">English</SelectItem>
-                <SelectItem value="de">Deutsch</SelectItem>
+                <SelectItem value="en">{t(s.language, "settings.english")}</SelectItem>
+                <SelectItem value="de">{t(s.language, "settings.deutsch")}</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -117,11 +117,11 @@ export default function Settings() {
       <Card>
         <CardTitle>{t(s.language, "settings.study")}</CardTitle>
         <div className="space-y-3">
-          <NumberRow label="New items per lesson" value={s.newPerLesson} min={3} max={20} onChange={(n) => store.setSettings({ newPerLesson: n })} />
-          <NumberRow label="Daily new goal" value={s.goalNew} min={0} max={200} onChange={(n) => store.setSettings({ goalNew: n })} />
-          <NumberRow label="Daily review goal" value={s.goalReviews} min={0} max={1000} onChange={(n) => store.setSettings({ goalReviews: n })} />
+          <NumberRow label={t(s.language, "settings.newPerLesson")} value={s.newPerLesson} min={3} max={20} onChange={(n) => store.setSettings({ newPerLesson: n })} />
+          <NumberRow label={t(s.language, "settings.dailyNew")} value={s.goalNew} min={0} max={200} onChange={(n) => store.setSettings({ goalNew: n })} />
+          <NumberRow label={t(s.language, "settings.dailyReview")} value={s.goalReviews} min={0} max={1000} onChange={(n) => store.setSettings({ goalReviews: n })} />
           <label className="flex items-center justify-between gap-4 text-sm">
-            <span>Unlock all levels</span>
+            <span>{t(s.language, "settings.unlockAll")}</span>
             <input
               type="checkbox"
               checked={s.unlockAll}
@@ -129,11 +129,11 @@ export default function Settings() {
             />
           </label>
           <label className="flex items-center justify-between gap-4 text-sm">
-            <span>Audio (browser German voices)</span>
+            <span>{t(s.language, "settings.audio")}</span>
             <input type="checkbox" checked={s.voice} onChange={(e) => store.setSettings({ voice: e.target.checked })} />
           </label>
           <label className="flex items-center justify-between gap-4 text-sm">
-            <span>Vacation mode (pause new lessons)</span>
+            <span>{t(s.language, "settings.vacation")}</span>
             <input
               type="checkbox"
               checked={s.vacation}
@@ -141,7 +141,7 @@ export default function Settings() {
             />
           </label>
           <label className="flex items-center justify-between gap-4 text-sm">
-            <span>Review reminders</span>
+            <span>{t(s.language, "settings.reminders")}</span>
             <input
               type="checkbox"
               checked={s.reminders}
@@ -160,48 +160,74 @@ export default function Settings() {
       </Card>
 
       <Card>
+        <CardTitle>{t(s.language, "settings.decks")}</CardTitle>
+        <p className="mb-3 text-sm text-muted">{t(s.language, "settings.decksHint")}</p>
+        <div className="space-y-3">
+          {DECKS.map((deck) => (
+            <div key={deck} className="space-y-1 border-b border-line pb-2 last:border-0">
+              <label className="flex items-center justify-between gap-4 text-sm">
+                <span>{t(s.language, `deck.${deck}`)}</span>
+                <input
+                  type="checkbox"
+                  checked={s.decks[deck].enabled}
+                  onChange={(e) => store.setDeck(deck, { enabled: e.target.checked })}
+                />
+              </label>
+              <NumberRow
+                label={t(s.language, "settings.newPerDay")}
+                value={s.decks[deck].newPerDay}
+                min={0}
+                max={200}
+                onChange={(n) => store.setDeck(deck, { newPerDay: n })}
+              />
+            </div>
+          ))}
+        </div>
+      </Card>
+
+      <Card>
         <CardTitle>{t(s.language, "settings.progress")}</CardTitle>
         <div className="space-y-3">
           <div className="flex flex-wrap gap-2">
             <Button variant="outline" onClick={download}>
-              Download backup
+              {t(s.language, "settings.download")}
             </Button>
             <Button
               variant="outline"
               onClick={() => {
                 navigator.clipboard?.writeText(store.export()).then(
-                  () => setMsg("Copied to clipboard."),
-                  () => setMsg("Copy failed."),
+                  () => setMsg(t(s.language, "settings.copied")),
+                  () => setMsg(t(s.language, "settings.copyFailed")),
                 );
               }}
             >
-              Copy backup
+              {t(s.language, "settings.copy")}
             </Button>
           </div>
           <textarea
             value={importText}
             onChange={(e) => setImportText(e.target.value)}
-            placeholder="Paste a backup here to restore"
+            placeholder={t(s.language, "settings.paste")}
             className="min-h-24 w-full rounded-md border border-line bg-bg p-3 font-mono text-xs"
           />
           <div className="flex flex-wrap items-center gap-2">
             <Button variant="outline" onClick={restore} disabled={!importText.trim()}>
-              Restore
+              {t(s.language, "settings.restore")}
             </Button>
             <Button
               variant="link"
               onClick={() => {
                 if (!confirmReset) {
                   setConfirmReset(true);
-                  setMsg("Click again to erase all progress.");
+                  setMsg(t(s.language, "settings.resetConfirm"));
                 } else {
                   store.reset();
                   setConfirmReset(false);
-                  setMsg("Progress reset.");
+                  setMsg(t(s.language, "settings.resetDone"));
                 }
               }}
             >
-              Reset all progress
+              {t(s.language, "settings.resetAll")}
             </Button>
           </div>
           {msg && <p className="text-sm text-muted">{msg}</p>}
@@ -212,25 +238,20 @@ export default function Settings() {
         <CardTitle>{t(s.language, "settings.backupFile")}</CardTitle>
         {backupSupported() ? (
           <>
-            <p className="text-sm text-muted">
-              Keep progress in a real file — it survives clearing browser data, and syncs if the
-              file is in a cloud folder.
-            </p>
+            <p className="text-sm text-muted">{t(s.language, "settings.backupHint")}</p>
             <Button
               variant="outline"
               className="mt-3"
               onClick={async () => {
                 const ok = await chooseBackupFile();
-                setMsg(ok ? "Backup file linked." : "Backup file not changed.");
+                setMsg(t(s.language, ok ? "settings.backupLinked" : "settings.backupUnchanged"));
               }}
             >
-              Keep a backup file…
+              {t(s.language, "settings.keepBackup")}
             </Button>
           </>
         ) : (
-          <p className="text-sm text-muted">
-            This browser doesn’t support file backups; use “Download backup” below.
-          </p>
+          <p className="text-sm text-muted">{t(s.language, "settings.backupUnsupported")}</p>
         )}
       </Card>
 
@@ -238,10 +259,10 @@ export default function Settings() {
         <CardTitle>{t(s.language, "settings.more")}</CardTitle>
         <div className="flex flex-wrap gap-2">
           <Button asChild variant="outline">
-            <Link to="/help">Help</Link>
+            <Link to="/help">{t(s.language, "settings.help")}</Link>
           </Button>
           <Button asChild variant="outline">
-            <Link to="/credits">Credits &amp; licenses</Link>
+            <Link to="/credits">{t(s.language, "settings.credits")}</Link>
           </Button>
         </div>
       </Card>

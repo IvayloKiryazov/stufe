@@ -88,12 +88,14 @@ const NEXT_THEME: Record<Theme, Theme> = { auto: "light", light: "dark", dark: "
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const lang = useProgress().settings.language;
   const Icon = theme === "dark" ? Moon : theme === "light" ? Sun : Monitor;
+  const label = (v: Theme) => t(lang, v === "auto" ? "app.auto" : v === "light" ? "app.light" : "app.dark");
   return (
     <Button
       variant="ghost"
       size="icon"
-      aria-label={`Theme: ${theme}. Switch to ${NEXT_THEME[theme]}.`}
+      aria-label={t(lang, "app.themeAria", { theme: label(theme), next: label(NEXT_THEME[theme]) })}
       onClick={() => setTheme(NEXT_THEME[theme])}
     >
       <Icon className="h-5 w-5" />
@@ -132,7 +134,7 @@ export default function App() {
         className="sr-only focus:not-sr-only focus:fixed focus:left-2 focus:top-2 focus:z-50 focus:rounded-md focus:border focus:border-line focus:bg-surface focus:px-3 focus:py-2"
         onClick={() => document.getElementById("main")?.focus()}
       >
-        Skip to content
+        {t(lang, "common.skip")}
       </button>
       <aside
         className={cn(
@@ -142,7 +144,7 @@ export default function App() {
       >
         <div className="flex items-center justify-between">
           <span className="font-serif text-2xl font-bold">Stufe</span>
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setOpen(false)} aria-label="Close menu">
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setOpen(false)} aria-label={t(lang, "common.closeMenu")}>
             <X className="h-5 w-5" />
           </Button>
         </div>
@@ -176,7 +178,7 @@ export default function App() {
 
       <div className="flex min-h-full flex-col">
         <header className="flex items-center gap-2 border-b border-line bg-surface px-3 py-2">
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setOpen(true)} aria-label="Open menu">
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setOpen(true)} aria-label={t(lang, "common.openMenu")}>
             <Menu className="h-5 w-5" />
           </Button>
           <span className="font-serif text-lg font-bold md:hidden">Stufe</span>
@@ -184,7 +186,7 @@ export default function App() {
             <Button
               variant="ghost"
               size="icon"
-              aria-label="Keyboard shortcuts"
+              aria-label={t(lang, "common.shortcuts")}
               onClick={() => setShortcuts(true)}
             >
               <HelpCircle className="h-5 w-5" />
@@ -194,7 +196,7 @@ export default function App() {
         </header>
         <main id="main" tabIndex={-1} className="mx-auto w-full max-w-3xl flex-1 p-4 md:p-8">
           <ErrorBoundary key={location.pathname}>
-            <Suspense fallback={<p className="text-muted">Loading…</p>}>
+            <Suspense fallback={<p className="text-muted">{t(lang, "common.loading")}</p>}>
               <Routes>
                 <Route path="/" element={<Today />} />
                 <Route path="/study" element={<Study />} />

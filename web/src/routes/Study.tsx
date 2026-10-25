@@ -21,15 +21,15 @@ import { speakItem } from "../lib/tts";
 
 const UMLAUTS = ["ä", "ö", "ü", "ß"];
 
-function labelFor(it: Item): string {
-  if (it.kind === "noun") return "German word with its article";
-  if (it.kind === "verb") return "Verb (infinitive)";
-  if (it.kind === "adj") return "Adjective";
-  if (it.kind === "gender") return "Article (der/die/das)";
-  if (it.kind === "plural") return "Plural form";
-  if (it.kind === "case") return "Article (case)";
-  if (it.kind === "vocab-cloze") return "Fill in the missing word";
-  return "Fill in the blank";
+function labelFor(it: Item, lang: "en" | "de"): string {
+  if (it.kind === "noun") return t(lang, "study.label.noun");
+  if (it.kind === "verb") return t(lang, "study.label.verb");
+  if (it.kind === "adj") return t(lang, "study.label.adj");
+  if (it.kind === "gender") return t(lang, "study.label.gender");
+  if (it.kind === "plural") return t(lang, "study.label.plural");
+  if (it.kind === "case") return t(lang, "study.label.case");
+  if (it.kind === "vocab-cloze") return t(lang, "study.label.vocabCloze");
+  return t(lang, "study.label.cloze");
 }
 
 function Prompt({ it, reps }: { it: Item; reps: number }) {
@@ -87,7 +87,25 @@ function Prompt({ it, reps }: { it: Item; reps: number }) {
   return <p className="font-serif text-2xl">{it.en}</p>;
 }
 
+function MnemonicEditor({ id }: { id: string }) {
+  const progress = useProgress();
+  const lang = progress.settings.language;
+  return (
+    <label className="block text-sm">
+      <span className="text-muted">{t(lang, "common.yourMnemonic")}</span>
+      <textarea
+        key={id}
+        defaultValue={progress.notes[id] ?? ""}
+        onBlur={(e) => store.setNote(id, e.target.value)}
+        placeholder={t(lang, "common.mnemonicPlaceholder")}
+        className="mt-1 min-h-16 w-full rounded-md border border-line bg-bg p-2 text-sm"
+      />
+    </label>
+  );
+}
+
 function Reveal({ it }: { it: Item }) {
+  const lang = useProgress().settings.language;
   return (
     <div className="space-y-2 leading-relaxed">
       {it.kind === "noun" && (
@@ -97,7 +115,7 @@ function Reveal({ it }: { it: Item }) {
           </p>
           {it.plural && (
             <p className="font-serif text-lg text-muted" lang="de">
-              Plural: <Art text={it.plural} />
+              {t(lang, "study.plural")} <Art text={it.plural} />
             </p>
           )}
         </>
@@ -160,6 +178,12 @@ function Reveal({ it }: { it: Item }) {
         <p className="border-l-2 border-line pl-3 text-base text-muted">{it.mnemonic}</p>
       )}
       {it.note && <p className="text-base text-muted">{it.note}</p>}
+      <MnemonicEditor id={it.id} />
+      {it.sourceRef?.url && (
+        <a href={it.sourceRef.url} target="_blank" rel="noreferrer" className="text-sm text-muted underline">
+          {t(lang, "common.source")}
+        </a>
+      )}
     </div>
   );
 }
@@ -238,12 +262,12 @@ export default function Study() {
   if (error) {
     return (
       <Card>
-        <CardTitle>Could not load data</CardTitle>
+        <CardTitle>{t(lang, "common.loadError")}</CardTitle>
         <p className="text-sm text-muted">{error}</p>
       </Card>
     );
   }
-  if (!deck) return <p className="text-muted">Loading…</p>;
+  if (!deck) return <p className="text-muted">{t(lang, "common.loading")}</p>;
 
   if (!session) {
     const due = dueIds(deck, progress).length;
@@ -317,19 +341,19 @@ export default function Study() {
     const pct = session.firstTotal ? Math.round((session.firstOK / session.firstTotal) * 100) : 0;
     return (
       <div className="space-y-6">
-        <h1 className="text-3xl font-bold">Done</h1>
+        <h1 className="text-3xl font-bold">{t(lang, "common.done")}</h1>
         <Card>
           {session.mode === "checkpoint" && (
             <p className={pct >= 80 ? "text-lg font-bold text-good" : "text-lg font-bold text-bad"}>
-              {pct >= 80 ? "Passed" : "Not passed yet"} — the target is 80%.
+              {t(lang, pct >= 80 ? "study.checkpointPassed" : "study.checkpointFailed")}
             </p>
           )}
           <p className="text-lg">
-            {session.firstOK} of {session.firstTotal} right on the first try ({pct}%).
+            {t(lang, "study.firstTry", { ok: session.firstOK, total: session.firstTotal, pct })}
           </p>
         </Card>
         <Button asChild>
-          <Link to="/">Back to Today</Link>
+          <Link to="/">{t(lang, "common.backToday")}</Link>
         </Button>
       </div>
     );
@@ -337,7 +361,7 @@ export default function Study() {
 
   const isLesson = session.mode === "lesson";
   const it = isLesson ? deck.by[session.queue[session.completed]] : deck.by[session.queue[0]];
-  if (!it) return <p className="text-muted">Loading…</p>;
+  if (!it) return <p className="text-muted">{t(lang, "common.loading")}</p>;
   const currentId = isLesson ? session.queue[session.completed] : session.queue[0];
   const reps = store.state.p[currentId]?.reps ?? 0;
   const pos = isLesson ? session.completed + 1 : session.completed;
@@ -347,28 +371,28 @@ export default function Study() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-3 text-sm text-muted">
-        <span className="capitalize">{session.mode}</span>
-        <Progress value={(pos / session.total) * 100} className="flex-1" label="Session progress" />
+        <span className="capitalize">{t(lang, `study.mode.${session.mode}`)}</span>
+        <Progress value={(pos / session.total) * 100} className="flex-1" label={t(lang, "common.sessionProgress")} />
         <span>
           {pos}/{session.total}
         </span>
         <Button variant="ghost" size="sm" onClick={study.wrapUp}>
-          Wrap up
+          {t(lang, "common.wrapUp")}
         </Button>
         <Button variant="ghost" size="sm" onClick={study.stop}>
-          Stop
+          {t(lang, "common.stop")}
         </Button>
       </div>
 
       <Card className={fb ? (session.last?.ok ? "border-l-4 border-l-good" : "border-l-4 border-l-bad") : undefined}>
-        <div className="mb-2 text-sm text-muted">{labelFor(it)}</div>
+        <div className="mb-2 text-sm text-muted">{labelFor(it, lang)}</div>
         <Prompt it={it} reps={reps} />
 
         {isLesson ? (
           <div className="mt-4 space-y-3 border-t border-line pt-4">
             <Reveal it={it} />
             <Button variant="ghost" size="sm" onClick={() => speakItem(it, { enabled: progress.settings.voice })}>
-              <Volume2 className="h-4 w-4" /> Listen
+              <Volume2 className="h-4 w-4" /> {t(lang, "common.listen")}
             </Button>
           </div>
         ) : (
@@ -383,7 +407,7 @@ export default function Study() {
               autoCapitalize="off"
               autoCorrect="off"
               spellCheck={false}
-              aria-label="Your answer"
+              aria-label={t(lang, "common.yourAnswer")}
               className="mt-3 w-full rounded-md border-2 border-line bg-bg px-3 py-2 text-lg"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
@@ -419,42 +443,42 @@ export default function Study() {
             <div className="mt-3">
               {session.phase === "ask" ? (
                 <Button onClick={() => study.submit(value)} disabled={!value.trim()}>
-                  Check
+                  {t(lang, "common.check")}
                 </Button>
               ) : (
-                <Button onClick={study.next}>Next</Button>
+                <Button onClick={study.next}>{t(lang, "common.next")}</Button>
               )}
             </div>
             {fb && (
               <div className="mt-4 space-y-3 border-t border-line pt-4">
                 <p className={session.last?.ok ? "font-bold text-good" : "font-bold text-bad"}>
-                  {session.last?.ok ? "Correct" : "Not quite"}
+                  {t(lang, session.last?.ok ? "common.correct" : "common.notQuite")}
                 </p>
-                {stage && <Chip>{stageName(stage.box)}</Chip>}
+                {stage && <Chip>{t(lang, `stage.${stageName(stage.box).toLowerCase()}`)}</Chip>}
                 {session.lastId && store.state.p[session.lastId]?.suspended && (
-                  <p className="text-sm text-muted">Leech — auto-suspended. Resume it from Extra study → Leeches.</p>
+                  <p className="text-sm text-muted">{t(lang, "study.leech")}</p>
                 )}
                 <Reveal it={it} />
                 {session.last?.msg && <p className="text-sm text-muted">{session.last.msg}</p>}
                 <div className="flex flex-wrap gap-2">
                   <Button variant="ghost" size="sm" onClick={() => speakItem(it, { enabled: progress.settings.voice })}>
-                    <Volume2 className="h-4 w-4" /> Listen
+                    <Volume2 className="h-4 w-4" /> {t(lang, "common.listen")}
                   </Button>
                   <Button variant="ghost" size="sm" onClick={study.undo}>
-                    Undo
+                    {t(lang, "common.undo")}
                   </Button>
                   <Button variant="ghost" size="sm" onClick={study.suspendCurrent}>
-                    Suspend
+                    {t(lang, "common.suspend")}
                   </Button>
                   <Button variant="ghost" size="sm" onClick={study.knowCurrent}>
-                    I know this
+                    {t(lang, "common.knowThis")}
                   </Button>
                   <Button variant="ghost" size="sm" onClick={study.resetCurrent}>
-                    Reset
+                    {t(lang, "common.reset")}
                   </Button>
                   {!session.last?.ok && (
                     <Button variant="link" size="sm" onClick={study.override}>
-                      I was right (typo)
+                      {t(lang, "common.typo")}
                     </Button>
                   )}
                 </div>
@@ -466,7 +490,7 @@ export default function Study() {
         {isLesson && (
           <div className="mt-4">
             <Button onClick={study.lessonNext}>
-              {session.completed === session.total - 1 ? "Add to reviews" : "Next"}
+              {session.completed === session.total - 1 ? t(lang, "study.addToReviews") : t(lang, "common.next")}
             </Button>
           </div>
         )}

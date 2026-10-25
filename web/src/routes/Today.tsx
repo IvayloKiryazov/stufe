@@ -23,7 +23,9 @@ export default function Today() {
     const key = dayKey(Date.now());
     if (localStorage.getItem("stufe-reminded") === key) return;
     try {
-      new Notification("Reviews due", { body: `${due} review${due === 1 ? "" : "s"} waiting in Stufe.` });
+      new Notification(t(progress.settings.language, "today.reviewsDue"), {
+        body: t(progress.settings.language, "today.reminderBody", { n: due }),
+      });
       localStorage.setItem("stufe-reminded", key);
     } catch {
       /* ignore */
@@ -33,12 +35,12 @@ export default function Today() {
   if (error) {
     return (
       <Card>
-        <CardTitle>Could not load data</CardTitle>
+        <CardTitle>{t(progress.settings.language, "common.loadError")}</CardTitle>
         <p className="text-sm text-muted">{error}</p>
       </Card>
     );
   }
-  if (!deck) return <p className="text-muted">Loading…</p>;
+  if (!deck) return <p className="text-muted">{t(progress.settings.language, "common.loading")}</p>;
 
   const now = Date.now();
   const lang = progress.settings.language;
@@ -75,7 +77,7 @@ export default function Today() {
                 {today.new ?? 0} / {progress.settings.goalNew}
               </span>
             </div>
-            <Progress value={newPct} label="New items goal" />
+            <Progress value={newPct} label={t(lang, "today.newGoal")} />
           </div>
           <div>
             <div className="mb-1 flex justify-between text-sm">
@@ -84,7 +86,7 @@ export default function Today() {
                 {today.reviews ?? 0} / {progress.settings.goalReviews}
               </span>
             </div>
-            <Progress value={revPct} label="Reviews goal" />
+            <Progress value={revPct} label={t(lang, "today.reviewsGoal")} />
           </div>
         </div>
       </Card>

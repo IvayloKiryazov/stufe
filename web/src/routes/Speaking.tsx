@@ -9,6 +9,7 @@ import { asrSupported, listenOnce } from "../lib/asr";
 import { tokenSimilarity, wordDiff } from "../lib/grade";
 import { t } from "../lib/i18n";
 import { shuffle } from "../lib/shuffle";
+import { store } from "../lib/store";
 import { speak } from "../lib/tts";
 
 export default function Speaking() {
@@ -26,8 +27,8 @@ export default function Speaking() {
     [deck],
   );
 
-  if (!deck) return <p className="text-muted">Loading…</p>;
-  if (!sentences.length) return <p className="text-muted">No sentences available.</p>;
+  if (!deck) return <p className="text-muted">{t(lang, "common.loading")}</p>;
+  if (!sentences.length) return <p className="text-muted">{t(lang, "practice.noSentences")}</p>;
 
   const item = deck.by[sentences[i]];
   const target = item.sentence_de ?? "";
@@ -48,7 +49,7 @@ export default function Speaking() {
       recRef.current = rec;
       setRecording(true);
     } catch {
-      setMsg("Microphone unavailable in this browser.");
+      setMsg(t(lang, "practice.micUnavailable"));
     }
   };
   const stop = () => {
@@ -61,10 +62,12 @@ export default function Speaking() {
     setHeard("");
     try {
       const { transcript } = await listenOnce();
-      if (transcript) setHeard(transcript);
-      else setMsg("I didn't catch that — try again.");
+      if (transcript) {
+        setHeard(transcript);
+        store.logPractice("speaking", tokenSimilarity(transcript, target) >= 0.8, item.level);
+      } else setMsg(t(lang, "practice.didNotCatch"));
     } catch {
-      setMsg("Speech recognition isn't available in this browser.");
+      setMsg(t(lang, "practice.asrUnavailable"));
     }
   };
   const diff = heard ? wordDiff(heard, target) : null;
@@ -73,60 +76,60 @@ export default function Speaking() {
     <div className="space-y-4">
       <div className="flex items-center gap-3 text-sm text-muted">
         <h1 className="text-sm font-normal">{t(lang, "practice.speaking")}</h1>
-        <Progress className="flex-1" value={(i / sentences.length) * 100} label="Session progress" />
+        <Progress className="flex-1" value={(i / sentences.length) * 100} label={t(lang, "common.sessionProgress")} />
         <span>
           {i + 1}/{sentences.length}
         </span>
       </div>
       <Card>
-        <p className="mb-2 text-sm text-muted">Say this out loud, then compare with the model.</p>
+        <p className="mb-2 text-sm text-muted">{t(lang, "practice.speakingInstruction")}</p>
         <p className="font-serif text-xl" lang="de">
           {target}
         </p>
         <p className="text-sm text-muted">{item.sentence_en}</p>
         <div className="mt-4 flex flex-wrap gap-2">
           <Button variant="outline" onClick={() => speak(target)}>
-            <Volume2 className="h-4 w-4" /> Model
+            <Volume2 className="h-4 w-4" /> {t(lang, "practice.model")}
           </Button>
           {recording ? (
             <Button variant="outline" onClick={stop}>
-              <Square className="h-4 w-4" /> Stop
+              <Square className="h-4 w-4" /> {t(lang, "common.stop")}
             </Button>
           ) : (
             <Button variant="outline" onClick={start}>
-              <Mic className="h-4 w-4" /> Record
+              <Mic className="h-4 w-4" /> {t(lang, "practice.record")}
             </Button>
           )}
           {asrSupported() && (
             <Button variant="outline" onClick={speechCheck}>
-              <Mic className="h-4 w-4" /> Speech check
+              <Mic className="h-4 w-4" /> {t(lang, "practice.speechCheck")}
             </Button>
           )}
         </div>
         {url && (
-          <audio className="mt-3 w-full" src={url} controls aria-label="Your recording" />
+          <audio className="mt-3 w-full" src={url} controls aria-label={t(lang, "practice.recording")} />
         )}
         {msg && <p className="mt-2 text-sm text-muted">{msg}</p>}
         {heard && diff && (
           <div className="mt-3 space-y-1 border-t border-line pt-3">
             <p className="text-sm">
-              <b>I heard:</b> <span lang="de">{heard}</span>
+              <b>{t(lang, "practice.heard")}</b> <span lang="de">{heard}</span>
             </p>
             <p className="text-sm text-muted">
-              {Math.round(tokenSimilarity(heard, target) * 100)}% match to the model.
+              {t(lang, "practice.matchTarget", { pct: Math.round(tokenSimilarity(heard, target) * 100) })}
             </p>
             {diff.missing.length > 0 && (
               <p className="text-sm">
-                <b>Missing:</b> <span lang="de">{diff.missing.join(", ")}</span>
+                <b>{t(lang, "practice.missing")}</b> <span lang="de">{diff.missing.join(", ")}</span>
               </p>
             )}
             {diff.extra.length > 0 && (
               <p className="text-sm text-bad">
-                Extra: <span lang="de">{diff.extra.join(", ")}</span>
+                {t(lang, "practice.extra")} <span lang="de">{diff.extra.join(", ")}</span>
               </p>
             )}
             {diff.missing.length === 0 && diff.extra.length === 0 && (
-              <p className="text-sm text-good">Spot on.</p>
+              <p className="text-sm text-good">{t(lang, "practice.spotOn")}</p>
             )}
           </div>
         )}
@@ -139,7 +142,7 @@ export default function Speaking() {
               setHeard("");
             }}
           >
-            I said it
+            {t(lang, "practice.saidIt")}
           </Button>
           <Button
             variant="ghost"
@@ -149,7 +152,7 @@ export default function Speaking() {
               setHeard("");
             }}
           >
-            Again
+            {t(lang, "practice.again")}
           </Button>
         </div>
       </Card>

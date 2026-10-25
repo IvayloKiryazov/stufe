@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { Deck } from "./data";
-import { dueIds, nextUp, upcomingIds } from "./selectors";
+import { availableIds, dueIds, nextUp, upcomingIds } from "./selectors";
 import type { Entry } from "./srsCore";
 import type { Progress } from "./store";
 
@@ -58,5 +58,59 @@ describe("selectors: nextUp", () => {
   });
   it("returns null once the group is passed", () => {
     expect(nextUp(course, mk({ a: { box: 5, due: 0 } }))).toBeNull();
+  });
+});
+
+describe("selectors: per-deck filtering", () => {
+  const deckWithTracks: Deck = {
+    reading: [],
+    levels: [
+      {
+        id: "a1",
+        name: "A1",
+        title: "Beginner",
+        groups: [
+          { id: "g-course", name: "People", kind: "noun", intro: "", items: ["a"] },
+          { id: "g-core", name: "Core nouns (frequency)", kind: "noun", intro: "", items: ["b"] },
+          { id: "g-gender", name: "Article", kind: "gender", intro: "", items: ["c"] },
+        ],
+      },
+    ],
+    by: {
+      a: { id: "a", level: "a1", group: "g-course", groupName: "People", kind: "noun" },
+      b: { id: "b", level: "a1", group: "g-core", groupName: "Core nouns (frequency)", kind: "noun" },
+      c: { id: "c", level: "a1", group: "g-gender", groupName: "Article", kind: "gender" },
+    },
+  };
+
+  function mkDecks(over: Record<string, { enabled: boolean; newPerDay: number }>) {
+    return {
+      p: {},
+      history: {},
+      settings: {
+        unlockAll: true,
+        vacation: false,
+        decks: {
+          course: { enabled: true, newPerDay: 5 },
+          core: { enabled: true, newPerDay: 5 },
+          gender: { enabled: true, newPerDay: 5 },
+          plural: { enabled: true, newPerDay: 5 },
+          case: { enabled: true, newPerDay: 5 },
+          cloze: { enabled: true, newPerDay: 5 },
+          ...over,
+        },
+      },
+    } as unknown as Progress;
+  }
+
+  it("skips disabled decks", () => {
+    expect(availableIds(deckWithTracks, mkDecks({ gender: { enabled: false, newPerDay: 5 } }))).toEqual([
+      "a",
+      "b",
+    ]);
+  });
+
+  it("respects the per-deck new allowance", () => {
+    expect(availableIds(deckWithTracks, mkDecks({ core: { enabled: true, newPerDay: 0 } }))).toEqual(["a", "c"]);
   });
 });

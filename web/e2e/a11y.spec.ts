@@ -28,3 +28,13 @@ for (const screen of SCREENS) {
     expect(results.violations).toEqual([]);
   });
 }
+
+for (const tab of ["Levels", "Projections"]) {
+  test(`stats ${tab} tab has no accessibility violations`, async ({ page }) => {
+    await page.goto("/#/stats");
+    await page.getByRole("tab", { name: tab }).click();
+    await page.waitForTimeout(300);
+    const results = await new AxeBuilder({ page }).analyze();
+    expect(results.violations).toEqual([]);
+  });
+}

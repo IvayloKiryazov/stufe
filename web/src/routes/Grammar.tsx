@@ -9,9 +9,10 @@ import type { Deck } from "../lib/data";
 import { passed } from "../lib/srsCore";
 
 function Point({ deck, levelIdx, groupId }: { deck: Deck; levelIdx: number; groupId: string }) {
+  const lang = useProgress().settings.language;
   const level = deck.levels[levelIdx];
   const g = level?.groups.find((x) => x.id === groupId);
-  if (!g) return <p className="text-muted">Grammar point not found.</p>;
+  if (!g) return <p className="text-muted">{t(lang, "grammar.notFound")}</p>;
   const examples = g.items
     .map((id) => deck.by[id])
     .filter((i) => i && i.kind === "cloze")
@@ -20,7 +21,7 @@ function Point({ deck, levelIdx, groupId }: { deck: Deck; levelIdx: number; grou
   return (
     <div className="space-y-6">
       <Link to="/grammar" className="text-sm text-muted">
-        ← All grammar
+        {t(lang, "grammar.all")}
       </Link>
       <header>
         <h1 className="text-3xl font-bold">{g.name}</h1>
@@ -30,11 +31,11 @@ function Point({ deck, levelIdx, groupId }: { deck: Deck; levelIdx: number; grou
         </p>
       </header>
       <Card>
-        <CardTitle>Rule</CardTitle>
+        <CardTitle>{t(lang, "grammar.rule")}</CardTitle>
         <p className="text-sm">{g.intro}</p>
       </Card>
       <section>
-        <h2 className="mb-3 text-lg font-semibold">Examples</h2>
+        <h2 className="mb-3 text-lg font-semibold">{t(lang, "grammar.examples")}</h2>
         <div className="space-y-3">
           {examples.map((i) => (
             <div key={i.id}>
@@ -48,7 +49,7 @@ function Point({ deck, levelIdx, groupId }: { deck: Deck; levelIdx: number; grou
       </section>
       <Button asChild>
         <Link to={`/study?mode=practice&group=${encodeURIComponent(g.id)}&level=${levelIdx}`}>
-          Cram this point
+          {t(lang, "grammar.cram")}
         </Link>
       </Button>
     </div>
@@ -61,7 +62,7 @@ export default function Grammar() {
   const lang = progress.settings.language;
   const { level, group } = useParams();
 
-  if (!deck) return <p className="text-muted">Loading…</p>;
+  if (!deck) return <p className="text-muted">{t(lang, "common.loading")}</p>;
   if (level != null && group != null)
     return <Point deck={deck} levelIdx={Number(level)} groupId={group} />;
 
@@ -69,7 +70,7 @@ export default function Grammar() {
     <div className="space-y-6">
       <header>
         <h1 className="text-3xl font-bold">{t(lang, "nav.grammar")}</h1>
-        <p className="text-muted">Study a point, see the rule and examples.</p>
+        <p className="text-muted">{t(lang, "grammar.hint")}</p>
       </header>
       {deck.levels.map((L, i) => {
         const groups = L.groups.filter((g) => g.kind === "cloze");
