@@ -73,7 +73,7 @@ Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / 
 | #63 | reading library | "dozens of passages across A1–C1" → only **8** (a1:2, a2:3, b1:3); no B2–C2 |
 | #65 | dialogues & authentic texts | only **1** dialogue passage |
 | #89 | factual checkpoints | quizzes existing items; the answers are **not** independently verified |
-| #96 | keyboard-only nav everywhere | only a shortcut sheet; not full keyboard navigation |
+| #96 | keyboard-only nav everywhere | shortcut sheet + skip-to-content; not full keyboard navigation |
 | #68 | per-item source | a coarse `source` string, not a verifiable per-item reference |
 | #69 / #92 | cross-check / factual suite | curated **nouns** only (article/plural); no glosses, no auto deck, no learner tests |
 | #74 | skill-by-level | skills are listed, but there is **no per-skill progress** |
@@ -111,20 +111,22 @@ Legend: ✅ done · 🟡 partial (closed but not full acceptance) · ⛔ open / 
   per-deck settings (open).
 
 **Content (epic #112)**
-- #82 714 vocabulary items still lack an example · #64 a dedicated listening
+- #82 ~656 vocabulary items still lack an example (backfilled via conjugated /
+  comparison forms; still open) · #64 a dedicated listening
   library.
 
 **Modalities (epic #114)**
-- #84 speaking with ASR (needs an engine) · #85 native-audio listening ·
-  #86 longer writing tasks.
+- #84 speaking: a Web Speech **speech check** (transcript + word diff) is done;
+  phoneme-level scoring is not. · #85 native-audio listening · #86 longer
+  writing tasks.
 
 **Curriculum (epic #115)**
 - #88 full lesson/prerequisite model · #90 interleaving · #91 review-previous
   (a basic version exists).
 
 **UX (epic #118)**
-- #94 full i18n (only shell/Today/Study/Browse/Stats/Settings/titles are
-  localised).
+- #94 full i18n (only shell/Today/Study/Browse/Stats/Settings titles and screen
+  titles are localised; body strings remain English).
 
 **Mnemonics (epic #128)**
 - #130 per-word + user mnemonics · #83 verb/adjective mnemonics
