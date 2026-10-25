@@ -23,9 +23,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 ARTICLE = re.compile(r"^(der|die|das) ")
 
+from common import load_items  # noqa: E402
+
 
 def main() -> int:
-    items = json.loads((ROOT / "data" / "items.json").read_text(encoding="utf-8"))
+    items = load_items()
     levels = json.loads((ROOT / "data" / "levels.json").read_text(encoding="utf-8"))
 
     errors: list[str] = []
@@ -66,7 +68,7 @@ def main() -> int:
                 errors.append(f"{i['id']}: cloze needs exactly one ___")
             if not (i.get("answer") or "").strip():
                 errors.append(f"{i['id']}: cloze without an answer")
-        if kind != "cloze" and not i.get("sentence_de"):
+        if kind in ("noun", "verb", "adj") and not i.get("sentence_de"):
             warnings.append(f"{i['id']}: no example sentence")
 
     # duplicate surface forms within a level (often the same word twice)

@@ -1,18 +1,21 @@
-"""Validate the generated deck (data/items.json + data/levels.json)."""
+"""Validate the generated deck (data/items/<level>.json + data/levels.json)."""
 
 import json
 import re
+import sys
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ARTICLE = re.compile(r"^(der|die|das) ")
+sys.path.insert(0, str(ROOT / "tools"))
+from common import load_items  # noqa: E402
 
 
 class DatasetTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.items = json.loads((ROOT / "data" / "items.json").read_text(encoding="utf-8"))
+        cls.items = load_items()
         cls.levels = json.loads((ROOT / "data" / "levels.json").read_text(encoding="utf-8"))
 
     def test_ids_are_unique(self):
@@ -114,6 +117,15 @@ class DatasetTest(unittest.TestCase):
         vocab = [i for i in self.items if i["kind"] in ("noun", "verb", "adj")]
         missing = [i["id"] for i in vocab if not i.get("source")]
         self.assertEqual(missing, [], f"{len(missing)} vocab items without a source")
+        missing_ref = [i["id"] for i in vocab if not i.get("sourceRef")]
+        self.assertEqual(missing_ref, [], f"{len(missing_ref)} vocab items without sourceRef")
+        for i in vocab:
+            ref = i["sourceRef"]
+            self.assertIn(ref["kind"], {"tatoeba", "wiktionary"}, i["id"])
+            if ref["kind"] == "tatoeba":
+                self.assertTrue(ref.get("url", "").startswith("https://tatoeba.org/"), i["id"])
+            else:
+                self.assertTrue(ref.get("url", "").startswith("https://en.wiktionary.org/"), i["id"])
 
     def test_curated_adjectives(self):
         # #59: hand-authored adjectives, enriched by the pipeline.

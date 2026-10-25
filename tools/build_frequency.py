@@ -100,20 +100,59 @@ def _is_meta(g: str) -> bool:
     return bool(META_RE.match(g))
 
 
+# sense tags that usually indicate a less useful card gloss (#67)
+BAD_SENSE_TAGS = {
+    "obsolete",
+    "archaic",
+    "rare",
+    "dated",
+    "nonstandard",
+    "slang",
+    "vulgar",
+    "offensive",
+    "dialectal",
+    "regional",
+    "colloquial",
+    "informal",
+    "literary",
+    "poetic",
+}
+
+
+def _gloss_rank(g: str, sense: dict, index: int) -> tuple[int, int] | None:
+    """Rank a candidate gloss; lower is better, None means unusable.
+
+    The first sense is preferred, form-of/obsolete senses are heavily penalised,
+    and among equally good senses the shortest clean gloss wins. This does not
+    prove the *right* sense (that still needs a human), but it stops the obvious
+    "first meta/archaic sense" mistakes (#67).
+    """
+    cg = _clean_gloss(g)
+    if not cg or _is_meta(cg):
+        return None
+    tags = {str(t).lower() for t in (sense.get("tags") or [])}
+    penalty = index * 3
+    if tags & BAD_SENSE_TAGS:
+        penalty += 100
+    if sense.get("form_of") or sense.get("alt_of"):
+        penalty += 50
+    if "(" in g:
+        penalty += 2
+    if len(cg) > 60:
+        penalty += 5
+    return penalty, len(cg)
+
+
 def _gloss_and_example(entry: dict):
-    gloss = ""
-    # prefer a short, clean, non-meta gloss
-    for max_len in (60, 200):
-        for sense in entry.get("senses", []):
-            for g in sense.get("glosses") or []:
-                cg = _clean_gloss(g)
-                if cg and not _is_meta(cg) and len(cg) <= max_len:
-                    gloss = cg
-                    break
-            if gloss:
-                break
-        if gloss:
-            break
+    best: tuple[tuple[int, int], str] | None = None
+    for index, sense in enumerate(entry.get("senses", [])):
+        for g in sense.get("glosses") or []:
+            rank = _gloss_rank(g, sense, index)
+            if rank is None:
+                continue
+            if best is None or rank < best[0]:
+                best = (rank, _clean_gloss(g))
+    gloss = best[1] if best else ""
     if not gloss:
         return "", None  # only meta/form glosses -> not a real vocabulary card
     example = None

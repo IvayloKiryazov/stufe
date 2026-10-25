@@ -1,0 +1,30 @@
+{
+ "version": 1,
+ "total": 19996,
+ "levels": {
+  "a1": {
+   "count": 1977,
+   "sha256": "6580d015d1bfc9f3254fc6323a1b34b946e28157f44569de52a0e38dd21ed0e5"
+  },
+  "a2": {
+   "count": 1576,
+   "sha256": "f7a1d2b5f3eab4fec4a872963c4994fab199b2bfa093c5147cb378d18180e3ae"
+  },
+  "b1": {
+   "count": 1979,
+   "sha256": "2afdc3701b9c7df5557bd9be16fb3181ee18dab331100394de91da34f102f9a0"
+  },
+  "b2": {
+   "count": 4087,
+   "sha256": "93efdb370a32e1bbbee6f4db11a81844911c28ff5e1efe5a1fe113d5c270210a"
+  },
+  "c1": {
+   "count": 4096,
+   "sha256": "915bea29cb6d1b88501176668b5a98acb7e0130fe8cfbd66e1a47ea308f7f917"
+  },
+  "c2": {
+   "count": 6281,
+   "sha256": "fb10f68be07ad7a934a88aeca96b971ab14f21d9eb70c083dd654b51daccd169"
+  }
+ }
+}

@@ -10,18 +10,20 @@ Reads:
 Enriches curated words with gender/plural (german-nouns) and a real example
 sentence (Tatoeba), then writes:
 
-  data/items.json        flat array of every study item
-  data/items/<level>.json  the same items split per level (lazy-loaded by the app)
+  data/items/<level>.json  every study item, split per level (canonical; ADR-5)
+  data/manifest.json     per-level counts + sha256 for CI verification
   data/levels.json       level -> group -> item-id structure
   data/attribution.json  credits for CC-BY sentences actually used
 """
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 from common import (
     ROOT,
@@ -394,7 +396,10 @@ def main() -> int:
                     ex.append({"de": d, "en": e})
             if ex:
                 it["examples"] = ex[:3]
+                it.pop("exampleStatus", None)
                 with_examples += 1
+            else:
+                it["exampleStatus"] = "missing"
         print(f"examples attached to {with_examples:,} vocabulary items")
 
     # --- vocabulary cloze track: type the word into a sentence (#131) -----
@@ -502,12 +507,33 @@ def main() -> int:
 
     # --- per-item source reference (#68) ----------------------------------
     for it in items:
-        if it.get("attribution"):
-            it["source"] = it["attribution"]
+        attr = it.get("attribution") or ""
+        m = re.search(r"tatoeba\.org #(\d+)", attr)
+        if attr:
+            it["source"] = attr
         elif it.get("kind") in ("noun", "verb", "adj"):
             it["source"] = "Wiktionary (CC BY-SA 4.0)"
         elif it.get("kind") == "cloze" and not it["id"].startswith("freq-"):
             it["source"] = "Stufe content (MIT)"
+
+        if m:
+            it["sourceRef"] = {
+                "kind": "tatoeba",
+                "id": int(m.group(1)),
+                "url": f"https://tatoeba.org/en/sentences/show/{m.group(1)}",
+            }
+        elif it.get("kind") in ("noun", "verb", "adj"):
+            de = it.get("de") or ""
+            word = de.split(" ", 1)[1] if (it["kind"] == "noun" and " " in de) else de
+            word = word.replace("sich ", "").strip()
+            if word:
+                it["sourceRef"] = {
+                    "kind": "wiktionary",
+                    "word": word,
+                    "url": f"https://en.wiktionary.org/wiki/{quote(word)}#German",
+                }
+        elif it.get("kind") == "cloze" and not it["id"].startswith("freq-"):
+            it["sourceRef"] = {"kind": "content", "url": "https://github.com/IvayloKiryazov/stufe/tree/main/content/grammar"}
 
     # --- curated overrides (id -> partial item) ---------------------------
     overrides_path = ROOT / "content" / "overrides.json"
@@ -536,14 +562,11 @@ def main() -> int:
     levels_out = [levels[lvl] for lvl in LEVEL_ORDER if levels[lvl]["groups"]]
     data_dir = ROOT / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
-    (data_dir / "items.json").write_text(
-        json.dumps(items, ensure_ascii=False), encoding="utf-8"
-    )
     (data_dir / "levels.json").write_text(
         json.dumps(levels_out, ensure_ascii=False, indent=1), encoding="utf-8"
     )
 
-    # Per-level split so the app can load the deck on demand (issue #102).
+    # Per-level split is canonical (ADR-5); no duplicate flat items.json.
     items_dir = data_dir / "items"
     items_dir.mkdir(exist_ok=True)
     for stale in items_dir.glob("*.json"):
@@ -551,11 +574,23 @@ def main() -> int:
     by_level: dict[str, list[dict]] = {lvl: [] for lvl in LEVEL_ORDER}
     for it in items:
         by_level.setdefault(it["level"], []).append(it)
+    manifest_levels: dict[str, dict] = {}
     for lvl, arr in by_level.items():
         if arr:
-            (items_dir / f"{lvl}.json").write_text(
-                json.dumps(arr, ensure_ascii=False), encoding="utf-8"
-            )
+            text = json.dumps(arr, ensure_ascii=False)
+            (items_dir / f"{lvl}.json").write_text(text, encoding="utf-8")
+            manifest_levels[lvl] = {
+                "count": len(arr),
+                "sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+            }
+    (data_dir / "manifest.json").write_text(
+        json.dumps(
+            {"version": 1, "total": len(items), "levels": manifest_levels},
+            ensure_ascii=False,
+            indent=1,
+        ),
+        encoding="utf-8",
+    )
     (data_dir / "attribution.json").write_text(
         json.dumps(sorted(used_attribution), ensure_ascii=False, indent=1),
         encoding="utf-8",

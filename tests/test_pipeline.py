@@ -11,6 +11,7 @@ sys.path.insert(0, str(TOOLS))
 import common  # noqa: E402
 import build_frequency  # noqa: E402
 import build_conjugations  # noqa: E402
+import cross_check  # noqa: E402
 import mnemonic  # noqa: E402
 from common import blank_sentence  # noqa: E402
 
@@ -135,6 +136,44 @@ class ExtractNounTest(unittest.TestCase):
             ]
         )
         self.assertIsNone(build_frequency.extract_noun(entry)["example"])
+
+
+class GlossSelectionTest(unittest.TestCase):
+    def test_skips_meta_sense(self):
+        entry = {"senses": [{"glosses": ["plural of Haus"]}, {"glosses": ["house"]}]}
+        self.assertEqual(build_frequency._gloss_and_example(entry)[0], "house")
+
+    def test_penalises_obsolete_sense(self):
+        entry = {
+            "senses": [
+                {"glosses": ["old meaning"], "tags": ["obsolete"]},
+                {"glosses": ["current meaning"]},
+            ]
+        }
+        self.assertEqual(build_frequency._gloss_and_example(entry)[0], "current meaning")
+
+    def test_prefers_the_first_good_sense(self):
+        entry = {"senses": [{"glosses": ["first"]}, {"glosses": ["second"]}]}
+        self.assertEqual(build_frequency._gloss_and_example(entry)[0], "first")
+
+    def test_unknown_when_every_sense_is_meta(self):
+        entry = {"senses": [{"glosses": ["inflection of sein"]}, {"glosses": ["form of haben"]}]}
+        self.assertEqual(build_frequency._gloss_and_example(entry)[0], "")
+
+
+class CrossCheckAutoTest(unittest.TestCase):
+    def test_reports_auto_noun_disagreements(self):
+        items = [
+            {"id": "freq-a1-nou-haus", "kind": "noun", "de": "der Haus", "plural": "die Häuser"},
+            {"id": "freq-a1-nou-stadt", "kind": "noun", "de": "die Stadt", "plural": "die Städte"},
+        ]
+        nouns = {
+            "Haus": common.Noun("Haus", "das", "die Häuser"),
+            "Stadt": common.Noun("Stadt", "die", "die Städte"),
+        }
+        auto_article, auto_plural = cross_check.check_auto_nouns(items, nouns)
+        self.assertEqual(auto_article, [("freq-a1-nou-haus", "der", "das")])
+        self.assertEqual(auto_plural, [])
 
 
 class ConjugationTest(unittest.TestCase):

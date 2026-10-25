@@ -19,7 +19,7 @@ python3 build_frequency.py   # -> data/vocab_frequency.json
 python3 build_conjugations.py# -> data/conjugations.json
 python3 build_ipa.py         # -> data/ipa.json + data/audio.json
 python3 build_reference.py   # -> data/reference_nouns.json
-python3 build_dataset.py     # -> data/items.json, items/<level>.json, levels.json, reading.json, attribution.json
+python3 build_dataset.py     # -> data/items/<level>.json, manifest.json, levels.json, reading.json, attribution.json
 ```
 
 `build_cefr.py` assigns CEFR by frequency, calibrated to the official list sizes
@@ -36,15 +36,20 @@ checked against `sources.lock.json`; `fetch_sources.py --check` (and
 `build_dataset.py` merges optional generated inputs when present
 (`data/conjugations.json`, `data/ipa.json`, `data/audio.json`,
 `data/reference_nouns.json`, `data/vocab_frequency.json`,
-`data/vocab_personal.json`) and writes the canonical `data/items.json` plus the
-per-level split `data/items/<level>.json` (the app loads those on demand).
+`data/vocab_personal.json`) and writes the canonical
+`data/items/<level>.json` (the app loads those on demand) plus
+`data/manifest.json` (counts + sha256). The old flat `data/items.json` is no
+longer written or committed (ADR-5); use `common.load_items()` if you need it.
 
 ## Checks
 
-- `verify_dataset.py` — per-level split matches `items.json`.
-- `cross_check.py` — curated noun article/plural vs the Wiktionary reference.
-- `verify_report.py --sample 20` — field coverage, gloss sanity and a
-  translator-checkable sample (report only).
+- `verify_dataset.py` — per-level files, unique ids, level references and
+  `manifest.json` counts/hashes all agree.
+- `cross_check.py` — curated noun article/plural vs the Wiktionary reference
+  **and auto nouns vs german-nouns** (auto disagreements are warnings).
+- `verify_report.py --sample 20` — field/provenance coverage, `sourceRef` URLs,
+  `exampleStatus: missing`, gloss sanity and a translator-checkable sample
+  (report only).
 
 CI runs all three. Policy: **report first, then fix** (ADR-7).
 

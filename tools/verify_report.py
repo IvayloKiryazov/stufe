@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""Human-readable deck report for verification (issues #66 / #67 / #70).
+"""Human-readable deck report for verification (issues #66 / #67 / #70 / #92).
 
-Prints field coverage, duplicate ids, gloss sanity and a random sample so a
-human (or an online translator) can spot-check. Report only — it always exits 0;
-`tools/cross_check.py` is the failing gate. Per the agreed policy: **report
-first, then fix.**
+Prints field/provenance coverage, duplicate ids, gloss sanity and a random
+sample so a human (or an online translator) can spot-check. Report only — it
+always exits 0; `tools/cross_check.py` is the failing factual gate and
+`tools/verify_dataset.py` the structural one. Per the agreed policy:
+**report first, then fix** (ADR-7 / ADR-15).
 """
 
 from __future__ import annotations
 
-import json
 import random
 import re
 import sys
 from collections import Counter
 
-from common import ROOT
+from common import load_items
 
 META_RE = re.compile(
     r"^(inflection of|form of|plural of|genitive of|dative of|accusative of|"
@@ -26,8 +26,13 @@ META_RE = re.compile(
 )
 
 
+def cov(field: str, arr: list[dict]) -> str:
+    have = sum(1 for i in arr if i.get(field))
+    return f"{have}/{len(arr)} ({round(100 * have / max(1, len(arr)))}%)"
+
+
 def main() -> int:
-    items = json.loads((ROOT / "data" / "items.json").read_text(encoding="utf-8"))
+    items = load_items()
     vocab = [i for i in items if i["kind"] in ("noun", "verb", "adj")]
     verbs = [i for i in items if i["kind"] == "verb"]
     auto = [i for i in vocab if i["id"].startswith("freq-")]
@@ -36,14 +41,15 @@ def main() -> int:
     print("By kind: ", dict(sorted(Counter(i["kind"] for i in items).items())))
     print("By level:", dict(sorted(Counter(i["level"] for i in items).items())))
 
-    def cov(field: str, arr: list[dict]) -> str:
-        have = sum(1 for i in arr if i.get(field))
-        return f"{have}/{len(arr)} ({round(100 * have / max(1, len(arr)))}%)"
-
     print("\n## Field coverage (vocabulary)")
-    for field in ("ipa", "audio", "examples", "source", "mnemonic"):
+    for field in ("ipa", "audio", "examples", "source", "sourceRef", "mnemonic"):
         print(f"- {field}: {cov(field, vocab)}")
     print(f"- conjugation (verbs): {cov('conjugation', verbs)}")
+    print(f"- exampleStatus=missing: {sum(1 for i in vocab if i.get('exampleStatus') == 'missing')}")
+
+    print("\n## Provenance")
+    print("- sourceRef kinds:", dict(Counter((i.get("sourceRef") or {}).get("kind", "none") for i in vocab)))
+    print("- No item is presented as human-verified (ADR-15); sourceRef lets a reviewer check one.")
 
     duplicates = [k for k, v in Counter(i["id"] for i in items).items() if v > 1]
     print(f"\n## Duplicate ids: {len(duplicates)}")
@@ -61,7 +67,13 @@ def main() -> int:
     random.seed(1)
     print(f"\n## Sample ({sample_n}) — sanity-check these with a translator")
     for i in random.sample(vocab, min(sample_n, len(vocab))):
-        print(f"- [{i['level']}] {i.get('de', '')} — {i.get('en', '')}  ({i['id']})")
+        ref = (i.get("sourceRef") or {}).get("url", "")
+        print(f"- [{i['level']}] {i.get('de', '')} — {i.get('en', '')}  ({i['id']}) {ref}")
+    print(
+        "\nResidual risk: gloss sense and example-translation quality are not "
+        "verified without a German speaker. Fix reported errors in "
+        "content/overrides.json or the pipeline; never invent 'verified' data."
+    )
     return 0
 
 

@@ -12,18 +12,38 @@ import json
 import sys
 from pathlib import Path
 
-from common import ROOT
+from common import ROOT, load_items, load_nouns
+
+
+def check_auto_nouns(items: list[dict], nouns: dict) -> tuple[list[tuple], list[tuple]]:
+    """Compare auto nouns (kaikki) with german-nouns; return (article, plural)."""
+    auto_article: list[tuple] = []
+    auto_plural: list[tuple] = []
+    for it in items:
+        if not it["id"].startswith("freq-") or it.get("kind") != "noun":
+            continue
+        parts = (it.get("de") or "").split(" ", 1)
+        if len(parts) != 2:
+            continue
+        article, word = parts
+        ref = nouns.get(word)
+        if not ref:
+            continue
+        if ref.article and ref.article != article:
+            auto_article.append((it["id"], article, ref.article))
+        if ref.plural and it.get("plural") and it["plural"] != ref.plural:
+            auto_plural.append((it["id"], it["plural"], ref.plural))
+    return auto_article, auto_plural
 
 
 def main() -> int:
     ref_path = ROOT / "data" / "reference_nouns.json"
-    items_path = ROOT / "data" / "items.json"
     if not ref_path.exists():
         print("No reference; run build_reference.py first.", file=sys.stderr)
         return 1
 
     ref = json.loads(ref_path.read_text(encoding="utf-8"))
-    items = json.loads(items_path.read_text(encoding="utf-8"))
+    items = load_items()
 
     article_errors: list[tuple] = []
     plural_warnings: list[tuple] = []
@@ -49,14 +69,22 @@ def main() -> int:
                 if it.get("answer") and it["answer"] != expected:
                     plural_warnings.append((it["id"], it["answer"], expected))
 
-    for item_id, got, want in plural_warnings[:50]:
+    # The auto deck is built from Wiktionary; german-nouns is the second source.
+    auto_article, auto_plural = check_auto_nouns(items, load_nouns())
+
+    for item_id, got, want in plural_warnings[:20]:
         print(f"warn  {item_id}: plural {got!r} vs Wiktionary {want!r}")
-    for item_id, got, want in article_errors[:50]:
+    for item_id, got, want in article_errors[:20]:
         print(f"ERROR {item_id}: article {got!r} vs Wiktionary {want!r}")
+    for item_id, got, want in auto_article[:10]:
+        print(f"warn  {item_id}: auto article {got!r} vs german-nouns {want!r}")
+    for item_id, got, want in auto_plural[:10]:
+        print(f"warn  {item_id}: auto plural {got!r} vs german-nouns {want!r}")
 
     print(
-        f"cross-check: {len(article_errors)} article error(s), "
-        f"{len(plural_warnings)} plural warning(s)"
+        f"cross-check: {len(article_errors)} curated article error(s), "
+        f"{len(plural_warnings)} curated plural warning(s); "
+        f"auto: {len(auto_article)} article / {len(auto_plural)} plural disagreement(s)"
     )
     return 1 if article_errors else 0
 

@@ -7,6 +7,7 @@ Kept dependency-free (standard library only) so the pipeline runs anywhere.
 from __future__ import annotations
 
 import csv
+import json
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -18,6 +19,22 @@ GENUS_TO_ARTICLE = {"m": "der", "f": "die", "n": "das"}
 
 # a token is a run of letters (incl. umlauts/ß) possibly with an internal hyphen
 WORD_RE = re.compile(r"[A-Za-zÄÖÜäöüß][A-Za-zÄÖÜäöüß\-]*")
+
+
+def load_items(data_dir: Path | None = None) -> list[dict]:
+    """Rebuild the flat deck from the canonical per-level files.
+
+    The per-level files are the committed source of truth (ADR-5); the flat
+    ``items.json`` is no longer committed. Order follows ``levels.json``.
+    """
+    data = data_dir or (ROOT / "data")
+    levels = json.loads((data / "levels.json").read_text(encoding="utf-8"))
+    out: list[dict] = []
+    for level in levels:
+        path = data / "items" / f"{level['id']}.json"
+        if path.exists():
+            out.extend(json.loads(path.read_text(encoding="utf-8")))
+    return out
 
 
 @dataclass
@@ -92,7 +109,7 @@ def load_sentence_pairs(path: Path | None = None) -> list[tuple[str, str, str]]:
 def build_sentence_index(
     pairs: list[tuple[str, str, str]],
     *,
-    max_len: int = 70,
+    max_len: int = 90,
 ) -> dict[str, tuple[str, str, str]]:
     """token (case-sensitive) -> shortest (german, english, attribution).
 
@@ -133,7 +150,7 @@ def find_example(
 def build_sentence_index_multi(
     pairs: list[tuple[str, str, str]],
     *,
-    max_len: int = 70,
+    max_len: int = 90,
     per_token: int = 3,
 ) -> dict[str, list[tuple[str, str, str]]]:
     """token (case-sensitive) -> up to ``per_token`` shortest sentences.
